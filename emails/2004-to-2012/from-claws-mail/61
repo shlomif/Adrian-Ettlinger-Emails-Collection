@@ -1,0 +1,184 @@
+Return-path: <aettlinger@comcast.net>
+X-Spam-Checker-Version: SpamAssassin 3.3.2 (2011-06-06) on lap.shlomifish.org
+X-Spam-Level: 
+X-Spam-Status: No, score=0.3 required=5.0 tests=BAYES_40,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,FREEMAIL_FROM,RCVD_IN_DNSWL_NONE,RP_MATCHES_RCVD,
+	SPF_PASS,STOX_REPLY_TYPE autolearn=no version=3.3.2
+Envelope-to: shlomif@shlomifish.org
+Delivery-date: Fri, 07 Dec 2012 13:11:02 -0600
+Received: from qmta04.westchester.pa.mail.comcast.net ([76.96.62.40]:57499)
+	by gator245.hostgator.com with esmtp (Exim 4.80)
+	(envelope-from <aettlinger@comcast.net>)
+	id 1Th3KA-0004zO-E4
+	for shlomif@shlomifish.org; Fri, 07 Dec 2012 13:11:02 -0600
+Received: from omta18.westchester.pa.mail.comcast.net ([76.96.62.90])
+	by qmta04.westchester.pa.mail.comcast.net with comcast
+	id YhXD1k0081wpRvQ54jB2nD; Fri, 07 Dec 2012 19:11:02 +0000
+Received: from AdrianPC ([67.189.185.227])
+	by omta18.westchester.pa.mail.comcast.net with comcast
+	id Yj901k00x4unxxP3ej92WY; Fri, 07 Dec 2012 19:09:02 +0000
+Message-ID: <2705EEC8199147FDA899FF9A09FC7098@AdrianPC>
+From: "Adrian E." <aettlinger@comcast.net>
+To: "Shlomi Fish" <shlomif@shlomifish.org>
+References: <20120921220833.5ea11b08@lap.shlomifish.org><51CCBE0393CA400F8B15B96E97CBDD0C@AdrianPC><20120922035911.3274ca4e@lap.shlomifish.org><C8E45CBE541B46C6B3510309A6EAC421@AdrianPC><20120923101448.6b537c65@lap.shlomifish.org><20121130213038.7f7786d2@lap.shlomifish.org><F32323A2136147A4BC95B630F5CFD804@AdrianPC><20121130232208.4945d793@lap.shlomifish.org><75AF423C1C844608991694D84FD5A9C6@AdrianPC><20121201115907.19be7d9f@lap.shlomifish.org><DFF6549CB3F842C7B3DF1FDA6396C9F5@AdrianPC><20121203211832.3a7c15a3@lap.shlomifish.org><D38EEB5DCB644AE59B4BB4CF9D867BEB@AdrianPC> <20121207154959.3b188902@lap.shlomifish.org>
+In-Reply-To: <20121207154959.3b188902@lap.shlomifish.org>
+Subject: Re: What's New? + Facebook
+Date: Fri, 7 Dec 2012 14:08:10 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+	format=flowed;
+	charset="utf-8";
+	reply-type=original
+Content-Transfer-Encoding: 8bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+Importance: Normal
+X-Mailer: Microsoft Windows Live Mail 15.4.3555.308
+X-MimeOLE: Produced By Microsoft MimeOLE V15.4.3555.308
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=comcast.net;
+	s=q20121106; t=1354907462;
+	bh=4qOMmRjHwbl9CQ+5AYnp5AXH2Kqzn1VcAN2clm5bOs8=;
+	h=Received:Received:Message-ID:From:To:Subject:Date:MIME-Version:
+	 Content-Type;
+	b=pnD6pe4UuR9miQSitMQBLdOTtTHnLKPon3q2JCYkaunZVW4iotBEQi3RG8uX5+e6F
+	 tnMJbgFqAs1jObo9SOGy5MLpUBmG7KUf7IU2lxGfoSelGpXSrfmz/gCx4SaMgMXPPC
+	 I6XLBxgCNz6Yzx/JOBdTCK3hsm4GrUxhbwpw3/+uiueffp1k/s2NDUbbcX+NYPYNr7
+	 uKFnv9gc90eJQvoqE/JyzDJAs8lmLVnwZH63lPy0ID/rRhIAmOjHJPRvqNSR09lgU2
+	 9tKSZOXB9n5i7W9fLxVRRPMl1H2wkHxIEUftGkm7eg8Y8jg+bYsHTSQQBy3EllWa16
+	 JtBUE1aqlratg==
+
+Hi Shlomi,
+
+    Those are interesting articles about cuisine in Israel.  I wasn't aware 
+that hummus is a staple in the area.  We have hummus fairly often as an 
+entertainment item, to use as a dip on on the appetizer tray.
+
+    I am finally set to start the Chanukah candles this evening (or 
+afternoon).  We've had an interesting indication that perhaps interest in 
+Jewish customs is declining here.  In the past we've always found the 
+candles for sale in various local stores, but this year, it appears that in 
+our particular community, no one stocks them any more.  There is not a very 
+large Jewish community around here, although we do have one Reformed temple 
+not very far away.  We thought we'd go ask there.  But then, yesterday, my 
+wife and I both had to travel about a one hour drive to our dentist (we 
+still patronize the fellow we had at our old location), and that's much 
+closer to New York City, and an area with a heavier concentration of Jewish 
+population.  We stopped at a shopping center and first tried a large chain 
+drug store, but no luck.  Then, and we had to nod our heads knowingly, 
+wouldn't you know, a small convenience shop operated by Koreans had them. 
+Around here most of the small scale grocery and convenience stores are owned 
+and operated by Korean, and mostly they do a very good job.
+
+    I had to research to find the approved way to light the candles.  And 
+learned that the most prominent candle is called the "shamash".  Our menorah 
+has the shamash at on end.  I didn't recall whether there is a prescribed 
+order in which to use the other positions, but find that, as make most 
+sense, one should start from the opposite end, which should be on the right. 
+So now all that I'll be able to do correctly.  I also found what prayer to 
+say, in both Hebrew and English, but since we never have done that part, 
+being too secular in outlook, I don't think I'll start now.
+
+    Sorry to hear about your job situation.  Guess about all you can do is 
+to keep trying.  I'll be hoping for you.
+
+Best regards, -----------------------Adrian
+
+
+-----Original Message----- 
+From: Shlomi Fish
+Sent: Friday, December 07, 2012 8:49 AM
+To: Adrian E.
+Subject: Re: What's New? + Facebook
+
+Hi Adrian,
+
+On Mon, 3 Dec 2012 19:32:58 -0500
+"Adrian E." <aettlinger@comcast.net> wrote:
+
+> Hi Shlomi,
+>
+> <<You probably meant Jewish cuisine>>
+>     I stand corrected.  I don't suppose Israel has had a chance to develop 
+> a
+> cuisine of its own as yet, although I'd think there might have been some
+> development.
+
+actually, it did, though a lot of it is borrowed from various sources. See 
+for
+example http://en.wikipedia.org/wiki/Israeli_cuisine .
+
+There's also http://en.wikipedia.org/wiki/Hummus#Controversy .
+
+>
+> <<Well, I recall something about Israel assassinating a prominent Hamas
+> leader, and the Hamas retaliated, but really the Hamas has been breaking
+> many ceasefires for a long time.>>
+>     That's right, I do recall hearing that story on the news before the
+> Hamas rockets started appearing in the news.  This reminds me of a lecture 
+> I
+> heard from someone from Israel many, many years ago, I think probably when
+> Israel was very young.  He described how Arabs then on all sides were
+> constantly committing various acts of violence along the borders, most too
+> small to get much press attention, and how difficult it was then to deal
+> with the situation.
+
+Yes.
+
+>
+> <<I'm still looking for a job if you can give me some leads. I have a few
+> leeds and some E-mails and job interviews, but nothing final yet.>>
+>     Sorry to hear that.   I wish I had some connections that could be
+> helpful, but I just don't.    Hope something turns up for you soon.
+
+Thanks! I'm still looking but often I'm considered underqualified or
+overqualified or my C.V. just gets lost in confusion and they even don't
+acknowledge that they have received it. I recall receiving some rejections
+letters in the (physical) mail and now I often don't even get "We got your 
+C.V.
+and we'll look at it" E-mails. It's possible that companies are getting too
+many CVs now, but often it happens even when they publish a wanted ad on
+various open-source forums.
+
+>
+>     Oh, BTW, I now remember why our previous dialog came to a halt, and it
+> was my fault.  I had asked you for some technical help with Facebook,
+> because I wanted to sever my connection to someone on whose list I was. 
+> You
+> gave me directions, but for some reason I was never able to find the page
+> you were trying to direct me to.  However, by now I really don't feel the
+> need to pursue this.  The fellow had posted something which was so
+> diametrically opposed to my political views that I didn't want to be 
+> exposed
+> to any more of his idiocy.  He has not since then done any more such
+> posting, and, besides, I'm sure the way the recent election came out, he's
+> not very likely to shoot off his mouth any more.  And the election made me
+> much more happy than it made him, I'm positive.  But anyway, I was
+> postponing replying to you while I was struggling with the problem, and I
+> think that might have been just about the time I had the heart problem,
+> which distracted me from pursuing it any further.
+
+Ah, OK. I normally don't visit my Facebook page (too much junk
+information (and that's often an overstatement) going on there), but perhaps 
+I
+should visit it once a day to learn about my friends upcoming birthdays. I 
+can
+set up a daily alarm for it.
+
+Regards,
+
+Shlomi Fish
+
+>
+> Best regards, -------------------------Adrian
+
+-- 
+-----------------------------------------------------------------
+Shlomi Fish       http://www.shlomifish.org/
+"Star Trek: We, the Living Dead" - http://shlom.in/st-wtld
+
+If his programming is anything like his philosophising, he would find ten
+imaginary bugs in the “Hello World” program.
+
+Please reply to list if it's a mailing list post - http://shlom.in/reply . 
+
+

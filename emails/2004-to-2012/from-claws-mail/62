@@ -1,0 +1,188 @@
+Return-path: <aettlinger@comcast.net>
+X-Spam-Checker-Version: SpamAssassin 3.3.2 (2011-06-06) on lap.shlomifish.org
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.6 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,FREEMAIL_FROM,RCVD_IN_DNSWL_NONE,RP_MATCHES_RCVD,
+	SPF_PASS,STOX_REPLY_TYPE autolearn=no version=3.3.2
+Envelope-to: shlomif@shlomifish.org
+Delivery-date: Mon, 03 Dec 2012 18:35:06 -0600
+Received: from qmta03.westchester.pa.mail.comcast.net ([76.96.62.32]:54650)
+	by gator245.hostgator.com with esmtp (Exim 4.80)
+	(envelope-from <aettlinger@comcast.net>)
+	id 1TfgTa-0001Xn-Hh
+	for shlomif@shlomifish.org; Mon, 03 Dec 2012 18:35:06 -0600
+Received: from omta04.westchester.pa.mail.comcast.net ([76.96.62.35])
+	by qmta03.westchester.pa.mail.comcast.net with comcast
+	id X41j1k0020ldTLk53Cb6bl; Tue, 04 Dec 2012 00:35:06 +0000
+Received: from AdrianPC ([67.189.185.227])
+	by omta04.westchester.pa.mail.comcast.net with comcast
+	id XCZ31k00n4unxxP3QCZ5Cv; Tue, 04 Dec 2012 00:33:05 +0000
+Message-ID: <D38EEB5DCB644AE59B4BB4CF9D867BEB@AdrianPC>
+From: "Adrian E." <aettlinger@comcast.net>
+To: "Shlomi Fish" <shlomif@shlomifish.org>
+References: <20120921220833.5ea11b08@lap.shlomifish.org><51CCBE0393CA400F8B15B96E97CBDD0C@AdrianPC><20120922035911.3274ca4e@lap.shlomifish.org><C8E45CBE541B46C6B3510309A6EAC421@AdrianPC><20120923101448.6b537c65@lap.shlomifish.org><20121130213038.7f7786d2@lap.shlomifish.org><F32323A2136147A4BC95B630F5CFD804@AdrianPC><20121130232208.4945d793@lap.shlomifish.org><75AF423C1C844608991694D84FD5A9C6@AdrianPC><20121201115907.19be7d9f@lap.shlomifish.org><DFF6549CB3F842C7B3DF1FDA6396C9F5@AdrianPC> <20121203211832.3a7c15a3@lap.shlomifish.org>
+In-Reply-To: <20121203211832.3a7c15a3@lap.shlomifish.org>
+Subject: Re: What's New? + Facebook
+Date: Mon, 3 Dec 2012 19:32:58 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+	format=flowed;
+	charset="UTF-8";
+	reply-type=original
+Content-Transfer-Encoding: 8bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+Importance: Normal
+X-Mailer: Microsoft Windows Live Mail 15.4.3555.308
+X-MimeOLE: Produced By Microsoft MimeOLE V15.4.3555.308
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=comcast.net;
+	s=q20121106; t=1354581306;
+	bh=Fr9DBhrI5X/s3BFYmSlL59hKf5DHAf2FSfXKNpocW38=;
+	h=Received:Received:Message-ID:From:To:Subject:Date:MIME-Version:
+	 Content-Type;
+	b=SG09H09u6rdeh+vOngbP7/Z3wL+EECNU0t4WbUlmVexBOKS8PrPaQwZEwBaLV9UsN
+	 dgUaL2lXQip3TA5VG+xeVxMBBCpSFyJQm9+Rx49BUH0k3CsG+oIXVLbVHsmc7Xf+bp
+	 XcQ3+3Al9BRoE8UTFxAqfWcnztj64JBNBIcKgv6R15qnnXBueyZ6bPNkR3sMg0CVyU
+	 PbnmxEU7P5gItPztEXR0OqiVATY+Rjqxai26ocJXIGvwonl9fLe+U3gqEdnYtgyaKX
+	 fEZz+LXwx8ZbATfPzOU4FJsEkzdDRsSQ26MbyLLeN6OhDgLBYxY9ESZkZAdDQZ07O9
+	 PXqDVK4dWUIpA==
+
+Hi Shlomi,
+
+<<You probably meant Jewish cuisine>>
+    I stand corrected.  I don't suppose Israel has had a chance to develop a 
+cuisine of its own as yet, although I'd think there might have been some 
+development.
+
+<<Well, I recall something about Israel assassinating a prominent Hamas 
+leader, and the Hamas retaliated, but really the Hamas has been breaking 
+many ceasefires for a long time.>>
+    That's right, I do recall hearing that story on the news before the 
+Hamas rockets started appearing in the news.  This reminds me of a lecture I 
+heard from someone from Israel many, many years ago, I think probably when 
+Israel was very young.  He described how Arabs then on all sides were 
+constantly committing various acts of violence along the borders, most too 
+small to get much press attention, and how difficult it was then to deal 
+with the situation.
+
+<<I'm still looking for a job if you can give me some leads. I have a few 
+leeds and some E-mails and job interviews, but nothing final yet.>>
+    Sorry to hear that.   I wish I had some connections that could be 
+helpful, but I just don't.    Hope something turns up for you soon.
+
+    Oh, BTW, I now remember why our previous dialog came to a halt, and it 
+was my fault.  I had asked you for some technical help with Facebook, 
+because I wanted to sever my connection to someone on whose list I was.  You 
+gave me directions, but for some reason I was never able to find the page 
+you were trying to direct me to.  However, by now I really don't feel the 
+need to pursue this.  The fellow had posted something which was so 
+diametrically opposed to my political views that I didn't want to be exposed 
+to any more of his idiocy.  He has not since then done any more such 
+posting, and, besides, I'm sure the way the recent election came out, he's 
+not very likely to shoot off his mouth any more.  And the election made me 
+much more happy than it made him, I'm positive.  But anyway, I was 
+postponing replying to you while I was struggling with the problem, and I 
+think that might have been just about the time I had the heart problem, 
+which distracted me from pursuing it any further.
+
+Best regards, -------------------------Adrian
+
+
+-----Original Message----- 
+From: Shlomi Fish
+Sent: Monday, December 03, 2012 2:18 PM
+To: Adrian E.
+Subject: Re: What's New? + Facebook
+
+Hi Adrian,
+
+On Sat, 1 Dec 2012 16:16:43 -0500
+"Adrian E." <aettlinger@comcast.net> wrote:
+
+> Hi Shlomi,
+>
+>     Interesting to read about the Bourekas.  It sounds as if the 
+> composition
+> might be quite similar to the one offering of Yonah Schimmel's which we 
+> used
+> to like to stop in there to buy some of, called a "Cheese Bagel".  Not
+> shaped like a bagel at all, but pretzel-shaped, with a combination sweet 
+> and
+> cheese flavor, and lightly-weighted dough.  Very tasty and also unique, in
+> that I've never seen them anywhere else.
+
+Ah, interesting. I may have liked something similar.
+
+>
+>     You are no doubt correct about potato pancakes being a more recent
+> "import" into Israeli cuisine.
+
+You probably meant Jewish cuisine, as the modern State of Israel dates to 
+well
+after the Americas were discovered.
+
+>
+>     Re the situation in Gaza, the media here seemed to be treating it as 
+> if
+> there was some doubt about "who started it".  But I thought the first I'd
+> heard of it was Hamas lobbing missiles into Israel.   It's very good that
+> the Iron Dome system is as effective as it is, although obviously not 
+> fully
+> 100% effective.
+
+Well, I recall something about Israel assassinating a prominent Hamas 
+leader,
+and the Hamas retaliated, but really the Hamas has been breaking many
+ceasefires for a long time.
+
+Naturally, I don't expect the Iron Dome system (or most anything in the
+physical world) to be 100% effective. See:
+
+http://www.shlomifish.org/humour/fortunes/show.cgi?id=bad-thing-about-hardware
+
+>
+>     I must say when this was at its height, my own hope was that Israel
+> could mount an all-out ground attack that would not only take full 
+> political
+> control of the Gaza strip but also, given that by now Israel must have
+> fairly good intelligence as to where to find the Hamas leadership,
+> effectively wipe out the Hamas organization.  But I suppose that really
+> would not be as easy as it can be made to sound.  But with Hamas now so
+> concentrated in Gaza, one would think that would make them more vulnerable
+> to being just about wiped out in a quick, sudden campaign than they have
+> been previously.
+>
+>     It is being said that Iran is furnishing Hamas with most of its
+> missiles.  But I've wondered why Israel cannot blockade such shipments. 
+> Is
+> it known by what route this traffic is able to follow?   Does it go in via
+> the land connection to Egypt?
+
+I think it goes through the Egyptian (through Sinai) land connection. I 
+think
+the egyptian authorities don't patrol Sinai too closely (in part due to the
+peace agreement with Israel that declared Sinai a demilitariased zone).
+
+-----------
+
+I'm still looking for a job if you can give me some leads. I have a few 
+leeds
+and some E-mails and job interviews, but nothing final yet.
+
+I'm glad to hear from you again.
+
+Regards,
+
+Shlomi Fish
+
+-- 
+-----------------------------------------------------------------
+Shlomi Fish       http://www.shlomifish.org/
+List of Networking Clients - http://shlom.in/net-clients
+
+Dax: yep, space. Nothing but nothing all around.
+    — Star Trek, “We, the Living Dead” by Shlomi Fish
+
+Please reply to list if it's a mailing list post - http://shlom.in/reply . 
+
+

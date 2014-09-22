@@ -1,0 +1,150 @@
+Return-Path: <aettlinger@worldnet.att.net>
+X-Spam-Checker-Version: SpamAssassin 3.2.5 (2008-06-10) on
+	telaviv1.shlomifish.org
+X-Spam-Level: **
+X-Spam-Status: No, score=2.1 required=5.0 tests=BAYES_40,RDNS_DYNAMIC,
+	STOX_REPLY_TYPE,TVD_FINGER_02,UNPARSEABLE_RELAY autolearn=no version=3.2.5
+Received: from khoresh.eonspace.net ([unix socket]) by khoresh.eonspace.net
+ (Cyrus v2.2.13-Mandriva-RPM-2.2.13-4mdv2007.0) with LMTPA; Wed, 17 Dec 2008
+ 02:01:00 +0200
+X-Sieve: CMU Sieve 2.2
+Received: by khoresh.eonspace.net (Postfix, from userid 8) id CAEF87B4D2;
+ Wed, 17 Dec 2008 02:01:00 +0200 (IST)
+Received: from tux.hamakor.org.il (bzq-82-80-248-176.dcenter.bezeqint.net
+ [82.80.248.176]) by khoresh.eonspace.net (Postfix) with ESMTP id A36D57B4C5
+ for <shlomif@shlomifish.org>; Wed, 17 Dec 2008 02:01:00 +0200 (IST)
+Received: by tux.hamakor.org.il (Postfix) id 86263B65E2; Wed, 17 Dec 2008
+ 02:00:59 +0200 (IST)
+Delivered-To: shlomif@tux.hamakor.org.il
+Received: from mtiwmhc11.worldnet.att.net (mtiwmhc11.worldnet.att.net
+ [204.127.131.115]) by tux.hamakor.org.il (Postfix) with ESMTP id 3374CB5ABF
+ for <shlomif@iglu.org.il>; Wed, 17 Dec 2008 02:00:58 +0200 (IST)
+Received: from pc248541693324
+ (c-67-189-201-148.hsd1.ny.comcast.net[67.189.201.148]) by worldnet.att.net
+ (mtiwmhc11) with SMTP id <20081217000056111005q6bue>; Wed, 17 Dec 2008
+ 00:00:57 +0000
+Message-ID: <006b01c95fda$892e1e20$6401a8c0@PC248541693324>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@iglu.org.il>
+References: <005301c95fb2$dd202aa0$6401a8c0@PC248541693324>
+ <200812162324.37279.shlomif@iglu.org.il>
+Subject: Spider
+Date: Tue, 16 Dec 2008 19:00:53 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  format=flowed;
+  charset="Windows-1252";
+  reply-type=original
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 6.00.2900.3138
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3350
+X-UID: 
+Status: RO
+X-Status: RAC
+X-KMail-EncryptionState: N
+X-KMail-SignatureState: N
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Thanks for the quick reply.
+
+    I'm astonished at what this tells me.  Here I'd been playing with two 
+suits, and this says that 99.41% of games are winnable with four suits.  I 
+had played four suits a few times and found that I could win occasionally 
+but not very often.  And I'd long considered 2 suits a difficult challenge. 
+In fact, I still do and sometimes winning is a struggle.  I guess if it 
+starts to be too easy I might shift to playing four suits.
+
+    I might like to contact the author of this to ask him if he's tested it 
+with two suits   On a quick look I didn't see an E-mail address for him.  Do 
+you have it?
+
+Best regards, ---------------Adrian
+
+----- Original Message ----- 
+From: "Shlomi Fish" <shlomif@iglu.org.il>
+To: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+Sent: Tuesday, December 16, 2008 4:24 PM
+Subject: Re: Question for you
+
+
+> Hi Adrian!
+>
+> It's good to hear from you.
+>
+> On Tuesday 16 December 2008, Adrian Ettlinger wrote:
+>> Hi Shlomi,
+>>
+>>     We haven't talked directly in quite a while.  I see your messages now
+>> and then, and glad to see you're still working on the FC solver.
+>>
+>>     Here's a question.  I may have mentioned quite a while to you that my
+>> solitaire playing had moved to Spider.
+>
+> Maybe, I don't recall.
+>
+>> That is the ten-column spider
+>> supplied with Windows.  I've been playing it with two colors.  Over a few
+>> years of playing, I had developed an opinion that only maybe 50-75% of
+>> games were winnable.  But gradually over that past several weeks, I've
+>> become more and more persistent at tackling games that seemed on first or
+>> second try to be unwinnable, and now it's beginning to look to me like
+>> virtually all two-color games are winnable.  At least, I would say that
+>> I've been able to win the past thirty or forty deals that I've played.
+>> Some have been difficult, taking several starts, but haven't found one 
+>> that
+>> stumped me over that span.
+>>
+>>     My question is: Do you know of any solver that's been written for 
+>> this
+>> game?  If I find a deal that I cannot solve, I'd like to have a way to 
+>> test
+>> it.
+>
+> See:
+>
+> http://www.tranzoa.net/~alex/plspider.htm
+>
+> He contacted me about it back at 2005 . He also sent me the source, but it 
+> has
+> some dependencies on his own private libraries, and is also multi-threaded
+> (due to a bad reason of bad design).
+>
+>>
+>>     And I see it's about time for me to wish you a Happy Chanukah.
+>
+> Happy Hanukkah to you as well!
+>
+>>     This
+>> year for the first time in quite a while, I think I'll burn candles.
+>>
+>
+> Nice.
+>
+> BTW, recently I've been playing mostly Nurikabe ( on
+> http://www.logicgamesonline.com/nurikabe/archive.php ) as well as the 
+> daily
+> games on http://www.brainbashers.com/games.asp ). I've started writing
+> solvers for Kakuro and for Nurikabe, but they're still in early stages of
+> development and are not really usable.
+>
+> Regards,
+>
+> Shlomi Fish
+>
+>> Best regards, ------------------Adrian
+>
+>
+>
+> -- 
+> -----------------------------------------------------------------
+> Shlomi Fish       http://www.shlomifish.org/
+> Best Introductory Programming Language - http://xrl.us/bjn84
+>
+> Shlomi, so what are you working on? Working on a new wiki about unit 
+> testing
+> fortunes in freecell? -- Ran Eilam 
+

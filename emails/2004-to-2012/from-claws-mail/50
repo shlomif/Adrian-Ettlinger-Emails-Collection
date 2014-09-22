@@ -1,0 +1,71 @@
+Received: (qmail 24442 invoked from network); 22 Sep 2005 20:19:54 -0000
+Received: from unknown (HELO pre-smtp04-01.prod.mesa1.secureserver.net) ([64.202.166.29])
+          (envelope-sender <aettlinger@worldnet.att.net>)
+          by smtp07-01.prod.mesa1.secureserver.net (qmail-ldap-1.03) with SMTP
+          for <shlomif@episight.com>; 22 Sep 2005 20:19:54 -0000
+Received: (qmail 2914 invoked from network); 22 Sep 2005 20:19:54 -0000
+Received: from iglu.org.il (HELO eskimo.iglu.org.il) ([192.117.122.34])
+          (envelope-sender <aettlinger@worldnet.att.net>)
+          by pre-smtp04-01.prod.mesa1.secureserver.net (qmail-ldap-1.03) with SMTP
+          for <shlomif@episight.com>; 22 Sep 2005 20:19:54 -0000
+Received: (qmail 26405 invoked by alias); 22 Sep 2005 20:19:39 -0000
+Delivered-To: iglu.org.il-shlomif@iglu.org.il
+Received: (qmail 26403 invoked from network); 22 Sep 2005 20:19:38 -0000
+Received: from mtiwmhc11.worldnet.att.net (204.127.131.115)
+  by iglu.org.il with SMTP; 22 Sep 2005 20:19:38 -0000
+Received: from PC248541693324 (138.white-plains-11-13rs.ny.dial-access.att.net[12.76.38.138])
+          by worldnet.att.net (mtiwmhc11) with SMTP
+          id <2005092220193611100iib40e>; Thu, 22 Sep 2005 20:19:36 +0000
+Message-ID: <004301c5bfb2$f2de8380$8a264c0c@PC248541693324>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@iglu.org.il>
+References: <002301c59316$78421f10$3da64b0c@PC248541693324> <200507280523.41104.shlomif@iglu.org.il> <000701c593da$d82cdea0$d72f4c0c@PC248541693324> <200509220412.23368.shlomif@iglu.org.il>
+Subject: Raad this first!
+Date: Thu, 22 Sep 2005 16:16:27 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  format=flowed;
+  charset="iso-8859-1";
+  reply-type=original
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 6.00.2900.2180
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.2180
+X-Nonspam: None
+X-Spam-Checker-Version: SpamAssassin 3.0.4 (2005-06-05) on 
+	localhost.localdomain
+X-Spam-Level: 
+X-Spam-Status: No, score=-2.5 required=5.0 tests=AWL,BAYES_00 autolearn=ham 
+	version=3.0.4
+X-UID: 
+Status: RO
+X-Status: RAC
+X-KMail-EncryptionState: N
+X-KMail-SignatureState: N
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I reviewed what had happened.  This grew out of my discussion with Kai 
+Henschel, who was trying to compile from the source set we had posted on 
+your website.  There actually were three problems.  I'd omitted two 
+libraries, and also had an obselete copy of one file.  It does not appear 
+that I ever followed through and assembled a complete set of files.  The 
+quickest expedient would be if I leaned on you to do that.  So I'm 
+forwarding to you copies of the three messages I'd sent to Kai with the 
+three attachments of the two missing and one updated file.  Let me know if 
+this is OK with you.
+
+    There is an interesting epilogue to the story.  I asked Kai about his 
+background.  It turns out he is a young German now living in the US.  I 
+starting to engage him in conversation about Germany, and about some of my 
+travels there.  I mentioned to him that my first exposure to Germany was a 
+visit to Dusseldorf in 1956, at which time the downtown area was still 
+largely unrepaired from the bomb damage of the war, with most of the 
+buildings bombed out hulks.  I'm wondering if this somehow offended or upset 
+him, because I never heard from him again.
+
+Best regards, ------------------Adrian
+
+

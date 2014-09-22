@@ -1,0 +1,305 @@
+Return-Path: <aettlinger@worldnet.att.net>
+X-Spam-Checker-Version: SpamAssassin 3.2.5 (2008-06-10) on
+	telaviv1.shlomifish.org
+X-Spam-Level: 
+X-Spam-Status: No, score=0.1 required=5.0 tests=BAYES_50,RDNS_DYNAMIC,
+	STOX_REPLY_TYPE,UNPARSEABLE_RELAY autolearn=no version=3.2.5
+Received: from khoresh.eonspace.net ([unix socket]) by khoresh.eonspace.net
+ (Cyrus v2.2.13-Mandriva-RPM-2.2.13-4mdv2007.0) with LMTPA; Sun, 13 Jul 2008
+ 22:47:47 +0300
+X-Sieve: CMU Sieve 2.2
+Received: by khoresh.eonspace.net (Postfix, from userid 8) id BAC2A7B4D2;
+ Sun, 13 Jul 2008 22:47:47 +0300 (IDT)
+Received: from tux.hamakor.org.il (bzq-82-80-248-176.dcenter.bezeqint.net
+ [82.80.248.176]) by khoresh.eonspace.net (Postfix) with ESMTP id 8C6EC7B4A0
+ for <shlomif@shlomifish.org>; Sun, 13 Jul 2008 22:47:47 +0300 (IDT)
+Received: by tux.hamakor.org.il (Postfix) id 1A25AB645C; Sun, 13 Jul 2008
+ 22:47:47 +0300 (IDT)
+Delivered-To: shlomif@tux.hamakor.org.il
+Received: from mtiwmhc12.worldnet.att.net (mtiwmhc12.worldnet.att.net
+ [204.127.131.116]) by tux.hamakor.org.il (Postfix) with ESMTP id 9346CB574C
+ for <shlomif@iglu.org.il>; Sun, 13 Jul 2008 22:47:46 +0300 (IDT)
+Received: from pc248541693324
+ (c-67-189-192-172.hsd1.ny.comcast.net[67.189.192.172]) by worldnet.att.net
+ (mtiwmhc12) with SMTP id <2008071319474411200o65cge>; Sun, 13 Jul 2008
+ 19:47:44 +0000
+Message-ID: <000f01c8e521$4ef268d0$6401a8c0@PC248541693324>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@iglu.org.il>
+References: <200712041916.18512.shlomif@iglu.org.il>
+ <200807032131.05584.shlomif@iglu.org.il>
+ <000601c8e064$58917be0$6401a8c0@PC248541693324>
+ <200807081228.08494.shlomif@iglu.org.il>
+Subject: Continuing the dialogue
+Date: Sun, 13 Jul 2008 15:47:20 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  format=flowed;
+  charset="iso-8859-1";
+  reply-type=original
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 6.00.2900.3138
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3198
+X-UID: 
+Status: RO
+X-Status: RAC
+X-KMail-EncryptionState: N
+X-KMail-SignatureState: N
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I'll make an attempt to use "middle-posting" or whatever the term is for 
+"non-top-posting".  But it seems to me there's a problem here,  What I have 
+from you is your message interspersed with my message, so it seems to me I 
+have to do a lot of deleting to avoid sending back to you all the text from 
+my previous message.  Or should I just let it go that way.  Well, I'll try 
+it without editing.
+
+----- Original Message ----- 
+From: "Shlomi Fish" <shlomif@iglu.org.il>
+To: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+Sent: Tuesday, July 08, 2008 5:28 AM
+Subject: Re: Thailand looks correct
+
+
+> Hi Adrian!
+>
+> Next time, please avoid top-posting (see
+> http://en.wikipedia.org/wiki/Posting_style ). And I also suggest using
+> Thunderbird ( http://www.mozilla.com/en-US/thunderbird/ ) instead of MS
+> OutLook Express. The latter is much less standards compliant than 
+> Thunderbird
+> is, and has had many security problems in the past.
+>
+> On Monday 07 July 2008, Adrian Ettlinger wrote:
+>> Hi Shlomi,
+>>
+>>     With regard to the copy of the file, re your communications with the
+>> blog, the way it came through it was very, very difficult to read, 
+>> because
+>> all the fomatting was lost, i. e., it was a solid block of text as if all
+>> the CR/LF characters had been removed.
+>
+> That's because I edited it on Linux, where it uses the Unix-only LF trail.
+>
+> See:
+>
+> * 
+> http://www.onlamp.com/pub/a/onlamp/2006/08/17/understanding-newlines.html
+>
+> * http://en.wikipedia.org/wiki/Newline
+>
+> * http://www.shlomifish.org/wonderous.html
+>
+> for more information. You can always open it with:
+>
+> * http://notepad-plus.sourceforge.net/uk/site.htm
+>
+> * http://www.vim.org/
+>
+> Or any other half-decent editor for Windows. (not Notepad!).
+>
+Oh, look, I'm not really interested in dong a lot of research for this 
+purpose.  I want things simple.
+
+>> I did understand that the issue has
+>> to do with others regarding some of your messages as being harrassing and
+>> obnoxious.  I guess I wouldn't really be able to make any judgement 
+>> without
+>> seeing some examples of what it was the others were objecting to.  I 
+>> could
+>> make this general comment, however.
+>
+> See the attached .zip file, containing a plaintext in CR-LF format for 
+> more
+> information.
+
+OK, I was able to read that file, i. e., it was formatted to be readable for 
+me.  But now then, is this the same thing you sent earlier, i. e., an E-mail 
+you said you were planning to send (but I assume as of then had not sent), 
+or is this that message plus copies of additional conversation?
+
+Maybe there are societal differences between the US and Israel, but your 
+long description of your psychological situation, I think, in an American 
+group would not likely be reacted to with much sympathy.  I'd expect most 
+people would simply not have the patience (combined with the compassion) to 
+try to deal with it.  In fact, as regards your banning, I might say that 
+"lack of patience" was likely the best explanation for why someone decided 
+to ban you.   It might have been better to phrase this more briefly, 
+something like "I know I have a personality trait that I sometimes express 
+myself in a manner that others find offensive, and I have been working on 
+myself to try to correct that.  I can only appeal to you to please be more 
+patient with me."
+
+>> About 5-6 years ago I started
+>> moderating a blog for a railroad hobby organization.
+>
+> Was it a blog or a mailing list?
+>
+>> There's a total
+>> memberhip of about 600 on the list, and of those, there were two or three
+>> who stood out as being extremely outspoken and regarded by most of the
+>> members as totally out of order in how they expressed themselves.  One of
+>> these people I got to know fairly well, having met him in person a few
+>> times.  It was very common with these people that they honestly just
+>> couldn't understand what the others were objecting to.  I had to be very
+>> patient with this one particular guy, but I finally got him to the point
+>> where he now behaves in more civilized way.
+>
+> Right. From my experience, banning people like that is not the right way 
+> to
+> deal with them. Too bad many people (especially those with very little
+> experience and/or those that lack tact and/or stupid ones) don't realise
+> that.
+>
+>> But through it all, this
+>> really illustrated to me how it is that some people have a hard time
+>> understanding why others find the way they talk on Internet to be so
+>> objectionable.  Part of the problem is that when you say things in print
+>> (i. e., in writing on Internet) using the same language you might in
+>> person, it can come through sounding very harsh, where it might not in
+>> person because the other person can see the expression on your face and
+>> react immediately.
+>
+> Right. I also think that on the Internet banning someone is relatively
+> effortless and seems innocent enough to do without muhc thought. However, 
+> it
+> has a lot of implications. In real life, you are not likely to boycott
+> someone you dislike or to request the authorities to deport him or to ask 
+> him
+> to leave your house, (etc.) because you're aware of these implications.
+>
+
+As said above, whoever it was just didn't have the patience to deal with the 
+situation creatively.
+
+>>
+>>     If I had told you about moving to a new residence, then we certainly
+>> have talked since my 80th birthday, because we were still living at the 
+>> old
+>> house when that occurred.  I don't really remember saying I'd felt
+>> disoriented in the new location, and if I said that it must have been in
+>> the first few weeks after we'd moved in.  I am by now thoroughly
+>> acclimated. Our new surroundings are much more rural in nature than where
+>> we lived before.  Oh, there are houses all around us, but they are much
+>> further apart than at the old location.  And almost anywhere we drive we
+>> past many acres of undeveloped land and/or woods.
+>
+> I see nice. Where do you live? You can also point me to the Google maps 
+> point.
+>
+>> You mention living near
+>> a country club, so I gather you are not in a dense urban area yourself.
+>
+> Actually, I am in a way. I live in Ramat Aviv Gimel, Northern Tel Aviv. 
+> The
+> country club is an Urban structure. Here's where I live:
+>
+> http://maps.google.com/?ie=UTF8&ll=32.125126,34.801115&spn=0.004052,0.007489&t=h&z=17
+>
+
+Skipping the stuff we already covered.  But it occurred to me, I wonder if 
+what I said shortly after we moved to the new residence was not about myself 
+feeling disoriented, but about our cat.  He was quite disoriented at first, 
+but after a few months became acclimated and now really enjoys his new home.
+
+>>
+>>     From what you've said about yourself, I'm thinking about a book I 
+>> very
+>> recently read, and I wonder what you might think of it, or if it might be
+>> helpful to you.  The author is Thomas Armstrong, and the title is "Seven
+>> Kinds of Smarts".  It deals with the nature of intelligence and how a
+>> person can have very highly developed mental ablilities in some areas but
+>> be very lacking in others, and gives a lot of suggestions as to how one 
+>> can
+>> work on himself to create a better balance.  I'm not so sure I fully 
+>> agree
+>> with much of what it says, and you might consider it a lot of nonsense, 
+>> but
+>> if you haven't heard of it, might be worth your while to take a look.
+>
+> Yes. I personally think that the "g" (
+> http://en.wikipedia.org/wiki/General_intelligence_factor ) factor of
+> intelligence, was a bit silly, as there are a lot of aspects to it. For
+> example, people with an Audible congition tend to be better at maths than
+> people with visual cognition (see
+> http://tech.groups.yahoo.com/group/hackers-il/message/783 ), while people
+> with a visual cognition have better memory, where a photographic memory is 
+> an
+> extreme case of it. I once tutored someone with a photographic memory who
+> scored very high on his history matriculation exam after he learned the
+> entire textbook by heart, but had problems with Physics. I have an audible
+> congition and can never expect to learn so much text by heart, though I 
+> tend
+> to remember many songs pretty well.
+>
+>>
+>> << still struggling with "mediocre minds" (to quote Albert Einstein) >>
+>>     Funny you should bring that up, as I just read a biography of 
+>> Einsten,
+>> which I found fascinating.  Didn't run across any quotation where he used
+>> the expression "mediocre minds", although it was obvious he regarded most
+>> of humanityt that way.
+>
+> {{{{{{{
+> Great spirits have always encountered violent opposition from mediocre
+> minds...
+> }}}}}}}
+>
+> http://en.wikiquote.org/wiki/Albert_Einstein
+>
+That sounds just like Einstein!!! The book I read did not have that 
+particular quote, but it certainly fits his temperament as I understood it.
+
+>> But he was too diplomatic to let his feelings be
+>> known publicly.  I found him to be a very engaging and congenial
+>> personality.  I found his philosophy as regards religion is very much
+>> identical to mine.  He firmly refused tu be classified as an atheist, but
+>> his views most
+>> emphatically were "non-theistic".  Best described as a very generalized
+>> form of deism.  The basic premise is one that I've long believed, than 
+>> the
+>> human mind will never be able to grasp "everything".
+>
+> Yes.
+>
+>>
+>>     Getting back to that problem you're having with the blog, I wonder if
+>> you've thought of looking at it analytically, and examined the kind of
+>> language you had been using, and maybe how your language perhaps differed
+>> from the language used by others, and just what it was about how you
+>> expressed yourself that others found so objectionable.
+>
+> Well, I don't know exactly what the complaints were about. It was not a 
+> blog -
+> I was banned from sending email to the entire @perl.org/@pm.org domain, 
+> after
+> making some posts that annoyed people on the Perl-Mongers mailing lists, 
+> and
+> they contacted postmaster@perl.org instead of me directly. (And letting me
+> know how I feel.)
+>
+> Then when I tried to discuss it with him on irc.perl.org (a chat network), 
+> he
+> banned me from it as well. I find many other people in the Perl community
+> annoying in some respects, but I still respect them enough (see my email).
+>
+>>
+>>     That's about all for now.  Looking forward to continuing the
+>> conversation, but you might have to bear with me if I take a few days to
+>> respond.
+>
+> Sure.
+>
+> Regards,
+>
+> Shlomi Fish
+>
+
+Hope you were able to pick out everything I said.
+
+Best regards,-------------------Adrian
+

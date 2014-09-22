@@ -1,0 +1,371 @@
+Return-path: <aettlinger@comcast.net>
+X-Spam-Checker-Version: SpamAssassin 3.3.2 (2011-06-06) on lap.shlomifish.org
+X-Spam-Level: 
+X-Spam-Status: No, score=-1.9 required=5.0 tests=BAYES_00,DKIM_SIGNED,
+	DKIM_VALID,DKIM_VALID_AU,FREEMAIL_FROM,RCVD_IN_DNSWL_NONE,RP_MATCHES_RCVD,
+	SPF_PASS,STOX_REPLY_TYPE autolearn=ham version=3.3.2
+Envelope-to: shlomif@shlomifish.org
+Delivery-date: Sat, 01 Dec 2012 15:21:21 -0600
+Received: from qmta09.westchester.pa.mail.comcast.net ([76.96.62.96]:55340)
+	by gator245.hostgator.com with esmtp (Exim 4.80)
+	(envelope-from <aettlinger@comcast.net>)
+	id 1TeuUz-0001ZJ-Dr
+	for shlomif@shlomifish.org; Sat, 01 Dec 2012 15:21:21 -0600
+Received: from omta05.westchester.pa.mail.comcast.net ([76.96.62.43])
+	by qmta09.westchester.pa.mail.comcast.net with comcast
+	id WKfW1k0040vyq2s59MMMZH; Sat, 01 Dec 2012 21:21:21 +0000
+Received: from AdrianPC ([67.189.185.227])
+	by omta05.westchester.pa.mail.comcast.net with comcast
+	id WMKK1k00e4unxxP3RMKMXs; Sat, 01 Dec 2012 21:19:21 +0000
+Message-ID: <DFF6549CB3F842C7B3DF1FDA6396C9F5@AdrianPC>
+From: "Adrian E." <aettlinger@comcast.net>
+To: "Shlomi Fish" <shlomif@shlomifish.org>
+References: <20120921220833.5ea11b08@lap.shlomifish.org><51CCBE0393CA400F8B15B96E97CBDD0C@AdrianPC><20120922035911.3274ca4e@lap.shlomifish.org><C8E45CBE541B46C6B3510309A6EAC421@AdrianPC><20120923101448.6b537c65@lap.shlomifish.org><20121130213038.7f7786d2@lap.shlomifish.org><F32323A2136147A4BC95B630F5CFD804@AdrianPC><20121130232208.4945d793@lap.shlomifish.org><75AF423C1C844608991694D84FD5A9C6@AdrianPC> <20121201115907.19be7d9f@lap.shlomifish.org>
+In-Reply-To: <20121201115907.19be7d9f@lap.shlomifish.org>
+Subject: Re: What's New? + Facebook
+Date: Sat, 1 Dec 2012 16:16:43 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+	format=flowed;
+	charset="UTF-8";
+	reply-type=original
+Content-Transfer-Encoding: 8bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+Importance: Normal
+X-Mailer: Microsoft Windows Live Mail 15.4.3555.308
+X-MimeOLE: Produced By Microsoft MimeOLE V15.4.3555.308
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=comcast.net;
+	s=q20121106; t=1354396881;
+	bh=cq6CBecZZ2FZZwDBCzEga9V1Wn1XQCeRqGTIAS70CB8=;
+	h=Received:Received:Message-ID:From:To:Subject:Date:MIME-Version:
+	 Content-Type;
+	b=E3eAdBaFLV/DRxjXKx+xrs84IsiJr1DM5ej1lD+5H+JpTXIqi+Zzv4YNb2RTAnkUC
+	 jO7eGvy5+JF7YdC2vBu5aAj28hWCuxwL3DFrLygVGxrfyjTiu+7Gn2GLc307HHEiJF
+	 M8vVBmRYgDBL5bjl++i/5ew3bMIyVVBnOqVkXwkndmZ/hd++n+X43p9dPGLWbWvCsr
+	 S8uiRwCYG4UhzDobm9fYVa3NFqswQVI61oRKLhwk0ZzxO6uvjj7qNmHnsrEXiys2Fd
+	 mEsOjZ6WH/VA+vxGK7phN9BtuJswY2kUBRGNAroM3FwTF+gDjfsie8JGa9f89ff6IO
+	 Y9A7YUrtiaMig==
+
+Hi Shlomi,
+
+    Interesting to read about the Bourekas.  It sounds as if the composition 
+might be quite similar to the one offering of Yonah Schimmel's which we used 
+to like to stop in there to buy some of, called a "Cheese Bagel".  Not 
+shaped like a bagel at all, but pretzel-shaped, with a combination sweet and 
+cheese flavor, and lightly-weighted dough.  Very tasty and also unique, in 
+that I've never seen them anywhere else.
+
+    You are no doubt correct about potato pancakes being a more recent 
+"import" into Israeli cuisine.
+
+    Re the situation in Gaza, the media here seemed to be treating it as if 
+there was some doubt about "who started it".  But I thought the first I'd 
+heard of it was Hamas lobbing missiles into Israel.   It's very good that 
+the Iron Dome system is as effective as it is, although obviously not fully 
+100% effective.
+
+    I must say when this was at its height, my own hope was that Israel 
+could mount an all-out ground attack that would not only take full political 
+control of the Gaza strip but also, given that by now Israel must have 
+fairly good intelligence as to where to find the Hamas leadership, 
+effectively wipe out the Hamas organization.  But I suppose that really 
+would not be as easy as it can be made to sound.  But with Hamas now so 
+concentrated in Gaza, one would think that would make them more vulnerable 
+to being just about wiped out in a quick, sudden campaign than they have 
+been previously.
+
+    It is being said that Iran is furnishing Hamas with most of its 
+missiles.  But I've wondered why Israel cannot blockade such shipments.  Is 
+it known by what route this traffic is able to follow?   Does it go in via 
+the land connection to Egypt?
+
+Best regards, ----------------Adrian
+
+
+
+-----Original Message----- 
+From: Shlomi Fish
+Sent: Saturday, December 01, 2012 4:59 AM
+To: Adrian E.
+Subject: Re: What's New? + Facebook
+
+Hi Adrian,
+
+On Fri, 30 Nov 2012 19:00:08 -0500
+"Adrian E." <aettlinger@comcast.net> wrote:
+
+> Hi Shlomi,
+>
+>     Thanks very much for the date of Chanukah.  That gives us time to find
+> candles and get prepared.  I'm sure we have a Menorah around here 
+> somewhere.
+
+Great.
+
+>
+>     That's really some new education for me, about potato pancakes and
+> sufganiyah.  Potato pancakes I am quite familiar with and have always
+> enjoyed, but didn't know about their connection to Chanukah.
+
+Nice, you can read more about its relation to Chanukah on the wikipedia. Of
+course, from what I know, Potatoes were brought from the Americas, so potato
+pancakes (or Latkes) should be a rather late tradition for Chanukah among 
+Jews.
+
+> But Sufganiyah
+> are totally new to me.  I've looked them up, and they certainly would be
+> something I'd enjoy.  I doubt that I'd find any bakery around here that
+> sells them; would probably have to go into Manhattan.  The signature 
+> Jewish
+> bakery in Manhattan is a place on Houston St. called Yonah Schimmel's;
+> haven't been there in years.  I think it's a good bet they'd have them.
+>
+
+Ah, I see. Lately, there has been more variety in Sufganiyahs in Israel. 
+Some
+of them are now smaller than usual, some are filled with a different filling
+and some are covered with various coverings. There's a small bakery/café in 
+the
+shopping centre close to my building, with really good baked goods of these
+sorts. I also like to buy http://en.wikipedia.org/wiki/B%C3%B6rek (which we
+call Bourekas) there sometimes.
+
+>     Problem is, and this you wouldn't have heard of yet -- back in July I
+> had a heart attack -- quickly to qualify that, it was a "small" one,
+> involving no pain, but it's had a definite effect on my well-being.  I'm 
+> not
+> really suffering from it, except that I'm functioning at a much lower 
+> energy
+> level since the episode.
+
+I see. You may have told me about it. A friend of mine who turned 50 a while
+ago, also had a minor heart attack, so now he needs to go on a daily walk.
+
+> Anyway, where the problem is that I'm on a rather
+> strict no-fat diet, so I don't know if I'd be allowed anything deep-fat
+> fried.  Researching on Internet, I found a recipe for baked sufganiyah,
+> admittedly outside the real Chanukah tradition, but said to be a good
+> substitute.
+
+Ah, OK.
+
+>
+>     The news from your part of the world was rather alarming for a while,
+> but it seems things have calmed down now, at least for a time.  Hope it
+> stays that way.
+>
+
+Yes, well, we had some alarms here in Tel Aviv, but no casualties. Most of 
+the
+missiles were destroyed by the Iron Dome system, but one of them hit a
+building in Rishon-Lezion and caused some damage. Many Israelis are
+frustrated that Israel accepted the ceasefire, and did not attack the Hamas 
+in
+the Gaza strip. Someone on IRC said that The Art of War (which I
+admittedly have yet to read) says that “If your enemy is begging you for a
+ceasefire, that is the time to hit him hard.” which makes sense in a way.
+However, my mother noted, that there are various political constraints, like
+our relationship with Egypt that need to be taken into account.
+
+I talked with someone from India on IRC, who asked me what I think about the
+fact that there were 3 Israeli casualties as opposed to over a 100 ones in
+the Gaza strip. What he didn't understand is that the Hamas kept firing
+missiles, and also used civilians as a human shield, and that Israel would
+not have retaliated if they were peaceful (but they were not for a long
+time). Part of the reason Israel had so few casualties is the fact that the
+Hamas' competency at doing them is not too good. However, the many alarms 
+are
+still disruptive to the lives of Israelis in the territories close to the
+strip (including recently Tel Aviv, where I live), and Israel should be 
+allowed
+to retaliate against that.
+
+The Hamas had a history of breaking the ceasefires, so we'll see how long 
+this
+one will last. My mother also told me that in the Gaza strip, every three 
+men
+form an organisation, so it was hard to maintain order, which reminded me of
+this Monty Python skit:
+
+http://www.youtube.com/watch?v=gb_qHP7VaZE
+
+Regards,
+
+Shlomi Fish
+
+> Best regards, -----------------Adrian
+>
+>
+> -----Original Message----- 
+> From: Shlomi Fish
+> Sent: Friday, November 30, 2012 4:22 PM
+> To: Adrian E.
+> Subject: Re: What's New? + Facebook
+>
+> Hi Adrian,
+> On Fri, 30 Nov 2012 15:55:36 -0500
+> "Adrian E." <aettlinger@comcast.net> wrote:
+>
+> > Hi Shlomi,
+> >
+> >     I'm not sure why we stopped talking.  But if you contacted me only 
+> > via
+> > Facebook, that could be an explanation.  Every time I try to use it,
+> > something seems to crash.
+>
+> No, I first contacted you via Facebook, but then you have given me your
+> E-mail
+> and I contacted you there.
+>
+> >
+> >     We had a good Thanksgiving.
+>
+> Great.
+>
+> > Yes, I certainly would know that Christmas
+> > is not celebrated in Israel.  Lately, it's become "controversial" in the
+> > US,
+> > because those here who believe in separation of church and state do not
+> > like
+> > to see celebrations of Christmas appear on government property, and when
+> > they protest, some of our right-wing evangelistic crazy fanatics start
+> > yelling that there is a "War on Christmas".
+> >
+>
+> Oh, I see.
+>
+> >     Now, if you can tell me on time what is the schedule for Chanukah,
+> > maybe
+> > I'll be able to burn candles this year for a change.  But whatever, hope
+> > you
+> > have a very pleasant Chanukah season.
+>
+> See:
+>
+> http://www.hebcal.com/hebcal/?year=2012&month=x&yt=G&v=1&nh=on&nx=on&mf=on&ss=on&i=on&lg=s&vis=on&d=on&c=off&geo=zip&zip=&m=72&.cgifields=nx&.cgifields=nh&.cgifields=mf&.cgifields=ss&.s=Preview+Calendar
+>
+> (short URL - http://xrl.us/bn39pc )
+>
+> Namely, the first Chanukah Candle is on the evening of Saturday, 8 
+> December
+> 2012 (the evening between Fri and Sat), and it goes up to 8 candles (on 15
+> December). In Israel, we like to eat traditional Chanukah foods of
+> http://en.wikipedia.org/wiki/Potato_pancake and
+> http://en.wikipedia.org/wiki/Sufganiyah , which are fried with oil, to
+> commemorate the pot of oil which was reportdely found in the second temple
+> untouched and was able to burn for the Menorah (the Candelabra in the
+> temple),
+> for 8 days until more oil could be brought from the Galilee. I'm not sure
+> whether the diet of you and your wife will allow you to consume those, but
+> perhaps your children and/or grandchildren will enjoy them.
+>
+> BTW, regarding your comment on Hollywood (and one of your grandchild's
+> original
+> desire to become a filmmaker), you may relate to this Slashdot.org 
+> interview
+> with Wil Wheaton, who is a former Hollywood Child Actor, and now a voice
+> actor, a minor actor and a writer and a blogger:
+>
+> http://slashdot.org/story/05/06/27/0926218/wil-wheaton-strikes-back
+>
+> Namely he writes:
+>
+> <QUOTE>
+> Child Actor Prodigy Success
+> by statusbar (314703)
+>
+> It seems that most child actors end up growing up to be crack-heads,
+> drug-dealers, low class porn actors/actresses, and/or dead from bullets or
+> drugs.
+>
+> How did you avoid all that mess? Was it easy or hard to avoid? Was there a
+> point in your life where you had to make a conscious choice? What would 
+> you
+> say
+> to other child actors to help them avoid the pitfalls of early fame?
+>
+> WW: I think not being on Diff'rent Strokes had a lot to do with it.
+>
+> Thank you. Tip your waitress, and don't forget that you can play Keno 
+> right
+> at
+> your table! Come back for the late show . . . it gets a little blue.
+>
+> In all seriousness, I think most child actors end up as you described
+> because
+> they believe all the hype they hear as kids. When I was a kid, it felt 
+> good
+> to
+> hear from everyone that I was the next big thing, and I was always the
+> golden
+> boy, and that I'd never lose the light in my eyes. Did I know it was all
+> bullshit? Right after Stand By Me came out, and I'd done some interviews 
+> and
+> dealt with some "Hollywood" people, I did.
+>
+> Something kids and their parents (and all actors, really) need to remember
+> is
+> that Hollywood is always looking for the next big thing; and that rarely
+> means
+> the next amazing-but-undiscovered actor. In this business, a talentless
+> whore
+> who gets fucked in grainy night vision is more valuable to the networks 
+> than
+> a
+> talented actress who has spent years studying and honing her craft. That's
+> the
+> reality of Hollywood in 2005, and if publicity and fame is more important 
+> to
+> an
+> actor than the work, they're going find a void in themselves that can only
+> be
+> filled by sweet, sweet heroin. Or late-night erotic thrillers featuring
+> Shannon
+> Tweed and Lorenzo Lamas. See, fame comes from without, and the joy of
+> performing comes from within. Actors can always perform on stage (or start
+> blogs) if they can't get work in TV or movies. They probably won't get 
+> fame,
+> but they'll get the joy of performing.
+>
+> I think that I avoided becoming a regular on Cinemax's late night
+> boob-a-thons
+> because even when I was a kid, I quickly figured out the difference 
+> between
+> the
+> kids (and their parents) who wanted to be Actors, and the ones who wanted 
+> to
+> be Movie Stars. I never wanted to be a Movie Star, and the ones who did
+> annoyed the hell out of me. They were the ones with the obnoxious stage
+> parents, and we were the ones who just wanted to learn our lines and do 
+> good
+> work. When we all grew up, guess who turned out okay, and guess who is
+> selling his teeth on eBay? Okay, if I can drop a name for a second: I am
+> lucky enough to have a signed copy of the book Sideways. When he signed 
+> it,
+> Rex Pickett wrote,All that matters is the work. I think that's important 
+> and
+> useful advice for anyone who gets into a business that mixes art and
+> commerce. If the attention becomes more important than the work, you're
+> boned.
+> </QUOTE>
+>
+> Regards,
+>
+> Shlomi Fish
+>
+
+
+
+-- 
+-----------------------------------------------------------------
+Shlomi Fish       http://www.shlomifish.org/
+Apple Inc. is Evil - http://www.shlomifish.org/open-source/anti/apple/
+
+We don’t know his cellphone number, and even if we did, we would tell you 
+that
+we didn’t know it.
+
+Please reply to list if it's a mailing list post - http://shlom.in/reply . 
+
+

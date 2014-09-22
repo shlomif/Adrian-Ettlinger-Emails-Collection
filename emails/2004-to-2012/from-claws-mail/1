@@ -1,0 +1,78 @@
+Received: (qmail 12813 invoked from network); 28 Jul 2005 01:48:45 -0000
+Received: from pre-smtp04-01.secureserver.net (HELO pre-smtp04-01.prod.mesa1.secureserver.net) ([64.202.166.29])
+          (envelope-sender <aettlinger@att.net>)
+          by smtp05-02.prod.mesa1.secureserver.net (qmail-ldap-1.03) with SMTP
+          for <shlomif@episight.com>; 28 Jul 2005 01:48:45 -0000
+Received: (qmail 11171 invoked from network); 28 Jul 2005 01:48:45 -0000
+Received: from iglu.org.il (HELO eskimo.iglu.org.il) ([192.117.122.34])
+          (envelope-sender <aettlinger@att.net>)
+          by pre-smtp04-01.prod.mesa1.secureserver.net (qmail-ldap-1.03) with SMTP
+          for <shlomif@episight.com>; 28 Jul 2005 01:48:45 -0000
+Received: (qmail 30507 invoked by alias); 28 Jul 2005 01:48:39 -0000
+Delivered-To: iglu.org.il-shlomif@iglu.org.il
+Received: (qmail 30505 invoked from network); 28 Jul 2005 01:48:38 -0000
+Received: from unknown (HELO mtiwmhc12.worldnet.att.net) (204.127.131.116)
+  by iglu.org.il with SMTP; 28 Jul 2005 01:48:38 -0000
+Received: from PC248541693324 (143.white-plains-14-15rs.ny.dial-access.att.net[12.76.39.143])
+          by worldnet.att.net (mtiwmhc12) with SMTP
+          id <2005072801483211200aakt4e>; Thu, 28 Jul 2005 01:48:36 +0000
+Message-ID: <002301c59316$78421f10$3da64b0c@PC248541693324>
+From: "Adrian Ettlinger" <aettlinger@att.net>
+To: <shlomif@iglu.org.il>
+Subject: Freecell solver problem
+Date: Wed, 27 Jul 2005 21:46:59 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  format=flowed;
+  charset="iso-8859-1";
+  reply-type=original
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 6.00.2900.2180
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.2180
+X-Nonspam: None
+X-UID: 
+Status: RO
+X-Status: RAC
+X-KMail-EncryptionState: N
+X-KMail-SignatureState: N
+X-KMail-MDN-Sent: 
+X-Spam-Checker-Version: SpamAssassin 3.0.4 (2005-06-05) on 
+	localhost.localdomain
+X-Spam-Level: 
+X-Spam-Status: No, score=-2.6 required=5.0 tests=BAYES_00 
+	autolearn=unavailable version=3.0.4
+
+Hi Shlomi,
+
+    I know I neglected to respond to a "keep alive" you sent me on July 12, 
+and my apologies.  I know I keep saying this, but quite frequently I read 
+something or other that reminds me of the dialogue we'd had on political and 
+economic philosophy, but never seem to summon up the energy to compose some 
+commentary based on it.
+
+    I'm now prompted to write you because of a strange problem which has 
+arisen after I got back into trying to resurrect some of the old code 
+involved with Freecell solver.  This resulted from hearing from someone who, 
+from the evidence, might possibly be the first person who's tried to compile 
+the source code which we've made available.  It was three years ago that I 
+last worked on this, and one question I'd like to ask you is this:  Where 
+was that source code made available on a website?  Is that on your website 
+or on one of mine?  One reason for asking is that it is now evident that it 
+is incomplete, and whichever of us is now responsible for the content, it 
+should be updated.
+
+    Now then, since I wrote that I had a weird problem, I tried it again, 
+and now the problem has disappeared.  It disappeared after a fresh start of 
+the compiler.  But I'll still ask, just in case you have any ideas.  I was 
+getting this persistent error:
+
+fc_pro_iface.obj : error LNK2001: unresolved external symbol _dest_stack_len
+
+    Now then, that symbol "_dest_stack_len" is not one that I find anywhere 
+in the code.  Do you have any idea what this means?
+
+Best regards, ---------------------------Adrian
+
+

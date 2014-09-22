@@ -1,0 +1,88 @@
+Received: (qmail 15114 invoked from network); 29 Jul 2005 01:14:23 -0000
+Received: from pre-smtp02-02.prod.mesa1.secureserver.net ([64.202.166.26])
+          (envelope-sender <aettlinger@att.net>)
+          by smtp02-02.prod.mesa1.secureserver.net (qmail-ldap-1.03) with SMTP
+          for <shlomif@episight.com>; 29 Jul 2005 01:14:23 -0000
+Received: (qmail 17436 invoked from network); 29 Jul 2005 01:14:23 -0000
+Received: from iglu.org.il (HELO eskimo.iglu.org.il) ([192.117.122.34])
+          (envelope-sender <aettlinger@att.net>)
+          by pre-smtp02-02.prod.mesa1.secureserver.net (qmail-ldap-1.03) with SMTP
+          for <shlomif@episight.com>; 29 Jul 2005 01:14:22 -0000
+Received: (qmail 24992 invoked by alias); 29 Jul 2005 01:14:21 -0000
+Delivered-To: iglu.org.il-shlomif@iglu.org.il
+Received: (qmail 24990 invoked from network); 29 Jul 2005 01:14:21 -0000
+Received: from unknown (HELO mtiwmhc12.worldnet.att.net) (204.127.131.116)
+  by iglu.org.il with SMTP; 29 Jul 2005 01:14:21 -0000
+Received: from PC248541693324 (215.white-plains-04rh16rt.ny.dial-access.att.net[12.76.47.215])
+          by worldnet.att.net (mtiwmhc12) with SMTP
+          id <2005072901141911200a8bk3e>; Fri, 29 Jul 2005 01:14:19 +0000
+Message-ID: <000701c593da$d82cdea0$d72f4c0c@PC248541693324>
+From: "Adrian Ettlinger" <aettlinger@att.net>
+To: "Shlomi Fish" <shlomif@iglu.org.il>
+References: <002301c59316$78421f10$3da64b0c@PC248541693324> <200507280523.41104.shlomif@iglu.org.il>
+Subject: Updates
+Date: Thu, 28 Jul 2005 21:10:36 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  format=flowed;
+  charset="iso-8859-1";
+  reply-type=original
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 6.00.2900.2180
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.2180
+X-Nonspam: None
+X-UID: 
+Status: RO
+X-Status: RAC
+X-KMail-EncryptionState: N
+X-KMail-SignatureState: N
+X-KMail-MDN-Sent: 
+X-Spam-Checker-Version: SpamAssassin 3.0.4 (2005-06-05) on 
+	localhost.localdomain
+X-Spam-Level: 
+X-Spam-Status: No, score=-2.6 required=5.0 tests=AWL,BAYES_00 
+	autolearn=unavailable version=3.0.4
+
+Hi Shlomi,
+
+<<But please at least keep me updated on your news.....>>
+    Well, let's see.  I'm still kicking.  Last two trips were in May to 
+Indianapolis for a railroad history meeting, and then in June to Nashville 
+for a genealogy meeting.  Leaving tomorrow for our annual beach vacation 
+with the extended family (son and daughter with spouse-in-laws and five 
+grandkids), which this year we're making for two weeks.  My wife and I like 
+to go down to southern New Jersey the night before because traffic from New 
+York to the Jersey beaches is always horrific on Saturdays.  We're doing 
+what we did last year, and instead of staying near the shore (like around 
+Atlantic City) where hotel rates are annoyingly high, we're going to stay in 
+Vineland, NJ, which is in the interior of the state, and is in an 
+agricultural area that "no one ever travels through".  It's interesting 
+because it's a genuine working community, and not under any influence from 
+the tourist industry.  Not very prosperous, but not destitute either.
+
+<<....and possibly comment on mine.....>>
+    Sorry I hadn't done that, but my recollection is that your news was 
+tentative, and more news might follow.  Anything going on on the job front 
+since your last report?
+
+<<Well, as I recall some compilers prepend an underscore.....>>
+    Hey, that's a new word for my vocabulary .... prepend ....   You hit the 
+nail on the head.  That was my problem.  I identified the problem and it was 
+that I had an obselete version of that fc_pro_iface.c (right name?) in the 
+file set.
+
+    Even though very few people have asked about the software, and this was 
+the first person to try to compile it, I would like to upgrade what we have 
+posted so that it "works".   If I prepare another copy of the source, can 
+you take care of replacing the defective ones (or one) that is now posted on 
+the web?
+
+    I'm glad to see that there is some hope now that your part of the world 
+might be becoming more peaceful.
+
+Best regards, ---------------------------Adrian
+\ 
+
+

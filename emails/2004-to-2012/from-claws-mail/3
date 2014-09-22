@@ -1,0 +1,75 @@
+Return-Path: <aettlinger@worldnet.att.net>
+X-Spam-Checker-Version: SpamAssassin 3.2.5 (2008-06-10) on
+	telaviv1.shlomifish.org
+X-Spam-Level: **
+X-Spam-Status: No, score=2.2 required=5.0 tests=BAYES_50,RDNS_DYNAMIC,
+	STOX_REPLY_TYPE,TVD_FINGER_02,UNPARSEABLE_RELAY autolearn=no version=3.2.5
+Received: from khoresh.eonspace.net ([unix socket]) by khoresh.eonspace.net
+ (Cyrus v2.2.13-Mandriva-RPM-2.2.13-4mdv2007.0) with LMTPA; Tue, 16 Dec 2008
+ 21:22:58 +0200
+X-Sieve: CMU Sieve 2.2
+Received: by khoresh.eonspace.net (Postfix, from userid 8) id C7ECB7B4BF;
+ Tue, 16 Dec 2008 21:22:58 +0200 (IST)
+Received: from tux.hamakor.org.il (bzq-82-80-248-176.dcenter.bezeqint.net
+ [82.80.248.176]) by khoresh.eonspace.net (Postfix) with ESMTP id 96BFB7B4A1
+ for <shlomif@shlomifish.org>; Tue, 16 Dec 2008 21:22:54 +0200 (IST)
+Received: by tux.hamakor.org.il (Postfix) id C3F78B69E5; Tue, 16 Dec 2008
+ 21:22:44 +0200 (IST)
+Delivered-To: shlomif@tux.hamakor.org.il
+X-Greylist: delayed 346 seconds by postgrey-1.27 at tux; Tue, 16 Dec 2008
+ 21:22:44 IST
+Received: from mtiwmhc13.worldnet.att.net (mtiwmhc13.worldnet.att.net
+ [204.127.131.117]) by tux.hamakor.org.il (Postfix) with ESMTP id 72AC7B6569
+ for <shlomif@iglu.org.il>; Tue, 16 Dec 2008 21:22:38 +0200 (IST)
+Received: from pc248541693324
+ (c-67-189-201-148.hsd1.ny.comcast.net[67.189.201.148]) by worldnet.att.net
+ (mtiwmhc13) with SMTP id <2008121619165611300b18hae>; Tue, 16 Dec 2008
+ 19:16:57 +0000
+Message-ID: <005301c95fb2$dd202aa0$6401a8c0@PC248541693324>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@iglu.org.il>
+Subject: Question for you
+Date: Tue, 16 Dec 2008 14:16:53 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  format=flowed;
+  charset="Windows-1252";
+  reply-type=original
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 6.00.2900.3138
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3350
+X-UID: 
+Status: RO
+X-Status: RAC
+X-KMail-EncryptionState: N
+X-KMail-SignatureState: N
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    We haven't talked directly in quite a while.  I see your messages now 
+and then, and glad to see you're still working on the FC solver.
+
+    Here's a question.  I may have mentioned quite a while to you that my 
+solitaire playing had moved to Spider.  That is the ten-column spider 
+supplied with Windows.  I've been playing it with two colors.  Over a few 
+years of playing, I had developed an opinion that only maybe 50-75% of games 
+were winnable.  But gradually over that past several weeks, I've become more 
+and more persistent at tackling games that seemed on first or second try to 
+be unwinnable, and now it's beginning to look to me like virtually all 
+two-color games are winnable.  At least, I would say that I've been able to 
+win the past thirty or forty deals that I've played.  Some have been 
+difficult, taking several starts, but haven't found one that stumped me over 
+that span.
+
+    My question is: Do you know of any solver that's been written for this 
+game?  If I find a deal that I cannot solve, I'd like to have a way to test 
+it.
+
+    And I see it's about time for me to wish you a Happy Chanukah.  This 
+year for the first time in quite a while, I think I'll burn candles.
+
+Best regards, ------------------Adrian
+
