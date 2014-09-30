@@ -1,0 +1,85 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 14647 invoked from network); 18 Jul 2002 10:27:51 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 18 Jul 2002 10:27:51 -0000
+Received: from computer ([12.78.220.218]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020718102749.LNXZ19092.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Thu, 18 Jul 2002 10:27:49 +0000
+Message-ID: <000401c22e45$3cd1d1c0$dadc4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207180811540.9858-100000@vipe.technion.ac.il>
+Subject: Re: 2.6.0 Report
+Date: Thu, 18 Jul 2002 06:22:43 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<2.6.0 does not make false impossibles .........That's interesting. I don't
+think I changed the solving algorithm. Can you validate that these solutions
+are correct?>>
+    Yes.  I have one excellent example.  A human-generated solution to M/S
+deal #7 playing with one freecell only, in which the 3rd through the 8th
+intermediate positions are all declared "Impossible" by 2.4.3, but for which
+2.6.0 produces a clearly-correct solution.   The solution begins:
+47 57 67 47 45 38 73 74 76 71
+    After every move from "67" through "74", 2.4.3 says "Impossible" and
+2.6.0 solves it.  Note, this is playing with only one freecell.
+
+<<[The crashing] Does it always happen when you run it from 1 to 32000? Is
+there any way you can reproduce it at a 100% probability?>
+    This is a very time-consuming thing to investigate, and I have to give
+priority to my other project.  However, I have a light schedule today for
+the other project, so I'll get a chance later today to experiment some more.
+I have to wait about 10 minutes in 1 to 32000 for the crash at 11982 in
+range solving.   There was one example in the "False impossible" test mode
+where on three consecutive runs, it always crashed on the same move in the
+same solution, and that was after a wait of only a few minutes.  I don't
+know how much good that will do you to know about, or what you'd like to
+know about it.  .
+
+    Another odd aspect to it is that in the FIMP test mode, it seemed to
+have a tendency to crash the most while working on a solution within which
+2.4.3 gives at least one false impossible.  To check that out, I made up a
+solution file in which I eliminated all the solutions in that category, but
+it would still crash after running several thousand solutions.  2.4.3 runs
+through the same file completely without crashing, while 2.6.0 always
+crashes before it gets about 20% through.
+
+    About the only correlation we seem to have with this is that going to a
+high number of iterations for any given position seems in a general way to
+have something to do with provoking the crash.  If I have the time today, I
+might possibly try something I'd had in mind for that other crash situation,
+compiling under DevStudio's Debug configuration, to see if that provides a
+clue as to where in the source the mishap is occurring.  It must be either a
+memory leak or an out-of-bounds memory write.
+
+    I consider this a serious enough problem that I don't want to "publish"
+the 2.6.0 version on my website until we can get this fixed.  Despite the
+fact that the general speed performance and lack of false impossibles make
+it look very good to me.
+
+    There's another way to test I should try.  Since it seems to be most
+prone to crash while dealing with Impossible or near-Impossible positions, I
+should run it on the one-or two-freecell game.  There's a good chance I can
+find some more quickly repeatable results that way.
+
+Best regards, --------------------Adrian
+
+

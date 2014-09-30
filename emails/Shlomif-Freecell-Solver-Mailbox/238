@@ -1,0 +1,54 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 614 invoked from network); 21 Sep 2002 03:22:19 -0000
+Received: from mtiwmhc24.worldnet.att.net (HELO mtiwmhc21.worldnet.att.net) (204.127.131.49)
+  by vipe.technion.ac.il with SMTP; 21 Sep 2002 03:22:19 -0000
+Received: from computer ([12.78.219.63]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020921032209.YKCG27953.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sat, 21 Sep 2002 03:22:09 +0000
+Message-ID: <000c01c2611d$774ee440$3fdb4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0208290847290.20518-100000@vipe.technion.ac.il>
+Subject: Re: freecell_solver_user_recycle()
+Date: Fri, 20 Sep 2002 20:31:55 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 327
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    My last reply was accidently sent to the forum, a mistake I make now and
+then.  This is really better discussed one-on-one.
+
+    This is in reply to your message of 29 Aug. explaining the recycle
+feature.  These are my questions and comments:
+
+    Are you thinking mainly of speeding up the operate for range solving?
+
+    Frankly, I must say I'm very skeptical that much a speedup would be
+gained by this process.  I can't imagine that the time required to parse the
+command line can be more than the few microseconds, and that any improvement
+would even be noticeable.  Most of the time is used up in the search
+operation, which takes up much more time.
+
+    But, in any case, if I'm going to use this, I'll need more hints about
+just what I should do in the code.
+
+Best regards, ---------------Adrian
+
+

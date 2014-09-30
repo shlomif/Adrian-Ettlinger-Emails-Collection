@@ -1,0 +1,86 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 15416 invoked from network); 28 May 2002 02:17:59 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 28 May 2002 02:17:59 -0000
+Received: from computer ([12.78.249.121]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020528021744.HBTF5116.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Tue, 28 May 2002 02:17:44 +0000
+Message-ID: <001601c205ed$66bac760$79f94e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205271756520.26627-200000@vipe.technion.ac.il>
+Subject: Progress, but not there yet
+Date: Mon, 27 May 2002 22:13:31 -0400
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+  boundary="----=_NextPart_000_0013_01C205CB.BC7FFE80"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 27
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0013_01C205CB.BC7FFE80
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+
+Hi Shlomi,
+
+    We've now made some headway, but still stuck with a problem.
+
+    Presets are working for single thread.  In fact, I was able to implement
+that line you'd given me that solves #9, and that works fine.
+
+    But, the two switches "-step" and "-nst" are being rejected, and making
+the parser trap out to the "Unrecognized command" exit.  I'm attaching a
+couple of files that I've used for testing, which trap out.  The file
+"fcspresa.txt" works OK if I delete the "-step 500" from the end of the
+line.  The "fcspres2.txt" file is the one I'd like to use for multiple
+threads.  It's based on the example you'd previously sent.
+
+    I've looked over the code in the module cmd_line.c, where those two
+switches should be detected, and can't see any reason for the problem.  I
+might try to experiment with it further, but my usual techniques are awkward
+for working within a library.  So I thought it best to ask you if you have
+any ideas.
+
+Best regards,  --------------Adrian
+
+
+
+------=_NextPart_000_0013_01C205CB.BC7FFE80
+Content-Type: text/plain;
+	name="Fcspres2.txt"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+	filename="Fcspres2.txt"
+
+  --method random-dfs -seed 1 -to 0[0123456789] -step 500 -nst --method =
+random-dfs -seed 2 -to 0[01][23456789] -step 500 -nst  --method =
+random-dfs -seed 3 -to 0[01][23467] -step 500 -nst --method a-star -step =
+500 -nst --method a-star -to 0123467 -step 500 -nst --method random-dfs =
+-seed 4 -to 0[0123467] -step 500 -nst --method soft-dfs -step 500
+
+------=_NextPart_000_0013_01C205CB.BC7FFE80
+Content-Type: text/plain;
+	name="Fcspresa.txt"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="Fcspresa.txt"
+
+  --method random-dfs -seed 3 -to 0[01][23467] -step 500
+
+------=_NextPart_000_0013_01C205CB.BC7FFE80--
+

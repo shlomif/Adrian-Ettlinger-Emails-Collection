@@ -1,0 +1,79 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 5153 invoked from network); 18 May 2002 08:25:03 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 18 May 2002 08:25:03 -0000
+Received: from computer ([12.75.52.167]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020518082500.BFQE11146.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sat, 18 May 2002 08:25:00 +0000
+Message-ID: <001801c1fe45$0d9a5060$a7344b0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205180517300.600-100000@vipe.technion.ac.il>
+Subject: Moving on to presets #5
+Date: Sat, 18 May 2002 04:19:25 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 9
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<It's more of a switch-tasking that multi-tasking.>>
+    The distinction might be too subtle for me.  I still don't really feel I
+understand this.  You'd sent me an example of a preset with several lines,
+each of which had the term "-step 500" in it.  I asked you whether or not I
+understood correctly what that meant.   You described this a "soft thread".
+What I think happens is that each of those "soft threads" goes into
+operation for 500 iterations, then it moves on to the next line, does 500
+iterations, etc.  Then after it finishes the final line, it goes back to the
+first line, picks up where it left off, and does another 500 iterations in
+each line.  And so on and so on around the loop until it either finds a
+solution or decides the hand is "impossible".  Is that an accurate
+description of what the present program does?  Is that what you mean by
+"switch-tasking"?
+
+    If the above is correct, do I gather correctly that there is still
+another level of sophistication which could be provided called genuine
+"multi-tasking" or "multi-threading" (are those terms synonymous?) which you
+have not yet implemented?
+
+<<What are you trying to do?>>
+    The implementation I now have is working, but I've totally ignored the
+preset system.  So it must be using some default preset.  I haven't yet
+found where that default preset is defined.  But I also haven't yet really
+looked for it very hard.
+
+    I'm also slightly mystified that my call to Free2Solver() is working at
+all.  I did not change anything in how I'm calling it.  The previous version
+had one more argument than the new one.  Seems to me that it shouldn't have
+even compiled without a diagnostic.
+
+    When I get back to work on this, I'm going to have to figure out how to
+modify my call to Free2Solver() so it really will pass a preset, and the
+first exercise might be just to take the sample you gave me, and try to pass
+that, and see how it works.  I'd asked you what "method" would solve #9, and
+your answer, I now see, was one of the lines in the sample preset you'd sent
+previously, so if I can just implement that preset, it seems I should then
+see it solving #9 with reasonable speed. Is that correct?
+
+    I've done some looking around lib.c, where the "....solve_board" routine
+is, but so far I haven't spotted any place where a default preset gets
+established.
+
+Best regards,  ----------------Adrian
+
+

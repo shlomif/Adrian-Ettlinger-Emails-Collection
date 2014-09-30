@@ -1,0 +1,76 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 19040 invoked from network); 24 Nov 2001 12:59:14 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 24 Nov 2001 12:59:14 -0000
+Received: from computer ([12.78.249.64]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011124125903.ZZIP5540.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sat, 24 Nov 2001 12:59:03 +0000
+Message-ID: <003201c174df$5a23a8e0$42f94e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111241405290.18560-100000@vipe.technion.ac.il>
+Subject: 1 hour delay, etc.
+Date: Sat, 24 Nov 2001 06:57:38 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-Mimeole: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 64
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    That 1 hour delay is interesting.  I'm suspicious that it could have to
+do with new security measures on Internet since Sept. 11.  As an example,
+when I log onto ATT Worldnet via their toll-free 800 number, there is now a
+one minute delay -- exactly -- while it's verifying the user name and
+password.  That started shortly after Sept. 11.  The same delay was present
+for a time on my local access number, but that has since gone back to
+normal.  I don't know where I could inquire about it.  But let me ask you
+this:  Do you know for a fact that this delay is not happening from others
+with whom you correspond in the US -- or North America?  It's also possible
+that it's unique to AT&T.
+
+<<I think I have the Cards.dll from FC-Pro 6.4 there, and it still crashes.
+Nevertheless I'll verify that, and I'll let you know.>>
+    Hmmm. We may have a mystery there, then.  Are you using Build 61 of
+version 6.4?  Do you mean that you cannot use Solve at all, or does it crash
+only in the "full solution" mode?  Cards.dll being the problem may be a wild
+guess.  All of our past problems from that have been catastrophic, the
+program not working at all.
+
+<<In FCS I treat moving an entire sequence as one move that I return to the
+user regardless of how many stacks or freecells it used.>>
+    Well, maybe we part company on design philosophy there.
+
+<<You can store the original setting of the supermove, and set it back to it
+after my solver finishes. That way, the user would not notice.>>
+    It's still a compromise, because the solution as given to the user is
+still not standard M/S Freecell compatible.  And a solution that is saved in
+a file would need to be coded that Supermove was required to play it back.
+That's not insurmountable, but I'll table it for later consideration.  As I
+said, if I can enable Supermove for playback while using your solver, and
+that works, that's at least an entirely reasonable temporary solution to the
+problem.  But I'm a bit apprehensive whether it's going to work, as your
+version of Supermove won't necessarily turn out to be the same as mine.
+
+    Tell me this:  To what extent have your move lists been used to play out
+your solutions?  I'm a bit concerned, before I try it, that a special
+version of a Frecell playing program might be needed to handle your move
+lists.
+
+Best regards,  ------------------Adrian
+
+

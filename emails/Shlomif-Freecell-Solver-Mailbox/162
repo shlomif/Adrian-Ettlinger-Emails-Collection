@@ -1,0 +1,56 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 30105 invoked from network); 25 Jun 2002 03:43:08 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 25 Jun 2002 03:43:08 -0000
+Received: from computer ([12.78.218.199]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020625034306.XBJC19902.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Tue, 25 Jun 2002 03:43:06 +0000
+Message-ID: <000401c21bf9$f227daa0$c7da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206240901080.4630-100000@vipe.technion.ac.il>
+Subject: Status
+Date: Mon, 24 Jun 2002 23:38:55 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 50
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Well, there's still work to do.  And it isn't as simple as one might
+hope.  Perhaps one percent of all deals do not play through.  It depends on
+what preset is used which particular deals do not play.  Your new preset
+isn't really any different from the old one -- it was just a coincidence
+that the first 200 deals didn't have a problem.
+
+    To collect a number of samples of deals that don't play, I implemented
+an automatic test that in effect does a range solve but plays out the
+solution for each hand.  I've collected maybe 15 examples.  Unfortunately,
+they are not all of the same type.  Maybe half of them relate to "safe"
+moves, the other half are supermove-related.  I believe I have spotted one
+case where FCS is acutually delivering an invalid move.
+
+    I'll need some more time to decide what the strategy should be from here
+on.
+
+    I think it will act differently if atomic moves are used, so I'm not so
+sure how hard I want to work on the present situation.
+
+Best regards,  --------------------Adrian
+
+

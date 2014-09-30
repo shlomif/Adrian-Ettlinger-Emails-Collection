@@ -1,0 +1,70 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 25232 invoked from network); 28 May 2002 11:07:25 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 28 May 2002 11:07:25 -0000
+Received: from computer ([12.78.221.121]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020528110713.KACG19182.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Tue, 28 May 2002 11:07:13 +0000
+Message-ID: <000801c20637$5e68f560$79dd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205280809280.17541-100000@vipe.technion.ac.il>
+Subject: Problem with -step and -nst
+Date: Tue, 28 May 2002 07:03:10 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 28
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    So this problem with -step and -nst is a mystery, then.  It'll be a bit
+of the chore to pull together the entire code base.  I don't mind giving it
+to you, but do you really need the whole thing?  I. e., do you intend to
+compile it under DevStudio and debug it in that environment?  If you just
+want to inspect the relevant code, it'd be easier for me to send you just
+the relevant modules.
+
+    It does seem very odd that "unrecognized command" is being returned by
+the parser for those commands.  Looking at the cmd_line.c code, I can't see
+any explanation for that, as those commands seem to be detected the same way
+as the others, the only distinction being they are the last two tested for.
+Maybe the most expeditious course would be for me to try to put some traps
+into the cmd_line.c code and try to figure out what's happening in there.
+Like is it even getting to those last two tests.  Or is that unrec. cmd.
+code also returned under other circumstances.
+
+    Re 8.3 file names, that's just a habit I retained from the time when
+some of my programs were still being used by people who were using Windows
+3.1.  Also, I was using some software, like Norton Commander, that only
+handled 8.3 names.  It's still a style I like to cling to, sort of like your
+using spaces on either side of asterisks.  Come to think of it, that's a
+general style difference between you and I, just like you wanting to assign
+names to presets, where I think they can be more easily remembered by
+single-character or at least shorter abbreviations.
+
+    I like very much how the single-thread presets work, and I'm thinking
+just to play with them I might build that one multiple-thread preset I have
+from you into the code as a set of choices (one thread at time) selectable
+by a single-character mode key, just to see comparatively how they behave.
+
+    I'll check for a reply from you in another hour or so.  Wouldn't be able
+to send you any cod for another three hours or so.
+
+Best regards, ---------------Adrian
+
+

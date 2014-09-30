@@ -1,0 +1,66 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 6140 invoked from network); 4 Jun 2002 09:40:57 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 4 Jun 2002 09:40:57 -0000
+Received: from computer ([12.78.249.11]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020604094050.LIWQ5116.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Tue, 4 Jun 2002 09:40:50 +0000
+Message-ID: <000701c20bab$7409aee0$0bf94e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206040832570.1596-100000@vipe.technion.ac.il>
+Subject: M/S Freecell fix
+Date: Tue, 4 Jun 2002 05:36:10 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 39
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I thought I'd take a look at PySol, but I see one must download 3
+gBytes, which isn't worth the time for a lot of stuff I won't be interested
+in.  So tell me this:  In PySol's Freecell implementation, can one move an
+ace from stack to stack and have it stay there?
+
+    Why not change lib.c?
+
+    I disagree that M/S Freecell is fairly categorized as "broken".  It may
+lack certain possible features, but it "works", and while it may have
+idosyncracies, it has no flaws than can properly be called "bugs"..  You
+might take into account that millions of people all over the world play it,
+and it has spawned a culture all its own.  How many people do you think are
+users of PySol?
+
+    I don't think you're considering the proper approach to fixing FCS to be
+able to provide solutions for M/S Freecell.  There should be a move "type"
+which is a variation of "stack to foundation", and which should always be
+the first to be performed, unconditionally, on any new state.  I'd think
+you'd be able to implement that very easily.  If you like, you could add a
+command line switch so turn it on and off.
+
+    I'm thinking that any fix which treats the moves after FCS has made them
+is bound to be tricky, because once (to take the simplest example) an ace
+has been shifted from stack to stack, not only that move must be changed,
+but any later move of that ace, which I suppose could also in theory be to
+another stack instead of to the foundation, also needs to be changed or
+eliminated.  A lot of bookkeeping.  The probem should be fixed at the
+source, by a layer of mandatory moves when applicable.
+
+Best regards, ----------------Adrian
+
+
+

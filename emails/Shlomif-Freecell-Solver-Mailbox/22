@@ -1,0 +1,65 @@
+Return-Path: <fomalhaut@earthlink.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 405 invoked from network); 21 Nov 2001 22:29:54 -0000
+Received: from falcon.mail.pas.earthlink.net (HELO falcon.prod.itd.earthlink.net) (207.217.120.74)
+  by vipe.technion.ac.il with SMTP; 21 Nov 2001 22:29:54 -0000
+Received: from user-2iveklb.dialup.mindspring.com ([165.247.82.171] helo=computer)
+	by falcon.prod.itd.earthlink.net with esmtp (Exim 3.33 #1)
+	id 166fsI-0007Vt-00; Wed, 21 Nov 2001 14:29:47 -0800
+From: fomalhaut@earthlink.net
+To: Shlomi Fish <shlomif@vipe.technion.ac.il>
+Date: Wed, 21 Nov 2001 17:29:22 -0500
+MIME-Version: 1.0
+Content-type: text/enriched;
+  charset=US-ASCII
+Content-transfer-encoding: 7BIT
+Subject: Re: False impossible report
+CC: fomalhaut@earthlink.net,
+ aettlinger@worldnet.att.net
+Message-ID: <3BFBE472.25287.86AC057@localhost>
+Priority: normal
+References: <000a01c1723b$9d841300$5edd4e0c@computer>
+In-reply-to: <Pine.LNX.4.33L2.0111210835390.24063-100000@vipe.technion.ac.il>
+X-mailer: Pegasus Mail for Win32 (v3.12c)
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 48
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi and Adrian,
+
+      Thanks for copying me on this correspondence.
+
+
+>> With four freecells, you came out wth excellent performance,
+
+>> far outdoing FcPro.
+
+
+>Interesting. I had the impression that FC-Pro was faster than
+
+>Freecell Solver.
+
+
+      I assumed Adrian meant that it produced fewer intractables,
+
+not necessarily that it was faster.   We should be able to compare
+
+them pretty easily once FCPro has both solvers integrated.
+
+
+>OK. But realize that I do not intend Freecell Solver to report all
+
+>solveable states as such.
+
+
+      I don't understand what this means.
+
+
+Michael
+
+
+

@@ -1,0 +1,61 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 23510 invoked from network); 21 Nov 2001 04:22:07 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 21 Nov 2001 04:22:07 -0000
+Received: from computer ([12.78.221.94]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011121042155.ZULC29594.mtiwmhc21.worldnet.att.net@computer>;
+          Wed, 21 Nov 2001 04:21:55 +0000
+Message-ID: <000a01c1723b$9d841300$5edd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+Cc: <fomalhaut@earthlink.net>
+References: <Pine.LNX.4.33L2.0111201456100.8024-200000@vipe.technion.ac.il>
+Subject: False impossible report
+Date: Tue, 20 Nov 2001 22:20:16 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 43
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I got your solver running.  It took some work, and wound up building my
+own batch program.  I think the problem with yours was that it required a
+certain directory structure, and it was easier to put everything in the same
+subdirectory and do my own batch.
+
+    I decided to test it out with some examples from my notes that the FcPro
+solver had once announced false impossibles or took a huge number of
+iterations.  With four freecells, you came out wth excellent performance,
+far outdoing FcPro.
+
+    But immediateley when I went to work on three freecells, I ran across,
+so far, two false impossibles with your program. #9787 and #10350.  Also,
+#13705 seems to be "Intractable".  My system used up its 270MB dof isk
+space.  Question:  Is the depth count proportional to disk space, as it is
+in FcPro?  If so, do you know a rule of thumb for how much depth to allow
+per 1MB of available disk space?
+
+    Would you like me to let you know of any more false impossibles I
+discover with Freecell Solver?  BTW, the false impossibles are definitely
+working in both directions.  I confirmed two boards at zero freecells which
+Mike Keller told me about that I call Impossible and you solve.
+
+Best regards,  ------------Adrian
+
+
+
+

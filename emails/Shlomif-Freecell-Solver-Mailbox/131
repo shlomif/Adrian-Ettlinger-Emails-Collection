@@ -1,0 +1,50 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 22606 invoked from network); 26 May 2002 10:11:24 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 26 May 2002 10:11:24 -0000
+Received: from computer ([12.78.219.185]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020526101121.QNEU19182.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 26 May 2002 10:11:21 +0000
+Message-ID: <000401c2049d$3cda20e0$b9db4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205090736390.21705-100000@vipe.technion.ac.il>
+Subject: No, that'd be silly
+Date: Sun, 26 May 2002 06:07:14 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 19
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Now I get it.  When you gave me the example preset broken up with "\"
+and new lines, that was just to make it more human-readable, and the actual
+command line itself is supposed to have only space characters separating the
+options and their arguments.  And every new option begins with a "-"
+character, some of which are followed by white space plus an argument, some
+of which have no arguments.
+
+    So I can leave my code just as it is, and simply in the text editor when
+I prepare the preset .txt file, change it into a single line.
+
+    Assuming I do that, is it any big problem for you go show me the code I
+need to use?  It'll take you less time than it would me to figure it out.
+
+Best regards,  --------------Adrian
+
+

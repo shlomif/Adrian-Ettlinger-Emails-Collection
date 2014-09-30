@@ -1,0 +1,98 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 15579 invoked from network); 30 Jun 2002 04:15:28 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 30 Jun 2002 04:15:28 -0000
+Received: from computer ([12.78.219.106]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020630041525.KBSP20423.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 30 Jun 2002 04:15:25 +0000
+Message-ID: <002501c21fec$49d78840$6adb4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206291721150.24868-100000@vipe.technion.ac.il>
+Subject: Re: FcPro - FCS
+Date: Sat, 29 Jun 2002 23:58:31 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 64
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    We're onto entirely new ground now.
+
+    After considerable further experimentation, your analysis is essentially
+correct.  I have run into this kind of thing before, but this time it fooled
+me because after intially suspecting that the start from the compiler was
+not making any use of the presets, I saw in one test that it was in fact
+doing so.  I now think that was an accidental situation where something I'd
+done had set up the compiler to use the proper working subdirectory, but
+further testing showed that this was not normally the case, and only the
+start from the shortcut was consistently acquiring the preset file and using
+it.
+
+    Oddly, for a time it appeared that there was a very serious problem with
+only one preset, and that it related to the "safe move" modification.  But
+then I finally realized that the main thing really causing the problem was
+the special handling I'd put in to cope with the move pattern I had been
+getting from FCS before your recent change.  I'm not out of the woods yet,
+but the next step is fairly obvious;  I have to change my handling to treat
+FCS moves the same way I'm treating the moves from the other solvers, and
+proceed from there.
+
+    However, along the way I do believe I came across two instances where I
+was getting invalid moves from FCS.  Both of these are dependant on the
+preset used.  Number one, with this preset, on deal #100:
+
+    --method random-dfs -seed 1 -to 0[0123456789] -step 500 -nst \
+
+We get these moves:
+4a 4b 2c 24 72 63 8d 86 81 8h
+8h 4h 6h d4 7d b7 8b 57 68 6h
+a6 8a d8 5d 56 a8 35 46 48 53
+5a 5h 53 b5 a5 4b 14 18 1a 17
+b5 6b 6h a6 35 b6 1a 1b 1h 6h
+53 c1 8c 8h 74 b1 84 2b 28 2h
+18 b1 35 32 6b 6h 52 a3 6a 6h
+25 63 a6 65 d3 26 47 4h 43 2a
+28 a2 56 5h 2d c2 5a 5c b5 4b
+74 7h c8 2c a8 81 c2 5a 6c 6h
+73 d5 61 4d c4 2c b2 16 5b a5
+4a b4 2b 74 7h ch 5h dh 32 b7
+75 61 8b 8c 18 4d 4h 75 d7 6d
+6h a6 45 b4 8a 14
+    And that final "14" is invalid.  It tries to move a string of three from
+stack to stack, with only one empty freecell and no empty stacks.
+
+    Number two, with this preset, on deal #951:
+    --method random-dfs -seed 3 -to 0[01][23467] -step 500 -nst \
+
+The moves are:
+7h 7a 57 8b 8c 8h 6d 65 b1 3b
+36 c3 4c 4h 3h c2 64 26 1c 1h
+c1 8c 8h 85 d8 15 16 1d 18 16
+a8 12 3a 73 b1 7b 7h 7h ah 31
+b7 86 52 5a 5h 2h 2h 58 3h 2h
+7h 2h 3h 2h ah 47 43 6b 6a 6h
+ah 2h 6h 3h 2h 1h 7h 2h 2h 2h
+bh 2a 82 43 6b 68
+    And that final "68" is invalid.  Doesn't make any sense at all.
+
+    These are the moves in the move string passed from FCS.
+
+Best regards,  -------------------Adrian
+
+

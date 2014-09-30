@@ -1,0 +1,52 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 9957 invoked from network); 2 Jan 2002 05:21:14 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 2 Jan 2002 05:21:14 -0000
+Received: from computer ([12.78.218.11]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020102052109.DJYR5540.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Wed, 2 Jan 2002 05:21:09 +0000
+Message-ID: <000401c1934d$1b37ef60$0bda4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112301854320.4163-100000@vipe.technion.ac.il>
+Subject: Bld7.3 weird one
+Date: Wed, 2 Jan 2002 00:19:05 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 51
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Here's a weird phenomenon.  I happened to run that new build I just sent
+you in my other laptop, the one I use for communications. and of all things,
+the solutions are different than they are in the development laptop.  What's
+different is that some moves are missing in this laptop (the communications
+one, which is slower by a factor of about two).  The moves that are missing
+are moves to the foundation, which are now all supposed to be expressed
+explicitly in the solution, as FCS delivers them.
+
+    There has to be an explanation for this, and I can only think it's got
+to do with the computer's relative speeds.  The solver runs in a thread, and
+it just about has to be that some sort of asynchronous action is resetting
+an indicator somewhere.  This is going to take some study.  I'll have to
+figure out how to make it consistent regardless of timing.
+
+    More later, I hope.
+
+Best regards,  ---------------Adrian
+
+

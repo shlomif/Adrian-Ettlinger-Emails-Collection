@@ -1,0 +1,146 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 16750 invoked from network); 18 Nov 2001 01:32:35 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 18 Nov 2001 01:32:35 -0000
+Received: from computer ([12.78.218.145]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011118013222.ZKFJ4554.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 18 Nov 2001 01:32:22 +0000
+Message-ID: <000b01c16fc8$6ee92500$91da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111171620310.11850-100000@vipe.technion.ac.il>
+Subject: Ready to roll
+Date: Sat, 17 Nov 2001 19:31:04 -0500
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+  boundary="----=_NextPart_000_0008_01C16F9E.67CA1F60"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: NT
+X-Keywords: 
+X-UID: 34
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0008_01C16F9E.67CA1F60
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+
+Hi Shlomi,
+
+    Well, on the second look, I see that it was right before my eyes and I
+didn't see it.  I think I now see how I can implement your solver, given
+that you code for me a function.  I would like to define the function as
+follows:
+
+int Free2Solver(Position &orig, int NoFcs, int limit, int mode, int option)
+
+    Position is a structure, and I'm attaching a file which I just made up
+showing our present structure for a board.  I'm asking if you can work with
+this structure, or if you'd like me to translate it into a structure of
+yours.  Our actual Position structure has a number of additional elements,
+but I stripped it down to show the required elements to define a position.
+Other specs:
+
+Return value:  Result, one of three values  0=Impossible, 1= Limit expired,
+2= Solution found.
+
+Arguments:
+    Postion:   points to structure, as above.
+    NoFcs:   is the number of freecells, a digit from 0 to 7.
+    limit:   is the maximum number of iterations for the solver to use
+    mode:   is the choice from among your three (?) modes of operation, i.
+e. A*, DFS1, or DFS2 (are those the only choices?  If there are more
+variations, let me know)
+   option:   We haven't discussed this, and it depends on what you can
+readily provide.  With our solver, the user can request four different
+options.
+    1:  Result only  -- just answer the question as to whether there is or
+is not a solution possible
+    2.  Range of boards to solve:  I think we can forget that one.  If I'll
+want to implement that, I'll take care of it, deal the hands, and call your
+solver once at a time.
+    3.  Full solution.  I think for the time being, I'd just like you to
+create an ASCII file entitled "solution.txt".  We also have an internal
+format that is simply a long character string, unformatted, which lists the
+moves, but we can defer consideration of that until later.  For that matter,
+if solution output is something that will take some time to work out, we can
+defer that also.
+    4.  Solve from list.  This is to solve from a position found in a text
+file with the name "solvlist.txt"  That can also be deferred until later, if
+that would save time.
+
+    So, what I'm saying above, is that I'd like to get started as soon as
+possible, and if the quickest thing for you to do would be just to give me a
+function that will return "result only", that's fine, for starters.  I'd say
+the major thing we need to agree upon at the outset is the format in which I
+present the board to you.  I don't mind writing some translating code, if
+that's preferable for you.
+
+    Oh, yes, my dumb question No.27.  I'd forgotten, but we have the solver
+implemented to run under a thread.  That's something Wilson had done, and
+something I've never worked with directly myself.  I guess the purpose must
+be so that the solver can go on working and the user can still go on doing
+other functions.  That poses a question of whether we will have any way to
+abort your solver while it is running.  But we can deal with that later.
+But... Do you see any particular problem I might run into in running your
+solver from within a thread?  I could readily insert it for direct operation
+also, if desired.
+
+    I see my old friend Bill Raymond, from Fresno, CA, is following the
+mailing list and has chimed in, and as you've seen, I replied.  Bill has had
+the idea for some time that he'd like to like to stage a competition in
+Freecell solver design.  That thought really doesn't turn me on at all.
+You've seen by now what I had to say to him, which will also give you some
+further insight as to what I have in mind for FcPro.
+
+Best regards,  --------------------Adrian
+
+
+------=_NextPart_000_0008_01C16F9E.67CA1F60
+Content-Type: application/octet-stream;
+	name="Fcsolvex.h"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="Fcsolvex.h"
+
+// 1997 wilson callan
+// 1994 don woods
+
+#define CLUBS	 (0 << 4)
+#define DIAMONDS (1 << 4)
+#define SPADES	 (2 << 4)
+#define HEARTS   (3 << 4)
+
+#define SOLVE_RESULT	(0)
+#define SOLVE_RANGE		(1)
+#define SOLVE_SOLUTION	(2)
+#define SOLVE_LIST		(3)
+
+typedef unsigned char	uchar;
+typedef uchar		Card;/* 00ssrrrr: s=suit, r=rank(1-13) */
+
+typedef struct column_struct {
+	uchar	count;		/* number rdof cards in column */
+Card	cards[19];
+} Column;
+
+typedef struct pos_struct {
+	uchar	foundations[4];
+	Card	hold[8];
+#endif
+	Column	tableau[8];
+} Position;
+
+------=_NextPart_000_0008_01C16F9E.67CA1F60--
+

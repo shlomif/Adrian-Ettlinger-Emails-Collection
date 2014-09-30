@@ -1,0 +1,42 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 9365 invoked from network); 20 Aug 2002 15:47:03 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 20 Aug 2002 15:47:03 -0000
+Received: from computer ([12.78.137.150]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020820154656.MFWW28921.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Tue, 20 Aug 2002 15:46:56 +0000
+Message-ID: <000801c24860$410370c0$96894e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0208200852210.31980-200000@vipe.technion.ac.il>
+Subject: Chop looks good
+Date: Tue, 20 Aug 2002 11:41:08 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    That seems to fix it.
+
+    I want to do some more testing, then write up a description so I can
+post the new version on the website.  I'm once again in the thick of some
+other activity, so it might be a few days before I get to that.
+
+Best regards, ------------------Adrian
+
+

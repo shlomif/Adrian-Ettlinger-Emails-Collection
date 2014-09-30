@@ -1,0 +1,49 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 1422 invoked from network); 1 Aug 2002 10:12:36 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 1 Aug 2002 10:12:36 -0000
+Received: from computer ([12.78.218.174]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020801101233.JVHZ11089.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Thu, 1 Aug 2002 10:12:33 +0000
+Message-ID: <000801c23943$6984d420$aeda4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207311634400.6121-200000@vipe.technion.ac.il>
+Subject: Re: cmd_line_chop.c TNG with \r support [was Re: Update]
+Date: Thu, 1 Aug 2002 06:07:52 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    It still doesn't work, but I figured out why.
+
+    I wanted it to be able to process a file which is a verbatim copy of the
+way you type out presets, which includes a reverse slash at the end of each
+line.  It's the reverse slashes that are now causing the problem.  When I
+delete them from the file, it works.  Could you do another round in which
+you add bypassing of reverse slash?
+
+    Another embellishment would be nice, if it isn't too difficult.  You
+type presets with a header, and provide one or more comment lines, all
+beginning with a '#' character.  It would be nice to be able to have such
+lines as title lines in the text files to identify them.  Could you put a
+feature into cmd_line_chop so that it bypasses any line beginning with '#' ?
+
+Best regards,  ------------------Adrian
+
+

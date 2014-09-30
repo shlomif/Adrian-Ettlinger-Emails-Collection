@@ -1,0 +1,63 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 20953 invoked from network); 8 Jul 2002 10:45:43 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 8 Jul 2002 10:45:43 -0000
+Received: from computer ([12.78.249.93]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020708104531.PVXK5870.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Mon, 8 Jul 2002 10:45:31 +0000
+Message-ID: <003801c22663$b6baabe0$5df94e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207080853560.17699-100000@vipe.technion.ac.il>
+Subject: Re: Releasing the Source Code of FC-Pro [was Re: FcPro with FCS]
+Date: Mon, 8 Jul 2002 04:28:52 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<The message appears on the mailing list's archive on Yahoo Groups:>>
+    OK, guess I'll just have to keep my fingers crossed.  Even if he reads
+it, he might or might not be offended.
+
+    I'd sent Mike a message back around the first of June in response to an
+inquiry from him in which he asked if we should post a later version of
+FcPro which was not a Solver Evaluation Edition, and I replied in the
+affirmative.  But I had a blind spot there, replying as if I were telling
+him to go ahead and post it, whereas I'm now the one who has to do the
+posting, since we've got it now on a website of mine instead of his.  He
+never replied to that message.  Now I'm in somewhat of a dilemma, and
+undecided whether to call his attention to the situation.  I think I'll let
+sleeping dogs lie for another few days, anyway.
+
+    The latest Solver Evaluation Edition now has one added feature having
+nothing to do with solvers, and that's the capability to initialize to any
+intermediate position.  But I can't see that as being of much general use
+except for debugging purposes -- I did it only to remove suspicion from my
+part of the code re the last bug.  I think that can remain for the time
+being as an "undocumented feature".
+
+    BTW, since I've now released under GPL, you could request from me a copy
+of the source.  If you did, I'd waive the questionaire, since I know who you
+are.  In anticipation of you making the request, I do now have a zip file
+assembled containing what I think is all the source.  Although I haven't yet
+composed any descriptive notes.   It's a file about 230K in size.  I won't
+send it to you unless you request it.
+
+Best regards, ------------Adrian
+
+

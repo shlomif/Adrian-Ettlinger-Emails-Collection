@@ -1,0 +1,82 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 14491 invoked from network); 5 Jun 2002 15:10:22 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 5 Jun 2002 15:10:22 -0000
+Received: from computer ([12.78.218.104]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020605151014.PXEZ13408.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Wed, 5 Jun 2002 15:10:14 +0000
+Message-ID: <000401c20ca2$a40dd380$68da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206051342090.8424-100000@vipe.technion.ac.il>
+Subject: Re: M/S Freecell fix
+Date: Wed, 5 Jun 2002 11:06:12 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 42
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<During play moving cards to the foundations does not happen too often.
+Usually, I arrange all my cards as decreasing-order stacks and then press
+autoplay to watch them all being flourished.>>
+    That's certainly one way to play and I can see once you get into that
+habit you'd want to stick with it.  But most of the worldwide
+Freecell-playing population isn't as smart as you and I'm sure find the game
+easier to play if the "safe" foundation moves are made for them.
+Freecell-playing ability must be a specialized talent.  Not long ago I ran
+into a fellow I hadn't seen for a number of years, who I once dealt with,
+and who I considered one of the most brilliant engineers with whom I'd ever
+been acquainted.  He'd run across my name by web searching in connection
+with Freecell, and he told me he'd been working on game #1941 for months and
+wondered if it was solvable.
+
+<<That would require putting this prune after any move that is conducted in
+the tests function (while still maintaing the meta-move integrity).>>
+    That's just what I'm intending to do.  I'm going to try to make it so
+that no state containing a "safe" move (which I'm calling a mustmove) to the
+foundation is ever placed on the stack.
+
+<<in Israel we have very few railroads.>>
+    Yet as I recall there is an Israeli Railways, and I thought I'd heard
+there is a fairly high-volume passenger service, which I've guessed is
+probably a commuter service into Tel Aviv.  Is that right?  If so, is that
+the only rail passenger service in the country?
+
+    I focus entirely on US railroad history, although non-US history
+sometimes has some interest.  In your part of the world, I've been intrigued
+by the Hejaz Railway, which has been abandoned ever since T. E. Lawrence
+blew it up during WWI.  I'd heard that at least until a few years ago, one
+wrecked train was still there is the desert.  Somewhere either in Jordan or
+western Saudi Arabia.
+
+<<I'm more willing to make my moves M/S compatible as long as the moves to
+the foundations are explicit.>>
+    I think that'll be OK, because FcPro does have the capability to filter
+out explicit moves.  The problem is the moves which could shift aces to
+other than their original locations.
+
+<<But if it is going to be implemented, it has to be compatible with all the
+variations of solitaire Freecell Solver supports.>>        Seems to me it
+could be made conditional so it would only be invoked when playing under the
+Freecell setup (i. e., 8 stacks, any card to an empty cell, plus the other
+options that define Freecell.  So that way it wouldn't have any effect on
+other solitaire games.
+
+Best regards, -----------Adrian
+
+

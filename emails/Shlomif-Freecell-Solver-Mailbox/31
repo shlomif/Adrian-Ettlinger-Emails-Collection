@@ -1,0 +1,85 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 3633 invoked from network); 23 Nov 2001 12:34:56 -0000
+Received: from mtiwmhc25.worldnet.att.net (204.127.131.50)
+  by vipe.technion.ac.il with SMTP; 23 Nov 2001 12:34:56 -0000
+Received: from computer ([12.78.221.171]) by mtiwmhc25.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011123123447.MDXX15547.mtiwmhc25.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Fri, 23 Nov 2001 12:34:47 +0000
+Message-ID: <001f01c17412$cc099d20$abdd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111230900250.664-100000@vipe.technion.ac.il>
+Subject: Re: Progress report
+Date: Fri, 23 Nov 2001 06:33:23 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 53
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<If you see that the number of iterations is equal to the limit you set to
+it, you can assume it was not solved because of reason #2.>>
+    Let's defer further discussion of this question.  Once I get your solver
+running under FcPro, there will be some matters of design philosophy I'll
+want to discuss.  It's premature at this moment.
+
+<<Actually, "Humanity" is a movie screenplay I'm writing on my own. Check:>>
+    Oh.  Interesting.  I only saw the excerpts of references to it that
+appeared on a Google search, and thought it looked like you were reviewing a
+released movie.  I wonder if your theme will be anything like the silent
+movie (c. 1916) "Intolerance" by D. W. Griffith.  Have you ever seen that?
+
+    After I sent last night's message, I realized I should have told you
+about how I'm handling the pointers, as we might have anticipated problems I
+might encounter.  There are two pointers, the one for the original board,
+and the one for your solution string.  My first objective is simply to make
+your solver work, and retrieve the return value.  For that, of course, the
+pointer to the board position has to work.  Now, then, in my code, I have to
+both write the call to your routine, and I need an external declaration of
+it.  The board position is the name of a structure defined as Position.  I
+have this argument declared as Position*, and I call it with &orig.  Should
+that work?  (It compiles OK, obviously).
+
+    With respect to the solution string, the requirements of VC++ 4.0 do not
+seem to permit me to use the syntax you suggested.  Your routine has that
+argument defined as char * *.  First question, do the spaces have any
+effect?  Would it be the same if typed as char** ?  In any case, I do not
+seem to be able to find any combination of syntax that will compile in my
+code.  The problem might be that I want to point you to a string array which
+is declares as char FCSolveMoves[].  Whatever I do by way of declaring the
+external as char**, char* and calling it as &FCSolveMoves gives me a
+diagnostic like "different levels of indirection".  The way I got it to
+compile was by declaring it as LPSTR and calling it as (LPSTR)FCSolveMoves.
+I'm apprehensive that this might cause you to write out of bounds and make
+it crash.  If that happens, I'll want to disable your use of the pointer
+temporarily, just so I can test whether I can make the solver work at all by
+passing the board position properly.  Are you familiar with the LPSTR data
+type from C++ ?.  Of course, if the board pointer isn't really pointing to a
+board, I assume your solver will attempt to report back "invalid position"
+or whatever.
+
+    I'm sending this at about 1:30PM your time, so if you happen to be on
+line soon after, and can address these two questions, it might accelerate my
+efforts if we could telescope the communications process by your telling me
+what I've done wrong before I report whether it works.  It's going to take
+me at least an hour or two, maybe longer, to do the work I still have to do
+on my side of the fence to where I can test it.
+
+Best regards,  -------------Adrian
+
+

@@ -1,0 +1,52 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 12252 invoked from network); 25 Nov 2001 14:32:03 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 25 Nov 2001 14:32:03 -0000
+Received: from computer ([12.78.249.26]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011125143152.RAXE941.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 25 Nov 2001 14:31:52 +0000
+Message-ID: <002001c175b5$7c095000$1af94e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111251427360.10787-100000@vipe.technion.ac.il>
+Subject: Re: Replays
+Date: Sun, 25 Nov 2001 08:30:41 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 71
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I won't send you another example right now, but what I discovered in
+board #4 raises a serious question.  Here it appears that, in an identical
+situation to the one I showed you for board #114713, namely two vacant
+stacks and no vacant freecells, you are moving two cards of a sequence
+instead of just one.  If the number of cards which you can move will vary,
+that really presents an untenable situation as far as replaying your
+solutions is concerned.  It means that each move would need to be expressed
+by three characters instead of two.  Is that really the case?
+
+    If so, I don't really think your solutions meet the accepted standards
+for notation of published solutions.
+
+    Until we get this resolved, I think I'll move on to implement range
+solving.  Or I might look into my bug first.
+
+Best regards,  -----------Adrian
+
+

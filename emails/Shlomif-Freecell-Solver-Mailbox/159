@@ -1,0 +1,1128 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 3486 invoked from network); 24 Jun 2002 03:35:03 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 24 Jun 2002 03:35:03 -0000
+Received: from computer ([12.78.221.235]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020624033450.RKGI5870.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Mon, 24 Jun 2002 03:34:50 +0000
+Message-ID: <000801c21b2f$a0791d60$ebdd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206231632570.18201-100000@vipe.technion.ac.il>
+Subject: Re: `M/S Freecell fix
+Date: Sun, 23 Jun 2002 23:30:25 -0400
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+  boundary="----=_NextPart_000_0004_01C21B0D.F35D54A0"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 47
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0004_01C21B0D.F35D54A0
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+
+Hi Shlomi,
+
+    Dealing with your questions in reverse order.
+
+<<Are you using a source control system?>>
+    I don't know what that is.  But I think I do the equivalent informally.
+I save the source files in their various statuses.
+
+<<What exactly your changes do?>>
+    I had told you that your changes to create the "v" mode for supermove
+did not work, and I wound up doing it "my way".  I'm attaching copies of the
+fc_pro_iface.c and move.c files as I modified them.  One thing I did was to
+embellish it by making it so "v" is used only for moves to empty stacks, and
+only for moves of more than one card.  That involved some changes in the
+move.c file.
+
+<<Can't you rollback your changes and start from an earlier version?>>
+    I'm thinking that what I should do now is to go back to your original
+2.4.2 code with the new fc_pro_iface.c file, compile it, and then one bug at
+a time tell you what doesn't work right and what needs to be fixed, and let
+you do it, if you can take the time.  But I can tell you that the first
+problem I encountered was that you had removed my reversal of the sequence
+of source-destination in the rendering of the moves.  I had to restore that
+first.
+
+    Tomorrow I'll see what happens if I go back to your original code with
+the new fc_pro_iface, and we'll see what happens.
+Today I tried to do that, but left in some other changes that seemed to
+spoil it, to the effect that it was crashing.  But I should be able to get
+over that hurdle.  I know once I do that, however, I'll have the moves in
+the wrong source-destination sequence.
+
+Best regards,  -------------------Adrian
+
+
+------=_NextPart_000_0004_01C21B0D.F35D54A0
+Content-Type: application/octet-stream;
+	name="fc_pro_iface.c"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+	filename="fc_pro_iface.c"
+
+#include <stdlib.h>=0A=
+#include <stdio.h>=0A=
+#include <string.h>=0A=
+
+#if 0=0A=
+#include "Fcsolvex.h"=0A=
+#else=0A=
+#include "main.h"=0A=
+#include "Fcsolve.h"=0A=
+#endif=0A=
+#include "fcs_user.h"=0A=
+#include "fcs_cl.h"=0A=
+//extern int signal_step(int) ;=0A=
+int NumFCs ;=0A=
+char * moves_string;=0A=
+char * moves_stringe;
+static const char * ranks_map =3D "0A23456789TJQK";=0A=
+
+char szTemp[500] ;=0A=
+
+static char * rank_to_string(int rank, char * buf)=0A=
+{=0A=
+    buf[0] =3D ranks_map[rank];=0A=
+    buf[1] =3D '\0';=0A=
+    return buf;=0A=
+}=0A=
+
+static const char * suits_map =3D "CDSH";=0A=
+
+static char * suit_to_string(int suit, char * buf)=0A=
+{=0A=
+    buf[0] =3D suits_map[suit];=0A=
+    buf[1] =3D '\0';=0A=
+    return buf;=0A=
+}=0A=
+
+static char * card_to_string(Card card, char * buf)=0A=
+{=0A=
+    rank_to_string(card&0x0F,buf);=0A=
+    suit_to_string(card>>4,buf+1);=0A=
+
+    return buf;=0A=
+}=0A=
+
+static char * position_to_string(Position * pos, int num_freecells)=0A=
+{=0A=
+    int a, stack;=0A=
+    char buffer[4000], temp[4][20];=0A=
+    char * s_end;=0A=
+
+    buffer[0] =3D '\0';=0A=
+    s_end =3D buffer;=0A=
+
+    for(a=3D0;a<4;a++)=0A=
+    {=0A=
+        if (pos->foundations[a] !=3D 0)=0A=
+        {=0A=
+            break;=0A=
+        }=0A=
+    }=0A=
+    if (a < 4)=0A=
+    {=0A=
+        s_end +=3D sprintf(s_end, "Foundations:");=0A=
+        for(a=3D0;a<4;a++)=0A=
+        {=0A=
+            if (pos->foundations[a] !=3D 0)=0A=
+            {=0A=
+                s_end +=3D sprintf(=0A=
+                    s_end, =0A=
+                    " %s-%s", =0A=
+                    suit_to_string(a, temp[0]),=0A=
+                    rank_to_string(pos->foundations[a], temp[1])=0A=
+                    );=0A=
+            }=0A=
+        }=0A=
+        *s_end =3D '\n';=0A=
+        s_end++;=0A=
+    }=0A=
+    s_end +=3D sprintf(s_end, "Freecells:");=0A=
+    for(a=3D0;a<num_freecells;a++)=0A=
+    {=0A=
+        if (pos->hold[a] =3D=3D 0)=0A=
+        {=0A=
+            s_end +=3D sprintf(s_end, " -");=0A=
+        }=0A=
+        else=0A=
+        {=0A=
+            s_end +=3D sprintf(s_end, " %s", =
+card_to_string(pos->hold[a], temp[0]));=0A=
+        }=0A=
+    }=0A=
+    *s_end =3D '\n';=0A=
+    s_end++;=0A=
+
+    for(stack=3D0;stack<8;stack++)=0A=
+    {=0A=
+        for(a=3D0;a<pos->tableau[stack].count;a++)=0A=
+        {=0A=
+           s_end +=3D =0A=
+                sprintf(=0A=
+                    s_end, =0A=
+                    "%s%s", =0A=
+                    ((a =3D=3D 0)? "" : " "),=0A=
+                    card_to_string(pos->tableau[stack].cards[a], temp[0])=0A=
+                );                                =0A=
+        }=0A=
+        *s_end =3D '\n';=0A=
+        s_end++;=0A=
+    }=0A=
+    *s_end =3D '\0';=0A=
+
+    return strdup(buffer);=0A=
+}=0A=
+
+=0A=
+
+enum FCS_IFACE_MODES=0A=
+{=0A=
+    FCS_IFACE_MODE_DFS,=0A=
+    FCS_IFACE_MODE_A_STAR,=0A=
+
+    FCS_IFACE_MODE_OPT =3D 0x10000,=0A=
+};=0A=
+#ifdef FC89=0A=
+int Cvtf89(int fcn)=0A=
+{=0A=
+	if ((NumFCs > 7) && (fcn >=3D 7))=0A=
+		return (fcn+3) ;=0A=
+	return fcn ;=0A=
+}=0A=
+#endif
+
+BOOL ssind, ssind2 ;
+int vcount ;
+extern int mvinh ;
+BOOL shind, fhind ;
+
+static void render_vmove(fcs_move_t move, char * string)
+{
+	char c =3D string[2] ;
+	sprintf(string, "%xv",=20
+          fcs_move_get_num_cards_in_seq(move)
+          );
+	ssind =3D FALSE ;		=09
+	string[2] =3D c ;
+}
+
+static void render_move(fcs_move_t move, char * string)
+{
+    /* Save the third character which will be set to '\0' by the =
+sprintf.
+     * It's a kludge, but it works.
+     * */
+    char c =3D string[2];
+	char b ;  //ABE
+	ssind =3D FALSE ;
+    switch(fcs_move_get_type(move))
+    {
+        case FCS_MOVE_TYPE_STACK_TO_STACK:
+//		if (mvinh =3D=3D 0)
+//			{
+			sprintf(string, "%i%i",=20
+                    1+fcs_move_get_src_stack(move),
+                    1+fcs_move_get_dest_stack(move)
+                    );
+/*
+			}
+			else
+			{
+			sprintf(string, "xx");
+			mvinh =3D 0 ;
+			}
+//			ssind2 =3D TRUE ;
+*/
+		if (dest_stack_len =3D=3D 0)
+				ssind =3D TRUE ;
+		break;
+
+        case FCS_MOVE_TYPE_FREECELL_TO_STACK:
+				sprintf(string, "%c%i",=20
+#ifndef FC89
+                    ('a'+fcs_move_get_src_freecell(move)),
+#else
+                    ('a'+Cvtf89(fcs_move_get_src_freecell(move))),
+#endif
+                    1+fcs_move_get_dest_stack(move)
+                    );
+		break;
+
+        case FCS_MOVE_TYPE_FREECELL_TO_FREECELL:
+                sprintf(string, "%c%c",
+#ifndef FC89
+                    ('a'+fcs_move_get_src_freecell(move)),
+                    ('a'+fcs_move_get_dest_freecell(move))
+#else
+                    ('a'+Cvtf89(fcs_move_get_src_freecell(move))),
+                    ('a'+Cvtf89(fcs_move_get_dest_freecell(move)))
+#endif
+					);                       =20
+        break;
+
+        case FCS_MOVE_TYPE_STACK_TO_FREECELL:
+                sprintf(string, "%i%c",
+                    1+fcs_move_get_src_stack(move),
+#ifndef FC89
+                    ('a'+fcs_move_get_dest_freecell(move))
+#else
+                    ('a'+Cvtf89(fcs_move_get_dest_freecell(move)))
+#endif
+                    );
+//sprintf(szTemp, "StF fc-%d np-%d ", fcs_move_get_dest_freecell(move), =
+NumFCs) ;
+//MainMessage(szTemp) ;
+		break;
+
+        case FCS_MOVE_TYPE_STACK_TO_FOUNDATION:
+			sprintf(string, "%ih", 1+fcs_move_get_src_stack(move));
+			shind =3D TRUE ;
+//MessageBox(GetFocus(), string, "S2F", MB_OK) ;
+		break;
+       =20
+
+        case FCS_MOVE_TYPE_FREECELL_TO_FOUNDATION:
+#ifndef FC89
+				sprintf(string, "%ch", ('a'+fcs_move_get_src_freecell(move)));
+#else
+                sprintf(string, "%ch", =
+('a'+Cvtf89(fcs_move_get_src_freecell(move))));
+#endif
+				fhind =3D TRUE ;
+//MessageBox(GetFocus(), string, "F2F", MB_OK) ;
+        break;
+
+        case FCS_MOVE_TYPE_SEQ_TO_FOUNDATION:
+                sprintf(string, "%ih", fcs_move_get_src_stack(move));
+        break;
+
+        default:
+            string[0] =3D '\0';
+        break;
+    }
+    /* Restore that character */
+	string[2] =3D c;
+	b =3D string[0] ;  // Swap characters -- ABE
+	string[0] =3D string[1] ;
+	string[1] =3D b ;
+//if (shind)
+//MessageBox(GetFocus(), string, "S2F", MB_OK) ;
+//shind =3D fhind =3D FALSE ;
+}
+
+static char * cmd_line_known_parameters[] =3D { NULL };=0A=
+
+//int Free2Solver(Position * orig, int NoFcs, int limit, int mode, int =
+option, char * * ret_moves)=0A=
+
+int Free2Solver(Position * orig, int NoFcs, int limit, int =
+cmd_line_argc, char * * cmd_line_argv,=0A=
+
+	 int (*signal_step)(int step_limit))=0A=
+
+{=0A=
+    char * state_string;=0A=
+    void * instance;=0A=
+    int verdict;=0A=
+    int num_iters;=0A=
+    int ret;=0A=
+    int current_limit =3D 1000;=0A=
+    char * err_str;=0A=
+    int ret_arg, parser_ret;=0A=
+    state_string =3D position_to_string(orig, NoFcs);=0A=
+    instance =3D freecell_solver_user_alloc();=0A=
+	NumFCs =3D NoFcs ;=0A=
+//sprintf(szTemp, "ac- %d ", cmd_line_argc) ;
+//sprintf(szTemp, "ac- %d av-%s ", cmd_line_argc, cmd_line_argv[6]) ;
+//MessageBox(GetFocus(), szTemp, "fcif", MB_OK) ;
+    parser_ret =3D freecell_solver_user_cmd_line_parse_args(=0A=
+            instance,=0A=
+            cmd_line_argc,=0A=
+            cmd_line_argv,=0A=
+            0,=0A=
+            cmd_line_known_parameters,=0A=
+            NULL,=0A=
+            NULL,=0A=
+            &err_str,=0A=
+            &ret_arg=0A=
+            );=0A=
+//MessageBox(GetFocus(), "Parsed", "fcif", MB_OK) ;
+    if (parser_ret =3D=3D FCS_CMD_LINE_UNRECOGNIZED_OPTION)=0A=
+	{=0A=
+MessageBox(GetFocus(), "Unrec", "fcif", MB_OK) ;
+        freecell_solver_user_free(instance);        =0A=
+        return 0;=0A=
+    }=0A=
+    freecell_solver_user_set_game(=0A=
+        instance,=0A=
+        NoFcs,=0A=
+        8,=0A=
+        1,=0A=
+        FCS_SEQ_BUILT_BY_ALTERNATE_COLOR,=0A=
+        0,=0A=
+        FCS_ES_FILLED_BY_ANY_CARD=0A=
+        );=0A=
+    freecell_solver_user_limit_iterations(instance, current_limit);=0A=
+#if 0=0A=
+    freecell_solver_user_set_solving_method(=0A=
+        instance,=0A=
+        (((mode & 0xFFFF) =3D=3D FCS_IFACE_MODE_DFS) ?=0A=
+            FCS_METHOD_SOFT_DFS :=0A=
+            FCS_METHOD_A_STAR=0A=
+        )=0A=
+    );=0A=
+    freecell_solver_user_set_solution_optimization(=0A=
+        instance,=0A=
+        (mode & FCS_IFACE_MODE_OPT) ? 1 : 0=0A=
+        );=0A=
+#endif=0A=
+    verdict =3D freecell_solver_user_solve_board(instance, state_string);=0A=
+    free(state_string);=0A=
+    while ((verdict =3D=3D FCS_STATE_SUSPEND_PROCESS) && =0A=
+           (=0A=
+                (limit > 0) ? =0A=
+                    (current_limit < limit) :=0A=
+                    1=0A=
+           )=0A=
+          )=0A=
+    {=0A=
+//        if (signal_step(current_limit, signal_step_context) !=3D 0)=0A=
+        if (signal_step(current_limit) !=3D 0)=0A=
+        {=0A=
+            break;=0A=
+        }=0A=
+        current_limit +=3D 1000;=0A=
+        freecell_solver_user_limit_iterations(instance, current_limit);=0A=
+        verdict =3D freecell_solver_user_resume_solution(instance);=0A=
+    }=0A=
+    num_iters =3D freecell_solver_user_get_num_times(instance);=0A=
+//    *ret_moves =3D NULL;=0A=
+    if (verdict =3D=3D FCS_STATE_WAS_SOLVED)=0A=
+    {=0A=
+        int num_moves;=0A=
+        int a;=0A=
+        fcs_move_t move;
+#if 0   // Shlomi's new code
+		char * str, * moves_string_proto, len;=0A=
+        ret =3D num_iters;=0A=
+        num_moves =3D freecell_solver_user_get_moves_left(instance);=0A=
+        moves_string_proto =3D (char *)malloc(num_moves*4+1);=0A=
+
+        /* a =3D num_moves-1; */=0A=
+
+        str =3D moves_string_proto;=0A=
+        while (! freecell_solver_user_get_next_move(instance, &move))=0A=
+        {=0A=
+            str =3D render_move(move, str);=0A=
+        }=0A=
+        len =3D str-moves_string_proto;=0A=
+        moves_string =3D malloc(len+1);=0A=
+        for(a=3D0;a<len;a++)=0A=
+        {=0A=
+            moves_string[a] =3D moves_string_proto[len-a];=0A=
+        }=0A=
+        moves_string[a] =3D '\0';=0A=
+        free(moves_string_proto);=0A=
+#if 0=0A=
+        moves_string[num_moves*2] =3D '\0';=0A=
+#endif=0A=
+//        *ret_moves =3D moves_string;=0A=
+#else   // restoration of old code
+        ret =3D num_iters;
+        num_moves =3D freecell_solver_user_get_moves_left(instance);
+        moves_string =3D (char *)malloc(num_moves*2+1);
+		moves_stringe =3D (char *)malloc(num_moves*2+1);
+        a =3D num_moves-1;
+		vcount =3D 0 ;
+        while (! freecell_solver_user_get_next_move(instance, &move))
+        {
+//            render_move(move, moves_string + ((a-vcount)*2));
+            render_move(move, moves_string + ((a)*2));
+            a--;
+//added by ABE for "v" mode
+		if ((ssind =3D=3D TRUE) && (fcs_move_get_num_cards_in_seq(move) > 1))
+			{
+			vcount++ ;
+			moves_stringe =3D (char *)malloc((num_moves + vcount)*2+1);
+			memcpy(moves_stringe+2, moves_string, (num_moves + vcount)*2) ;
+			moves_string =3D (char *)malloc((num_moves + vcount)*2+1);
+			memcpy(moves_string, moves_stringe, (num_moves + vcount)*2) ;
+            render_vmove(move, moves_string + ((a+1)*2));
+			}
+//if (shind)
+//MessageBox(GetFocus(), moves_string, "fcif", MB_OK) ;
+//shind =3D FALSE ;
+		}
+//    moves_string[(num_moves + vcount)*2+2] =3D '\0';
+		moves_string[(num_moves + vcount)*2] =3D '\0';
+
+//        *ret_moves =3D moves_string;
+#endif
+	}=0A=
+    else if (verdict =3D=3D FCS_STATE_IS_NOT_SOLVEABLE)=0A=
+
+    {=0A=
+
+		if (num_iters =3D=3D 0)=0A=
+
+			num_iters++ ;=0A=
+
+        ret =3D -num_iters;=0A=
+
+    }=0A=
+
+    else if ((verdict =3D=3D FCS_STATE_SUSPEND_PROCESS) || (verdict =
+=3D=3D FCS_STATE_BEGIN_SUSPEND_PROCESS))=0A=
+
+    {=0A=
+
+        ret =3D 0;=0A=
+
+    }=0A=
+
+    =0A=
+
+    freecell_solver_user_free(instance);=0A=
+
+=0A=
+
+    return ret;=0A=
+
+}=0A=
+
+=0A=
+
+#if 1=0A=
+
+=0A=
+
+static int my_signal_step(int step_limit)=0A=
+
+{=0A=
+
+    printf("num_iters=3D%i\n", step_limit);=0A=
+
+    return 0;=0A=
+
+}=0A=
+#if 0
+int main(int argc, char * argv[])=0A=
+
+{=0A=
+
+    Position mypos;=0A=
+
+    int ret;=0A=
+
+=0A=
+
+#include "fill_pos.cpp"=0A=
+
+=0A=
+
+    ret =3D Free2Solver(&mypos, 4, 150000, argc-1, argv+1, =
+my_signal_step);=0A=
+
+=0A=
+
+    printf("%i\n", ret);=0A=
+
+=0A=
+
+    printf("%s\n", moves_string);=0A=
+
+=0A=
+
+    return 0;=0A=
+
+}=0A=
+#endif
+#endif=0A=
+
+
+------=_NextPart_000_0004_01C21B0D.F35D54A0
+Content-Type: application/octet-stream;
+	name="Move.c"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+	filename="Move.c"
+
+/*
+ * move.c - move and move stacks routines for Freecell Solver
+ *
+ * Written by Shlomi Fish (shlomif@vipe.technion.ac.il), 2000
+ *
+ * This file is in the public domain (it's uncopyrighted).
+ */
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <windows.h>
+
+#include "move.h"
+#include "state.h"
+
+#ifdef DMALLOC
+#include "dmalloc.h"
+#endif
+
+int dest_stack_len ;
+int mvinh ;
+
+#if 0
+/* This variable was used for debugging. */
+int msc_counter=3D0;
+#endif
+
+#if 0
+/* This function allocates an empty move stack */
+fcs_move_stack_t * fcs_move_stack_create(void)
+{
+    fcs_move_stack_t * ret;
+
+    /* Allocate the data structure itself */
+    ret =3D (fcs_move_stack_t *)malloc(sizeof(fcs_move_stack_t));
+
+    ret->max_num_moves =3D FCS_MOVE_STACK_GROW_BY;
+    ret->num_moves =3D 0;
+    /* Allocate some space for the moves */
+    ret->moves =3D (fcs_move_t =
+*)malloc(sizeof(fcs_move_t)*ret->max_num_moves);
+
+    return ret;
+}
+#endif
+
+#if 0
+int fcs_move_stack_push(fcs_move_stack_t * stack, fcs_move_t move)
+{
+    /* If all the moves inside the stack are taken then
+       resize the move vector */
+
+    if (stack->num_moves =3D=3D stack->max_num_moves)
+    {
+        int a, b;
+        a =3D (stack->max_num_moves >> 3);
+        b =3D FCS_MOVE_STACK_GROW_BY;
+        stack->max_num_moves +=3D max(a,b);
+        stack->moves =3D realloc(
+            stack->moves,
+            stack->max_num_moves * sizeof(fcs_move_t)
+            );
+    }
+    stack->moves[stack->num_moves++] =3D move;
+
+    return 0;
+}
+#endif
+
+int freecell_solver_move_stack_pop(fcs_move_stack_t * stack, fcs_move_t =
+* move)
+{
+    if (stack->num_moves > 0)
+    {
+        *move =3D stack->moves[--stack->num_moves];
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+}
+
+#if 0
+void fcs_move_stack_destroy(fcs_move_stack_t * stack)
+{
+    free(stack->moves);
+    free(stack);
+}
+#endif
+
+void freecell_solver_move_stack_swallow_stack(
+    fcs_move_stack_t * stack,
+    fcs_move_stack_t * src_stack
+    )
+{
+    fcs_move_t move;
+    while (!fcs_move_stack_pop(src_stack, &move))
+    {
+        fcs_move_stack_push(stack, move);
+    }
+    fcs_move_stack_destroy(src_stack);
+}
+
+#if 0
+void fcs_move_stack_reset(
+    fcs_move_stack_t * stack
+    )
+{
+    stack->num_moves =3D 0;
+}
+#endif
+
+int freecell_solver_move_stack_get_num_moves(
+    fcs_move_stack_t * stack
+    )
+{
+    return stack->num_moves;
+}
+
+#if 0
+/*
+    This function duplicates a move stack
+*/
+fcs_move_stack_t * fcs_move_stack_duplicate(
+    fcs_move_stack_t * stack
+    )
+{
+    fcs_move_stack_t * ret;
+
+    ret =3D (fcs_move_stack_t *)malloc(sizeof(fcs_move_stack_t));
+
+    ret->max_num_moves =3D stack->max_num_moves;
+    ret->num_moves =3D stack->num_moves;
+    ret->moves =3D (fcs_move_t *)malloc(sizeof(fcs_move_t) * =
+ret->max_num_moves);
+    memcpy(ret->moves, stack->moves, sizeof(fcs_move_t) * =
+ret->max_num_moves);
+
+    return ret;
+}
+#endif
+
+#if 0
+extern void fcs_derived_states_list_add_state(
+    fcs_derived_states_list_t * list,
+    fcs_state_with_locations_t * state,
+    fcs_move_stack_t * move_stack
+    )
+{
+    if (list->num_states =3D=3D list->max_num_states)
+    {
+        list->max_num_states +=3D 16;
+        list->states =3D realloc(list->states, sizeof(list->states[0]) * =
+list->max_num_states);
+        list->move_stacks =3D realloc(list->move_stacks, =
+sizeof(list->move_stacks[0]) * list->max_num_states);
+    }
+    list->states[list->num_states] =3D state;
+    list->move_stacks[list->num_states] =3D move_stack;
+    list->num_states++;
+}
+#endif
+/*
+    This function performs a given move on a state
+
+  */
+void freecell_solver_apply_move(fcs_state_with_locations_t * =
+state_with_locations, fcs_move_t move, int freecells_num, int =
+stacks_num, int decks_num)
+{
+    fcs_state_t * state;
+    fcs_card_t temp_card;
+    int a;
+    int src_stack, dest_stack;
+    int src_freecell, dest_freecell;
+    int src_stack_len;
+
+//char szTemp[50] ;
+
+    state =3D (&(state_with_locations->s));
+
+    dest_stack =3D fcs_move_get_dest_stack(move);
+    src_stack =3D fcs_move_get_src_stack(move);
+    dest_freecell =3D fcs_move_get_dest_freecell(move);
+    src_freecell =3D fcs_move_get_src_freecell(move);
+/*
+    src_stack_len =3D fcs_stack_len(*state, src_stack);
+	if ((fcs_move_get_type(move) =3D=3D FCS_MOVE_TYPE_STACK_TO_STACK) &&
+		(fcs_stack_card_num(*state, src_stack, src_stack_len-1) =3D=3D 1))
+	{
+//		fcs_move_set_type(move, FCS_MOVE_TYPE_STACK_TO_FOUNDATION) ;
+sprintf(szTemp, "MV ss-%d  ds-%d n-%d sl-%d ", src_stack, dest_stack,
+		fcs_stack_card_num(*state, src_stack, src_stack_len-1),
+		src_stack_len) ;
+MessageBox(GetFocus(), szTemp, "Move", MB_OK);
+	}
+ */
+	switch(fcs_move_get_type(move))
+    {
+        case FCS_MOVE_TYPE_STACK_TO_STACK:
+        {
+            src_stack_len =3D fcs_stack_len(*state, src_stack);
+            dest_stack_len =3D fcs_stack_len(*state, dest_stack);
+			mvinh =3D 0 ;
+			if (fcs_stack_card_num(*state, src_stack, src_stack_len-1) =3D=3D 1)
+				mvinh =3D 1 ;
+            for(a=3D0 ; a<fcs_move_get_num_cards_in_seq(move) ; a++)
+            {
+                fcs_push_stack_card_into_stack(
+                    *state,
+                    dest_stack,
+                    src_stack,
+                    src_stack_len - =
+fcs_move_get_num_cards_in_seq(move)+a
+                    );
+            }
+            for(a=3D0 ; a<fcs_move_get_num_cards_in_seq(move) ; a++)
+            {
+                fcs_pop_stack_card(
+                    *state,
+                    src_stack,
+                    temp_card
+                    );
+            }
+        }
+        break;
+        case FCS_MOVE_TYPE_FREECELL_TO_STACK:
+        {
+            temp_card =3D fcs_freecell_card(*state, src_freecell);
+            fcs_push_card_into_stack(*state, dest_stack, temp_card);
+            fcs_empty_freecell(*state, src_freecell);
+        }
+        break;
+        case FCS_MOVE_TYPE_FREECELL_TO_FREECELL:
+        {
+            temp_card =3D fcs_freecell_card(*state, src_freecell);
+            fcs_put_card_in_freecell(*state, dest_freecell, temp_card);
+            fcs_empty_freecell(*state, src_freecell);
+        }
+        break;
+        case FCS_MOVE_TYPE_STACK_TO_FREECELL:
+        {
+            fcs_pop_stack_card(*state, src_stack, temp_card);
+            fcs_put_card_in_freecell(*state, dest_freecell, temp_card);
+        }
+        break;
+        case FCS_MOVE_TYPE_STACK_TO_FOUNDATION:
+        {
+            fcs_pop_stack_card(*state, src_stack, temp_card);
+            fcs_increment_foundation(*state, =
+fcs_move_get_foundation(move));
+        }
+        break;
+        case FCS_MOVE_TYPE_FREECELL_TO_FOUNDATION:
+        {
+            fcs_empty_freecell(*state, src_freecell);
+            fcs_increment_foundation(*state, =
+fcs_move_get_foundation(move));
+        }
+        break;
+        case FCS_MOVE_TYPE_SEQ_TO_FOUNDATION:
+        {
+            for(a=3D0;a<13;a++)
+            {
+                fcs_pop_stack_card(*state, src_stack, temp_card);
+                fcs_increment_foundation(*state, =
+fcs_move_get_foundation(move));
+            }
+        }
+        break;
+
+        case FCS_MOVE_TYPE_FLIP_CARD:
+        {
+            fcs_flip_stack_card(*state, src_stack, fcs_stack_len(*state, =
+src_stack)-1);
+        }
+        break;
+
+        case FCS_MOVE_TYPE_CANONIZE:
+        {
+            fcs_canonize_state(state_with_locations, freecells_num, =
+stacks_num);
+        }
+        break;
+
+    }
+}
+
+/*
+    The purpose of this function is to convert the moves from using
+    the canonized positions of the stacks and freecells to their
+    user positions.
+*/
+
+void freecell_solver_move_stack_normalize(
+    fcs_move_stack_t * moves,
+    fcs_state_with_locations_t * init_state,
+    int freecells_num,
+    int stacks_num,
+    int decks_num
+    )
+{
+    fcs_move_stack_t * temp_moves;
+    fcs_move_t in_move, out_move;
+    fcs_state_with_locations_t dynamic_state;
+
+    fcs_move_stack_alloc_into_var(temp_moves);
+
+    fcs_duplicate_state(dynamic_state, *init_state);
+
+    while (
+        fcs_move_stack_pop(
+            moves,
+            &in_move
+            ) =3D=3D 0)
+    {
+        freecell_solver_apply_move(
+            &dynamic_state,
+            in_move,
+            freecells_num,
+            stacks_num,
+            decks_num
+            );
+        if (fcs_move_get_type(in_move) =3D=3D FCS_MOVE_TYPE_CANONIZE)
+        {
+            /* Do Nothing */
+        }
+        else
+        {
+            fcs_move_set_type(out_move, fcs_move_get_type(in_move));
+            if ((fcs_move_get_type(in_move) =3D=3D =
+FCS_MOVE_TYPE_STACK_TO_STACK) ||
+                (fcs_move_get_type(in_move) =3D=3D =
+FCS_MOVE_TYPE_STACK_TO_FREECELL) ||
+                (fcs_move_get_type(in_move) =3D=3D =
+FCS_MOVE_TYPE_STACK_TO_FOUNDATION) ||
+                (fcs_move_get_type(in_move) =3D=3D =
+FCS_MOVE_TYPE_SEQ_TO_FOUNDATION)
+                )
+            {
+                =
+fcs_move_set_src_stack(out_move,dynamic_state.stack_locs[(int)fcs_move_ge=
+t_src_stack(in_move)]);
+            }
+
+            if (
+                (fcs_move_get_type(in_move) =3D=3D =
+FCS_MOVE_TYPE_FREECELL_TO_STACK) ||
+                (fcs_move_get_type(in_move) =3D=3D =
+FCS_MOVE_TYPE_FREECELL_TO_FREECELL) ||
+                (fcs_move_get_type(in_move) =3D=3D =
+FCS_MOVE_TYPE_FREECELL_TO_FOUNDATION))
+            {
+                =
+fcs_move_set_src_freecell(out_move,dynamic_state.fc_locs[(int)fcs_move_ge=
+t_src_freecell(in_move)]);
+            }
+
+            if (
+                (fcs_move_get_type(in_move) =3D=3D =
+FCS_MOVE_TYPE_STACK_TO_STACK) ||
+                (fcs_move_get_type(in_move) =3D=3D =
+FCS_MOVE_TYPE_FREECELL_TO_STACK)
+                )
+            {
+                =
+fcs_move_set_dest_stack(out_move,dynamic_state.stack_locs[(int)fcs_move_g=
+et_dest_stack(in_move)]);
+            }
+
+            if (
+                (fcs_move_get_type(in_move) =3D=3D =
+FCS_MOVE_TYPE_STACK_TO_FREECELL) ||
+                (fcs_move_get_type(in_move) =3D=3D =
+FCS_MOVE_TYPE_FREECELL_TO_FREECELL)
+                )
+            {
+                =
+fcs_move_set_dest_freecell(out_move,dynamic_state.fc_locs[(int)fcs_move_g=
+et_dest_freecell(in_move)]);
+            }
+
+            if ((fcs_move_get_type(in_move) =3D=3D =
+FCS_MOVE_TYPE_STACK_TO_FOUNDATION) ||
+                (fcs_move_get_type(in_move) =3D=3D =
+FCS_MOVE_TYPE_FREECELL_TO_FOUNDATION) ||
+                (fcs_move_get_type(in_move) =3D=3D =
+FCS_MOVE_TYPE_SEQ_TO_FOUNDATION)
+
+               )
+            {
+                =
+fcs_move_set_foundation(out_move,fcs_move_get_foundation(in_move));
+            }
+
+            if ((fcs_move_get_type(in_move) =3D=3D =
+FCS_MOVE_TYPE_STACK_TO_STACK))
+            {
+                =
+fcs_move_set_num_cards_in_seq(out_move,fcs_move_get_num_cards_in_seq(in_m=
+ove));
+            }
+
+            fcs_move_stack_push(temp_moves, out_move);
+        }
+    }
+
+    /*
+     * temp_moves contain the needed moves in reverse order. So let's =
+use
+     * swallow_stack to put them in the original in the correct order.
+     *
+     * */
+    fcs_move_stack_reset(moves);
+
+    freecell_solver_move_stack_swallow_stack(moves, temp_moves);
+
+    fcs_clean_state(&dynamic_state);
+}
+
+char * freecell_solver_move_to_string(fcs_move_t move, int =
+standard_notation)
+{
+    char string[256];
+    switch(fcs_move_get_type(move))
+    {
+        case FCS_MOVE_TYPE_STACK_TO_STACK:
+            if (standard_notation)
+            {
+                sprintf(string, "%i%i",
+                    1+fcs_move_get_src_stack(move),
+                    1+fcs_move_get_dest_stack(move)
+                    );
+            }
+            else
+            {
+                sprintf(string, "Move %i cards from stack %i to stack =
+%i",
+                    fcs_move_get_num_cards_in_seq(move),
+                    fcs_move_get_src_stack(move),
+                    fcs_move_get_dest_stack(move)
+                );
+            }
+        break;
+
+        case FCS_MOVE_TYPE_FREECELL_TO_STACK:
+            if (standard_notation)
+            {
+                sprintf(string, "%c%i",
+                    ('a'+fcs_move_get_src_freecell(move)),
+                    1+fcs_move_get_dest_stack(move)
+                    );
+            }
+            else
+            {
+                sprintf(string, "Move a card from freecell %i to stack =
+%i",
+                    fcs_move_get_src_freecell(move),
+                    fcs_move_get_dest_stack(move)
+                    );
+            }
+
+        break;
+
+        case FCS_MOVE_TYPE_FREECELL_TO_FREECELL:
+            if (standard_notation)
+            {
+                sprintf(string, "%c%c",
+                    ('a'+fcs_move_get_src_freecell(move)),
+                    ('a'+fcs_move_get_dest_freecell(move))
+                    );
+            }
+            else
+            {
+                sprintf(string, "Move a card from freecell %i to =
+freecell %i",
+                    fcs_move_get_src_freecell(move),
+                    fcs_move_get_dest_freecell(move)
+                    );
+            }
+
+        break;
+
+        case FCS_MOVE_TYPE_STACK_TO_FREECELL:
+            if (standard_notation)
+            {
+                sprintf(string, "%i%c",
+                    1+fcs_move_get_src_stack(move),
+                    ('a'+fcs_move_get_dest_freecell(move))
+                    );
+            }
+            else
+            {
+                sprintf(string, "Move a card from stack %i to freecell =
+%i",
+                    fcs_move_get_src_stack(move),
+                    fcs_move_get_dest_freecell(move)
+                    );
+            }
+
+        break;
+
+        case FCS_MOVE_TYPE_STACK_TO_FOUNDATION:
+            if (standard_notation)
+            {
+                sprintf(string, "%ih", 1+fcs_move_get_src_stack(move));
+            }
+            else
+            {
+                sprintf(string, "Move a card from stack %i to the =
+foundations",
+                    fcs_move_get_src_stack(move)
+                    );
+            }
+
+        break;
+
+
+        case FCS_MOVE_TYPE_FREECELL_TO_FOUNDATION:
+            if (standard_notation)
+            {
+                sprintf(string, "%ch", =
+('a'+fcs_move_get_src_freecell(move)));
+            }
+            else
+            {
+                sprintf(string,
+                    "Move a card from freecell %i to the foundations",
+                    fcs_move_get_src_freecell(move)
+                    );
+            }
+
+        break;
+
+        case FCS_MOVE_TYPE_SEQ_TO_FOUNDATION:
+            if (standard_notation)
+            {
+                sprintf(string, "%ih", fcs_move_get_src_stack(move));
+            }
+            else
+            {
+                sprintf(string,
+                    "Move the sequence on top of Stack %i to the =
+foundations",
+                    fcs_move_get_src_stack(move)
+                    );
+            }
+        break;
+
+        default:
+            string[0] =3D '\0';
+        break;
+    }
+
+    return strdup(string);
+}
+
+------=_NextPart_000_0004_01C21B0D.F35D54A0--
+

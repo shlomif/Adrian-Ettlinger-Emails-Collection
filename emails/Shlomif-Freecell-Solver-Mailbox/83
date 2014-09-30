@@ -1,0 +1,50 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 8164 invoked from network); 27 Dec 2001 13:23:21 -0000
+Received: from mtiwmhc25.worldnet.att.net (204.127.131.50)
+  by vipe.technion.ac.il with SMTP; 27 Dec 2001 13:23:21 -0000
+Received: from computer ([12.78.220.172]) by mtiwmhc25.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011227132311.KLTW15547.mtiwmhc25.worldnet.att.net@computer>;
+          Thu, 27 Dec 2001 13:23:11 +0000
+Message-ID: <000901c18ed9$7356cb80$acdc4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Tom Holroyd" <tomh@po.crl.go.jp>,
+ "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112270927430.4825-100000@vipe.technion.ac.il>
+Subject: Licensing
+Date: Thu, 27 Dec 2001 08:12:26 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 45
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Tom and Shlomi,
+
+    I'll get back to you later more definitively about the licensing
+question.  I'm still in some discussion with Mike Keller, and he's been
+rather slow in responding.  Also, I'm still in the thick of working on FcPro
+to extend it to handle 8 and 9 freecells.  My own inclination is to do
+whatever it is you guys decide ought to be done, but I don't want to get
+Mike Keller's nose out of joint.  He's done a great deal for the Freecell
+community, so I want him to be comfortable with whatever is done.  Frankly,
+I'm still in the process of  "selling" him on the benefits of working
+cooperatively with the two of you in the furtherence of Freecell solving.  I
+don't think he's disagreeing in principle, but he's not as appreciative as I
+think he shold be of the potential.  He's been focussing on the slowness of
+both your solvers at doing range solving.
+
+Best regards,  ------------Adrian
+
+

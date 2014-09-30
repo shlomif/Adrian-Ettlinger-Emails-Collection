@@ -1,0 +1,73 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 6088 invoked from network); 17 May 2002 07:05:17 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 17 May 2002 07:05:17 -0000
+Received: from computer ([12.75.70.24]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020517070511.BJWV19182.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Fri, 17 May 2002 07:05:11 +0000
+Message-ID: <001501c1fd70$bda29d80$18464b0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205090736390.21705-100000@vipe.technion.ac.il>
+Subject: Moving on to presets
+Date: Fri, 17 May 2002 02:59:20 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 5
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I've started trying to do the homework.  You assigned this to me by
+saying:
+<<Did you read the FCS --help listing and USAGE file?>>
+    Since I haven't tried to compile fc-solve, but only made a library, I
+don't know where to find the FCS --help listing.  But, is there anything
+there I need to read if I read the USAGE file (which I have perused)?
+
+    I'd like to make clear to you that I really don't want to devote any
+more time to this than I really have to in order to implement it to the
+point where others can use it to its fullest potential.  I. e., I'm not
+really that interested myself in acquiring the skills and knowledge needed
+to so use it.
+
+    Am I correct in this understanding?  For the example string you gave me
+with a number of lines beginning with "--method", this example constitutes
+one "preset", and each "method" is used in sequence during the solving of
+each position, i. e., the meaning of "multi-tasking" is that, in effect, the
+code cycles through the use of each method in sequence, going to a certain
+depth each round, in the expectation that one of the methods is going to
+find a solution, and this approach will avoid getting bogged down on certain
+deals that happen to be very difficult for any one given method.
+
+    At this point I have not studied the interface routine to figure out
+just how I would go about applying the one sample preset you had sent.
+Also, I won't be able to actually try it until I get back home about a week
+from now.  But, when you get a chance, you might put together a collection
+of different presets and send them to me.  I have no idea how many different
+presets you have composed that you'd think it worthwhile for me to provide
+as an initial set.  If the number is over 36, please send me the best 36 of
+them.
+
+    Since it's now early afternoon your time, I'll send this to you
+immediately instead of holding it, although I'm still in the middle of my
+study process.  I might not get any further until tomorrow your time anyway.
+
+
+Best regards,  --------------Adrian
+
+

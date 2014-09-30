@@ -1,0 +1,77 @@
+Return-Path: <tomh@po.crl.go.jp>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 22804 invoked from network); 18 Dec 2001 01:35:01 -0000
+Received: from ns1.crl.go.jp (133.243.3.1)
+  by vipe.technion.ac.il with SMTP; 18 Dec 2001 01:35:01 -0000
+Received: from crlgw2.crl.go.jp ([133.243.18.251])
+	by ns1.crl.go.jp (8.11.6/3.7W) with ESMTP id fBI1YsS22066;
+	Tue, 18 Dec 2001 10:34:54 +0900 (JST)
+Received: from po.crl.go.jp (localhost [127.0.0.1])
+	by crlgw2.crl.go.jp (8.11.6/8.11.6) with ESMTP id fBI1YrT21896;
+	Tue, 18 Dec 2001 10:34:54 +0900 (JST)
+Received: from holly.crl.go.jp (holly.crl.go.jp [133.243.72.218])
+	by po.crl.go.jp (8.9.3+3.2W/3.7W) with ESMTP id KAA10780;
+	Tue, 18 Dec 2001 10:34:53 +0900 (JST)
+Date: Tue, 18 Dec 2001 10:34:53 +0900 (JST)
+From: Tom Holroyd <tomh@po.crl.go.jp>
+X-Sender: <tomh@holly.crl.go.jp>
+To: Shlomi Fish <shlomif@vipe.technion.ac.il>
+cc: Adrian Ettlinger <aettlinger@worldnet.att.net>
+Subject: Re: GPL
+In-Reply-To: <Pine.LNX.4.33L2.0112171642150.16134-100000@vipe.technion.ac.il>
+Message-ID: <Pine.LNX.4.30.0112180950330.12094-100000@holly.crl.go.jp>
+MIME-Version: 1.0
+Content-Type: TEXT/PLAIN;
+  charset=US-ASCII
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 21
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+On Mon, 17 Dec 2001, Shlomi Fish wrote:
+
+> Unless I completely misunderstand the GPL, FC-Pro's source code need not
+> be GPL itself so it can be linked against patsolve.
+
+:-) You completely misunderstand the GPL (and you are probably not aware
+of the number of changes that have had to be made to "link" the two
+programs).  Read the COPYING file.
+
+What you say would be true if FC-Pro was merely *running* Patsolve as a
+separate executable (from section 0: "The act of running the Program is
+not restricted").  But Adrian is *integrating* my code into his; it will
+all be a single executable (section 2b: "You must cause any work that you
+distribute or publish, that in whole or in part contains or is derived
+from the Program or any part thereof, to be licensed as a whole at no
+charge to all third parties under the terms of this License."  This is
+the clause that causes people to say that the GPL is "viral").
+
+Although I could grant an exception (by sublicensing it under the LGPL),
+I'd prefer that FC-Pro be GPL too.  That's simplest.  Besides, there
+doesn't seem to be any problem with making FC-Pro GPL.  Also, Adrian, read
+sections 11 and 12, which are the "no warranty" clauses.  Distributing the
+code does not mean that you are in any way responsible for maintaining it
+or even answering questions about it.  You don't even have to "distribute"
+the code, you just have to "make it available".  That is, when you
+distribute the .ZIP file containing the executable (which is all most
+people want) you just need to include the COPYING file, and your email
+address, so if somebody wants the code, they can ask you for it.  You can
+even charge shipping fees for physical delivery of the source code
+(section 1) although other people could redistribute it for free.
+
+Also, regarding Don Woods' code, it seems that it's been heavily modified,
+perhaps to the point where it is "different".  Unless there was something
+in it that specifically prohibits distributing the source code, there
+shouldn't be a problem.  Especially since Adrian is _already_ distributing
+it to people.
+
+Dr. Tom Holroyd
+"I am, as I said, inspired by the biological phenomena in which
+chemical forces are used in repetitious fashion to produce all
+kinds of weird effects (one of which is the author)."
+	-- Richard Feynman, _There's Plenty of Room at the Bottom_
+
+

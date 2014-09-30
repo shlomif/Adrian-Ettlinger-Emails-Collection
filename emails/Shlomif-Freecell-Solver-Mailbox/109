@@ -1,0 +1,969 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 16165 invoked from network); 13 May 2002 08:26:08 -0000
+Received: from mtiwmhc25.worldnet.att.net (204.127.131.50)
+  by vipe.technion.ac.il with SMTP; 13 May 2002 08:26:08 -0000
+Received: from computer ([12.78.218.222]) by mtiwmhc25.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020513082531.XWHG2855.mtiwmhc25.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Mon, 13 May 2002 08:25:31 +0000
+Message-ID: <002601c1fa57$4d9391a0$1cda4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205130608320.13598-100000@vipe.technion.ac.il>
+Subject: Re: FC-Pro/FCS integration
+Date: Mon, 13 May 2002 04:21:26 -0400
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+  boundary="----=_NextPart_000_0023_01C1FA35.A5F6A520"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 84
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0023_01C1FA35.A5F6A520
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+
+Hi Shlomi,
+
+<<Thanks, I might test it out. Does it include the source or just the
+binaries?>>
+    What I'd sent you is just the executable.
+
+<<How did you implement it, can you send me the modified module?>>
+    I wound up using what you did just as a guideline, and implementing it
+"my way".  I thought that would be more expeditious.  I'd encountered a
+series of problems in running it as you had written it.  The first one was
+that you had lost the patch I'd inserted which reversed the
+source-destination sequence in rendering each move.  Your approach of
+sprintf-ing four bytes to make the "v" sequence would have complicated my
+previous method of swapping, so I tried swapping the sequence in each
+branch, but after I did that, there remained another problem in that the
+move string wound up being severely truncated.  I think there was yet
+another problem, the details of which I can't recall.  Anyway, it finally
+seemed to make most sense just to restart almost from scratch.  Once I got
+the move string where I wanted it, I then had a series of problems on my
+side of the fence as well, but finally got it all working.
+
+<<Sure thing. Is it a business trip or a vacation? Anyways, have fun!>>
+    I don't really like to describe this kind of travel as a "business
+trip", although the rationale is semi-business related.  It has to do with
+supporting some software which is a sort of commercial product, marketed to
+a narrow customer base, but which I regard as as much of a hobby as it is a
+business.  I'll be going to a genealogy "show" in Milwaukee, then on to
+California, where my "pseudo-business partner" is located.  Obviously, it's
+not something I'd do if it wasn't fun.
+
+<<OK. Would you be able to run fc-solve during the trip?>>
+    I would, but I'm not particuarly eager to.  I'd rather bypass that and
+move directly to compiling and running it under FcPro.  Unless you want to
+give me some very explicit directions as to what constructive experiments I
+could do with fc-solve.
+
+    I haven't yet started my homework studying, and don't think I'll have
+time to before I leave, which isn't until tomorrow (Tuesday).  I don't know
+as I'll have a whole lot of leisure time while I'm in Milwaukee, which is
+until Sunday, but while I'm in California I most likely will be able to put
+in at least a few hours if need be.  Then I return home on Thursday May 23.
+I'll probably have some questions for you once I start to try to absorb your
+write-up.
+
+<<Sure thing. The code is under the PD, and I'm happy seeing it integrated
+into third-party's Freecell implementations.>>
+    OK, fine.  What I've decided to do is to put it on a web page, and then
+post a message to your forum giving the address, but not necessarily to
+publicize it any more widely than that.  But since I'm including Patsolve, I
+need to show it as being distributed under GPL, so as of now I've just
+pointed Tom Holroyd to the web page to ask him if, as far as he's concerned,
+I'm meeting the requirements of GPL.  If you'd like to take a look at the
+web page, it's:
+
+http://www.rrhistorical.com/rrdata/Fcpro65
+
+    Oh, yes, on a totally different subject, we haven't talked any about
+what's been going on in your part of the world, and the fracas you're in the
+middle of.  But I recall we once had some discusson about atheism.  Thought
+you might enjoy hearing about this.  I heard an interview of a man named
+Christopher Hitchins, who I doubt whether you've heard of, but he's a Brit
+living in the US, a columnist for some magazine, and a man with a very
+ascerbic wit and some rather iconoclastic views.  He was asked a question
+often posed to pundits "How would you solve the problems of the Middle
+East?"  His reply:  "First you have to get both sides to stop believing in
+God."
+
+Best regards, ----------------Adrian
+
+
+------=_NextPart_000_0023_01C1FA35.A5F6A520
+Content-Type: application/octet-stream;
+	name="fc_pro_iface.c"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+	filename="fc_pro_iface.c"
+
+#include <stdlib.h>=0A=
+#include <stdio.h>=0A=
+#include <string.h>=0A=
+
+#if 0=0A=
+#include "Fcsolvex.h"=0A=
+#else=0A=
+#include "main.h"=0A=
+#include "Fcsolve.h"=0A=
+#endif=0A=
+#include "fcs_user.h"=0A=
+#include "fcs_cl.h"=0A=
+//extern int signal_step(int) ;=0A=
+int NumFCs ;=0A=
+char * moves_string;=0A=
+char * moves_stringe;
+static const char * ranks_map =3D "0A23456789TJQK";=0A=
+
+char szTemp[500] ;=0A=
+
+static char * rank_to_string(int rank, char * buf)=0A=
+{=0A=
+    buf[0] =3D ranks_map[rank];=0A=
+    buf[1] =3D '\0';=0A=
+    return buf;=0A=
+}=0A=
+
+static const char * suits_map =3D "CDSH";=0A=
+
+static char * suit_to_string(int suit, char * buf)=0A=
+{=0A=
+    buf[0] =3D suits_map[suit];=0A=
+    buf[1] =3D '\0';=0A=
+    return buf;=0A=
+}=0A=
+
+static char * card_to_string(Card card, char * buf)=0A=
+{=0A=
+    rank_to_string(card&0x0F,buf);=0A=
+    suit_to_string(card>>4,buf+1);=0A=
+
+    return buf;=0A=
+}=0A=
+
+static char * position_to_string(Position * pos, int num_freecells)=0A=
+{=0A=
+    int a, stack;=0A=
+    char buffer[4000], temp[4][20];=0A=
+    char * s_end;=0A=
+
+    buffer[0] =3D '\0';=0A=
+    s_end =3D buffer;=0A=
+
+    for(a=3D0;a<4;a++)=0A=
+    {=0A=
+        if (pos->foundations[a] !=3D 0)=0A=
+        {=0A=
+            break;=0A=
+        }=0A=
+    }=0A=
+    if (a < 4)=0A=
+    {=0A=
+        s_end +=3D sprintf(s_end, "Foundations:");=0A=
+        for(a=3D0;a<4;a++)=0A=
+        {=0A=
+            if (pos->foundations[a] !=3D 0)=0A=
+            {=0A=
+                s_end +=3D sprintf(=0A=
+                    s_end, =0A=
+                    " %s-%s", =0A=
+                    suit_to_string(a, temp[0]),=0A=
+                    rank_to_string(pos->foundations[a], temp[1])=0A=
+                    );=0A=
+            }=0A=
+        }=0A=
+        *s_end =3D '\n';=0A=
+        s_end++;=0A=
+    }=0A=
+    s_end +=3D sprintf(s_end, "Freecells:");=0A=
+    for(a=3D0;a<num_freecells;a++)=0A=
+    {=0A=
+        if (pos->hold[a] =3D=3D 0)=0A=
+        {=0A=
+            s_end +=3D sprintf(s_end, " -");=0A=
+        }=0A=
+        else=0A=
+        {=0A=
+            s_end +=3D sprintf(s_end, " %s", =
+card_to_string(pos->hold[a], temp[0]));=0A=
+        }=0A=
+    }=0A=
+    *s_end =3D '\n';=0A=
+    s_end++;=0A=
+
+    for(stack=3D0;stack<8;stack++)=0A=
+    {=0A=
+        for(a=3D0;a<pos->tableau[stack].count;a++)=0A=
+        {=0A=
+           s_end +=3D =0A=
+                sprintf(=0A=
+                    s_end, =0A=
+                    "%s%s", =0A=
+                    ((a =3D=3D 0)? "" : " "),=0A=
+                    card_to_string(pos->tableau[stack].cards[a], temp[0])=0A=
+                );                                =0A=
+        }=0A=
+        *s_end =3D '\n';=0A=
+        s_end++;=0A=
+    }=0A=
+    *s_end =3D '\0';=0A=
+
+    return strdup(buffer);=0A=
+}=0A=
+
+=0A=
+
+enum FCS_IFACE_MODES=0A=
+{=0A=
+    FCS_IFACE_MODE_DFS,=0A=
+    FCS_IFACE_MODE_A_STAR,=0A=
+
+    FCS_IFACE_MODE_OPT =3D 0x10000,=0A=
+};=0A=
+#ifdef FC89=0A=
+int Cvtf89(int fcn)=0A=
+{=0A=
+	if ((NumFCs > 7) && (fcn >=3D 7))=0A=
+		return (fcn+3) ;=0A=
+	return fcn ;=0A=
+}=0A=
+#endif
+
+BOOL ssind ;
+int vcount ;
+
+static void render_vmove(fcs_move_t move, char * string)
+{
+	char c =3D string[2] ;
+	sprintf(string, "%xv",=20
+          fcs_move_get_num_cards_in_seq(move)
+          );
+	ssind =3D FALSE ;		=09
+	string[2] =3D c ;
+}
+
+static void render_move(fcs_move_t move, char * string)
+{
+    /* Save the third character which will be set to '\0' by the =
+sprintf.
+     * It's a kludge, but it works.
+     * */
+    char c =3D string[2];
+	char b ;  //ABE
+	ssind =3D FALSE ;
+    switch(fcs_move_get_type(move))
+    {
+        case FCS_MOVE_TYPE_STACK_TO_STACK:
+                sprintf(string, "%i%i",=20
+                    1+fcs_move_get_src_stack(move),
+                    1+fcs_move_get_dest_stack(move)
+                    );
+		ssind =3D TRUE ;
+		break;
+
+        case FCS_MOVE_TYPE_FREECELL_TO_STACK:
+				sprintf(string, "%c%i",=20
+#ifndef FC89
+                    ('a'+fcs_move_get_src_freecell(move)),
+#else
+                    ('a'+Cvtf89(fcs_move_get_src_freecell(move))),
+#endif
+                    1+fcs_move_get_dest_stack(move)
+                    );
+		break;
+
+        case FCS_MOVE_TYPE_FREECELL_TO_FREECELL:
+                sprintf(string, "%c%c",
+#ifndef FC89
+                    ('a'+fcs_move_get_src_freecell(move)),
+                    ('a'+fcs_move_get_dest_freecell(move))
+#else
+                    ('a'+Cvtf89(fcs_move_get_src_freecell(move))),
+                    ('a'+Cvtf89(fcs_move_get_dest_freecell(move)))
+#endif
+					);                       =20
+        break;
+
+        case FCS_MOVE_TYPE_STACK_TO_FREECELL:
+                sprintf(string, "%i%c",
+                    1+fcs_move_get_src_stack(move),
+#ifndef FC89
+                    ('a'+fcs_move_get_dest_freecell(move))
+#else
+                    ('a'+Cvtf89(fcs_move_get_dest_freecell(move)))
+#endif
+                    );
+//sprintf(szTemp, "StF fc-%d np-%d ", fcs_move_get_dest_freecell(move), =
+NumFCs) ;
+//MainMessage(szTemp) ;
+		break;
+
+        case FCS_MOVE_TYPE_STACK_TO_FOUNDATION:
+                sprintf(string, "%ih", 1+fcs_move_get_src_stack(move));
+        break;
+       =20
+
+        case FCS_MOVE_TYPE_FREECELL_TO_FOUNDATION:
+#ifndef FC89
+				sprintf(string, "%ch", ('a'+fcs_move_get_src_freecell(move)));
+#else
+                sprintf(string, "%ch", =
+('a'+Cvtf89(fcs_move_get_src_freecell(move))));
+#endif
+        break;
+
+        case FCS_MOVE_TYPE_SEQ_TO_FOUNDATION:
+                sprintf(string, "%ih", fcs_move_get_src_stack(move));
+        break;
+
+        default:
+            string[0] =3D '\0';
+        break;
+    }
+    /* Restore that character */
+    string[2] =3D c;
+	b =3D string[0] ;  // Swap characters -- ABE
+	string[0] =3D string[1] ;
+	string[1] =3D b ;
+}
+
+
+#if 0  // failed attempt to reverse move pair sequence
+static char * render_move(fcs_move_t move, char * string)
+{
+    /* Save the third character which will be set to '\0' by the =
+sprintf.
+     * It's a kludge, but it works.
+     * */
+//#if 0  //as provided by Shlomi, 5/9/02
+#if 0  // as changed by ABE
+    char c =3D string[2];
+	char b ;  //ABE
+    int num_chars =3D 2;
+#endif
+    switch(fcs_move_get_type(move))
+    {
+		case FCS_MOVE_TYPE_STACK_TO_STACK:
+//                sprintf(string, "%i%iv%x",=20
+                sprintf(string, "%i%i%xv",=20
+                    1+fcs_move_get_dest_stack(move),
+                    1+fcs_move_get_src_stack(move),
+                    fcs_move_get_num_cards_in_seq(move)
+                    );
+        break;
+        case FCS_MOVE_TYPE_FREECELL_TO_STACK:
+//				sprintf(string, "%c%i",=20
+				sprintf(string, "%i%c",=20
+                    1+fcs_move_get_dest_stack(move),
+#ifndef FC89
+                    ('a'+fcs_move_get_src_freecell(move))
+#else
+                    ('a'+Cvtf89(fcs_move_get_src_freecell(move)))
+#endif
+                    );
+		break;
+
+        case FCS_MOVE_TYPE_FREECELL_TO_FREECELL:
+                sprintf(string, "%c%c",
+#ifndef FC89
+                    ('a'+fcs_move_get_dest_freecell(move)),
+                    ('a'+fcs_move_get_src_freecell(move))
+#else
+                    ('a'+Cvtf89(fcs_move_get_dest_freecell(move))),
+                    ('a'+Cvtf89(fcs_move_get_src_freecell(move)))
+#endif
+					);                       =20
+        break;
+
+        case FCS_MOVE_TYPE_STACK_TO_FREECELL:
+//                sprintf(string, "%i%c",
+                sprintf(string, "%c%i",
+#ifndef FC89
+                    ('a'+fcs_move_get_dest_freecell(move)),
+#else
+                    ('a'+Cvtf89(fcs_move_get_dest_freecell(move))),
+#endif
+                    1+fcs_move_get_src_stack(move)
+                    );
+
+//sprintf(szTemp, "StF fc-%d np-%d ", fcs_move_get_dest_freecell(move), =
+NumFCs) ;
+//MainMessage(szTemp) ;
+		break;
+
+        case FCS_MOVE_TYPE_STACK_TO_FOUNDATION:
+//                sprintf(string, "%ih", =
+1+fcs_move_get_src_stack(move));
+                sprintf(string, "h%i", 1+fcs_move_get_src_stack(move));
+        break;
+
+
+        case FCS_MOVE_TYPE_FREECELL_TO_FOUNDATION:
+#ifndef FC89
+//				sprintf(string, "%ch", ('a'+fcs_move_get_src_freecell(move)));
+				sprintf(string, "h%c", ('a'+fcs_move_get_src_freecell(move)));
+#else
+//                sprintf(string, "%ch", =
+('a'+Cvtf89(fcs_move_get_src_freecell(move))));
+                sprintf(string, "h%c", =
+('a'+Cvtf89(fcs_move_get_src_freecell(move))));
+#endif
+        break;
+
+        case FCS_MOVE_TYPE_SEQ_TO_FOUNDATION:
+//                sprintf(string, "%ih", fcs_move_get_src_stack(move));
+                sprintf(string, "h%i", fcs_move_get_src_stack(move));
+        break;
+
+        default:
+            string[0] =3D '\0';
+        break;
+    }
+//#if 0   as provided by Shlomi 5/9/02
+#if 0  // as changed by ABE
+    /* Restore that character */
+    string[2] =3D c;
+	b =3D string[0] ;  // Swap characters -- ABE
+	string[0] =3D string[1] ;
+	string[1] =3D b ;
+#endif
+    return string+strlen(string);
+}
+#endif
+
+
+#if 0  // experimental section=0A=
+#if 1
+static char * render_move(fcs_move_t move, char * string)=0A=
+{=0A=
+    /* Save the third character which will be set to '\0' by the sprintf.=0A=
+     * It's a kludge, but it works.=0A=
+     * */=0A=
+//#if 0  //as provided by Shlomi, 5/9/02
+#if 0  // as changed by ABE=0A=
+    char c =3D string[2];=0A=
+	char b ;  //ABE=0A=
+    int num_chars =3D 2;=0A=
+#endif=0A=
+    switch(fcs_move_get_type(move))=0A=
+    {=0A=
+		case FCS_MOVE_TYPE_STACK_TO_STACK:=0A=
+#if 1 // new code for "v" mode
+                sprintf(string, "%i%iv%x", =0A=
+                    1+fcs_move_get_src_stack(move),=0A=
+                    1+fcs_move_get_dest_stack(move),=0A=
+                    fcs_move_get_num_cards_in_seq(move)=0A=
+#else   // old code for test
+                sprintf(string, "%i%i",=20
+                    1+fcs_move_get_src_stack(move),
+                    1+fcs_move_get_dest_stack(move)
+#endif
+                    );=0A=
+        break;=0A=
+        case FCS_MOVE_TYPE_FREECELL_TO_STACK:=0A=
+				sprintf(string, "%c%i", =0A=
+#ifndef FC89=0A=
+                    ('a'+fcs_move_get_src_freecell(move)),=0A=
+#else=0A=
+                    ('a'+Cvtf89(fcs_move_get_src_freecell(move))),=0A=
+#endif=0A=
+                    1+fcs_move_get_dest_stack(move)=0A=
+                    );=0A=
+		break;=0A=
+
+        case FCS_MOVE_TYPE_FREECELL_TO_FREECELL:=0A=
+                sprintf(string, "%c%c",=0A=
+#ifndef FC89=0A=
+                    ('a'+fcs_move_get_src_freecell(move)),=0A=
+                    ('a'+fcs_move_get_dest_freecell(move))=0A=
+#else=0A=
+                    ('a'+Cvtf89(fcs_move_get_src_freecell(move))),=0A=
+                    ('a'+Cvtf89(fcs_move_get_dest_freecell(move)))=0A=
+#endif=0A=
+					);                        =0A=
+        break;=0A=
+
+        case FCS_MOVE_TYPE_STACK_TO_FREECELL:=0A=
+                sprintf(string, "%i%c",=0A=
+                    1+fcs_move_get_src_stack(move),=0A=
+#ifndef FC89=0A=
+                    ('a'+fcs_move_get_dest_freecell(move))=0A=
+#else=0A=
+                    ('a'+Cvtf89(fcs_move_get_dest_freecell(move)))=0A=
+#endif=0A=
+                    );=0A=
+
+//sprintf(szTemp, "StF fc-%d np-%d ", fcs_move_get_dest_freecell(move), =
+NumFCs) ;=0A=
+//MainMessage(szTemp) ;=0A=
+		break;=0A=
+
+        case FCS_MOVE_TYPE_STACK_TO_FOUNDATION:=0A=
+                sprintf(string, "%ih", 1+fcs_move_get_src_stack(move));=0A=
+        break;=0A=
+
+
+        case FCS_MOVE_TYPE_FREECELL_TO_FOUNDATION:=0A=
+#ifndef FC89=0A=
+				sprintf(string, "%ch", ('a'+fcs_move_get_src_freecell(move)));=0A=
+#else=0A=
+                sprintf(string, "%ch", =
+('a'+Cvtf89(fcs_move_get_src_freecell(move))));=0A=
+#endif=0A=
+        break;=0A=
+
+        case FCS_MOVE_TYPE_SEQ_TO_FOUNDATION:=0A=
+                sprintf(string, "%ih", fcs_move_get_src_stack(move));=0A=
+        break;=0A=
+
+        default:=0A=
+            string[0] =3D '\0';=0A=
+        break;=0A=
+    }=0A=
+//#if 0   as provided by Shlomi 5/9/02
+#if 0  // as changed by ABE=0A=
+    /* Restore that character */=0A=
+    string[2] =3D c;=0A=
+	b =3D string[0] ;  // Swap characters -- ABE=0A=
+	string[0] =3D string[1] ;=0A=
+	string[1] =3D b ;=0A=
+#endif=0A=
+    return string+strlen(string);=0A=
+}=0A=
+#else  // old render_move
+static void render_move(fcs_move_t move, char * string)
+{
+    /* Save the third character which will be set to '\0' by the =
+sprintf.
+     * It's a kludge, but it works.
+     * */
+    char c =3D string[2];
+	char b ;  //ABE
+    switch(fcs_move_get_type(move))
+    {
+        case FCS_MOVE_TYPE_STACK_TO_STACK:
+                sprintf(string, "%i%i",=20
+                    1+fcs_move_get_src_stack(move),
+                    1+fcs_move_get_dest_stack(move)
+                    );
+        break;
+
+        case FCS_MOVE_TYPE_FREECELL_TO_STACK:
+				sprintf(string, "%c%i",=20
+#ifndef FC89
+                    ('a'+fcs_move_get_src_freecell(move)),
+#else
+                    ('a'+Cvtf89(fcs_move_get_src_freecell(move))),
+#endif
+                    1+fcs_move_get_dest_stack(move)
+                    );
+		break;
+
+        case FCS_MOVE_TYPE_FREECELL_TO_FREECELL:
+                sprintf(string, "%c%c",
+#ifndef FC89
+                    ('a'+fcs_move_get_src_freecell(move)),
+                    ('a'+fcs_move_get_dest_freecell(move))
+#else
+                    ('a'+Cvtf89(fcs_move_get_src_freecell(move))),
+                    ('a'+Cvtf89(fcs_move_get_dest_freecell(move)))
+#endif
+					);                       =20
+        break;
+
+        case FCS_MOVE_TYPE_STACK_TO_FREECELL:
+                sprintf(string, "%i%c",
+                    1+fcs_move_get_src_stack(move),
+#ifndef FC89
+                    ('a'+fcs_move_get_dest_freecell(move))
+#else
+                    ('a'+Cvtf89(fcs_move_get_dest_freecell(move)))
+#endif
+                    );
+//sprintf(szTemp, "StF fc-%d np-%d ", fcs_move_get_dest_freecell(move), =
+NumFCs) ;
+//MainMessage(szTemp) ;
+		break;
+
+        case FCS_MOVE_TYPE_STACK_TO_FOUNDATION:
+                sprintf(string, "%ih", 1+fcs_move_get_src_stack(move));
+        break;
+       =20
+
+        case FCS_MOVE_TYPE_FREECELL_TO_FOUNDATION:
+#ifndef FC89
+				sprintf(string, "%ch", ('a'+fcs_move_get_src_freecell(move)));
+#else
+                sprintf(string, "%ch", =
+('a'+Cvtf89(fcs_move_get_src_freecell(move))));
+#endif
+        break;
+
+        case FCS_MOVE_TYPE_SEQ_TO_FOUNDATION:
+                sprintf(string, "%ih", fcs_move_get_src_stack(move));
+        break;
+
+        default:
+            string[0] =3D '\0';
+        break;
+    }
+    /* Restore that character */
+    string[2] =3D c;
+	b =3D string[0] ;  // Swap characters -- ABE
+	string[0] =3D string[1] ;
+	string[1] =3D b ;
+}
+
+#endif
+#endif
+=0A=
+
+static char * cmd_line_known_parameters[] =3D { NULL };=0A=
+
+=0A=
+
+//int Free2Solver(Position * orig, int NoFcs, int limit, int mode, int =
+option, char * * ret_moves)=0A=
+
+int Free2Solver(Position * orig, int NoFcs, int limit, int =
+cmd_line_argc, char * * cmd_line_argv,=0A=
+
+	 int (*signal_step)(int step_limit))=0A=
+
+{=0A=
+
+    char * state_string;=0A=
+
+    void * instance;=0A=
+
+    int verdict;=0A=
+
+    int num_iters;=0A=
+
+    int ret;=0A=
+
+    int current_limit =3D 1000;=0A=
+
+    char * err_str;=0A=
+
+    int ret_arg, parser_ret;=0A=
+
+=0A=
+
+=0A=
+
+    state_string =3D position_to_string(orig, NoFcs);=0A=
+
+    =0A=
+
+    instance =3D freecell_solver_user_alloc();=0A=
+
+=0A=
+
+	NumFCs =3D NoFcs ;=0A=
+
+=0A=
+
+    parser_ret =3D freecell_solver_user_cmd_line_parse_args(=0A=
+
+            instance,=0A=
+
+            cmd_line_argc,=0A=
+
+            cmd_line_argv,=0A=
+
+            0,=0A=
+
+            cmd_line_known_parameters,=0A=
+
+            NULL,=0A=
+
+            NULL,=0A=
+
+            &err_str,=0A=
+
+            &ret_arg=0A=
+
+            );=0A=
+
+=0A=
+
+    if (parser_ret =3D=3D FCS_CMD_LINE_UNRECOGNIZED_OPTION)=0A=
+
+    {=0A=
+
+        freecell_solver_user_free(instance);        =0A=
+
+        return 0;=0A=
+
+    }=0A=
+
+    =0A=
+
+            =0A=
+
+    freecell_solver_user_set_game(=0A=
+
+        instance,=0A=
+
+=0A=
+
+        NoFcs,=0A=
+
+        8,=0A=
+
+        1,=0A=
+
+        FCS_SEQ_BUILT_BY_ALTERNATE_COLOR,=0A=
+
+        0,=0A=
+
+        FCS_ES_FILLED_BY_ANY_CARD=0A=
+
+        );=0A=
+
+=0A=
+
+    freecell_solver_user_limit_iterations(instance, current_limit);=0A=
+
+=0A=
+
+#if 0=0A=
+
+    freecell_solver_user_set_solving_method(=0A=
+
+        instance,=0A=
+
+        (((mode & 0xFFFF) =3D=3D FCS_IFACE_MODE_DFS) ?=0A=
+
+            FCS_METHOD_SOFT_DFS :=0A=
+
+            FCS_METHOD_A_STAR=0A=
+
+        )=0A=
+
+    );=0A=
+
+=0A=
+
+    freecell_solver_user_set_solution_optimization(=0A=
+
+        instance,=0A=
+
+        (mode & FCS_IFACE_MODE_OPT) ? 1 : 0=0A=
+
+        );=0A=
+
+#endif=0A=
+
+          =0A=
+
+    verdict =3D freecell_solver_user_solve_board(instance, state_string);=0A=
+
+=0A=
+
+    free(state_string);=0A=
+
+=0A=
+
+    while ((verdict =3D=3D FCS_STATE_SUSPEND_PROCESS) && =0A=
+
+           (=0A=
+
+                (limit > 0) ? =0A=
+
+                    (current_limit < limit) :=0A=
+
+                    1=0A=
+
+           )=0A=
+
+          )=0A=
+
+    {=0A=
+
+//        if (signal_step(current_limit, signal_step_context) !=3D 0)=0A=
+
+        if (signal_step(current_limit) !=3D 0)=0A=
+
+        {=0A=
+
+            break;=0A=
+
+        }=0A=
+
+        current_limit +=3D 1000;=0A=
+
+        freecell_solver_user_limit_iterations(instance, current_limit);=0A=
+
+        verdict =3D freecell_solver_user_resume_solution(instance);=0A=
+
+    }=0A=
+
+=0A=
+
+    num_iters =3D freecell_solver_user_get_num_times(instance);=0A=
+
+=0A=
+
+//    *ret_moves =3D NULL;=0A=
+
+=0A=
+
+    if (verdict =3D=3D FCS_STATE_WAS_SOLVED)=0A=
+    {=0A=
+        int num_moves;=0A=
+        int a;=0A=
+        fcs_move_t move;
+#if 0   // Shlomi's new code
+		char * str, * moves_string_proto, len;=0A=
+        ret =3D num_iters;=0A=
+        num_moves =3D freecell_solver_user_get_moves_left(instance);=0A=
+        moves_string_proto =3D (char *)malloc(num_moves*4+1);=0A=
+
+        /* a =3D num_moves-1; */=0A=
+
+        str =3D moves_string_proto;=0A=
+        while (! freecell_solver_user_get_next_move(instance, &move))=0A=
+        {=0A=
+            str =3D render_move(move, str);=0A=
+        }=0A=
+        len =3D str-moves_string_proto;=0A=
+        moves_string =3D malloc(len+1);=0A=
+        for(a=3D0;a<len;a++)=0A=
+        {=0A=
+            moves_string[a] =3D moves_string_proto[len-a];=0A=
+        }=0A=
+        moves_string[a] =3D '\0';=0A=
+        free(moves_string_proto);=0A=
+#if 0=0A=
+        moves_string[num_moves*2] =3D '\0';=0A=
+#endif=0A=
+//        *ret_moves =3D moves_string;=0A=
+#else   // restoration of old code
+        ret =3D num_iters;
+        num_moves =3D freecell_solver_user_get_moves_left(instance);
+        moves_string =3D (char *)malloc(num_moves*2+1);
+		moves_stringe =3D (char *)malloc(num_moves*2+1);
+        a =3D num_moves-1;
+		vcount =3D 0 ;
+        while (! freecell_solver_user_get_next_move(instance, &move))
+        {
+//            render_move(move, moves_string + ((a-vcount)*2));
+            render_move(move, moves_string + ((a)*2));
+            a--;
+
+		if ((ssind =3D=3D TRUE) && (fcs_move_get_num_cards_in_seq(move) > 1))
+			{
+			vcount++ ;
+			moves_stringe =3D (char *)malloc((num_moves + vcount)*2+1);
+			memcpy(moves_stringe+2, moves_string, (num_moves + vcount)*2) ;
+			moves_string =3D (char *)malloc((num_moves + vcount)*2+1);
+			memcpy(moves_string, moves_stringe, (num_moves + vcount)*2) ;
+            render_vmove(move, moves_string + ((a+1)*2));
+			}
+		}
+    moves_string[(num_moves + vcount)*2+2] =3D '\0';
+//MessageBox(GetFocus(), moves_string, "fcif", MB_OK) ;
+//        *ret_moves =3D moves_string;
+#endif
+	}=0A=
+    else if (verdict =3D=3D FCS_STATE_IS_NOT_SOLVEABLE)=0A=
+
+    {=0A=
+
+		if (num_iters =3D=3D 0)=0A=
+
+			num_iters++ ;=0A=
+
+        ret =3D -num_iters;=0A=
+
+    }=0A=
+
+    else if ((verdict =3D=3D FCS_STATE_SUSPEND_PROCESS) || (verdict =
+=3D=3D FCS_STATE_BEGIN_SUSPEND_PROCESS))=0A=
+
+    {=0A=
+
+        ret =3D 0;=0A=
+
+    }=0A=
+
+    =0A=
+
+    freecell_solver_user_free(instance);=0A=
+
+=0A=
+
+    return ret;=0A=
+
+}=0A=
+
+=0A=
+
+#if 1=0A=
+
+=0A=
+
+static int my_signal_step(int step_limit)=0A=
+
+{=0A=
+
+    printf("num_iters=3D%i\n", step_limit);=0A=
+
+    return 0;=0A=
+
+}=0A=
+#if 0
+int main(int argc, char * argv[])=0A=
+
+{=0A=
+
+    Position mypos;=0A=
+
+    int ret;=0A=
+
+=0A=
+
+#include "fill_pos.cpp"=0A=
+
+=0A=
+
+    ret =3D Free2Solver(&mypos, 4, 150000, argc-1, argv+1, =
+my_signal_step);=0A=
+
+=0A=
+
+    printf("%i\n", ret);=0A=
+
+=0A=
+
+    printf("%s\n", moves_string);=0A=
+
+=0A=
+
+    return 0;=0A=
+
+}=0A=
+#endif
+#endif=0A=
+
+
+------=_NextPart_000_0023_01C1FA35.A5F6A520--
+

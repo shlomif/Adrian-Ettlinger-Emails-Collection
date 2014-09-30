@@ -1,0 +1,56 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 9002 invoked from network); 16 May 2002 07:42:01 -0000
+Received: from mtiwmhc26.worldnet.att.net (204.127.131.51)
+  by vipe.technion.ac.il with SMTP; 16 May 2002 07:42:01 -0000
+Received: from computer ([12.75.50.21]) by mtiwmhc26.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020516074155.KFIM2483.mtiwmhc26.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Thu, 16 May 2002 07:41:55 +0000
+Message-ID: <000a01c1fcac$b5442100$15324b0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205160943300.8057-100000@vipe.technion.ac.il>
+Subject: Re: FC-Pro/FCS integration
+Date: Thu, 16 May 2002 03:36:45 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 2
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<It is a name like "The John Galt Line" or "Divide and Conquer" or "Mary's
+Little Lamb">>
+    Aha!!  OK, now I get it.  Yes, I can see the benefit in that.  I'd still
+like to implement it first as a simple one-character selection before going
+to what I'd call a "pick list" in which the different "modes" can be
+assigned "names".
+
+    I've implemented the "pick list" approach in other applications and have
+some templates I can use, so that won't be terribly difficult to implement
+later on.
+
+    I'd like to ask you this.  Have you developed any presets that are
+especially effective for finding solutions for games with less than four
+freecells, in particular, two and one?
+
+     Also, were you're example names meant to be whimsical?  The kind of
+names I'd think would be useful would be "Best for 2FC".  "Shortest
+solutions", "Fastest solutions for 4FC", etc.
+
+Best regards,  ----------------Adrian
+
+

@@ -1,0 +1,78 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 11884 invoked from network); 22 Dec 2001 10:19:41 -0000
+Received: from mtiwmhc25.worldnet.att.net (204.127.131.50)
+  by vipe.technion.ac.il with SMTP; 22 Dec 2001 10:19:41 -0000
+Received: from computer ([12.78.220.158]) by mtiwmhc25.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011222101935.TZCI15547.mtiwmhc25.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sat, 22 Dec 2001 10:19:35 +0000
+Message-ID: <001801c18ad2$07af9fc0$9edc4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112211504050.28477-100000@vipe.technion.ac.il>
+Subject: Re: FcPro 6.5, Build 7
+Date: Sat, 22 Dec 2001 04:24:32 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 26
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Now that I'm finished working on the Patsolve implementation for the
+time being, I really would like to help you develop FcPro into a more useful
+tool for studying FCS, and although I've started in on the other project, I
+think I could give a little time to getting you started in what you'd like
+to do next.  It occurs to me that the part that might take you the most time
+would be the "front end", i. e., the modification of the screen and
+user-input process, and I'm well-versed in the tools needed for that.  But,
+the "back end" is going to take some revisions in the interface routine that
+you wrote, and that part of the work I'd imagine you could accomplish
+readily.
+
+    So, to that end, I need to ask some more questions about exactly what
+you need.  Referring to your last message:
+
+<<The command line box should accept a more-or-less arbitrary-lengthed
+string (64K characters is enough). And I'd like the
+presets to be a bit more than three characters.>>
+    You don't really mean 64K, i. e, 64,000, do you?  How about 64.0?
+
+<<[Presets] Something like 128 characters would be fine.>>
+    I'm surprised to hear that high a number, but it really wouldn't be any
+problem to implement.  All 128 characters would not appear in the window at
+the same time, but an "Edit Box" in Windows normally will provide a
+horizontal scroll effect when more characters are typed than can appear at
+one time.
+
+    What I'd propose to do, and this, I'm sure, would be no more than an
+hour or so's work for me, if that much, would be to provide two new edit
+boxes in the "Solve2" screen, one perhaps 1/2 the screen width, labeled
+"Cmd. Line", and the other full width, labelled "Presets".  I could also
+eliminate the short "Mode" box, for neatness, since I don't see that it
+could any longer serve a purpose.  For these new boxes, each would leave a
+string in memory, for which you'd know the labels, and you could pick up
+these strings in the interface routine and pass them to FCS.  Also, the
+strings would be saved and on repeated entries to the Solve2 box, the last
+entered string would reappear in the box.
+
+    I won't go ahead with this until I get your confirmation that this will
+help, and also just want to be sure you haven't already gone ahead and done
+it.
+
+Best regards, ----------------Adrian
+
+

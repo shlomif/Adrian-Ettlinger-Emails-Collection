@@ -1,0 +1,105 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 9936 invoked from network); 22 Nov 2001 05:25:17 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 22 Nov 2001 05:25:17 -0000
+Received: from computer ([12.78.221.40]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011121123440.DHPE4554.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Wed, 21 Nov 2001 12:34:40 +0000
+Message-ID: <00d501c17280$7496ba20$57da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111210835390.24063-100000@vipe.technion.ac.il>
+Subject: Speed, depth, pointers, etc.
+Date: Wed, 21 Nov 2001 06:32:32 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 47
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<Interesting. I had the impression that FC-Pro was faster than Freecell
+Solver.>>
+    As long as you said that, yes, that is the case, at least when the
+iteration count becomes high.  I set the iteration count limit at 500000 to
+avoid disk overflows.  That seemed to be about the right level, as it ran,
+it seems, almost as long as it had when the disk overflowed.  I don't know
+if this is an apples to apples comparison, but FcPro normally reaches
+500000, when it has to, much faster.  I've run some boards in FcPro up to as
+many as 4 million iterations.  What I'd like to see, and might try to build
+in once your solver gets running under a GUI, is a dynamic display of the
+iteration count, so observe to what degree the pace decelerates when the
+count becomes high.  Now then, the reason FcPro can go deeper faster at such
+a higher iteration count is in the design of the hashing system.  Don Woods'
+original code used only a single hash.  I modified it to use a double hash,
+and that gave it a very large speed improvement at the higher iteration
+counts, although the overhead involved slows it up for in the lower count
+region.
+
+    The big advantage I found with your solver was that, with four
+freecells, for some of my most difficult hands, you found solutions much
+more quickly.  The results at less than four freecells, however, are a bit
+more cloudy.
+
+<<What do you mean by depth count? Generally, I do not limit fc-solve to a
+certain maximal depth because I noticed it generates a lot of
+side-effects.>>
+    I see in the "usage" under "help", that there is an "md" switch for
+setting maximum depth.  Maybe this means something different with you than
+it does with me.  But in my case, the depth is a direct measurement of how
+much disk space virtual memory is being consumed.  I don't see what side
+effects you could get from simply testing and aborting if the depth count
+reached a certain level. At least not for depth as I understand it.
+
+<<OK. But realize that I do not intend Freecell Solver to report all
+solveable states as such.>>
+    Not sure I understand that.  "All solveable states" would seem to mean
+"all possible solutions".  I'd think the issue would be whether you reach a
+conclusion that there is no possible solution at all   Do you mean that you
+don't think it's possible to write a solver that will always find a solution
+if one does exist?
+
+On to your second message:
+    Thanks for the list of modules.  And the heads-up on config.h.
+
+<<A .cpp file is a C++ source file.>>
+    Aha!  So thats what the "pp" stands for.  Guess what.  All these years
+I've been writing CPP source, and calling it C.  I seems to work OK anyway.
+
+<<Was the ampersand a typo?>>
+    No, I thought it belonged there.  As I've said, I'm weak in my
+understanding of pointers.  One of these years I'll have to get myself
+straight on that.  The FcPro code has a lot of them in it, including double
+pointers, i. e. "**", but I've just been copying them my rote without really
+understanding what they're doing.  Well, not quite totally ignorant, just
+not comfortable with it.  If I seem to be having a problem implementing your
+code, I may have to ask some more dumb questions.
+
+    I'm awake very early this morning.  I might need to take a nap before I
+really start work.
+
+   Oh, yes, don't really bother your head about this, but I'm having a side
+conversation with Bill Raymond that might burn your ears, except that I
+think you're fairly calm about this sort of thing.  He's trying to tell me
+that your use of A* is really BFS, but he didn't want to get into an
+argument with you.  From past experience with him, he's most likely full of
+it, and carping about semantics.  So I won't trouble you to get involved.
+
+Best regards,  ---------------------Adrian
+
+
+

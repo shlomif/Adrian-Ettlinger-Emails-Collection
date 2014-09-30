@@ -1,0 +1,110 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 6319 invoked from network); 3 Jun 2002 08:36:26 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 3 Jun 2002 08:36:26 -0000
+Received: from computer ([12.78.221.57]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020603083623.CMRQ5116.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Mon, 3 Jun 2002 08:36:23 +0000
+Message-ID: <000c01c20ad9$49384280$39dd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206030821450.3254-100000@vipe.technion.ac.il>
+Subject: Re: FCS-FcPro integration
+Date: Mon, 3 Jun 2002 04:32:17 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 34
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<<<The program as I now have it will replay solutions to 99 out of the
+first 100 hands, and there are eight additional hands in the first 100 for
+which a replayable solution file cannot be obtained.>>
+I don't really understand this last sentence. Can you elaborate a little?>>
+    With regard to replaying, there is currently a problem on two levels.
+The first level is whether or not the moves can be played back by the solver
+itself when it is activated.  The second level is whether the solution can
+be saved in a file for later playback.  It does, I'd admit, appear
+implausible that there could be a problem in saving the solution if the
+initial playback does work, and, indeed, this is something I probably could
+fix on my side of the fence.  But it would mean that FCS solutions would
+have to be flagged to be treated differently from solutions from other
+solvers.  A cleaner solution is to make FCS itself more efficient by
+eliminating the redundant moves.
+
+<<Unfortunately, such moves are not only possible but sometimes desirable in
+Simple Simon.>>
+    Also in the "Spider" variation of Freecell, and in fact FcPro can
+operate in Spider mode.
+
+<<I'd rather not make Freecell Solver too Freecellish in this  regard, and
+as far as I can tell this will mess up my code too much to be worthwhile at
+this point.>>
+    I think that overstates the difficulty.  The code knows when it's
+working on Freecell as opposed to other games, and could readily be made to
+operate in that mode only when it's working on Freecell.
+
+<<Isn't it possible to make sure FC-Pro does not automatically move these
+cards to the foundations? It should not be too difficult to do if you ask
+me.>>
+    FcPro already does this, and that's the problem.  If an ace is moved by
+FCS from one stack to another, but FcPro has moved that ace to the
+foundation, and then FCS waits a few moves before it moves that ace to the
+foundation, there is a discrepancy between the states, and FCS's later move
+of the ace to the foundation seems to FcPro to be an illegal move.
+
+<<What should be done if your suggestion is to be implemented is to make
+sure that cards that can be safely foundationed will always be foundationed,
+before any other moves are performed. I could create a meta-move that will
+do that and make it mandatory during the evaluation of every new state.>>
+    Exactly.  Another way to put it:  No state containing a mandatory (or
+"forced") move to the foundation should ever be stored in the state stack.
+All such states that are stacked are wasting space.
+
+<<But then we may get stack with the threes.>>
+    Yes;  A rigorous solution to the problem would not be limited only to
+forcing aces to be posted to the foundation.  Plus eligible deuces.  Those
+are the simplest and most obvious cases, and it so happens that if we did
+only that, it would take care of all the problems in the first hundred
+boards.  But cards with values from three up can also be mandatory for
+posting the foundation, according to a simple rule based on the status of
+the foundation.  A full solution requires the implementation of that rule.
+But we could first apply it only to the aces and deuces, and get that
+working for the first hundred boards, then go on from there.
+
+    If you don't want to do it, I'll do it myself.  When I ran out of gas
+last night, I was stymied by not yet having figured out how the new move
+structure works.  I was going to implement it in lib.c, by making a test
+just before the point where "...apply_move" is activated.  But I know that
+would be a primitive way to fix it, and not the most efficient.  That
+approach would economize on space, but be inefficient as to speed.  I
+started to try to figure out where you prioritize moves, and to see what it
+would take to introduce a mandatory preprocessing of each state before it is
+stacked, but that aspect of the code looked like it would take a lot of
+study before I could understand it, so thought I'd use that expedient which
+would be easier for me if I could first understand the new "short" move
+structure.
+
+    Making that change in FCS will improve both its speed and the shortness
+of solutions it delivers for Freecell, and I think ought to be done for the
+benefit of FCS itself, aside from the contribution it makes to the FcPro
+integration.  As I said, if you don't want to give it priority, I'll figure
+out a way to do it myself.
+
+Best regads,  -------------------Adrian
+
+

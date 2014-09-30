@@ -1,0 +1,68 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 18471 invoked from network); 27 May 2002 07:38:46 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 27 May 2002 07:38:46 -0000
+Received: from computer ([12.78.218.179]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020527073843.BXKR13408.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Mon, 27 May 2002 07:38:43 +0000
+Message-ID: <000401c20551$14799f40$b3da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205270808120.23898-100000@vipe.technion.ac.il>
+Subject: My language problem
+Date: Mon, 27 May 2002 03:34:42 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 25
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I'm now beginning to appreciate better why it is I'm so handicapped in
+my ability to make use of your code.  As I alluded to before, it's the
+distinction between the style of DevStudio and ANSI C.
+
+    You've probably seen programmer's humor writing on the theme of "real
+programmers's do's and don't's".  Well, I can now appreciate that I'm not
+really a "real programmer", because I've been dumbed down by DevStudio.  One
+way I could categorize the DevStudio syntax design is that provides a set of
+definitions so that the programmer never has to use the asterisk key.  Such
+as "LPSTR" is written instead of "*char".  (Not sure that is strictly
+correct, or whether the substitute would be "*char x[]" or maybe even
+"**char").
+
+    I have looked further at the chopper, trying to figure out how to use
+it, and I'm still stumped.  Another problem is how structures are declared.
+I'm accustomed to a different style, and haven't been able to figure out how
+to access the data in a structure in one module from another module.  I'm
+able to do that in other code I've written, but with using a different
+method of declaring and defining the structure.
+
+    I'm "still tuned" awaiting your clearing of the fog for me.
+
+    One thing I have a hard time getting used to is your syntax in putting a
+space character after asterisks..  When you type "name1 * name2", is that
+the equivalent of "name1 *name2"?  But NOT "name1*  name2"?  Would an
+asterisk ever be used immediately following a label, with no intervening
+space?  Another way of putting it, can all space characters that immediately
+follow asterisks be eliminated?  It seems to me if typed that way, it makes
+it easier to understand just what the asterisk is supposed to do.  At least
+for me.
+
+Best regards, -------------Adrian
+
+

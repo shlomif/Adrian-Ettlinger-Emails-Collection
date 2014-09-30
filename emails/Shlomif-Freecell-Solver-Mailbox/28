@@ -1,0 +1,49 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 14657 invoked from network); 22 Nov 2001 12:38:05 -0000
+Received: from mtiwmhc24.worldnet.att.net (204.127.131.49)
+  by vipe.technion.ac.il with SMTP; 22 Nov 2001 12:38:05 -0000
+Received: from computer ([12.78.218.122]) by mtiwmhc24.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011122123753.QUQ13117.mtiwmhc24.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Thu, 22 Nov 2001 12:37:53 +0000
+Message-ID: <000a01c1734a$11207b00$7ada4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111220817030.10125-100000@vipe.technion.ac.il>
+Subject: Maybe another problem
+Date: Thu, 22 Nov 2001 06:37:20 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 50
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Another stumbling block, maybe.
+
+    I've never run across the ".gz" file extension before.  Must involve
+some other compression software, not ZIP.  Why didn't you use ZIP for this?
+I've downloaded your "bin" files also, which are zipped, to study them to
+see what I can find out.  I want to move to another place in the house where
+I don't have Internet access to get to work on it, so this message is just
+an alert that if I can't figure out how to decompress a GZ file, I might
+need some more help from you.
+
+    I'll E-mail you again if I'm able to solve the problem.
+
+Best regards,  --------------Adrian
+
+

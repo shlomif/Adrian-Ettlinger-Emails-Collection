@@ -1,0 +1,84 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 2493 invoked from network); 30 Dec 2001 13:25:52 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 30 Dec 2001 13:25:52 -0000
+Received: from computer ([12.78.221.137]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011230132546.RGYP941.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 30 Dec 2001 13:25:46 +0000
+Message-ID: <000401c19135$4f52b880$89dd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112300545460.31080-100000@vipe.technion.ac.il>
+Subject: FCS V2.0 problems, interim report
+Date: Sun, 30 Dec 2001 08:23:36 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 48
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Firstly, I got as far as the 8-freecell implementation for FCS (not yet
+V2.0) to the point where it is now displaying solutions that replay
+correctly.  I used as a test the board that FCS is uniquely capable of
+solving (This board has the name "Ghoulish"), and that solution,
+fortunately, was within the 70% of those that will play all the way.  But
+then I discovered a bug that's been there all along, in that the saved
+solution in the file "FCSsolution.txt" is not being properly recorded, and
+will not play.  I'd like to fix that up before I move on to V2.0.
+
+    In the meantime, I decided to take an advance look at the V2.0 stuff, so
+I downloaded the file you'd previously told me about.  Then, I tried to
+follow your instructions, which were as below.  My comments below each line:
+
+<<1. Run the VCVARS32.bat batch file.>>
+    I didn't see this file anywhere, but assumed I didn't need this step, as
+I could unzip the files using pkunzip.
+
+<<2. Enter the freecell-solver-2.0.0 directory.>>
+    I have this directory, loaded with a lot of files.
+
+<<3. Copy "config.h.orig." to "config.h">>
+    Done.  That much I know how to do.
+
+<<4. Type "nmake /f Makefile.win32 freecell-solver-static.lib" (or do you
+want to build a DLL?)>>
+    I don't want to build a DLL.  This as as far as we could get, and so far
+it doesn't work.  Bear in mind, I make very little use of DOS these days.  I
+was at first skeptical of that "nmake", but discovered that when I'm in a
+DOS prompt under Windows 98, I do have that program, and that command line
+puts it into operation.  But there's a major incompatibility between the
+nmake I have and your source.  The compilation produces hundreds of
+diagnostics, most of them syntax errors.
+
+    I'm now going to move to my other working area, where I don't have
+Internet access, and try the same thing on the newer laptop which has
+Windows XP, just to see if maybe there's a different version of nmake there
+that will be compatible with your files.  But there's also a possibility
+that we need some global conditional set to get a proper complation.  If I'm
+able to break through and get it to work, I'll send another E-mail.  But if
+this is the only message you see from me, you can assume that I still have
+the problem.
+
+    If worst comes to worst, I can probably figure out from the Makefile
+what source modules I need, and compile it as a console application using
+VC++ 5.0, as I did previously.  Actually, I see I used VC++ 4.0 back then,
+but probably either will work.
+
+Best regards,  ---------------Adrian
+
+

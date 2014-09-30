@@ -1,0 +1,331 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 28691 invoked from network); 2 Dec 2001 12:40:16 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 2 Dec 2001 12:40:16 -0000
+Received: from computer ([12.78.220.85]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011202123849.BFUS28078.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Sun, 2 Dec 2001 12:38:49 +0000
+Message-ID: <000e01c17b2e$377f82a0$55dc4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112011207410.4191-100000@vipe.technion.ac.il>
+Subject: More research tools
+Date: Sun, 2 Dec 2001 07:37:04 -0500
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+  boundary="----=_NextPart_000_000B_01C17B04.23946D20"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 37
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+------=_NextPart_000_000B_01C17B04.23946D20
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+
+Hi Shlomi,
+
+    I'm now satisfied with the new build 5 to pass it along to you.  I'd
+guess that the false impossible examples I sent earlier might be giving you
+enough food for thought, but I'm passing this additional along because
+something turned up that might be a still more useful clue for you.
+
+    To explain what I did in Build 5, and why.  There is no change to the
+functionality as it appears to the user.  What is added is a capability, by
+use of a special file format, to explore many solution move sets to search
+for false impossible situations.  My original notion was to do this just to
+test the FcPro solver, to find more examples I can use to work on the false
+impossible problem.  But after I had it working for that purpose, I realized
+that having solved the problems of doing that, why not also install it so it
+can work with FCS as well.  Which I did.
+
+    By way of further explanation, in order to look for more false
+impossible situations, it is necessary to have many solutions which were
+done by humans rather than by the solver, to simulate what humans would do
+in using the hot key while playing out a game.  Very fortunately, there is
+available a large collection of such solutions on Mike Keller's wgreview
+website.  So I downloaded a substantial number of those, and made them into
+a text file.  It is necessary to plow through each file manually to do a
+little bit of formatting, because some of the solutions are for other than 4
+freecells, and a command has to be given to FcPro to set the right number of
+freecells for each solution.  Also, in order to signal FcPro, when loading a
+file with multiple solutions for the purpose of solver testing, so to signal
+FcPro that the file is so intended, the first three characters on the first
+line are set to "&&&".   Well, running this for FcPro's solver has been
+disappointing so far, because I have yet to find a single new false
+impossible.  The good news, of course, is that this means FcPro isn't really
+all that susceptible to false impossibles, as I'd thought it might be.
+
+    When I wasn't seeing any new false impossibles, I got suspicious that
+maybe the code wasn't doing what I intended it to, so I made up a file for
+testing the five examples I have of false impossibles in FcPro.  And it did
+prove that the testing software is working.  It halts with "Impossible"
+where it should for all five hands.
+
+    I then extended the system to work with FCS.  Instead of "&&&" heading
+the file, if the file is headed with "~~~", it uses FCS instead.  Here is
+where I made the interesting discovery that I thought might be of help to
+you.   FCS behaves as expected in that it does halt at all the positions I'd
+given you before, and also in that it sails through 935 without halting.
+But.... It also halts in many other places.  In 102140, 114 and 463, it
+halts in roughly 8 to 20 other places each.  But 957174 was a real bonanza.
+Working one's way through that solution, I counted 112 positions that showed
+up as false impossibles in FCS.  That's the only one, BTW, that has multiple
+FI positions for FcPro as well, but only about 8 in number.  So it seemed to
+me that there must be something special and unique about the 957174 position
+that you'd like to look for.  I haven't tried to analyze it myself.
+
+    I'm attaching three files.  One is Build 5.  The other two are test
+files with the five solutions.  The file FCSolutfi52.txt will run the FCS
+solver.  I also included file FCSolutfi5.txt, which runs the FcPro solver,
+if you want to see how that behaves.
+
+    Hope this proves to be a helpful tool for you.
+
+Best regards, ------------Adrian
+
+
+------=_NextPart_000_000B_01C17B04.23946D20
+Content-Type: Text/Plain; charset=US-ASCII
+X-Content-Type: application/x-zip-compressed;
+	name="Fcpro655.zip"
+X-Content-Transfer-Encoding: base64
+X-Content-Disposition: attachment;
+	filename="Fcpro655.zip"
+
+  [ The following attachments were DELETED when this message was saved:  ]
+  [ A Application/X-ZIP-COMPRESSED segment of about 102,757 bytes.       ]
+------=_NextPart_000_000B_01C17B04.23946D20
+Content-Type: text/plain;
+	name="FCSolutfi52.txt"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="FCSolutfi52.txt"
+
+~~~                 
+#102140 Attempt: 2 NumFcs=4 (FCPro - Solved)
+3h 86 37 8c 8a 8b 87 37 62 c8 
+38 68 18 68 38 28 2d 2c bh 67 
+27 2b 32 13 c1 2c b2 72 74 47 
+27 2b 12 42 14 b1 71 7b 72 b2 
+12 1b 17 1h 61 b7 1b 12 b2 1b 
+21 c2 1c 21 c2 6c d6 b6 5d 5b 
+51 12 a5 d5 3d 3a 53 85 38 b3 
+1b c1 3c d3 1d a1 31 5a 53 56 
+ch 2h 8h 5h ah 36 7d 7c 7a 74 
+75 73 71 7h 53 43 45 a3 c3 d3 
+7d 6h 2h 23 2d 2c 2a 25 dh a5 
+c5 4d 6h 5h 6h 4c 41 
+#957174 Attempt: 2 NumFcs=3 (FCPro - Solved)
+3h 18 61 64 6c 6a c6 a6 2c 26 
+23 c3 16 5c 5b 5a 58 56 a6 c6 
+5a b5 75 7b 7h 7c 75 74 c7 a7 
+17 64 1c 1a 1h 1h bh 3b 31 b1 
+4b 46 52 b6 1b 13 b3 4b 41 b1 
+3b 73 b7 6b 61 b1 6b 64 b4 1b 
+14 b4 1b 16 b6 3b 31 71 73 13 
+17 41 46 16 37 31 71 73 13 17 
+37 b3 4b 41 b1 6b 61 b1 6b 64 
+b4 1b 14 b4 1b 16 b6 3b 31 71 
+73 13 17 61 16 37 31 71 73 13 
+b1 4b 46 b6 1b 17 37 b3 4b 41 
+b1 6b 61 b1 6b 64 b4 1b 14 b4 
+1b 16 b6 c1 5c 5b 45 46 56 a5 
+1a b1 c1 15 1c 3b 31 71 73 13 
+17 41 37 b3 6b 61 64 6h b1 4b 
+46 b6 1b 16 b6 4b 4h 1h 25 21 
+51 46 42 a2 42 45 1a 51 a5 4a 
+c4 1c 14 c4 8c 81 c1 8c 8h ch 
+ah 83 2c 28 2a 23 2h a3 c8 3c 
+3a 37 31 32 71 72 73 a1 c1 23 
+27 37 3c 3a bh 1h 37 3h 3h 
+#114 Attempt: 2 NumFcs=3 (FCPro - Solved)
+65 2c 24 23 21 41 45 46 71 7b 
+72 73 b3 7b 57 56 46 41 b4 24 
+16 1a 1b c1 12 1c 13 51 2h 4h 
+4h 23 b2 12 81 73 47 4b 41 b4 
+74 87 81 8h 7h 12 1b 57 41 4h 
+45 54 45 c4 4c 61 64 65 14 15 
+31 3h 45 4h 38 34 4h 34 32 42 
+34 b3 2b 24 b4 2b 23 b3 2b 27 
+b7 3b 37 b7 3b 32 b2 a3 6b 6a 
+63 a3 b3 4b 47 4a b7 6b 64 b4 
+8b 87 b7 6b 68 b8 4b 46 b6 3b 
+34 36 b4 3b 38 3h b8 3b bh 7h 
+8h 2h 6h 3h 8h 8h 2h 8h a7 6b 
+6a 61 
+#463 Attempt: 2 NumFcs=3 (FCPro - Solved)
+4c 24 47 24 8b 2a 28 28 27 b7 
+68 a2 5b 52 53 51 41 63 43 4a 
+b4 5b 76 67 15 41 54 35 a3 8a 
+b8 3b 53 25 65 26 32 b3 7b 75 
+b5 3b 23 72 76 26 32 b3 5b 56 
+b6 3b 23 52 57 27 15 12 52 35 
+b3 2b 42 41 b1 48 1b 14 b4 1b 
+18 b1 18 1b 53 15 15 a1 2a 28 
+48 a4 3a 32 a2 3a 36 a6 2a 26 
+a6 7a 72 a2 7a 75 a5 2a 25 a5 
+3a 34 62 63 23 a2 6a 62 a2 6a 
+65 a5 2a 25 a5 3a 35 a5 2a b2 
+7b 72 71 74 4h 3h 4h 4h 42 82 
+87 84 81 41 71 21 24 27 28 14 
+17 18 12 82 81 21 28 71 78 41 
+48 18 12 17 14 82 87 84 81 74 
+71 24 21 41 47 42 48 72 12 14 
+18 17 87 81 47 84 14 18 27 48 
+41 24 28 48 12 14 24 78 72 82 
+87 27 28 c2 32 78 7c 73 74 c3 
+83 8c 84 87 c4 34 3c 37 c7 47 
+4c 43 48 c3 1c 73 71 78 74 31 
+38 34 84 87 83 73 43 47 48 78 
+13 18 38 37 31 34 71 53 57 5h 
+81 a5 75 35 8a 84 87 83 73 43 
+47 48 a3 13 1a 17 7h 78 31 37 
+38 17 a8 3a 34 a4 8a 84 81 83 
+41 43 48 a1 71 7a 38 34 84 87 
+83 73 87 c8 43 4c 47 c7 37 3c 
+38 c8 1c 14 17 18 c4 a7 6c 6a 
+63 62 32 a2 c2 8c 8a 81 86 83 
+a1 c1 63 68 8c 8a 4h 82 
+#935 Attempt: 2 NumFcs=3 (FCPro - Solved)
+5h 1a 35 2b 82 1c 18 a8 1a 16 
+c1 21 a7 27 2c 2a 24 c2 a2 86 
+58 72 85 8c 48 c4 27 72 54 5c 
+c5 45 54 27 2c 2a c2 72 7c 78 
+a8 c8 28 2c 52 54 b4 57 5b 51 
+42 3a b5 35 3b 3h 7h c3 83 67 
+6h 76 71 38 83 8c 87 c7 3c 37 
+c7 3c b3 83 8b 81 b1 31 3b 83 
+82 a2 84 4a 48 a8 3a c3 7c 73 
+7h 7h c3 1c 71 78 17 c1 7c b7 
+c7 4c 24 2b 28 b8 48 4b 4h 42 
+4h 6h 7h 8h b2 17 1b 14 bh 2h 
+1h 4h a1 82 8b 8a 84 bh a4 1b 
+1a 15 a5 b5 1b 1a 21 24 2h 14 
+31 3h b3 1b c1 81 6c 68 8h 7h 
+21 28 18 12 82 81 68 64 4h 6h 
+6h 1h ah 6h 
+
+------=_NextPart_000_000B_01C17B04.23946D20
+Content-Type: text/plain;
+	name="FCSolutfi5.txt"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="FCSolutfi5.txt"
+
+&&&     
+#102140 Attempt: 2 NumFcs=4 (FCPro - Solved)
+3h 86 37 8c 8a 8b 87 37 62 c8 
+38 68 18 68 38 28 2d 2c bh 67 
+27 2b 32 13 c1 2c b2 72 74 47 
+27 2b 12 42 14 b1 71 7b 72 b2 
+12 1b 17 1h 61 b7 1b 12 b2 1b 
+21 c2 1c 21 c2 6c d6 b6 5d 5b 
+51 12 a5 d5 3d 3a 53 85 38 b3 
+1b c1 3c d3 1d a1 31 5a 53 56 
+ch 2h 8h 5h ah 36 7d 7c 7a 74 
+75 73 71 7h 53 43 45 a3 c3 d3 
+7d 6h 2h 23 2d 2c 2a 25 dh a5 
+c5 4d 6h 5h 6h 4c 41 
+#957174 Attempt: 2 NumFcs=3 (FCPro - Solved)
+3h 18 61 64 6c 6a c6 a6 2c 26 
+23 c3 16 5c 5b 5a 58 56 a6 c6 
+5a b5 75 7b 7h 7c 75 74 c7 a7 
+17 64 1c 1a 1h 1h bh 3b 31 b1 
+4b 46 52 b6 1b 13 b3 4b 41 b1 
+3b 73 b7 6b 61 b1 6b 64 b4 1b 
+14 b4 1b 16 b6 3b 31 71 73 13 
+17 41 46 16 37 31 71 73 13 17 
+37 b3 4b 41 b1 6b 61 b1 6b 64 
+b4 1b 14 b4 1b 16 b6 3b 31 71 
+73 13 17 61 16 37 31 71 73 13 
+b1 4b 46 b6 1b 17 37 b3 4b 41 
+b1 6b 61 b1 6b 64 b4 1b 14 b4 
+1b 16 b6 c1 5c 5b 45 46 56 a5 
+1a b1 c1 15 1c 3b 31 71 73 13 
+17 41 37 b3 6b 61 64 6h b1 4b 
+46 b6 1b 16 b6 4b 4h 1h 25 21 
+51 46 42 a2 42 45 1a 51 a5 4a 
+c4 1c 14 c4 8c 81 c1 8c 8h ch 
+ah 83 2c 28 2a 23 2h a3 c8 3c 
+3a 37 31 32 71 72 73 a1 c1 23 
+27 37 3c 3a bh 1h 37 3h 3h 
+#114 Attempt: 2 NumFcs=3 (FCPro - Solved)
+65 2c 24 23 21 41 45 46 71 7b 
+72 73 b3 7b 57 56 46 41 b4 24 
+16 1a 1b c1 12 1c 13 51 2h 4h 
+4h 23 b2 12 81 73 47 4b 41 b4 
+74 87 81 8h 7h 12 1b 57 41 4h 
+45 54 45 c4 4c 61 64 65 14 15 
+31 3h 45 4h 38 34 4h 34 32 42 
+34 b3 2b 24 b4 2b 23 b3 2b 27 
+b7 3b 37 b7 3b 32 b2 a3 6b 6a 
+63 a3 b3 4b 47 4a b7 6b 64 b4 
+8b 87 b7 6b 68 b8 4b 46 b6 3b 
+34 36 b4 3b 38 3h b8 3b bh 7h 
+8h 2h 6h 3h 8h 8h 2h 8h a7 6b 
+6a 61 
+#463 Attempt: 2 NumFcs=3 (FCPro - Solved)
+4c 24 47 24 8b 2a 28 28 27 b7 
+68 a2 5b 52 53 51 41 63 43 4a 
+b4 5b 76 67 15 41 54 35 a3 8a 
+b8 3b 53 25 65 26 32 b3 7b 75 
+b5 3b 23 72 76 26 32 b3 5b 56 
+b6 3b 23 52 57 27 15 12 52 35 
+b3 2b 42 41 b1 48 1b 14 b4 1b 
+18 b1 18 1b 53 15 15 a1 2a 28 
+48 a4 3a 32 a2 3a 36 a6 2a 26 
+a6 7a 72 a2 7a 75 a5 2a 25 a5 
+3a 34 62 63 23 a2 6a 62 a2 6a 
+65 a5 2a 25 a5 3a 35 a5 2a b2 
+7b 72 71 74 4h 3h 4h 4h 42 82 
+87 84 81 41 71 21 24 27 28 14 
+17 18 12 82 81 21 28 71 78 41 
+48 18 12 17 14 82 87 84 81 74 
+71 24 21 41 47 42 48 72 12 14 
+18 17 87 81 47 84 14 18 27 48 
+41 24 28 48 12 14 24 78 72 82 
+87 27 28 c2 32 78 7c 73 74 c3 
+83 8c 84 87 c4 34 3c 37 c7 47 
+4c 43 48 c3 1c 73 71 78 74 31 
+38 34 84 87 83 73 43 47 48 78 
+13 18 38 37 31 34 71 53 57 5h 
+81 a5 75 35 8a 84 87 83 73 43 
+47 48 a3 13 1a 17 7h 78 31 37 
+38 17 a8 3a 34 a4 8a 84 81 83 
+41 43 48 a1 71 7a 38 34 84 87 
+83 73 87 c8 43 4c 47 c7 37 3c 
+38 c8 1c 14 17 18 c4 a7 6c 6a 
+63 62 32 a2 c2 8c 8a 81 86 83 
+a1 c1 63 68 8c 8a 4h 82 
+#935 Attempt: 2 NumFcs=3 (FCPro - Solved)
+5h 1a 35 2b 82 1c 18 a8 1a 16 
+c1 21 a7 27 2c 2a 24 c2 a2 86 
+58 72 85 8c 48 c4 27 72 54 5c 
+c5 45 54 27 2c 2a c2 72 7c 78 
+a8 c8 28 2c 52 54 b4 57 5b 51 
+42 3a b5 35 3b 3h 7h c3 83 67 
+6h 76 71 38 83 8c 87 c7 3c 37 
+c7 3c b3 83 8b 81 b1 31 3b 83 
+82 a2 84 4a 48 a8 3a c3 7c 73 
+7h 7h c3 1c 71 78 17 c1 7c b7 
+c7 4c 24 2b 28 b8 48 4b 4h 42 
+4h 6h 7h 8h b2 17 1b 14 bh 2h 
+1h 4h a1 82 8b 8a 84 bh a4 1b 
+1a 15 a5 b5 1b 1a 21 24 2h 14 
+31 3h b3 1b c1 81 6c 68 8h 7h 
+21 28 18 12 82 81 68 64 4h 6h 
+6h 1h ah 6h 
+
+------=_NextPart_000_000B_01C17B04.23946D20--
+

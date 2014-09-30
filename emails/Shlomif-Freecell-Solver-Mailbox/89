@@ -1,0 +1,84 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 30087 invoked from network); 1 Jan 2002 19:46:19 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 1 Jan 2002 19:46:19 -0000
+Received: from computer ([12.78.218.168]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020101194420.TRHV7926.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Tue, 1 Jan 2002 19:44:20 +0000
+Message-ID: <001b01c192fc$86f1ec20$a8da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112301854320.4163-100000@vipe.technion.ac.il>
+Subject: Update 8 freecells & FCS V2.0
+Date: Tue, 1 Jan 2002 14:39:09 -0500
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+  boundary="----=_NextPart_000_0016_01C192D2.128B6FC0"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 68
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+------=_NextPart_000_0016_01C192D2.128B6FC0
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+
+Hi Shlomi,
+
+    New Year's Day.  "Have a Happy."
+
+    I finally got "out from under" on the work I was doing for 8 freecells
+in FcPro, and now will move onward to installing FCS V2.0.  I did get as far
+as trying out that program VCVARS32.bat, and sure enough, it worked, and I
+now have a library file ready for installation.
+
+    While the new version of the program may only be of limited interest to
+you (it now handles 8 freecells for all three solvers; still has the older
+version of FCS), I'm passing along a copy, and also to keep you up to day on
+my source, I'm attaching a collection of all those source modules that have
+been updated since the last set I'd sent you.
+
+    I'll let you know when I have FCS V2.0 installed as far as I can take
+it, and will then be ready for the multiple-instance capability.  -- and the
+appropriately updated interface file.
+
+    Oh, yes, I tried with the present FCS version I'm using to change max.
+freecells to 12, but the resulting program still seems to be using 8
+freecells only.  Do I gather that the capability to go over 8 is something
+that wasn't there prior to V2.0?
+
+Best regards,  ---------------------Adrian
+
+
+------=_NextPart_000_0016_01C192D2.128B6FC0
+Content-Type: Text/Plain; charset=US-ASCII
+X-Content-Type: application/x-zip-compressed;
+	name="Fcsr2101.zip"
+X-Content-Transfer-Encoding: base64
+X-Content-Disposition: attachment;
+	filename="Fcsr2101.zip"
+
+  [ The following attachments were DELETED when this message was saved:  ]
+  [ A Application/X-ZIP-COMPRESSED segment of about 128,386 bytes.       ]
+------=_NextPart_000_0016_01C192D2.128B6FC0
+Content-Type: Text/Plain; charset=US-ASCII
+X-Content-Type: application/x-zip-compressed;
+	name="Fcpr6572.zip"
+X-Content-Transfer-Encoding: base64
+X-Content-Disposition: attachment;
+	filename="Fcpr6572.zip"
+
+  [ The following attachments were DELETED when this message was saved:  ]
+  [ A Application/X-ZIP-COMPRESSED segment of about 111,366 bytes.       ]
+------=_NextPart_000_0016_01C192D2.128B6FC0--
+

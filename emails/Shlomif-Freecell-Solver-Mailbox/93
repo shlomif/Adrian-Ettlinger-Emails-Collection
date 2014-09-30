@@ -1,0 +1,77 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 5153 invoked from network); 3 Jan 2002 11:14:55 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 3 Jan 2002 11:14:55 -0000
+Received: from computer ([12.78.219.178]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020103111450.BXHF941.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Thu, 3 Jan 2002 11:14:50 +0000
+Message-ID: <000e01c19447$ae0470c0$4cda4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0201031201550.3895-100000@vipe.technion.ac.il>
+Subject: Still FCS solution questions
+Date: Thu, 3 Jan 2002 06:12:38 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 54
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<Excellent. Don't you think refactoring is fun? >>
+    Whatever it was, yes, it was fun.  But just what is the definition of
+the word "refactoring" as it applies here?
+
+    Thanks very much for the tip as to how I can diagnose what FCS is doing.
+I just went through the process of recovering my recollection of my earliest
+experimentation with FCS.  I couldn't find a copy of the command line
+version in the laptop where I'm doing the FcPro development, and was hazy in
+my recollection of whether I'd ever run it.  I did a lot of working with a
+command line version of Patsolve, and that fogged my memory of that stage of
+my FCS work.  But now I see that it was in this laptop where I'd run it, so
+I can get back to that.  But so far, there is still a puzzle, and it now
+applies just to #23.
+
+  The further problem with respect to #23 is that I'd like to be able to
+find out just what FCS thought the position was when it made that move.
+Because, in the position as I am seeing it, there is an illegal move.
+
+    In #23:
+<<Move 5 cards from stack 6 to stack 5>>
+    The position I see has no empty freecells, and three empty stacks.  The
+maximum number of cards that can be moved onto an empty stack starting with
+three empty stacks, I believe, is 4.  Unless there's some manuever which I
+haven't been able to design that can move more.  There are three
+possibilities: (1) Something was different in a previous move, so I'm not
+seeing the same position FCS is seeing, (2) There's some way to legally move
+five cards in that position of which I'm not aware, or (3) FCS made an
+illegal move.
+
+    In the case of #90, I now see that there's a problem in my code.  As it
+stands right now, it isn't properly making the first move.  Also, I had a
+blind spot in my analysis, not realizing that the freecell to stack move put
+the black five on a red six.  I was thinking stack 6 had to be empty.
+Also, it's quite possible that the dilemma with #23 is due to something I'm
+not seeing prior to that particular move.
+
+    I'll get to playing with it further later today.  I see for the #23
+problem that there evidently is a way I can see the position after every
+move, although I don't know how tedious it's going to be to try to find it
+for that particular move.
+
+Best regards,  -------------------Adrian
+
+

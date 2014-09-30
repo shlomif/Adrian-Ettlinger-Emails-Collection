@@ -1,0 +1,65 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 7441 invoked from network); 20 Nov 2001 11:53:51 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 20 Nov 2001 11:53:51 -0000
+Received: from computer ([12.78.218.99]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011120115337.LNKA4554.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Tue, 20 Nov 2001 11:53:37 +0000
+Message-ID: <000e01c171b1$8ca8b020$63da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111201314400.7229-100000@vipe.technion.ac.il>
+Subject: Re: A*, solver routine
+Date: Tue, 20 Nov 2001 05:52:19 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 41
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Our last two messages crossed.  I see you did reply to Bill Raymond
+about A*.  We'll see whether he decides to argue further about it.  In my
+past discussions, we got into a lot of semantical miscommunication and it
+got rather frustrating.
+
+    I took a further look at what I downloaded.  It looks to me like I have
+to figure out how to use the Freecell Board Generator, see what file name
+that generates, and then run fc-solve.exe with that file name in the command
+line.  Sorry, but that sounds like a lot of trouble to have to go through.
+Is there any simpler and faster way?  I might take another look later, but
+I'm inclined to think I'd rather spend my time integrating FCS into FcPro.
+
+    With my fixed-length buffer for moves, we do have a test, and if the
+solution is too long, it says "Solvable, but the solution is too long to
+display."  I increased the size to the point where I don't have any examples
+that I know of that are too long.  But there isn't really any good reason
+why I couldn't make the length indefinite.  I'm not sure whether, with
+current operating systems, I'd have to code a memory allocation to
+accommodate that.
+
+    Yes, we need another parameter to point to the solution array.  I'm
+somewhat weak in my understanding of how to use pointers, so you might have
+to tutor me as to the exact syntax I should use to get access to your array
+(or string).  And to express it when I call your routine.
+
+    I'm not looking for sympathy, but I'm 76 years old and have to admit I
+don't think as fast (or as deep) as I used to.
+
+Best regards,  -----------------Adrian
+
+

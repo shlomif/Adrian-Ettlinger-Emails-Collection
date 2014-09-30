@@ -1,0 +1,56 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 8429 invoked from network); 18 May 2002 12:08:16 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 18 May 2002 12:08:16 -0000
+Received: from computer ([12.75.48.171]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020518120805.VWYZ5116.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sat, 18 May 2002 12:08:05 +0000
+Message-ID: <000601c1fe64$38263fa0$ab304b0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205181231400.6070-100000@vipe.technion.ac.il>
+Subject: Moving on to presets #6
+Date: Sat, 18 May 2002 08:02:53 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 10
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    OK, now I understand it.  True multi-tasking, then, seems to take a
+machine with multiple processors.  I don't think that really interests me so
+much, as FcPro is intended for your typical average guy who would own only a
+single-processor computer.  On the other hand, Windows pretends like it's
+running more than one application at a time, but I'd assume its technique is
+to employ some sort of task-switching mechanism that runs in software and
+rotates the single processor's attention around successively to each task.
+After all, a single processor can execute only one instruction at a time.
+
+    I was incorrect in saying the number of arguments for the former and new
+Free2Solver were different.  The count is the same, although the types are
+different for a couple of them.  It might be the present implementation is
+working only by accident.
+
+    I'd say I'm at a point of diminishing returns in trying to make further
+progress with what I have in my traveling laptop, so I'll pick this up again
+when I'm home at the end of next week.  If in the meantime you could have
+completed that work you were going to do, that would be good.
+
+Best regards, ----------------Adrian
+
+

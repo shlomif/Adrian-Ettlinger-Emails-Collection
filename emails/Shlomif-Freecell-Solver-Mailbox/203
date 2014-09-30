@@ -1,0 +1,67 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 26237 invoked from network); 18 Jul 2002 19:10:45 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 18 Jul 2002 19:10:45 -0000
+Received: from computer ([12.78.218.75]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020718191039.WXEY6994.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Thu, 18 Jul 2002 19:10:39 +0000
+Message-ID: <000401c22e8e$46d086a0$4bda4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207180811540.9858-100000@vipe.technion.ac.il>
+Subject: 2.6.0 Crash experiments
+Date: Thu, 18 Jul 2002 14:59:10 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Decided testing with one freecell would be most fruitful, and that
+turned out to be a good guess.
+
+    Without going into details of how I got there, I can now make it crash
+in a few seconds.  If I ask for a range of from deal #10 to #20, it crashes
+almost immediately, and consistently, while working on deal #12, at 22,000
+iterations.  This applies only if the test is made as the first operation
+after starting the program.  If a range of #1 to #20 is called for (also
+after an initial start of the program), it runs all the way through to #20
+with no mishap.  The printout shows #12 as Impossible after 353,000
+iterations.  Now, here's a good one:  If, after an initial startup of the
+program, I run #1-#20, and then as the second operation run #10-#20, it also
+crashes while working on #12, but after the iteration count has run all the
+way up to 353,000 (which on that laptop takes 25 seconds).  These all seem
+to be reliably repeatable.
+
+    Another clue.  I haven't tried a Debug configuration compilation, but it
+turns out Window XP has some debugging capability built in.  If after a
+crash you ask for "Debug", you get an explanation and a display, in assembly
+language, of the instruction which caused the problem.  The explanation is
+"Access violation", and the instruction on which it fails is a "mov"
+instruction.  So it's evident that some kind of out-of-bounds memory write
+is occurring.
+
+    I'll wait until I hear more from you before I try anything else.  If
+this doesn't give you enough to work on, it's possible that if I compile a
+Debug Configuration, that display will show me in the source language what
+instruction caused the illegal write.  But if it's occurring inside a static
+library, I'm not sure if that is going to work  So let me know if it's
+necessary that I try that.
+
+Best regards, ---------------Adrian
+
+

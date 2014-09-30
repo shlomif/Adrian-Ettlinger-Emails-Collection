@@ -1,0 +1,118 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 7974 invoked from network); 21 Jul 2002 20:11:28 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 21 Jul 2002 20:11:28 -0000
+Received: from computer ([12.75.50.35]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020721201048.LCHI6994.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 21 Jul 2002 20:10:48 +0000
+Message-ID: <001401c230f2$2c33b400$23324b0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207201329420.3622-100000@vipe.technion.ac.il>
+Subject: Atomics, presets
+Date: Sun, 21 Jul 2002 15:18:03 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    First, the good news.  As far as I can tell from the three false
+impossible examples I have to work with, the atomic moves option seems to be
+working as it should.  I even reran the entire test of c. 25,000 positions,
+and it went through with no problems.  I'm satisfied now to post 2.6.1 on my
+site, but I have a little more work I want to do to take advantage of it.
+
+    For the "hot key" mode that players use to check intermediate positions,
+I want to set up a compound mode so that it first uses a "fast" non-atomic
+preset (like Abra Kadabra), and only if that produces an Impossible verdict,
+will it invoke an atomic preset.  I do find that the fastest atomic preset
+is much, much slower than Abra Kadabra.  My benchmark test is to run the
+first 1000 deals.  Abra Kadabra works through that range in 31 or 32
+seconds, while the fastest atomic preset takes over 4 minutes.
+
+    But heres one thing about the performance of various presets which seems
+to me at variance with what I recall you having said.  I see that your Abra
+Kadabra preset has the same "method" lines as your previous "best"
+non-atomic preset.  That' the same one I'd sent you a copy of when you
+wondered what preset I was using that was resulting in crashes.  I. e., the
+only difference is that the "prelude" option is added.  Well, I don't see
+any difference in performance between the preset with and without the
+"prelude".  Both presets go through the first 1000 deals in about 31-32
+seconds. Does that sound right?
+
+Best regards,  --------------Adrian
+
+
+
+
+----- Original Message -----
+From: Shlomi Fish <shlomif@vipe.technion.ac.il>
+To: Adrian Ettlinger <aettlinger@worldnet.att.net>
+Sent: Saturday, July 20, 2002 6:30 AM
+Subject: Re: Bug Fix
+
+
+> On Sat, 20 Jul 2002, Adrian Ettlinger wrote:
+>
+> > Hi Shlomi,
+> >
+> >     That's very good news.  Hopefully, that will rescue me from the task
+of
+> > trying to figure out how to create a pointer from the disassembly of the
+> > .exe where the problem occurred to the source, which I was ready to try
+to
+> > tackle otherwise.
+> >
+> >     I've downloaded the new 2.6.1 file, and will try it later today and
+give
+> > you report.
+> >
+> >     Valgrind sounds like it must be a product similar to one I used back
+in
+> > the 16-bit days called Bounds Checker, which was a very  useful tool for
+> > identifying memory leaks and also resource leaks.  They got too pricey
+with
+> > their 32-bit product, so I no longer have it available.  I'll have to
+take a
+> > look at that website.  If this is freeware, maybe it's something I can
+> > afford to buy.
+> >
+>
+> I don't know how Bounds Checker operates, so I can't tell. From what I
+> understood Valgrind uses a methodology similar to Insure++ or Purify. In
+> any case, so far it's only available for i386 Linux.
+>
+> Regards,
+>
+> Shlomi Fish
+>
+>
+> > Best regards, ------------------Adrian
+> >
+> >
+>
+>
+>
+> ----------------------------------------------------------------------
+> Shlomi Fish        shlomif@vipe.technion.ac.il
+> Home Page:         http://t2.technion.ac.il/~shlomif/
+> Home E-mail:       shlomif@iglu.org.il
+>
+> He who re-invents the wheel, understands much better how a wheel works.
+>
+

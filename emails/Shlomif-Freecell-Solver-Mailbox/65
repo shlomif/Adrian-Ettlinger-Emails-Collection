@@ -1,0 +1,371 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 25619 invoked from network); 2 Dec 2001 04:17:53 -0000
+Received: from mtiwmhc25.worldnet.att.net (204.127.131.50)
+  by vipe.technion.ac.il with SMTP; 2 Dec 2001 04:17:53 -0000
+Received: from computer ([12.78.219.176]) by mtiwmhc25.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011202041743.ULTA15547.mtiwmhc25.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Sun, 2 Dec 2001 04:17:43 +0000
+Message-ID: <000b01c17ae8$3691a300$b0db4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111301419180.13604-100000@vipe.technion.ac.il>
+Subject: False impossible report
+Date: Sat, 1 Dec 2001 23:15:58 -0500
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+  boundary="----=_NextPart_000_0008_01C17ABE.22AFB540"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 8
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0008_01C17ABE.22AFB540
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+
+Hi Shlomi,
+
+    I wrote up the story of my last round of tests in a text file, and am
+attaching it.  Going with it are five solution files which can be played
+back in FcPro to construct the positions that cause false impossibles, more
+in FCS than in FcPro.  I hope what's written up in the text will be
+self-explanatory.
+
+    I'll probably tell you more about a day from now.  I have a new Build 5,
+which adds only some diagnostic code to explore for more false impossibles.
+I think there may be quite a few more in other positions in some of the
+hands I'm sending you here.  But I have to sort out the information.  There
+was a strange anomaly in it at the last minute which I have to resolve.
+I'll let you know.
+
+Best regards,  ------------Adrian
+
+
+
+----- Original Message -----
+From: Shlomi Fish <shlomif@vipe.technion.ac.il>
+To: Adrian Ettlinger <aettlinger@worldnet.att.net>
+Cc: <fomalhaut@earthlink.net>
+Sent: Friday, November 30, 2001 7:39 AM
+Subject: Re: Project status
+
+
+> On Fri, 30 Nov 2001, Adrian Ettlinger wrote:
+>
+> > Hi Shlomi,
+> >
+> > <<What I would like is for the solver to report the times in which it
+> > started and finished to solve each board. I don't think seconds would be
+> > accurate engough so I'd also suggest adding microseconds (or at least
+> > milliseconds).>>
+> >     I don't think microseconds would be feasible, but milliseconds
+might.
+> > The time function I am using only delivers time to one-second precision.
+> > Looking through Help, I see there is another function that might be used
+for
+> > millliseconds, but it's a function I've never had any experience in
+using.
+> > Do you know anything about this?  Or do you know of any source for the
+> > know-how in how to use that function?  It's always very time-consuming
+for
+> > me whenever I try to figure out how to use some new function that I've
+never
+> > used before.
+> >
+>
+> It's being quite a while since I've done any real programming on Win32.
+> I'm used to UNIX where we have a function called gettimeofday() that gives
+> time in microsecs. In any case are you referring to the GetTickCount()
+> function? I think you could safely use it. To use it do the following:
+>
+> DWORD start;
+> DWORD end;
+> DWORD time_spent;
+>
+> start = GetTickCount();
+> /*
+> Solve the board
+> */
+> .
+> .
+> .
+> end = GetTickCount();
+> time_spent = end-start;
+>
+> That's it!
+>
+> > <<But please refer to the random-DFS report that I'm about to post to
+> > fc-solve-discuss.>>
+> >     I see it.  Sound promising.  But don't we need some code
+modifications
+> > to make this available in the FcPro implementation?
+> >
+>
+> Indeed we do, assuming we desire such a thing.
+>
+> >     I'm wondering, where we stand now, if you consider the FcPro
+integration
+> > a useful tool for you for further development of FCS?
+>
+> I see the FC-Pro integration as a way to provide the Win32 user with a
+> nice GUI for Freecell Solver. Most people will find using FCS from within
+> an integrated application nicer than having to input the board in a text
+> file, running FCS on the command-line and then tracing the solution
+> manually.
+>
+> However, for the development of FCS per-se, I'm not sure if FC-Pro gives
+> me too many advantages. Whatever I can do with FC-Pro, I can do on the
+> command line.
+>
+> > I'm also wondering,
+> > since we're now at a point where the next major step is to tinker with
+> > various modes of operation of FCS, such as you have done with
+random-DFS,
+> > whether it's efficient for me to stay in the loop for further work in
+> > perfecting it.
+>
+> What do you mean by "stay in the loop?"
+>
+> > I would think you could do most of what needs to be done
+> > yourself, within the confines of your own code and the free2.c module
+which
+> > I wrote.  There might need to be some changes elsewhere, such as in
+> > fcplay.c, to take care of the replay problem, and if you have changes
+you'd
+> > like to make there or elsewhere, it'd be important you kept me up to
+date.
+> >
+>
+> I'll send you any major modifications I come up with to the core FC-Pro
+> code.
+>
+> >     What do you think?
+> >
+>
+> Sound good.
+>
+> Regards,
+>
+> Shlomi Fish
+>
+> > Best regards,  ---------------------Adrian
+> >
+> >
+>
+> --
+>
+>
+> ----------------------------------------------------------------------
+> Shlomi Fish        shlomif@vipe.technion.ac.il
+> Home Page:         http://t2.technion.ac.il/~shlomif/
+> Home E-mail:       shlomif@techie.com
+>
+> If:
+> 1. A is A
+> 2. A is not not-A
+> does it imply that
+> 1. B is B
+> 2. B is not not-B
+>
+>
+
+------=_NextPart_000_0008_01C17ABE.22AFB540
+Content-Type: text/plain;
+	name="Rep1c01.txt"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+	filename="Rep1c01.txt"
+
+Report on comparative tests of Freecell Solver (FCS) vs. FcPro, =
+conducted by Adrian Ettlinger, 11/27-28/01
+
+FCS version used was ?? (Shlomi, you must know what you gave me).
+
+AT 4 FREECELLS:=09
+	No comprehensive run was made to attempt to identify false impossibles =
+in FCS.  FCS was used to check FcPro for=20
+false impossibles.  A list of 263 impossibles found in the past by FcPro =
+in the first 20 million hands was run through
+FCS, and FCS found them all to be either impossible or Intractable.  A =
+limit of 500000 iterations was used in FCS, and
+anything that overflowed that limit is defined as Intractable.  The were =
+four of these, 3595299, 7484159, 18739641
+and 19617733.
+
+AT 3 FREECELLS:
+	5000 Hands were run in both FcPro and FCS.  THere were no disagreements =
+as to Impossibles.  FcPro found 33
+Impossibles, no Intractables, and the run took 16 minutes, 0 seconds.  =
+FCS was run with a time limit of 15 seconds.
+FCS had 31 Impossibles and 209 Intractables.  Two of the intractables =
+were 2802 and 4368, both of which were judged
+Impossible by FcPro.  The run on FCS took 1 hour, 39 minutes, 38 =
+seconds.  The parameters used in FcPro were Mode W,
+A time limit 3 sec., B time limit 5 minutes.
+
+AT 2 FREECELLS:
+	1000 Hands were run in both FcPro and FCS.  FcPro had five hands that =
+it declared Impossible, which were solved
+by FCS.  These were 351, 554, 884, 891 and 939.  FCS had one Impossible =
+that was solved by FcPro, No. 333. FCS was run
+with a time limit of 15 seconds, and the run took 25 min., 12 sec.  FCS =
+had 209 Intractables (just a coincidence, the
+same number as over 5000 hands at three freecells).  FcPro was run in =
+Mode W, A Max. Time 3 sec., B Max. Time 5 min.,
+and its run took 50 min., 50 sec.  FcPro had two Intractables. 209 and =
+982.
+
+AT 1 FREECELL:
+	1000 Hands were run in both FcPro and FCS.  FcPro had two hands that it =
+declared Impossible, which  were solved
+by FCS, 106 and 511.  FCS had six hands which it declared impossible =
+which were solved by FcPro, 210, 457, 513, 551, 553
+and 862.  FCS was run with a time limit of 15 sec. and had 18 =
+Intractables. and the run took 11 min., 15 sec..  FcPro
+was run in mode W, Max A time 3 sec., Max. B time 5 min.  FcPro's run =
+took 31 Min., 56 Sec., FCS's 11 Min.,  15 Sec.
+FcPro had two Intractables, 276 and 970
+
+AT 0 FREECELLS:
+	100,000 Hands were run in both FcPro and FCS. in a number of separate =
+batches.  FcPro had one Intractable, 5814
+and two Impossibles, 12397 and 63249 that were solved by FCS.  FCS had =
+19 Impossibles that were solved
+by FcPro, 3178, 7167, 12676, 14826, 24739, 28856, 37913, 46561, 48675, =
+51232, 52331, 60306,77549,842299, 88316. 93648,
+93826, 99012, and 99252.  FCS was run with a time limit of 15 sec., had =
+22 Intractables, and the total time of the
+runs was approx. 22 minutes.  FCPro was run in mode W, Max. A time 5 =
+sec., Max. B time 5 min. had one Intractable, and
+the runs took approx. 46 minutes. =20
+=20
+Summary of false impossibles by FCS:
+
+At 2 freecells: 333
+At 1 freecell: 210, 457, 513, 551, 553, 862
+At 0 freecells: 3178, 7167, 12676, 14826, 24739, 28856, 37913, 46561, =
+48675, 51232, 52331, 60306,77549,842299,
+		88316. 93648, 93826, 99012, 99252 =20
+
+FALSE IMPOSSIBLES FROM INTERMEDIATE POSITIONS:
+	Accompanying files can be used in FcPro to create the postions. "Load" =
+the file under "Files", and let it run
+all the way with the default -1 value.  The number of freecells will be =
+automatically set.  Summary of results:
+
+File 102140f.txt:  (4 freecells) This position yields Impossible under =
+both FcPro and FCS.  After the key move
+4-7, it is winnable with FcPro but still Impossible under FCS.
+
+File 957174f.txt:  (3 freecells) This position yields Impossible under =
+both FcPro and FCS.  After the key move
+3-1, it is winnable with FcPro but still Impossible under FCS.
+ =20
+File 114f.txt:  (3 freecells) This position yields Impossible under both =
+FcPro and FCS.  After the key move
+4-c,  it is winnable with FcPro but still Impossible under FCS.
+
+File 463f.txt: (3 freecells) This position yields Impossible under both =
+FcPro and FCS.  After the key move
+6-7, it is winnable with FcPro but still Impossible under FCS.
+
+File 935f.txt: (3 freecells) This position yields Impossible under =
+FcPro, but Winnable under FCS. After the
+key move 8-3, it is winnable under both FcPro and FCS.
+ 
+------=_NextPart_000_0008_01C17ABE.22AFB540
+Content-Type: text/plain;
+	name="114f.txt"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="114f.txt"
+
+#114 Attempt: 6 NumFcs=3 (FCPro)
+65 2c 24 23 21 41 45 46 71 7b 
+72 73 b3 7b 57 56 46 41 b4 24 
+16 1a 1b c1 12 1c 13 51 2h 4h 
+4h 23 b2 12 81 73 47 4b 41 b4 
+74 87 81 8h 7h 12 1b 57 41 4h 
+45 54 45 c4 
+LL
+ Found by ABE 2/4/01. Shuffling
+moves between freecells and 
+empty columns can produce false
+impossibles.  Specifically, 
+from this position, after 4c,
+becomes winnable.
+------=_NextPart_000_0008_01C17ABE.22AFB540
+Content-Type: text/plain;
+	name="463f.txt"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="463f.txt"
+
+#463 Attempt: 2 NumFcs=3 (FCPro)
+4c 24 47 24 8b 2a 28 28 27 b7 
+68 a2 5b 52 53 51 41 63 43 4a 
+b4 5b 76
+LL
+Found by ABE 3/4/01
+Shows Imp.  Move 67 makes it possible
+------=_NextPart_000_0008_01C17ABE.22AFB540
+Content-Type: text/plain;
+	name="935f.txt"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="935f.txt"
+
+#935 Attempt: 11 NumFcs=3 (FCPro)
+5h 1a 35 2b 82 1c 18 a8 1a 16 
+c1 21 a7 27 2c 2a 24 c2 a2 86 
+58 72 85 8c 48 c4 27 72 54 5c 
+c5 45 54 27 2c 2a c2 72 7c 78 
+a8 c8 28 2c 52 54 b4 57 5b 51 
+42 3a b5 35 3b 3h 7h c3 83 67 
+6h 76 71 38 
+LL
+Shows "impossible".  After 83,
+shows "winnable"
+------=_NextPart_000_0008_01C17ABE.22AFB540
+Content-Type: text/plain;
+	name="957174f.txt"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="957174f.txt"
+
+#957174 Attempt: 2 NumFcs=3 (FCPro)
+3h 18 61 64 6c 6a c6 a6 2c 26 
+23 c3 16 5c 5b 5a 58 56 a6 c6 
+5a b5 75 7b 7h 7c 75 74 c7 a7 
+17 64 1c 1a 1h 1h bh 3b 
+
+LL   *Winnable after move 31.
+from Gordon Simons
+
+------=_NextPart_000_0008_01C17ABE.22AFB540
+Content-Type: text/plain;
+	name="102140f.txt"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="102140f.txt"
+
+#102140 Attempt: 4 NumFcs=4 (FCPro)
+3h 86 37 8c 8a 8b 87 37 62 c8 
+38 68 18 68 38 28 2d 2c bh 67 
+27 2b 32 13 c1 2c b2 72 74
+
+LL  *After 4-7, winnable 
+------=_NextPart_000_0008_01C17ABE.22AFB540--
+

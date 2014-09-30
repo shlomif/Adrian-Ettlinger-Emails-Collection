@@ -1,0 +1,78 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 6952 invoked from network); 17 May 2002 07:57:19 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 17 May 2002 07:57:19 -0000
+Received: from computer ([12.75.35.27]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020517075714.BPWG19182.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Fri, 17 May 2002 07:57:14 +0000
+Message-ID: <003501c1fd78$02abc940$18464b0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205171008040.5284-100000@vipe.technion.ac.il>
+Subject: Moving on to presets #2
+Date: Fri, 17 May 2002 03:50:28 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 6
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Your reply was almost like instant messaging, so I'll reply instantly
+also, even though I haven't delved any deeper.
+
+    I'll look in main.c for the help language.
+
+<<the correct term is scan rather than method.>>
+    That explains a slight puzzlement.  I do see now that "--method" is
+always followed by one of the few phrases that you list in USAGE.  Then can
+follow other parameters.  Evidently "-step" is the number of iterations it
+will try in each cycle.  I don't really need to know what "-to" and "-seed"
+mean.
+
+<<So you are planning to use one character to describe them, initially?>>
+    I'd say "to select them", rather.  Yes.  I'd been planning on myself
+doing a routine to index using an alphanumeric character to select from a
+list of presets, maximum size being 36.  But:
+
+<<In any case, I'll work on a function that reads a line from an INI file
+and constructs the char * */int pair. I'll have to implement a simple object
+to do it and handle the memory deallocation.>>
+    That could save me some work.
+
+<<Michael Keller gave an extra nudge to me doing it by saying that he lost
+interest in FCS because it had false negatives.>>
+    Yes, I knew he had.  Maybe I should have given you a stronger nudge
+sooner.  But you might not have been so receptive until now.
+
+    Re the terminology of super, meta, multi-move, my main point is that I
+think there should be some term that applies to the formula for the number
+of cards that M/S Freecell can move, since that's such a commonly-used
+Freecell player.  Internally within FcPro, I have one formula I call
+"supermove" and another for "supersupermove", since I once mistakenly
+thought my first crack at supermove had reached the ultimate, which it
+hadn't.
+
+<<I find it unlikely that the world depends on FCS being integrated into
+Freecell Pro.>>
+    To the contrary, I believe that the fate of human civilization as we
+know it hinges on this achievement.  But I do also believe that we have a
+little bit of slack time before Armageddon descends upon us.
+
+Best regards,  ---------------Adrian
+
+

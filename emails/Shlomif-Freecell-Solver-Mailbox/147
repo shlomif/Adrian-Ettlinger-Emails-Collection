@@ -1,0 +1,52 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 9955 invoked from network); 3 Jun 2002 11:52:10 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 3 Jun 2002 11:52:10 -0000
+Received: from computer ([12.78.249.114]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020603115203.RHLH13408.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Mon, 3 Jun 2002 11:52:03 +0000
+Message-ID: <000401c20af4$9ef5c4c0$72f94e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206031343460.8460-100000@vipe.technion.ac.il>
+Subject: FCS-FcPro integration
+Date: Mon, 3 Jun 2002 07:47:50 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 35
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<But I have many other variants beside Freecell, and I need to determine at
+which variants it makes sense.>>
+    Why?  Just fix it up for Freecell for the time being.  Freecell is the
+game that is far more widely played than any of the others, so you really
+should emphasize efficiency for Freecell.
+
+<<If you send me the FC-Pro source code (the whole thing) I think I can
+easily add such a thing.>>
+    It wouldn't be that easy.  In any case, it is a goal of FcPro to be able
+to publish solutions that can be played back manually on standard M/S
+freecell, which does not allow states with unmade forced foundation moves.
+
+    I'm going to see what I can do.  I'll do not intend to maintain
+compatability with any games other than Freecell.  I think this is probably
+something you could do in five minutes, and it'll probably take me days.
+
+Best regards, -----------------------Adrian
+
+

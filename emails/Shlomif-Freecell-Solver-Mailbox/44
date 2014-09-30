@@ -1,0 +1,58 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 19213 invoked from network); 24 Nov 2001 13:48:38 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 24 Nov 2001 13:48:38 -0000
+Received: from computer ([12.78.218.130]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011124134831.KUF5540.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sat, 24 Nov 2001 13:48:31 +0000
+Message-ID: <000001c174e6$43792f00$82da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111241405290.18560-100000@vipe.technion.ac.il>
+Subject: Big Intractable
+Date: Sat, 24 Nov 2001 07:47:05 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 65
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Thought I'd get a feel for what percentage of boards produce an "illegal
+move".  Out of 1-8, it happened on 3, #2, 4 and 8.  But then, it testing #9,
+it liked to want to run forever.  I stopped it after about 25 minutes (this
+is on the 400 Mhz laptop).  Really will need to introduce graceful way to
+abort.  I had to use "End Task" a couple of times, and then it brough the
+whole computer to its knees -- had to do a reboot.
+
+    What was different about this intractable compared to the others I'd
+reported is that this one did not trap out with a full hard drive -- it just
+kept on running.  I have a default 2000000 limit on iterations, and it
+didn't trap out on that either.  So I have no idea what was going on.  The
+FcPro solver solves #9 instantly.  But, you don't need to feel bad about the
+"competition".  The second example on your illegal move list, #129164, you
+solve instantly, but FcPro runs to close to a million of its "iterations"
+(called "hands").
+
+    This is encouraging, that the two solvers are appearing to complement
+each other.  Although I'm not so sure whether or not that might apply more
+to 4-freecell.  When I did that testing at less than 4, it seemed to me that
+the boards for which FcPro was running a long time, FCS was also.
+
+Best regards, ------------------Adrian
+
+

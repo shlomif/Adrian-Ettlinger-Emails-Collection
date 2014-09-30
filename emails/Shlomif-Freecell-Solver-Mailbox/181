@@ -1,0 +1,65 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 25582 invoked from network); 4 Jul 2002 12:48:02 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 4 Jul 2002 12:48:02 -0000
+Received: from computer ([12.78.219.60]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020704124750.VQBX20423.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Thu, 4 Jul 2002 12:47:50 +0000
+Message-ID: <000401c22358$85dc59a0$3cdb4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207041244001.22667-100000@vipe.technion.ac.il>
+Subject: Re: FcPro - FCS -- next step
+Date: Thu, 4 Jul 2002 08:44:15 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I now have my latest FcPro posted on a website and was just about to
+send an announcement message to your forum, when I decided to check one more
+function, and I found a flaw that I really must correct.  It should be
+simple to fix -- it's just that the "solrange.txt" file is garbling the
+elapsed time indication for ranige solves.  So maybe later today I'll be
+posting an announcement.
+
+<<As you wish. I'd like to have a choice of several presets.>>
+    Last I heard from you, you did not yourself intend to use FcPro for your
+own testing.  If that has changed, let me know.  As it stands, there is a
+choice of several presets, but only the ones you've passed along to me, hard
+coded.  I still don't know who, if anyone, would use the feature of
+permitting a user to compose his/her own set of presets.
+
+<<Or a meta-scan preset. Whatever.>>
+    If that's the preferred term, it's what I should use.  Would you like to
+take a look at how I now have Freecell Solver described on the site? And
+tell me where I may be using an incorrect vocabulary?  Take a look at
+http://www.rrhistorical.com/rrdata/Fcpro65/   Perhaps I shouldn't make the
+announcement until you've looked it over.
+
+<<A stitch in time saves nine.>>
+    You almost have me convinced.  I'll take a look and see if I can
+understand how to apply it.  I can see that otherwise I'd need to device a
+format for numbering the presets, defining their size, and searching for
+them in the file.
+
+<<And as my mother say the lazyman works twice.>>
+    Your mother knows me very well.
+
+Best regards, --------------Adrian
+
+

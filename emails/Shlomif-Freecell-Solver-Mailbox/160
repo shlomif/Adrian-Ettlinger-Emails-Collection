@@ -1,0 +1,157 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 8288 invoked from network); 24 Jun 2002 11:08:40 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 24 Jun 2002 11:08:40 -0000
+Received: from computer ([12.78.219.73]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020624110829.UPSW5870.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Mon, 24 Jun 2002 11:08:29 +0000
+Message-ID: <001801c21b6f$007ce4a0$49db4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206240901080.4630-100000@vipe.technion.ac.il>
+Subject: M/S Freecell fix
+Date: Mon, 24 Jun 2002 07:02:14 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-Mimeole: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 48
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<That's a "poor-man's source control system", and a very bad one.>>
+    Maybe I'll move on some day.
+
+<<move.c is part of the internals of Freecell Solver. I'd rather you did not
+touch it.  A better way to resolve this issue is to keep a state
+synchronized with the current position and use it to check if the move is
+made to an empty stack.>>
+    Seems like a lot of work when all you really have to do is dip into
+move.c to extract the info.  Of course, the disadvantage to my having my own
+version of move.c is that if you do an update, I have to keep retrofitting
+my changes into the new version.
+
+<<Actually I did not. What I did was render the string from start to end,
+and then reverse it in one go.>>
+    Oh, ho.  The problem was as if you did the reversing character pair by
+character pair instead of byte by byte.
+
+    Stand by for a while.  I'd been having two problems, which was clouding
+my concentration on the most critical problem.  I had an additional problem
+in that the recorded position in a file had errors in it, in more solutions
+than the ones where it wouldn't replay.  I had a breakthrough last night and
+fixed the recording problem, so now I can concentrate on the remaining
+playback problem.  I have only two examples, #16 and #150, in the first 200
+deals.  Also, it seems to be selective, only occurring with certain of the
+preset lines.  I need to dig further before I ask you for any more help.
+
+Best regards,  --------------Adrian
+
+
+>
+----- Original Message -----
+From: Shlomi Fish <shlomif@vipe.technion.ac.il>
+To: Adrian Ettlinger <aettlinger@worldnet.att.net>
+Sent: Monday, June 24, 2002 2:17 AM
+Subject: Re: `M/S Freecell fix
+
+
+> On Sun, 23 Jun 2002, Adrian Ettlinger wrote:
+>
+> > Hi Shlomi,
+> >
+> >     Dealing with your questions in reverse order.
+> >
+> > <<Are you using a source control system?>>
+> >     I don't know what that is.  But I think I do the equivalent
+informally.
+> > I save the source files in their various statuses.
+> >
+>
+> \A source
+> control system allows you to store all revisions of your source compactly
+> in one place, to extract various versions with one command and to manage
+> several distinct branches.
+>
+> > <<What exactly your changes do?>>
+> >     I had told you that your changes to create the "v" mode for
+supermove
+> > did not work, and I wound up doing it "my way".  I'm attaching copies of
+the
+> > fc_pro_iface.c and move.c files as I modified them.  One thing I did was
+to
+> > embellish it by making it so "v" is used only for moves to empty stacks,
+and
+> > only for moves of more than one card.  That involved some changes in the
+> > move.c file.
+> >
+>
+> move.c is part of the internals of Freecell Solver. I'd rather you did not
+> touch it. A better way to resolve this issue is to keep a state
+> synchronized with the current position and use it to check if the move is
+> made to an empty stack.
+>
+> > <<Can't you rollback your changes and start from an earlier version?>>
+> >     I'm thinking that what I should do now is to go back to your
+original
+> > 2.4.2 code with the new fc_pro_iface.c file, compile it, and then one
+bug at
+> > a time tell you what doesn't work right and what needs to be fixed, and
+let
+> > you do it, if you can take the time.  But I can tell you that the first
+> > problem I encountered was that you had removed my reversal of the
+sequence
+> > of source-destination in the rendering of the moves.  I had to restore
+that
+> > first.
+> >
+>
+> Actually I did not. What I did was render the string from start to end,
+> and then reverse it in one go.
+>
+> >     Tomorrow I'll see what happens if I go back to your original code
+with
+> > the new fc_pro_iface, and we'll see what happens.
+> > Today I tried to do that, but left in some other changes that seemed to
+> > spoil it, to the effect that it was crashing.  But I should be able to
+get
+> > over that hurdle.  I know once I do that, however, I'll have the moves
+in
+> > the wrong source-destination sequence.
+> >
+>
+> Like I said, it does not supposed to happen.
+>
+> Regards,
+>
+> Shlomi Fish
+>
+> > Best regards,  -------------------Adrian
+> >
+> >
+>
+>
+>
+> ----------------------------------------------------------------------
+> Shlomi Fish        shlomif@vipe.technion.ac.il
+> Home Page:         http://t2.technion.ac.il/~shlomif/
+> Home E-mail:       shlomif@iglu.org.il
+>
+> He who re-invents the wheel, understands much better how a wheel works.
+>
+>
+>
+

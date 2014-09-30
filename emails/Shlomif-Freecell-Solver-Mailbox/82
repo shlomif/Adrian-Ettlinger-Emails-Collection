@@ -1,0 +1,168 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 7934 invoked from network); 27 Dec 2001 13:01:59 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 27 Dec 2001 13:01:59 -0000
+Received: from computer ([12.78.218.136]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011227130142.NRZR5540.mtiwmhc21.worldnet.att.net@computer>;
+          Thu, 27 Dec 2001 13:01:42 +0000
+Message-ID: <001701c18ed6$73b26060$88da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+Cc: "Tom Holroyd" <tomh@po.crl.go.jp>
+Subject: Fw: FreeCell: 8-Cell Roundup
+Date: Thu, 27 Dec 2001 07:57:56 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 44
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    The message appended below, from David Miller, the "world's foremost
+expert" (IMO) on 7-freecell impossible boards, gives the three of the five
+boards that are 7-freecell impossibles, which we now know are solvable with
+8.  The other two, named "Ghoulish" and "Magic8" are on Mike Keller's
+website.  BTW, we can't be absolutely certain that all of these are
+7-freecell impossibles, as Patsolve seems to be "Intractable" with, I think,
+two of them, and FCS is uncertain as to whether its lack of a solution is
+definitive or not.
+
+    So far as we know as of now, there is no known board which cannot be
+solved with 8 freecells.  David will no doubt attempt to create one, and I
+don't think he'll regard it as a failure if he cannot.  My own opinion is
+that "8 is enough", although I really wish someone could come up with a
+methodology for proving this mathematically.  As it stands now, it's
+strictly an emprical conclusion.
+ ==================================
+----- Original Message -----
+From: David A. Miller <paledim@ameritech.net>
+To: Adrian Ettlinger <aettlinger@worldnet.att.net>
+Cc: Michael Keller <fomalhaut@earthlink.net>
+Sent: Friday, December 21, 2001 8:07 PM
+Subject: FreeCell: 8-Cell Roundup
+
+
+> Adrian,
+>
+> Thanks for the new version of FCPro. I haven't had much chance to play
+with
+> it yet, but I will soon.
+>
+> As promised, here are some more examples of possible 8-cell deals. (I know
+> the names are weird; I start with something arbirtrary, and as I try out
+> different variations on the deals, the names mutate from there.) In an
+> e-mail to Michael Keller, I gave him this table of the number of states
+> reached by Shlomi Fish's fc-solve for several deals using seven freecells:
+>
+> Ghoulish            4008723
+> UltraSpoonyBard1     546663
+> UltraSpoonyBard995   244489
+> OddEvenZZ            127379
+> Magic8                79113
+>
+> You already have Ghoulish and Magic8; the middle three are as follows:
+>
+> UltraSpoonyBard1
+> AS AD 2S 2D TS TD QS QD
+> AC AH 2C 2H TC TH QC QH
+> 8S 8D 6D 6S 5S 5D 7S 7D
+> 8C 8H 6H 6C 5C 5H 7C 7H
+> 4S 4D 4C 4H 9S 9D 3S 3D
+> KS KD JS JD 9C 9H 3C 3H
+> KC KH JC JH
+>
+> UltraSpoonyBard995
+> AS AD 2S 2D TS TD QS QD
+> AC AH 2C 2H TC TH QC QH
+> 4D 4S 6D 6S 7D 7S 5D 5S
+> 4H 4C 6H 6C 7H 7C 5H 5C
+> 8S 8D 8C 8H 9S 9D 3S 3D
+> KD KS JD JS 9C 9H 3C 3H
+> KH KC JH JC
+>
+> OddEvenZZ
+> AS AD AC AH 4S 4D 2S 2D
+> QS QD TS TD 4C 4H 2C 2H
+> QC QH TC TH 9S 9D 7S 7D
+> 8S 8D 6S 6D 9C 9H 7C 7H
+> 8C 8H 6C 6H 5S 5D 3S 3D
+> KS KD JS JD 5C 5H 3C 3H
+> KC KH JC JH
+>
+> The first two are interesting because they have a different arrangement of
+> aces than the others. In my preliminary testing, OddEvenZZ and U.S.B.995
+> were reported impossible with seven freecells by "Solve3", whereas U.S.B.1
+> was intractable.
+>
+> I have one other deal that I'd like you to look at. All my work on
+> eight-cell deals arose unextpectedly as an offshoot of a different goal
+that
+> I had set for myself. Michael's FAQ list points out that the depth of aces
+> is a weak measure of difficulty, and I had wanted to see how hard a deal
+> could be subject to the constraint that all the aces are exposed at the
+> start. I eventually found a six-cell deal called HappyFace, which Michael
+> published in one of his newsletters. I realized that this deal could be
+made
+> harder by moving the aces to the bottoms of the first four columns. The
+> result was the deal below:
+>
+> PreGhoulish
+> AS AD AC AH 2D QD TD 8D
+> 2S QS TS 8S 2H QH TH 8H
+> 2C QC TC 8C 6D 4D 3D 5D
+> 6S 4S 3S 5S 6H 4H 3H 5H
+> 6C 4C 3C 5C KD JD 9D 7D
+> KS JS 9S 7S KH JH 9H 7H
+> KC JC 9C 7C
+>
+> After noticing that the 2S was right on top of the AS, I rearraged the
+> columns and that's how I came up with our good friend Ghoulish. But
+> PreGhoulish also makes a good test case for the solvers because I've found
+> it to be intractable with six freecells. It's clearly impossible with five
+> and winnable with seven, but I can't resolve it with six. Let me know if
+you
+> can get any results with this one. (If it's impossible with six, then it's
+a
+> seven-cell deal, which is pretty interesting. But if it's winnable with
+six,
+> then that means that moving the aces from the most accessible positions to
+> the least accessible had no effect on the number of freecells required;
+that
+> would be startling.)
+>
+> I look forward to the eight-cell version of FCPro. If you're going to the
+> trouble of upgrading it, might it be worthwhile to allow even more than
+> eight? I'd also like to ask for a couple of little features. One would be
+> shortcut keys for changing the number of freecells. Perhaps PgUp and PgDn
+to
+> raise or lower it by one instantly. This would be a lot quicker than going
+> into the settings menu. Also, the ability to paste in custom deals from
+the
+> clipboard and paste them into it. This would make it easier to work on new
+> deals.
+>
+> If I had to make an educated guess, I'd say that eight freecells are
+> probably enough to solve every possible deal. But we all probably thought
+> the answer was seven before, so how knows?
+>
+> Best Wishes,
+>
+> David A. Miller
+> paledim@ameritech.net
+>
+===========================
+Best regards, -------------Adrian
+

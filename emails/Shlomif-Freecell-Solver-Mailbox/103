@@ -1,0 +1,44 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 22439 invoked from network); 27 Feb 2002 10:52:52 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 27 Feb 2002 10:52:52 -0000
+Received: from computer ([12.78.218.125]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020227105229.NKSW13933.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Wed, 27 Feb 2002 10:52:29 +0000
+Message-ID: <003501c1bf7c$8a98bc80$52da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0202270727210.19752-100000@vipe.technion.ac.il>
+Subject: Re: Integrating a Multi-Instance FCS 2.2.x into FC-Pro
+Date: Wed, 27 Feb 2002 05:33:54 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 72
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    OK, fine, let's wait for a while then.
+
+    I'm thinking I might just take a pass at integrating the 2.2.2 which I
+had previously downloaded, just to get myself back up to speed.  But can you
+tell me whether the last interface you'd given me, which I think was for a
+version 1.7 or so, will still be valid for 2.2.2?
+
+Best regards,  ------------------Adrian
+
+

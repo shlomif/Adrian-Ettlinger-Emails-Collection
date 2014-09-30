@@ -1,0 +1,58 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 4465 invoked from network); 31 Jul 2002 10:40:38 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 31 Jul 2002 10:40:38 -0000
+Received: from computer ([12.78.221.208]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020731104030.EBGR7441.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Wed, 31 Jul 2002 10:40:30 +0000
+Message-ID: <000801c2387e$2680b880$d0dd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207310624590.32702-100000@vipe.technion.ac.il>
+Subject: Re: Update
+Date: Wed, 31 Jul 2002 06:30:51 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Before you start tinkering with FcPro, I'd like to do one more step.
+I've been waiting for the new version of the cmd-line-chop module, so I can
+incorporate it.
+
+    Here's what I intend to do.  This is triggered by your comment that
+you'd been thinking that we should keep presets in text files, rather than
+incorporated verbatim into an .ini file.  I realized, after thinking about
+that, that that is something I can do with very little effort, and as a
+matter of fact, I have it coded already.  Under this new scheme, presets are
+stored as files with the name "fcsprXXX.txt".  The XXX is a two or
+three-character code which one enters in "Mode" field.  As many presets as
+one wishes can then be stored on the hard drive with file names conforming
+to that format.  The way I have it right now, the hard-coded presets are
+still there, and if one types only a single character into the field, one
+gets one of the present hard-coded presets.  But that feature could easily
+be eliminated so that file names with just a single-character designator
+could also be used.
+
+    So please let me have the new cmd-line-chop so I can incorporate it
+before I turn the code over to you.  Then I'll be very pleased to have you
+take it over.
+
+Best regards, ---------------Adrian
+
+

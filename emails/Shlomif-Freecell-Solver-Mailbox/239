@@ -1,0 +1,44 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 21313 invoked from network); 23 Sep 2002 11:12:08 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 23 Sep 2002 11:12:08 -0000
+Received: from computer ([12.78.221.90]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020923111157.LRFC28665.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Mon, 23 Sep 2002 11:11:57 +0000
+Message-ID: <001301c262f1$6ce543c0$5add4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0209222008070.4265-100000@vipe.technion.ac.il>
+Subject: Re: Freecell Solver 2.8.0
+Date: Mon, 23 Sep 2002 07:03:59 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 328
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    That new feature in 2.8.0 sounds worthwhile.  I can't go into right
+away, because I'm now re-immersed in something else, but I'll keep in mind
+for the next round.
+
+    I see what you're up to in the "Better CVS" initiative, and wish you
+good luck.
+
+Best regards, ----------------Adrian
+
+

@@ -1,0 +1,42 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 22426 invoked from network); 26 May 2002 09:53:11 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 26 May 2002 09:53:11 -0000
+Received: from computer ([12.78.218.113]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020526095309.JCWK13408.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 26 May 2002 09:53:09 +0000
+Message-ID: <000401c2049a$b040b2e0$71da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205260927280.19362-100000@vipe.technion.ac.il>
+Subject: A guess for parsing
+Date: Sun, 26 May 2002 05:49:08 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 18
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    My best guess as to how to parse it into a single line would be to do a
+sweep through the string and replace all characters having a numerical value
+less than the space character (which I think is 32) plus all "\" characters
+with spaces.  Would that suffice?
+
+Best regards,  --------------------Adrian
+
+

@@ -1,0 +1,75 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 13352 invoked from network); 17 Dec 2001 10:06:09 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 17 Dec 2001 10:06:09 -0000
+Received: from computer ([12.78.218.56]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011217100605.LUYI5540.mtiwmhc21.worldnet.att.net@computer>;
+          Mon, 17 Dec 2001 10:06:05 +0000
+Message-ID: <003501c186e2$50f5c720$38da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Tom Holroyd" <tomh@po.crl.go.jp>
+Cc: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.30.0112171643470.12094-100000@holly.crl.go.jp>
+Subject: Re: GPL
+Date: Mon, 17 Dec 2001 04:41:58 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 19
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Tom,   (cc: Shlomi)
+
+    You both wrote about the same time on this issue.  Actually, Tom, Shlomi
+mentioned the question to me a while back, expressing concern that it might
+be "illegal" for me to use Patsolve unless FcPro were also GPL.
+
+<<By the way, what is the license for FCPro? >>
+    License, shmicense, I never thought about it.  But I've been giving away
+the source freely to anyone who had a plausible reason to want it.
+Actually, aside from Shlomi, that's only one other person.
+
+<<There has been some noise on the list recently that suggests that not all
+of the source code for FCPro is available? >>
+    The only noise I recall was from Bill Raymond, but I corrected him in
+his impression.
+
+<<But ideally, FCPro would be GPL too.  I don't see why it shouldn't be...>>
+    Any red tape involved?  Or do I just copy the verbiage you use?  Does
+this impose any obligations on me to explain to anyone who asks how it works
+(questions I might have to do a lot of study to answer?).
+
+    Shlomi said "the source code of FC-Pro (minus the Don Woods' solver)"
+The Don Woods solver per se is not in there, but a highly modified form of
+it.  The core of it does copy the guts of his code.  There are also some
+blocks of his original code still in the file but ocmmented out.  That could
+be deleted easily enough.  But anyway, Don authorizes distribution of his
+code given the inclusion of some credit text.   So is there really a
+problem?  Does anyone have Don's E-mail address if I have to ask him?
+
+    Tom, I'm writing this before I try the patch you suggested for the phony
+impossible problem.
+
+    I'll package a full set of the source for you, Tom, later on today.
+Might as well send a copy to Shlomi also.  It's in a state of flux right now
+if for no other reason than I've started to work on solution move
+translation for Patsolve.  But I can leave out the under-construction
+version of pat.c.
+
+Best regards,  ----------------Adrian
+
+
+
+

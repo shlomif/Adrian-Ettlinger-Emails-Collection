@@ -1,0 +1,54 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 12829 invoked from network); 27 Jun 2002 13:03:55 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 27 Jun 2002 13:03:55 -0000
+Received: from computer ([12.75.52.160]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020627130340.WYQH19902.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Thu, 27 Jun 2002 13:03:40 +0000
+Message-ID: <000801c21dda$95d2ee60$a0344b0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206271405280.10736-200000@vipe.technion.ac.il>
+Subject: Re: Iface development
+Date: Thu, 27 Jun 2002 08:55:15 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 56
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    A still further improvement -- #1 now plays back about 100 moves before
+an illegal move.  I tried the first ten deals, and none would play back all
+the way -- everyone hung up with an illegal move, usually fairly deep into
+the solution.  This will take me a little time to work out a description for
+you in which I can identify which move in the move string is causing the
+trouble.  Would you like more than one example?  Or will just the one on
+deal #1 serve your purpose.
+
+    Believe it or not, I'm away from home again, this time in Pennsylvania,
+and I'm about to drive home -- about 3-4 hour drive.  So I'll look for a
+reply from you when I get home, which will be early evening your time.
+
+    I see you fixed up the "min" problem, but not the other commenting out.
+Is there a reason why you want to keep this file with the include fcsolvex.h
+and with main() present?  And I see you have inhibited "v1", for which
+thanks.
+
+Best regards, ------------------Adrian
+
+

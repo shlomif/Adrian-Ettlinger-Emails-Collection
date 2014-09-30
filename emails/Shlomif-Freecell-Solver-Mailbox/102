@@ -1,0 +1,74 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 11550 invoked from network); 27 Feb 2002 01:51:22 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 27 Feb 2002 01:51:22 -0000
+Received: from computer ([12.78.218.53]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020227015119.BMZF11747.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Wed, 27 Feb 2002 01:51:19 +0000
+Message-ID: <000d01c1bf30$f1a2d380$35da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0202250921160.14848-100000@vipe.technion.ac.il>
+Subject: Re: Integrating a Multi-Instance FCS 2.2.x into FC-Pro
+Date: Tue, 26 Feb 2002 20:00:18 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 71
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+        The timing on this is good.  I've had problems with my new main
+laptop, and had to return it to Compaq twice, and both times hard drive had
+to be replaced, so I lost everything I had in it.  Fortunately I had the
+code for FcPro almost completely backed up -- as far as the FCS interface
+was concerned, it was fully backed up.  Just today I got the laptop back,
+and I'm now restoring the code for the second time.  So I should be ready to
+move ahead with integrating FCS again as soon as I get the interface module
+from you.
+
+<<If you can send me detailed instructions how I should output the moves for
+the new FC-Pro interface,....>>
+    I'd sent you a spec, I see, on Jan. 5.  Was able to find it, and here's
+a copy:
+===========================================
+What I'd like to use as the format is as follows.  In the solution string,
+when the third character is needed, insert into the string, following the
+move to which it applies, a two character group, the first character to be
+"v".  The second character will
+be a hex digit giving the number of cards to be moved.  It has to be hex,
+using "a" on up for 10, 11 or 12 cards, because that many could be moved.
+One the examples I found, in fact, did actually have a 12 card move, where
+the king down to the deuce were in a column on top of some lower cards.
+===========================================
+   At that time you said that sounded OK to you.  Any questions, let me
+know.
+
+<<I'll also need to work on the presets code, though.>>
+    If it's OK with you, I'd just as soon proceed at first with a plain
+vanilla interface, without preset capability, to get me back into business.
+One thing I did not have backed up was the source for FCS, so as things
+stand now I don't have any FCS I can run at all.  I figured there wasn't
+much point in trying to reconstruct the old code.  BTW, just before the
+laptop crashed for the second time, I downloaded the version of FCS you then
+had on the site, which was 2.2.2 and was able to handle the gz files OK.  So
+I can do that a gain.  Should I work with the latest source you now have on
+your website?  Or can I use the 2.2.2 which I now have saved on a floppy?
+
+                -----------------------Adrian
+
+

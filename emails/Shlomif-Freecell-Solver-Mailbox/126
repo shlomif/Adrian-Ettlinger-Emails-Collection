@@ -1,0 +1,61 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 10535 invoked from network); 19 May 2002 10:08:22 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 19 May 2002 10:08:22 -0000
+Received: from computer ([12.75.51.3]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020519100816.WIFI11146.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 19 May 2002 10:08:16 +0000
+Message-ID: <001c01c1ff1c$a50acc40$08334b0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205190900080.25429-200000@vipe.technion.ac.il>
+Subject: Re: Command-Line Chopper
+Date: Sun, 19 May 2002 06:03:05 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 12
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I've received your "Command-Line Chopper".  (crossed with the message I
+just sent re multi-tasking)  I need more explanation.  Is this the full
+product of what you were going to write to help me out?  If so, I need to
+understand better just what function it performs that I don't already have
+in the interface module you'd previouly sent.
+
+    Besides, I see I'll need more conversation before I'll be able to
+implement the inputting of presets into FcPro implementation of FCS.  Here's
+the Free2Solver function as I have it:
+==============
+int Free2Solver(Position * orig, int NoFcs, int limit, int cmd_line_argc,
+char * * cmd_line_argv, int (*signal_step)(int step_limit))
+==============
+   My first question is whether or not I have the final argument correct
+here, as I did a little editing to make it easier to read.
+I believe I understand the " char * * cmd_line_argv " argument, and this
+will be a pointer to a character string that will be the preset.  But I
+don't know what I'm supposed to pass for the " int cmd_line_argc " argument,
+although I might guess that it's to be a character count of the length of
+the "argv" string.  But....is the " int (*signal_step)(int step_limit) "
+stated correctly or have I garbled it?  If that is correct, I'm not familiar
+with that syntax, and don't know how I'd be supposed to use it.  Or can I
+just make that a NULL for the time being?
+
+Best regards, ---------------Adrian
+
+

@@ -1,0 +1,55 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 15411 invoked from network); 19 Nov 2001 04:47:26 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 19 Nov 2001 04:47:26 -0000
+Received: from computer ([12.78.221.147]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011119044717.ORJG4554.mtiwmhc22.worldnet.att.net@computer>;
+          Mon, 19 Nov 2001 04:47:17 +0000
+Message-ID: <007501c170ac$d3918620$50dd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+Cc: <WKRfresno@aol.com>
+References: <Pine.LNX.4.33L2.0111171620310.11850-100000@vipe.technion.ac.il>
+Subject: A*
+Date: Sun, 18 Nov 2001 22:46:04 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 37
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I took a look at the website where A* is described.  It seems
+well-written;  I can't say I absorbed it fully, but I think I get the
+general drift.
+
+    I'll be most interested in comparing what A* does in comparison to DFS.
+My anticipation is as follows.  A* might well for many, if not most, boards
+provide a faster solution, and a more efficient solution (fewer moves) than
+would DFS.  But I'd bet that there still would be a certain small percentage
+of hands where A* would use many, many more iterations.  This is based on my
+experience in playing Freecell.  I have manually solved all 32,000 standard
+M/S boards.  The really difficult boards to solve are the ones that require
+a very counterintuitive approach, i. e., that require creating intermediate
+positions that look like they are going in the wrong direction from the
+goal.  Which would seem to be counter to the strategy of approach of A*.
+
+    I'm copying Bill Raymond on this, because his reaction would be
+interesting to hear.
+
+Best regards, ----------------Adrian
+
+

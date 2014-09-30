@@ -1,0 +1,70 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 28939 invoked from network); 2 Dec 2001 13:00:02 -0000
+Received: from mtiwmhc25.worldnet.att.net (204.127.131.50)
+  by vipe.technion.ac.il with SMTP; 2 Dec 2001 13:00:02 -0000
+Received: from computer ([12.78.221.252]) by mtiwmhc25.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011202125948.YICT15547.mtiwmhc25.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Sun, 2 Dec 2001 12:59:48 +0000
+Message-ID: <002901c17b31$25656320$55dc4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112020628360.25571-100000@vipe.technion.ac.il>
+Subject: Re: Project status
+Date: Sun, 2 Dec 2001 07:56:20 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 9
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<< From my experience, MFC makes one's code a little easier to maintain.
+It's not much easier, as is the case with Delphi or Perl/Gtk+ or Perl/Tk or
+perhaps even Qt, but it's still a bit easier.>>
+    I guess old codgers like myself -- maybe I should say old curmudgeons,
+don't like to have to learn anything new unless they have to.  If I find a
+real motivation to learn MFC, maybe I will someday.  And kick myself as to
+why I didn't go into it sooner.
+
+<<BTW, I noticed you run FCS with a limit of 500,000 iterations. It's a
+relatively low limit. Did you do it on purpose.>>
+    Mainly out of impatience to have to wait so long.  I do see that setting
+that limit did make FCS faster than FcPro on most of the range solves, but I
+didn't know that until after I'd run them.  Setting a limit of 2000000 or so
+would probably make those range solves run for hours.  But that reminds me
+of something I should have mentioned in connection with that new system I
+just sent you in Build 5.  You can see all the false impossible situations I
+describe if you run FCS at an extremely low iteration limit, and unless you
+set a low limit, it will run for hours and hours in working its way through
+all the positions.  I used a limit of 10000.  Another thing:  In using the
+position-by-position solver tester, if you do not have a limit set and it
+starts running forever, you can abort any given solve attempt by typing the
+ESC key, and it will move on to the next position.  There isn't any graceful
+way to stop this process completely.  If you hold down ESC key, it will skip
+through everything as fast as it can.  Other than that, you'd have to brute
+force terminate the task to stop it.
+
+    Thanks for the tipoff about Tom Holroyd and the GPL license.  I did read
+that boilerplate.  I've mentioned to Tom that I intend incorporating it into
+FcPro, and in fact he volunteered to write a function for me for the
+purpose, and he didn't raise the issue.  But if we have to, I wouldn't mind,
+as far as I'm concerned, releasing the FcPro source under the same
+arrangement, if necessary to keep us legal.
+
+Best regards,  --------------Adrian
+
+
+

@@ -1,0 +1,52 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 31345 invoked from network); 30 Dec 2001 04:55:56 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 30 Dec 2001 04:55:56 -0000
+Received: from computer ([12.78.249.64]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011230045550.GYIW7926.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 30 Dec 2001 04:55:50 +0000
+Message-ID: <001401c190ee$12d5c420$40f94e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112300545460.31080-100000@vipe.technion.ac.il>
+Subject: Update
+Date: Sat, 29 Dec 2001 23:52:59 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 47
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Just an interim update.  I'm through most of the problems with 8-9
+freecell, and have it working for manual play, the FcPro solver, and
+Patsolve.  I think it's just a minor problem to make FCS compatible with
+it -- it's a matter of resolving the conflict with the use of 'h' for the
+foundation.  We use the letter 'k' for freecell no.8.  That looks like an
+easy fix, given the way you output the moves.  I was able to get FCS running
+OK with up to 8 freecells.  As you suspected, MAX_NUM_FREECELLS in config.h
+had been set to 4.
+
+    Tomorrow I expect to get started on FCS version 2.0.  Can I assume that
+the interface routine I now have should work OK?  For the initial
+implementation, I'd like to be able to specify a limited selection of
+presets.  Can you give me a few that I could use, specifying them by digits
+in the "Mode" field?
+
+Best regards, -----------Adrian
+
+

@@ -1,0 +1,51 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 7277 invoked from network); 23 Nov 2001 20:03:03 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 23 Nov 2001 20:03:03 -0000
+Received: from computer ([12.78.218.123]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011123200256.QDND5540.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Fri, 23 Nov 2001 20:02:56 +0000
+Message-ID: <001901c17451$66cbf4a0$05dd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111232128070.7020-100000@vipe.technion.ac.il>
+Subject: Re: Lack of progress report
+Date: Fri, 23 Nov 2001 14:01:36 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 57
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<I'm returning a positive number if it was solved, a negative one if I made
+a complete scan, and zero if it exitted prematurely.?>>
+    This is a peripheral issue, but with an invalid position having been
+transmitted, you don't really return anything, because your code is testing
+for four different values of "verdict", but you are receiving some other
+value, so you're returning a wild number, which just happens to be a very
+high positive number.  I could patch it to default to a -1, let's say, which
+I could announce as "Invalid position".  But I'm next going to see what I
+need to do to really pass you a real position.
+
+    If I feel I could use some interactive conversation, I'll try to take
+advantage of that connection.  It would accelerate our communication, if we
+can synchronize our schedules sometime.
+
+Best regards,  ------------Adrian
+
+

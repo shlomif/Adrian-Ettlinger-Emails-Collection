@@ -1,0 +1,73 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 6126 invoked from network); 5 Jun 2002 08:18:12 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 5 Jun 2002 08:18:12 -0000
+Received: from computer ([12.78.221.231]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020605081800.NCYM19182.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Wed, 5 Jun 2002 08:18:00 +0000
+Message-ID: <000a01c20c69$0c0a5ba0$e7dd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206050845350.2966-100000@vipe.technion.ac.il>
+Subject: Re: M/S Freecell fix
+Date: Wed, 5 Jun 2002 04:12:29 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 41
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<After all my cards can be flourished, I can press the auto-play button and
+they are moved to the foundations one by one.>>
+    Is auto-play a mode you can leave it in?  I. e., so aces and other cards
+that I would call "must" moves to the foundation will always automatically
+be moved?  Or would one have to push auto-play after every move?
+
+<<
+--
+QC 3S
+ 2H
+ AC
+ KS
+  We move the KS to the freecells and then move 2H on top of 3S. I think FCS
+has just a move like that.>>
+    Yes, I believe in one of my examples I saw that happen.  However, in the
+scheme I have in mind, after the KS was moved to a freecell, the AC would
+automatically go to the foundation.  In fact, if the AH was already on the
+foundation, the 2H would also go automatically.
+
+<<What's your trip about this time? Have fun in any case.>>
+    This is strictly about one of my other hobbies, railroad history.  Going
+to Colorado for the national meeting of a society for which I'm webmaster.
+Lots of train riding and mountain scenery.  My wife is going with me on this
+one.  It's unusual for me to have two trips so close together.  I hadn't
+been anywhere else since January.
+
+<<I'll do my best to implement an FC-Proization scheme of the FCS moves that
+are being output.>>
+    You might finish yours before I do mine.  If so, I'll give it a try and
+perhaps abandon my effort.  But at the moment I'm intrigued by the
+challenge.  What I intend to do can easily be put on a switch or made
+contingent on Freecell being played.  I now see what you mean by the
+difficulty of determining when Freecell is being played, and considering
+variations such as PySol, it might really call for the sublety of specifying
+whether the user wants the solutions to be output with compatablility for
+M/S or PySol, or for that matter other brands that might exist.
+
+Best regards, ---------------Adrian
+
+

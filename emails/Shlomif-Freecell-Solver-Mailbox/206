@@ -1,0 +1,46 @@
+Status: R
+X-Status: N
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 12454 invoked from network); 19 Jul 2002 09:32:11 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 19 Jul 2002 09:32:11 -0000
+Received: from computer ([12.78.219.156]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020719093205.JZLL15849.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Fri, 19 Jul 2002 09:32:05 +0000
+Message-ID: <000101c22f06$9dc5f260$9cdb4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207191142240.11690-100000@vipe.technion.ac.il>
+Subject: Re: 2.4.3 false impossibles
+Date: Fri, 19 Jul 2002 05:26:32 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Phew!! Glad to hear we don't have a difference in that regard.
+
+    Hope we can get the crash bug fixed soon so I can run the full range of
+my false impossible search test.  It would be very nice if I could have
+confidence that 2.6.0 has no false impossible tendency.
+
+    I ran across another weird bug, I'm sure on my side of the fence, where
+the copy I have of FcPro with 2.4.3 doesn't seem to want to run with a
+single-line preset.  It semi-crashes.  Got to look into that one now also.
+
+Best regards, ------------------Adrian
+
+

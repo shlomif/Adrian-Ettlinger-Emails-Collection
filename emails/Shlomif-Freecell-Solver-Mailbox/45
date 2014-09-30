@@ -1,0 +1,121 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 21455 invoked from network); 24 Nov 2001 21:12:14 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 24 Nov 2001 21:12:14 -0000
+Received: from computer ([12.78.221.4]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011124211205.FOUB28078.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sat, 24 Nov 2001 21:12:05 +0000
+Message-ID: <000901c17524$3a9c9fa0$04dd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111241405290.18560-100000@vipe.technion.ac.il>
+Subject: Replays, other matters
+Date: Sat, 24 Nov 2001 15:10:42 -0500
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+  boundary="----=_NextPart_000_0006_01C174FA.3082A980"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 66
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0006_01C174FA.3082A980
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+
+Hi Shlomi,
+
+    Thought I'd better break off from my efforts to get a message off to
+you, even though this probably won't get to you until about midnight
+Saturday night your time.  I'd better get these points recorded anyway,
+while they're fresh in mind.  The last point will bring up what might be a
+serious problem.
+
+    Firstly, when I first got to the new laptop, thought I'd take the time
+first to see what happens with that Big Intractable, #9.  It ran for about a
+half-hour without either trapping out on an interation overflow or a full
+disk.  This was on an 850Mhz laptop with around 0.8 GB of available disk
+space.  This leads me to wonder if you possibly could have a condition
+which, with this board, causes some kind of a perpetual loop, so I thought
+you might want to use your diagnostic tools to see if you can figure out
+what's happening with this board.
+
+    I then did a little bit of further general testing, and "The good news"
+is that Freecell Solver certainly can produce some much shorter solutions
+than FcPro.  I tried that well-known "hard hand", #1941, and FcPro's
+solution took 223 moves, and FCS, in A* optimized, gave a solution of 49
+moves.  Very good.
+
+    Now for the not-so-good news.  I'm somewhat hung up getting the solver
+replays to use Supermove.  It's more complicated than I'd hoped.  With more
+mental elbow-grease, I'm fairly sure I'll get it, but not yet.  But in the
+course of my testing, I stumbled across, by serendipity, an indication that
+this is not going to fix it.  It might make it better, so I'll keep on
+working on it.  But...  Here's what happened.  I was trying to work on
+#144713, the first one you reported.  I goofed and accidently spent a lot of
+time on #114713 instead.  But this might have been a blessing in disguise,
+because #114713, I found, produces an illegal move at one place because
+supermove is being used, whereas it would get past that place if supermove
+were disabled.  I'm attaching a file which explains the problem.
+
+    So I'd really like to know to what extent you or anyone else has tested
+the solutions you deliver by playing them out manually.  I must say, and
+I'll be very happy to be proved wrong, that at this moment it looks to me as
+if your solutions can only be played out on a special version of Freecell
+designed expressly to make compound moves according to specialized rules.
+Tell me if I'm wrong.
+
+    If you've sent an messages to me since my last, I'll see them when I log
+on to send this, and will reply immediately in a separate message.
+
+Best regards,  -------------------Adrian
+
+
+------=_NextPart_000_0006_01C174FA.3082A980
+Content-Type: text/plain;
+	name="114713an1.txt"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="114713an1.txt"
+
+#114?13 (FCPro - FCSolve debug)
+6h 8a 8b 8c 8d 8h 8h 2h 21 c8 
+a8 3c 3a d3 83 7d 78 c7 8c d8 
+78 c7 7d 7c 7h 8h 71 81 27 28 
+a2 41 38 7a b7 83 8b a8 7a d7 
+4d 4h 47 4h d4 1d 1h 4h 1h 84 
+43 24 d8 47 8d c8 48 3c 3h 24 
+2h bh 34 c3 3b 3c 32 a3 c4 b4 
+6a 6c 6b 6h 21 52 58 67 57 56 
+d5 51 5h 3d 35 3h 2h d6 4d 43
+
+This last move (43) seems to be
+intended to move just one card,
+the six of spades, to column 3.
+With supermove enabled both the
+seven of hearts and the six
+will move, so the following
+move will be illegal.
+
+
+ 
+4h 7h bh d3 7b 7h b8 4d 4b 42 
+4h b2 d2 7b 7h ch 1d 1h 3h 1c 
+1h 14 17 1h 47 14 1h 1h 1h dh 
+4h ch 3h 7h 7h 2h 2h 8h 2h 8h 
+6h 8h 6h 8h 8h bh 5h 1h ah 
+------=_NextPart_000_0006_01C174FA.3082A980--
+

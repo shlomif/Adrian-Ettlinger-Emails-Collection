@@ -1,0 +1,71 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 2202 invoked from network); 3 Jul 2002 12:06:22 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 3 Jul 2002 12:06:22 -0000
+Received: from computer ([12.78.219.184]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020703120615.YSRC19902.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Wed, 3 Jul 2002 12:06:15 +0000
+Message-ID: <002e01c22289$8bfd6a60$2edc4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207030810360.30114-100000@vipe.technion.ac.il>
+Subject: FcPro - FCS -- next step
+Date: Wed, 3 Jul 2002 06:42:41 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I'd agree that hard-coding the presets is not fundamentally a good idea,
+but the way I have done it, use of the hard-coded presets is strictly an
+option.  The way I have it now, if one specifies a code "1", "2", or any
+alpha character from "A" to "O", one gets a hard-coded preset.  If one
+specifies "X", it retrieves the preset in the "fcspres.txt" file.  If one
+has nothing specified, or an invalid character, it defaults to the default
+preset.  I suppose it would make you happier if I made it so it defaulted to
+the saved fcspres.txt file for invalid characters, so I'll change it to
+operate that way.  Then, only in the absence of an fcspres.txt file would it
+default to the default preset.  I feel this is a good approach to the
+"product" design for users who may not wish to delve into all the
+complexities of preset design.
+
+    My question about the use of atomic moves was due to an apprehension
+that it might not be as easy to find atomic-move presets to overcome
+intractability problems than with the previous system.  But what you say is
+reassuring, and I gather you feel that a repertoire of presets can be
+designed using atomic moves that would be just as effective for speed as is
+the non-atomic-moves system.  No hurry for the meta-scan to seek out an
+ideal set of presets.
+
+<<Do you know how to work with ini files?>>
+    I've never actually designed anything where I used files with the
+extender ".ini".  But it seems to me I am accomplishing the equivalent by
+the use of files for which I make the extender ".txt".  Although perhaps I
+am not using the conventional format which is normally employed for .ini
+files.  Perhaps another manifestation of my "native" approach to software
+creation.  Did that make sense?
+
+    I have a question as to terminology with respect to presets.  I've seen
+now two character arrays from you, one consisting of eight lines (the more
+recent one), and one consisting of seven lines.  Is each line what you would
+refer to as a "preset".  Or is the group of eight the "preset"?  What term
+can we apply to each single line to distinguish it from the group of eight
+lines?
+
+Best regards, ---------------Adrian
+
+

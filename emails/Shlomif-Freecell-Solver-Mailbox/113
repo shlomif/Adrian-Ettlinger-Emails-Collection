@@ -1,0 +1,78 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 7130 invoked from network); 15 May 2002 12:39:34 -0000
+Received: from mtiwmhc24.worldnet.att.net (204.127.131.49)
+  by vipe.technion.ac.il with SMTP; 15 May 2002 12:39:34 -0000
+Received: from computer ([12.75.53.160]) by mtiwmhc24.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020515123931.QFHQ18857.mtiwmhc24.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Wed, 15 May 2002 12:39:31 +0000
+Message-ID: <001701c1fc0d$1d356ee0$a0354b0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205151313080.28758-100000@vipe.technion.ac.il>
+Subject: Re: FC-Pro/FCS integration
+Date: Wed, 15 May 2002 08:34:07 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 90
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<<<only covers political subdivisions in the USA.>>
+Can it be adapted to other areas?>>
+    The basic driving software could certainly be employed for data covering
+any other geographical area.  I've had a couple of others flirt with the
+possibility, but no serious takers.  I consider the basic code for the
+executable proprietary, but the rules for creating the data could be made
+public and others could generate data files for a graphic historical
+geography of any area of the world.  There is one other similar product of
+which I'm aware, which shows the political history of Europe (including the
+surrounding areas of Asia and Africa, extending I believe to the Middle
+East) since the year 1000.  This other product uses entirely different GIS
+technique.  I use bitmapped graphics, and the other guy uses vector.  As a
+consequence, my system allow for very snappy timing in shifting from one map
+to another, but is limited to one scale only.  The other one is very loose
+as to timing, but can be zoomed to a variety of scales.
+
+<<I can send you some of my presets if you like.>>
+    Even though I still have yet to do my homework, from what I remember
+from past discussion, here is what I want to do for phase one.  I want to
+implement it to use a text file that will contain a selection of presets,
+and to provide a "mode" selection in FcPro's dialog box for Freecell Solver,
+which mode selection will be, probably, a single alphanumeric character.
+Intially, I'd just like to provide a choice between a variety of presets
+that you would provide.  For phase two, then, I'd just like to provide for
+users who want to experiment with designing their own presets the rules for
+formatting the text file, in the assumption that any user who is ambitious
+enough to do preset experimentation would also be skilled enough to follow
+formatting rules for a text file.  There imight or might not be a phase
+three which would imbed into FcPro a protocol to provide an aid to composing
+properly formatted preset files.
+
+<<I have yet to put my code where my mouth is, so to speak.>>
+    Noted, and that's a candid and realistic attitude.  I wouldn't mind in
+the least seeing some "competition" for FcPro.
+
+    Re your "lecture", I hadn't read carefully enough to notice what was
+really the subject matter, and that you were really hoping for some reaction
+from your "peers".  As you know, I'm on the road now and have some other
+demands on my "leisure" time which I have to prioritize, so I probably won't
+be able to get to it for a few days, but I'll keep it on my agenda.
+
+Best regards,  ------------------Adrian
+
+

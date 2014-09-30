@@ -1,0 +1,53 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 460 invoked from network); 27 Jul 2002 09:16:30 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 27 Jul 2002 09:16:30 -0000
+Received: from computer ([12.78.220.93]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020727091626.SOJQ5835.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sat, 27 Jul 2002 09:16:26 +0000
+Message-ID: <000401c2354d$c06fc6e0$5ddc4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207270658470.30693-100000@vipe.technion.ac.il>
+Subject: Re: Timings with and without a prelude
+Date: Sat, 27 Jul 2002 05:11:45 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Yes, something is wrong somewhere.  I ran it both ways, and got 19 min.,
+5 sec. without prelude and 18 min., 53 sec. with.
+
+    Could you run this test?  I noticed one deal, #6365, took a long time.
+With both presets, I get a number of iterations for the solutiion of
+223,826.  You might tell me how many iterations you get both ways on that
+deal.
+
+    Could this make any difference:  I do not use your
+"freecell-solver-range-parallel-solve 1 32000 1" argument, but invoke the
+solver separately for each deal.  Would that make a difference?
+
+    Another possibility is the format of the prelude argument.  Does it
+matter if there's a space between the "prelude" and the quotation mark?  I.
+e., should it be --prelude"1000@0,1000@3 ......" or --prelude "1000@0,1000@3
+.....", or should it matter?
+
+Best regards, ----------Adrian
+
+

@@ -1,0 +1,79 @@
+Return-Path: <tomh@po.crl.go.jp>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 32443 invoked from network); 18 Dec 2001 08:43:10 -0000
+Received: from ns1.crl.go.jp (133.243.3.1)
+  by vipe.technion.ac.il with SMTP; 18 Dec 2001 08:43:10 -0000
+Received: from crlgw2.crl.go.jp ([133.243.18.251])
+	by ns1.crl.go.jp (8.11.6/3.7W) with ESMTP id fBI8gZS16389;
+	Tue, 18 Dec 2001 17:42:35 +0900 (JST)
+Received: from po.crl.go.jp (localhost [127.0.0.1])
+	by crlgw2.crl.go.jp (8.11.6/8.11.6) with ESMTP id fBI8gYX24370;
+	Tue, 18 Dec 2001 17:42:34 +0900 (JST)
+Received: from holly.crl.go.jp (holly.crl.go.jp [133.243.72.218])
+	by po.crl.go.jp (8.9.3+3.2W/3.7W) with ESMTP id RAA21796;
+	Tue, 18 Dec 2001 17:42:34 +0900 (JST)
+Date: Tue, 18 Dec 2001 17:42:34 +0900 (JST)
+From: Tom Holroyd <tomh@po.crl.go.jp>
+X-Sender: <tomh@holly.crl.go.jp>
+To: Shlomi Fish <shlomif@vipe.technion.ac.il>
+cc: Adrian Ettlinger <aettlinger@worldnet.att.net>
+Subject: Re: GPL
+In-Reply-To: <Pine.LNX.4.33L2.0112180940140.31815-100000@vipe.technion.ac.il>
+Message-ID: <Pine.LNX.4.30.0112181710480.12094-100000@holly.crl.go.jp>
+MIME-Version: 1.0
+Content-Type: TEXT/PLAIN;
+  charset=US-ASCII
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 23
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Section 2b: "You must cause any work that you distribute or publish, that
+in whole or in part contains or is derived from the Program or any part
+thereof, to be licensed as a whole at no charge to all third parties under
+the terms of this License."
+
+True, the "terms of this License" doesn't specifically mean the GPL, but
+only one that is compatible with it, i.e., one that has the same "terms".
+
+So, yes, FC-Pro doesn't have to be GPL specifically, but it does have to
+be covered by a license that contains the terms of the GPL.  Sorry for the
+confusion.  I misinterpreted your original "doesn't have to be under the
+GPL" statement.  What license do you recommend?
+
+
+On Tue, 18 Dec 2001, Shlomi Fish wrote:
+
+> > What you say would be true if FC-Pro was merely *running* Patsolve as a
+> > separate executable (from section 0: "The act of running the Program is
+> > not restricted").
+>
+> Wrong. A GPL program can run any program, including properietary ones.
+
+What are you talking about?  The situation under discussion is: FC-Pro
+running vs. linking with Patsolve (a GPL program).  Section 0 says anybody
+can RUN a GPL program, it says NOTHING about what GPL programs can RUN.
+And it's "proprietary".
+
+> GPL code can be linked and used against code of licenses that are
+> compatible with it. Do you imply for example, that because bash
+> (which is GPLed) links against the Linux glibc (which is LGPLed), then the
+> Linux glibc must be GPLed too? This is ridiculus - the GPL is not _that_
+> viral.
+
+This means only that any derivative of bash must be GPLed (or equivalent).
+The GPL makes specific exceptions for required parts of the OS, libraries,
+C compiler, etc.  You can, for example, compile bash on an IRIX system
+that uses proprietary libraries.  To repeat: that's a specific exception
+granted by the GPL (section 3).  So you're right, it's not that viral.
+This is also irrelevant.
+
+Dr. Tom Holroyd
+"I am, as I said, inspired by the biological phenomena in which
+chemical forces are used in repetitious fashion to produce all
+kinds of weird effects (one of which is the author)."
+	-- Richard Feynman, _There's Plenty of Room at the Bottom_
+

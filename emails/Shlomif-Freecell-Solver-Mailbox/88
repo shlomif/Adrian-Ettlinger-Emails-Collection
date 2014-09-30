@@ -1,0 +1,61 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 2631 invoked from network); 30 Dec 2001 13:46:26 -0000
+Received: from mtiwmhc25.worldnet.att.net (204.127.131.50)
+  by vipe.technion.ac.il with SMTP; 30 Dec 2001 13:46:26 -0000
+Received: from computer ([12.78.219.179]) by mtiwmhc25.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011230134614.LFRF15547.mtiwmhc25.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 30 Dec 2001 13:46:14 +0000
+Message-ID: <000d01c19138$2b387180$89dd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112300739130.31527-100000@vipe.technion.ac.il>
+Subject: 9 freecell, crossed message
+Date: Sun, 30 Dec 2001 08:42:28 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 49
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Last two messages crossed.  Replies to yours, just received.
+
+<<And what is Freecell No. 9? Is it 'l'?>>
+    Yes, but I did not for the present implement FCS for 9 freecells.  I
+have it for manual play and for the FcPro solver, but Patsolve only goes to
+8.  I regard 9 as a superfluous frill, and only did it because there was
+room on the screen (for a 1024-pixel-wide-screen), and once over the hurdle
+of making 8 work, 9 works easily also.  I'm presently convinced that "8 is
+enough" to solve any possible board, so 9 is there just in case that
+assumption is later proven to be incorrect.  If you want to provide 9 with
+FCS, we can easily support it.
+
+<<The interface routine you have now makes use of only one instance. >>
+    OK, then, I suppose I can install V2.0 with that interface, and it
+should perform more or less the same way the as the present version.  That
+sounds like a reasonable first step.
+
+<<Whatever, I'll look into my records and compose a list of useful presets.
+Note that there is a small change I'd like to add to the preset management
+and that it to specify a variable iterations' step to each instance. >>
+    OK.  Once I get over that other hurdle I mentioned and get the recorded
+solution straightened out, I'll try to get V2.0 integrated one way or
+another, and then we can follow up with a new interface file and whatever
+other improvements you'd like to make.
+
+Best regards, ------------------Adrian
+

@@ -1,0 +1,94 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 16767 invoked from network); 26 Aug 2002 11:56:53 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 26 Aug 2002 11:56:53 -0000
+Received: from computer ([12.78.218.132]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020826115636.TZEZ3050.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Mon, 26 Aug 2002 11:56:36 +0000
+Message-ID: <000c01c24cf7$10f7bee0$84da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0208241450510.4254-100000@vipe.technion.ac.il>
+Subject: Re: Solvable Positions that are Unsolvable with Meta-Moves
+Date: Mon, 26 Aug 2002 07:49:22 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    You asked:
+<< If you have some time, please send me solvable positions that you
+verified to be unsolvable with FCS' meta-moves. (of any number of
+Freecells).>>
+    I assume you mean false impossibles when using a non-atomic move preset.
+I had three such positions, two of them very similar, in contiguous
+positions of the same solution to the same game.  The first one is in this
+solution:(this is the full solution)
+
+#19633 Michael Keller Attempt: 12
+8a 4b 46 48 b8 35 4b 4c 4d d4
+54 54 a4 3d 38 34 5a 57 d5 1d
+17 c1 78 2c d2 b4 54 5b 65 61
+67 b7 3b 36 b3 2b 2d 23 c3 62
+16 1c 1h 1h 16 d1 b1 7h 76 7b
+73 a3 27 2a a2 82 85 81 8h
+
+    After the 40th move, i. e. if you play it just this far:
+#19633 Michael Keller Attempt: 12
+8a 4b 46 48 b8 35 4b 4c 4d d4
+54 54 a4 3d 38 34 5a 57 d5 1d
+17 c1 78 2c d2 b4 54 5b 65 61
+67 b7 3b 36 b3 2b 2d 23 c3 62
+
+    FCS says it's impossible unless you use an atomic move preset, in which
+case it does come out solvable.
+
+    The other two are in a solution to #19861, the full solution of which
+is:
+#19861 Adrian Ettlinger
+46 7d 73 27 53 58 72 75 17 53
+63 5c 15 61 16 68 1a 41 c4 6c
+6b ah 5a b6 56 36 37 67 15 31
+13 76 73 24 21 2b 28 a8 41 52
+63 45 4h 43 64 82 b6 76 7b 87
+8a a8 c2 78 81 87 48 36 21 24
+32 b3 38
+
+    Here it's after the 48th and 49th moves, i. e, after
+#19861 Adrian Ettlinger
+46 7d 73 27 53 58 72 75 17 53
+63 5c 15 61 16 68 1a 41 c4 6c
+6b ah 5a b6 56 36 37 67 15 31
+13 76 73 24 21 2b 28 a8 41 52
+63 45 4h 43 64 82 b6 76
+and after:
+#19861 Adrian Ettlinger
+46 7d 73 27 53 58 72 75 17 53
+63 5c 15 61 16 68 1a 41 c4 6c
+6b ah 5a b6 56 36 37 67 15 31
+13 76 73 24 21 2b 28 a8 41 52
+63 45 4h 43 64 82 b6 76 7b
+    That there are similar false impossibles.
+
+    All of these seem strange to me, as the difference in the position from
+the previous move, which makes a solvable position, is very subtle in all
+cases.
+
+Best regards,  --------------Adrina
+
+

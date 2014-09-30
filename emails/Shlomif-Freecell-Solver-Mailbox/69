@@ -1,0 +1,89 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 20776 invoked from network); 5 Dec 2001 12:56:57 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 5 Dec 2001 12:56:57 -0000
+Received: from computer ([12.78.218.65]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011205125637.TYNT7926.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Wed, 5 Dec 2001 12:56:37 +0000
+Message-ID: <002e01c17d8c$3282a240$41da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112041743420.1638-100000@vipe.technion.ac.il>
+Subject: Lying solvers, Patsolve
+Date: Wed, 5 Dec 2001 07:35:01 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MIMEOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 15
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<My solver does not lie. >>
+    I could get into semantic quibbling and say I didn't say it did.  I said
+"A solver that tells lies isn't a very good one."  However, I know it
+carried that implication, and as a matter of fact, I was thinking of sending
+a immediate follow-up message to apologize for my remark.  Yes, you do not
+say "I assure that there is no possible solution to this board."  This got
+me to thinking.  I'd say there are three distinct possible goals for a
+Freecell Solver design:
+
+(1) To find as many solutions as possible, regardless of size, to as many
+boards as possible in the least time.
+
+(2) To find as many solutions as short as possible, to as many boards as
+possible in the least time.
+
+(3) To deliver a completely trustworthy verdict as to the solvabililty of as
+many boards as possible in the least time.
+
+    Of those three, (1) and (3) can be evaluated in a definitive way.  Two
+solvers can be compared on an absolute basis as to their effectiveness over
+a given range of boards.  (2), however, would be ambiguous as to its
+evaluation, since one could always trade speed for shortness of solution.
+
+    Now, then, I would add that the "ideal" solver would be capable of
+operating in any of the above three modes.
+
+[re Patsolve]<<You can send me the integration code (preferabbly with the
+rest of FC-Pro because I'm not sure what I have is too much up-to-date).
+Then, I can try and diagnose the problem.>>
+    Thanks again for your offer of assistance, but I don't think it will be
+necessary.  I made good progress yesterday, although much slower than I
+hoped for.  I am now passing the position to the Tom's function
+successfully.  I don't as yet have the function linked to the solver itself,
+and think I'm going to have to use a different technique than I did with
+FCS.  I would like to ask you a question about how we have FCS integrated.
+It looks to me as if the position is passed from the interface function to
+the solver by a string, which string I suppose is the equivalent of the form
+of the file normally read by the command line.  I think in a sense I "lucked
+out" that the way I'm compiling FCS worked OK.  I compile your main code
+separately as a console application, and just bodily transfer the object
+files into FcPro's Win32 Application project workspace.  I have a hunch that
+technique might not work if an attempt were made to use the board structure,
+rather than a string, as the way to pass the position.  I have your function
+code source being compiled as part of the FcPro application.  I did that
+originally to make it easier to diagnose what was happening in it, but I'm
+now thinking that this was essential to make it work.  That's what I've done
+with the Patsolve function, and it's working OK, but I haven't tried to
+connect it to the rest of the code as yet.  Tom is building his structure
+directly in the function instead of transferring to a string, so I think
+I'll have to compile all his code directly within the FcPro app. to make it
+work.  This is going to take resolution of a few identical symbol names, so
+will take some grinding work to accomplish.
+
+Best regards,  ------------Adrian
+
+

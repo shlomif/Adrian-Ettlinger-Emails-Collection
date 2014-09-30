@@ -1,0 +1,96 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 350 invoked from network); 3 Jan 2002 04:17:46 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 3 Jan 2002 04:17:46 -0000
+Received: from computer ([12.78.249.31]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020103041744.UFPL5540.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Thu, 3 Jan 2002 04:17:44 +0000
+Message-ID: <000501c1940d$68e972e0$cedb4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0201021547120.15538-100000@vipe.technion.ac.il>
+Subject: FCS solution questions
+Date: Wed, 2 Jan 2002 23:13:34 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 53
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<I did not start to work on the improved FCS interface module yet.>>
+    OK, "Whenever".
+
+    In the meantime, I've made good headway toward resolving the replay
+problem  I now have some code for playback that will accept a third
+character, when present, to indicate the number of cards to be moved to an
+empty stack.  I'm just filling the character in in what would usually be a
+space in the standard format.  In the first 100 hands, there are 18 hands
+that need this treatment.  Three or four of them have a couple of locations,
+the rest only one.
+
+    But I need to ask you about this.  There are two hands where I cannot
+interpret what the proper move sequence should be.  #23 and #90.  Here's the
+full solution for #23.  It normally plays only to the middle of the sixth
+line.  But with the new code, with a "4" inserted after the 4th move in the
+sixth line (21482), it plays further (in sixteen of the other examples, this
+kind of change makes it play all the way through).  In this hand #23, it
+only plays into the next line.  But in trying to find a similar fix to go
+past there, I can't figure out what the first move on the 7th line, which
+I've marked, is supposed to do, i. e., how many cards is it supposed to
+move?
+
+F#23 Att.:1 NumFcs=4 (FCS Solution)
+6a 6h 6b 6h 8c b8 6d 6h d2 5b
+5d 5h 46 47 d4 18 3d 32 62 56
+d5 3d d3 53 5h 1d 15 14 65 16
+15 b1 86 84 8b 87 b4 8b 18 b8
+54 67 3b 31 35 36 3h b1 15 56
+63 21 2b 21482 31 25 2h 4h 1h
+>76< b7 7b 78 7h b8 4b 4h 73 72
+b7 2h 4h 7b 7h 5h 62 6h 57 5h
+24 12 1h 1h 71 47 4h 4h 5h 64
+6h 6h 58 16 1h 45 4h 8h 8h dh
+1d 1h 18 1h ch 81 3c b3 18 3b
+d3 81 2d c2 18 2c b2 81 7b c7
+18 7c d7 81 2d c2 18 2c a2 81
+4a 4h 42 4h 8h 48 4h 8h ch dh
+7h bh 6h 5h 3h ah 1h 1h 2h 1h
+
+    Hand #90 is a somewhat different problem.  The solution looks like this:
+Note the sequence of moves 72-73-74-c7.  It would appear the first move, 72,
+is supposed to move 7 cards.  But I don't see how the two subsequent moves
+are supposed to clear the stack to allow the c7 move.
+
+ F#90 Att.:1 NumFcs=4 (FCS Solution)
+4a 4b 4c 4d 4h 4h a4 d8 c8 b3
+5a 5d 5c 5b 26 26 42 1d 14 1h
+4h d1 87 8d a8 8a 84 a4 2a 2h
+56 17 15 b1 21 2b 82 27 a8 36
+8a b8 63 68 65 6b 1h 2a 2h 7b
+7h 13 65 b2 85 2b a2 3a 3h 12
+38 35 c1 3c 31 8h 7h 8h 4h 3b
+3h 8h 4h 5a 53 54 5h 5h a3 27
+34 48 6a 56>72 73 74 c7<4h 7h
+2h 8h 7h 2h 8h 2h 8h 2h 8h 2h
+3h 2h 2h 7h 1h 1h bh 6h 6h dh
+ah
+
+    Would appreciate when you can get to it if you could look into these.
+
+Best regards,  ------------------Adrian
+
+

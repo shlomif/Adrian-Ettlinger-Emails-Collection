@@ -1,0 +1,64 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 25321 invoked from network); 27 May 2002 14:05:28 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 27 May 2002 14:05:28 -0000
+Received: from computer ([12.78.221.51]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020527140519.MBGV19182.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Mon, 27 May 2002 14:05:19 +0000
+Message-ID: <001801c20587$151ad8c0$33dd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205271414190.22057-200000@vipe.technion.ac.il>
+Subject: Still a problem
+Date: Mon, 27 May 2002 10:00:47 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 26
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    That isn't enough help.  Your added comments didn't tell me any more
+than I already understood.
+
+    My problem is that my call to Free2Solver() is in another module,
+free2.c.  I know I need these 4 calls:  (1) a call to the allocator  (2) a
+call to the chopper (3) the call to Free2Solver(), (4) a call to the
+deallocator.  But I don't know how to set up the external references to call
+the three functions and how to express the arguments in the Free2Solver()
+call with the proper level of indirection.
+
+    I think what I need is something like this, but to make it work I have
+to put asterisks in the right places.  FCSPresBuf is the char string in
+which I've put the command line.  FCSPresBuf is declared as (LPSTR).
+
+extern unk1 args_man_alloc(void)  ;
+extern void args_man_free(unk2)  ;
+extern int args_man_chop(unk3, unk4)  ;
+...................
+unk5 = args_man_alloc()  ;
+unk6 = args_man_chop(unk7, (unk8)FCSPresBuf)  ;
+...................
+Free2Solver(arg1, arg2,arg3, unk9->argc, unk10->(unk11)argv, arg6)  ;
+args_man_free(unk12)  ;
+
+    I have a hunch this ought to work, but I need you to tell me what to
+fill in for the 12 "unk"s.
+
+Best regards,  ----------------Adrian
+
+

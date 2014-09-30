@@ -1,0 +1,60 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 974 invoked from network); 17 May 2002 01:17:19 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 17 May 2002 01:17:19 -0000
+Received: from computer ([12.75.0.110]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020517011717.USWA19182.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Fri, 17 May 2002 01:17:17 +0000
+Message-ID: <000301c1fd40$23b3ba40$6e004b0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205161228400.10760-100000@vipe.technion.ac.il>
+Subject: Lecture comments
+Date: Thu, 16 May 2002 15:37:27 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 4
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Only certain specific areas of the lecture related to matters I might
+comment upon, and here are the notes I made:
+=============================
+ Your definition of "supermove" is not the same as that employed in FcPro.
+Multiple-card moves which are supported by M/S Freecell are not considered
+"supermoves" by FcPro.  This is not easy to define briefly, although the
+formula for computing the number of movable cards is fairly simple.
+M/S-compatible multple-card moves maybe should be called by another term I
+notice you use elsewhere -- metamoves.
+
+ In that area,  the following sentence "Sometimes, ..." would be more
+rigorously correct if it said:  "Sometimes, it is useful to move cards to
+the freecells or temporarily to an empty column, so the card......."
+
+Much further down:
+"* Freecell Pro, OTOH, ignores the number of cards and expects such moves
+to comply with what the original Microsoft Freecell would do in that case."
+ You could update this to reflect that FcPro now does in fact make use of
+"number of cards moved" so that it does in fact now replay any solution from
+FCS.
+=============================
+    That's really about all I had to say.
+
+Best regards, -------------------Adrian
+
+

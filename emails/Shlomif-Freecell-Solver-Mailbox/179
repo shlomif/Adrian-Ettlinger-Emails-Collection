@@ -1,0 +1,54 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 29415 invoked from network); 3 Jul 2002 03:17:13 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 3 Jul 2002 03:17:13 -0000
+Received: from computer ([12.78.221.30]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020703031710.TRZK19902.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Wed, 3 Jul 2002 03:17:10 +0000
+Message-ID: <001d01c2223f$a25293c0$dcda4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207021229580.8940-100000@vipe.technion.ac.il>
+Subject: Re: FcPro - FCS -- next step
+Date: Tue, 2 Jul 2002 23:04:05 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<I suggest you release it now as it is. There's no reason to wait for 2.6.x
+to come along, and people may be anxious to try the new version.>>
+    Very glad you concur.  I just about finished all the additional work
+today, and surely will have it ready for release sometime tomorrow.  (Unless
+some totally unexpected new problem show up).  I decided to make access to
+the presets I now have as a "library" from you more readily accessible by
+imbedding them in the code, but leaving the option of calling an external
+file as I've been using up to now as the "standard".  Also just about have
+the web page written from which the downloading will be done.  Mainly need
+to write up an explanation of how to use some of the FCS options.
+
+    But now, in preparation for atomic moves, could you please give me a
+little more explanation of how they are going to work?  Your message said
+"specify  ....-to 01ABCDE  ........or something similar....."  What I'm now
+curious about is how flexible this will be.   I. e., and e. g., will an
+atomic move preset be possible that will quickly solve that infamous game
+#9?
+
+Best regards, ----------------Adrian
+
+
+

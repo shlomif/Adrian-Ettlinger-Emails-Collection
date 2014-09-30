@@ -1,0 +1,42 @@
+Status: R
+X-Status: N
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 929 invoked from network); 27 Jul 2002 10:29:54 -0000
+Received: from mtiwmhc24.worldnet.att.net (HELO mtiwmhc21.worldnet.att.net) (204.127.131.49)
+  by vipe.technion.ac.il with SMTP; 27 Jul 2002 10:29:54 -0000
+Received: from computer ([12.78.218.197]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020727102948.XQDT12658.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sat, 27 Jul 2002 10:29:48 +0000
+Message-ID: <000c01c23557$ff416d60$c5da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207270658470.30693-100000@vipe.technion.ac.il>
+Subject: Timings with and without a prelude #2
+Date: Sat, 27 Jul 2002 06:25:02 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I'm onto something.  When I run #6365 using the prelude preset in the
+external file, it solves it in 32461 iterations.  Something's wrong with how
+I'm assembling the preset in the hard-coded form.  I should be able to run
+this down.
+
+Best regards, ------------------Adrian
+
+
+

@@ -1,0 +1,434 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 16548 invoked from network); 24 Nov 2001 03:15:45 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 24 Nov 2001 03:15:45 -0000
+Received: from computer ([12.78.221.119]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011124031415.VNUC941.mtiwmhc22.worldnet.att.net@computer>;
+          Sat, 24 Nov 2001 03:14:15 +0000
+Message-ID: <000c01c1748d$a818e8a0$77dd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+Cc: <fomalhaut@earthlink.net>
+References: <Pine.LNX.4.33L2.0111232128070.7020-100000@vipe.technion.ac.il>
+Subject: First FcPro with FCS
+Date: Fri, 23 Nov 2001 21:12:25 -0500
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+  boundary="----=_NextPart_000_0009_01C17463.8CF90980"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 38
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+------=_NextPart_000_0009_01C17463.8CF90980
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+
+Hi Shlomi,
+
+    I'm attaching the .exe of FcPro with Freecell Solver installed, in its
+initial form.  This is only a very partial implementation of what we expect
+to do eventually.
+
+    If you select "Solve2" under options, you get a dialog box similar to,
+but abbreviated, the box for the FcPro solver.  The only two modes now
+implemented are "result only" and "full solution".  "Max. iterations" should
+work, but not "Max. time".  The Mode field can be used.  The default, or a
+"0" (the digit) gives you DFS, a "1" A*.  I intended "2" to give "Soft-DFS"
+but that doesn't seem to be working.  You can also type the letter "O" into
+the second character position for "Optimize".
+
+    I'm also attaching fc_pro_iface as I've modified it, for your records.
+If you want to improve on how I swapped the source-destination positions in
+the move string, that'd be fine.
+
+    Also, file diag1b23.txt contains copies of the relevant lines showing
+the diagnostics we're getting trying to get at the moves properly by the use
+of pointers.  Also, a description of that other minor diagnostic from one of
+your ANSI C files, intrface.c.
+
+    I haven't given much thought to how I'll prioritize the further work, so
+it you have any thoughts, let me know.  I'll probably get the other two
+options (range and solve from file) up and running first.
+
+Best regards,  ---------------Adrian
+
+
+------=_NextPart_000_0009_01C17463.8CF90980
+Content-Type: Text/Plain; charset=US-ASCII
+X-Content-Type: application/x-zip-compressed;
+	name="Fcsrc651.zip"
+X-Content-Transfer-Encoding: base64
+X-Content-Disposition: attachment;
+	filename="Fcsrc651.zip"
+
+  [ The following attachments were DELETED when this message was saved:  ]
+  [ A Application/X-ZIP-COMPRESSED segment of about 102,711 bytes.       ]
+------=_NextPart_000_0009_01C17463.8CF90980
+Content-Type: application/octet-stream;
+	name="fc_pro_iface.c"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+	filename="fc_pro_iface.c"
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+//#include "Fcsolvex.h"
+#include "main.h"
+#include "Fcsolve.h"
+#include "fcs_user.h"
+
+char * moves_string;
+static const char * ranks_map =3D "0A23456789TJQK";
+
+static char * rank_to_string(int rank, char * buf)
+{
+    buf[0] =3D ranks_map[rank];
+    buf[1] =3D '\0';
+    return buf;
+}
+
+static const char * suits_map =3D "CDSH";
+
+static char * suit_to_string(int suit, char * buf)
+{
+    buf[0] =3D suits_map[suit];
+    buf[1] =3D '\0';
+    return buf;
+}
+
+static char * card_to_string(Card card, char * buf)
+{
+    rank_to_string(card&0x0F,buf);
+    suit_to_string(card>>4,buf+1);
+
+    return buf;
+}
+
+static char * position_to_string(Position * pos, int num_freecells)
+{
+    int a, stack;
+    char buffer[4000], temp[4][20];
+    char * s_end;
+
+    buffer[0] =3D '\0';
+    s_end =3D buffer;
+   =20
+    for(a=3D0;a<4;a++)
+    {
+        if (pos->foundations[a] !=3D 0)
+        {
+            break;
+        }
+    }
+    if (a < 4)
+    {
+        s_end +=3D sprintf(s_end, "Foundations:");
+        for(a=3D0;a<4;a++)
+        {
+            if (pos->foundations[a] !=3D 0)
+            {
+                s_end +=3D sprintf(
+                    s_end,=20
+                    " %s-%s",=20
+                    suit_to_string(a, temp[0]),
+                    rank_to_string(pos->foundations[a], temp[1])
+                    );
+            }
+        }
+        *s_end =3D '\n';
+        s_end++;
+    }
+    s_end +=3D sprintf(s_end, "Freecells:");
+    for(a=3D0;a<num_freecells;a++)
+    {
+        if (pos->hold[a] =3D=3D 0)
+        {
+            s_end +=3D sprintf(s_end, " -");
+        }
+        else
+        {
+            s_end +=3D sprintf(s_end, " %s", =
+card_to_string(pos->hold[a], temp[0]));
+        }
+    }
+    *s_end =3D '\n';
+    s_end++;
+
+    for(stack=3D0;stack<8;stack++)
+    {
+        for(a=3D0;a<pos->tableau[stack].count;a++)
+        {
+            s_end +=3D=20
+                sprintf(
+                    s_end,=20
+                    "%s%s",=20
+                    ((a =3D=3D 0)? "" : " "),
+                    card_to_string(pos->tableau[stack].cards[a], =
+temp[0])
+                );                               =20
+        }
+        *s_end =3D '\n';
+        s_end++;
+    }
+    *s_end =3D '\0';
+
+    return strdup(buffer);
+}
+
+
+
+
+enum FCS_IFACE_MODES
+{
+    FCS_IFACE_MODE_DFS,
+    FCS_IFACE_MODE_A_STAR,
+
+    FCS_IFACE_MODE_OPT =3D 0x10000,
+};
+
+static void render_move(fcs_move_t move, char * string)
+{
+    /* Save the third character which will be set to '\0' by the =
+sprintf.
+     * It's a kludge, but it works.
+     * */
+    char c =3D string[2];
+	char b ;  //ABE
+    switch(fcs_move_get_type(move))
+    {
+        case FCS_MOVE_TYPE_STACK_TO_STACK:
+                sprintf(string, "%i%i",=20
+                    1+fcs_move_get_src_stack(move),
+                    1+fcs_move_get_dest_stack(move)
+                    );
+        break;
+
+        case FCS_MOVE_TYPE_FREECELL_TO_STACK:
+                sprintf(string, "%c%i",=20
+                    ('a'+fcs_move_get_src_freecell(move)),
+                    1+fcs_move_get_dest_stack(move)
+                    );
+        break;
+
+        case FCS_MOVE_TYPE_FREECELL_TO_FREECELL:
+                sprintf(string, "%c%c",
+                    ('a'+fcs_move_get_src_freecell(move)),
+                    ('a'+fcs_move_get_dest_freecell(move))
+                    );                       =20
+        break;
+
+        case FCS_MOVE_TYPE_STACK_TO_FREECELL:
+                sprintf(string, "%i%c",
+                    1+fcs_move_get_src_stack(move),
+                    ('a'+fcs_move_get_dest_freecell(move))
+                    );
+        break;
+
+        case FCS_MOVE_TYPE_STACK_TO_FOUNDATION:
+                sprintf(string, "%ih", 1+fcs_move_get_src_stack(move));
+        break;
+       =20
+
+        case FCS_MOVE_TYPE_FREECELL_TO_FOUNDATION:
+                sprintf(string, "%ch", =
+('a'+fcs_move_get_src_freecell(move)));
+        break;
+
+        case FCS_MOVE_TYPE_SEQ_TO_FOUNDATION:
+                sprintf(string, "%ih", fcs_move_get_src_stack(move));
+        break;
+
+        default:
+            string[0] =3D '\0';
+        break;
+    }
+    /* Restore that character */
+    string[2] =3D c;
+	b =3D string[0] ;  // Swap characters -- ABE
+	string[0] =3D string[1] ;
+	string[1] =3D b ;
+}
+
+int Free2Solver(Position * orig, int NoFcs, int limit, int mode, int =
+option, char * * ret_moves)
+{
+    char * state_string;
+    void * instance;
+    int verdict;
+    int num_iters;
+    int ret;
+
+    state_string =3D position_to_string(orig, NoFcs);
+   =20
+    instance =3D freecell_solver_user_alloc();
+
+    freecell_solver_user_set_game(
+        instance,
+
+        NoFcs,
+        8,
+        1,
+        FCS_SEQ_BUILT_BY_ALTERNATE_COLOR,
+        0,
+        FCS_ES_FILLED_BY_ANY_CARD
+        );
+
+    freecell_solver_user_limit_iterations(instance, limit);
+
+    freecell_solver_user_set_solving_method(
+        instance,           =20
+        (((mode & 0xFFFF) =3D=3D FCS_IFACE_MODE_DFS) ?
+            FCS_METHOD_SOFT_DFS :
+            FCS_METHOD_A_STAR
+        )
+    );
+
+    freecell_solver_user_set_solution_optimization(
+        instance,
+        (mode & FCS_IFACE_MODE_OPT) ? 1 : 0
+        );
+         =20
+    verdict =3D freecell_solver_user_solve_board(instance, =
+state_string);
+
+    free(state_string);
+
+    num_iters =3D freecell_solver_user_get_num_times(instance);   =20
+
+    *ret_moves =3D NULL;
+
+    if (verdict =3D=3D FCS_STATE_WAS_SOLVED)
+    {
+        int num_moves;
+        int a;
+        fcs_move_t move;
+
+        ret =3D num_iters;
+        num_moves =3D freecell_solver_user_get_moves_left(instance);
+        moves_string =3D (char *)malloc(num_moves*2+1);
+        a =3D num_moves-1;
+
+        while (! freecell_solver_user_get_next_move(instance, &move))
+        {
+            render_move(move, moves_string + (a*2));
+            a--;
+        }
+        moves_string[num_moves*2] =3D '\0';
+
+        *ret_moves =3D moves_string;
+    }
+    else if (verdict =3D=3D FCS_STATE_IS_NOT_SOLVEABLE)
+    {
+        ret =3D -num_iters;
+    }
+    else if ((verdict =3D=3D FCS_STATE_SUSPEND_PROCESS) || (verdict =
+=3D=3D FCS_STATE_BEGIN_SUSPEND_PROCESS))
+    {
+        ret =3D 0;
+    }
+   =20
+    freecell_solver_user_free(instance);
+
+    return ret;
+}
+
+#if 0
+int main(int argc, char * argv[])
+{
+    Position mypos;
+    char * ret_moves;
+    int ret;
+
+#include "fill_pos.cpp"
+
+    ret =3D Free2Solver(&mypos, 4, 150000, FCS_IFACE_MODE_DFS, 0, =
+&ret_moves);
+
+    printf("%i\n", ret);
+
+    printf("%s\n", ret_moves);
+
+    free(ret_moves);
+   =20
+    return 0;
+}
+#endif
+
+------=_NextPart_000_0009_01C17463.8CF90980
+Content-Type: text/plain;
+	name="Diag1b23.txt"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+	filename="Diag1b23.txt"
+
+>From "free2.c" file
+
+[This is how Free2Solver() is declared:
+extern int Free2Solver(Position*, int, int, int, int, char* =
+FCSolveMoves);
+
+[This is line 85, where it is called]
+result =3D Free2Solver (&orig, NUM_FCS, FCSlimit, FCSmode, 0, =
+&FCSolveMoves);
+
+
+[These are the diagnostics given by VC++ Version 4.0]
+C:\MSDEV\Projects\FcPro65\Free2.c(85) : warning C4047: 'function' : =
+'char *' differs in levels of indirection from 'char (*)[]'
+C:\MSDEV\Projects\FcPro65\Free2.c(85) : warning C4024: 'Free2Solver' : =
+different types for formal and actual parameter 6
+
+[Note:  FCSolveMoves is declared as char FCSolveMoves[] ;]
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+
+[Another matter:  in compiling the ANSI C files, this diagnostic =
+occurs:]
+intrface.c
+C:\MSDEV\Projects\FcPro65\SHLSRC2\intrface.c(149) : warning C4018: '<' : =
+signed/unsigned mismatch
+
+[This is line 149 from the intrface.c file:]
+    for(a=3D0;a<instance->tests_order_num;a++)
+
+[This is the code preceding line 149:]
+freecell_solver_instance_t * freecell_solver_alloc_instance(void)
+{
+    freecell_solver_instance_t * instance;
+
+    unsigned int a;     // <<<<< Maybe this should be declared as a =
+signed integer?  (ABE)
+
+    instance =3D malloc(sizeof(freecell_solver_instance_t));
+
+#if (FCS_STATE_STORAGE =3D=3D FCS_STATE_STORAGE_INDIRECT)
+    instance->num_indirect_prev_states =3D 0;
+    instance->max_num_indirect_prev_states =3D 0;
+#endif
+
+    instance->num_times =3D 0;
+
+    instance->max_num_times =3D -1;
+    instance->max_depth =3D -1;
+
+    /* Initialize the default test order */
+    instance->tests_order_num =3D 10;
+    for(a=3D0;a<instance->tests_order_num;a++)   //<<<<< Line 149
+
+------=_NextPart_000_0009_01C17463.8CF90980--
+

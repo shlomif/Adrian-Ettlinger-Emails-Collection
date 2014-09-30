@@ -1,0 +1,54 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 13720 invoked from network); 26 Jul 2002 11:39:19 -0000
+Received: from mtiwmhc24.worldnet.att.net (HELO mtiwmhc21.worldnet.att.net) (204.127.131.49)
+  by vipe.technion.ac.il with SMTP; 26 Jul 2002 11:39:19 -0000
+Received: from computer ([12.78.218.55]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020726113917.ZCDQ12658.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Fri, 26 Jul 2002 11:39:17 +0000
+Message-ID: <002d01c23498$89b355a0$ccdd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207261211420.12272-100000@vipe.technion.ac.il>
+Subject: Re: A Keepalive
+Date: Fri, 26 Jul 2002 07:21:01 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    The Keepalive message was entirely appropriate.
+
+    I had intended to do a little more work on my side of the fence before I
+posted the new FcPro with FCS 2.6.1 installed, but then got distracted onto
+other things.
+
+    In our last exchange, I'd said I thought it was my fault that I had
+destroyed the effect of your "prelude" mode by not having the preset lines
+get names assigned them.  However, I've restored the naming, and I still
+cannot detect any speed difference between two presets with and without the
+prelude present.  So I'm curious as to whether you have confirmed that, in
+fact, the prelude mode is accomplishing what it is supposed to accomplish.
+I wonder if I might still be doing something wrong.
+
+<<BTW, are you interested in receiving intermediate versions of a book I'm
+writing on Freecell Solver?>>
+    Yes, I would.
+
+Best regards, ------------Adrian
+
+

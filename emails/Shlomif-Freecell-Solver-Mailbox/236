@@ -1,0 +1,90 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 5107 invoked from network); 27 Aug 2002 09:50:12 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 27 Aug 2002 09:50:12 -0000
+Received: from computer ([12.78.221.53]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020827095000.FFV3050.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Tue, 27 Aug 2002 09:50:00 +0000
+Message-ID: <002001c24dae$8b2c9c00$48dd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0208270836320.1008-100000@vipe.technion.ac.il>
+Subject: Re: Solvable Positions that are Unsolvable with Meta-Moves
+Date: Tue, 27 Aug 2002 05:44:57 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-Mimeole: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    OK, here are the positions.  I think the format I've used should be
+self-evident.  The first one is the position in #19633, the second two are
+two consecutive positions from #19861.
+
+===============================
+
+9H QD -- KC     2S 2H AD AC
+
+7S 3H 3S TH 9C 8H
+3D TD 3C 6C 5H 4C
+KH QC JD
+QS JH TS 9D 8S 7D 6S 5D 4S
+KS QH
+--
+TC KD 2D 2C 6D 5C 4H
+7H 8C JC JS 9S 8D 7C 6H 5S 4D
+
+=========================
+
+-- -- 3S 5S       3D 3H AC --
+
+KC QD JC
+2S 9S 8D 7C 6H 5C 4H 3C
+JS 6D 4D 4S 6S KH QC JH TS 9D 8C 7H 6C 5D 4C
+9H 8S 7D
+KS QH
+KD QS JD
+5H
+TC TD AS TH 2C 9C 8H 7S
+
+==========================
+
+-- 5H 3S 5S       3D 3H AC --
+
+KC QD JC
+2S 9S 8D 7C 6H 5C 4H 3C
+JS 6D 4D 4S 6S KH QC JH TS 9D 8C 7H 6C 5D 4C
+9H 8S 7D
+KS QH
+KD QS JD
+--
+TC TD AS TH 2C 9C 8H 7S
+
+============================
+
+    To repeat what I've described before, these are the only positions from
+about 25,000 intermediate positions in the Mike Keller collection of
+human-produced solutions on his website.  Version 2.5, as I recall had about
+175 false impossibles, and 2.6 had only these three.  Odd coincidence that
+all three were from two deals so close together.  The deals in the full
+collection are more or less evenly distributed among the M/S 32,000, from #1
+up to close to #32000/
+
+Best regards, --------------Adrian
+
+
+

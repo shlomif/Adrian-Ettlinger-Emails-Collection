@@ -1,0 +1,57 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 10927 invoked from network); 3 Jun 2002 12:56:55 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 3 Jun 2002 12:56:55 -0000
+Received: from computer ([12.78.220.80]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020603125613.EWHZ5116.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Mon, 3 Jun 2002 12:56:13 +0000
+Message-ID: <000401c20afd$959d1aa0$50dc4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206031343460.8460-100000@vipe.technion.ac.il>
+Subject: Code questions
+Date: Mon, 3 Jun 2002 08:52:10 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 36
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    It seems to me that a clean place to make the change is in lib.c, in the
+freecell_solver_get_next_move() routine, to expand the test "if (ret == 0)"
+by adding a test to see if it's a stack to stack move that's moving an ace,
+then do not call freecell_solver_apply_move().  This would be just a
+preliminary experiment for the simplest case (moving aces) to see if it
+fixes my current examples.  It could later be extended to include other
+forced foundation moves and, for that matter, could be made contingent on
+whether the solver is working on freecell (although from the function names,
+are these functions which already are only invoked if it's solving
+Freecell?).
+
+    Looking further into fcs_move.h, I see you have defined some functions
+for retrieving the move type and the source stack from the "compact" move
+structure.  I tried to use these functions here by saying
+"fcs_move_get_type(move)", but it won't compile that way here, saying "left
+operand points to struct, use '->'.  What am I doing wrong?  Or is this
+entire approach wrong to begin with?
+
+    Am I correct that the current implementation is employing the compact
+move structure?
+
+Best regards,  ----------------Adrian
+
+

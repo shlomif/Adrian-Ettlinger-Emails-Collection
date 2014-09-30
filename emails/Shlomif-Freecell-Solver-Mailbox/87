@@ -1,0 +1,48 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 4753 invoked from network); 30 Dec 2001 18:03:56 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 30 Dec 2001 18:03:56 -0000
+Received: from computer ([12.78.218.54]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011230180352.NUVU7926.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 30 Dec 2001 18:03:52 +0000
+Message-ID: <001901c1915c$294522a0$36da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112301852180.4163-100000@vipe.technion.ac.il>
+Subject: Re: FCS V2.0 problems, interim report
+Date: Sun, 30 Dec 2001 13:01:25 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 50
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Thanks for the tip, and the news that VCVARS32.bat is a file I should
+already have on my system.  Hopefully that's why nmake wasn't working for
+me.  I'll try it later on today.  I hadn't gotten to try it under XP, and
+it's just as well, as that probably would have been a waste of time.  I had
+a bad diskette that I used to move it over to the other laptop.
+
+<<If you set MAX_NUM_FREECELLS to 12, then FCS can indeed utilize 9
+freecells.>>
+    Oh, OK, I'd thought you might have to do some work to allow that.  As
+long as it's that simple, we might as well implement it.
+
+Best regards,  ------------Adrian
+
+

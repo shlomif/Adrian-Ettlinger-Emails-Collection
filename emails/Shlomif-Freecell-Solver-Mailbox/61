@@ -1,0 +1,121 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 3915 invoked from network); 1 Dec 2001 09:27:32 -0000
+Received: from mtiwmhc24.worldnet.att.net (204.127.131.49)
+  by vipe.technion.ac.il with SMTP; 1 Dec 2001 09:27:32 -0000
+Received: from computer ([12.78.218.89]) by mtiwmhc24.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011201092720.DKFH13117.mtiwmhc24.worldnet.att.net@computer>;
+          Sat, 1 Dec 2001 09:27:20 +0000
+Message-ID: <003401c17a4a$4c11fb60$59da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+Cc: <fomalhaut@earthlink.net>
+References: <Pine.LNX.4.33L2.0111301419180.13604-100000@vipe.technion.ac.il>
+Subject: Re: Project status
+Date: Sat, 1 Dec 2001 04:24:57 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 6
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+        With regard to higher precision in timing:  I had not discovered the
+GetTickCount() function.  It looks very straightforward and I'd have no
+hesitancy about applying it.  The function I had found revolves around an
+"object" called "CRefTime", which seems to have a variety of functions
+related to it, and even has the capability of working to 100 nanosecond
+precision.  In fact, there is a function called Millisec() for getting a
+measurement to that precision.  But applying that system is what scared me.
+Now as to getting it done:  More below.
+
+<<<<But don't we need some code modifications to make this available in the
+FcPro implementation?>>
+Indeed we do, assuming we desire such a thing.>>
+    What we "desire", as I'll elaborate below, I'd propose to be something
+for you to decide, after any discussion with me you'd like to have.
+
+<<I see the FC-Pro integration as a way to provide the Win32 user with a
+nice GUI for Freecell Solver. Most people will find using FCS from within an
+integrated application nicer.......>>
+    OK, that's fine.  Now I can appreciate where you're coming from.
+
+<<What do you mean by "stay in the loop?">>
+    I mean that the "authority" for further changes in version 6.5 should be
+at least partially devolved to you.  I. e, for the most basic example, when
+it comes time to incorporate later versions of FCS into this version of
+FcPro, you should go ahead and do it yourself, and we wouldn't require that
+you go through me to get it done.  That, let's say, is the minimum scope of
+what you would take care of.  But then we could easily, as I see it, expand
+the scope to include all of the functions now in the free2.c module.  This,
+in fact, includes the time function.  So you could change the time function
+there yourself to use either GetTickCount or CRefTime, as you see fit.  Now
+then, I'm not sure how much of this work falls into the category of Win32
+programming, and how much is within the subset that is ANSI C.  I don't mean
+to saddle you with a need to go through a learning curve in Win32 that you'd
+prefer not to have to give your time to.  So let me know how you feel about
+this.
+
+    Let's talk about "Where do we go from here?".  Your main purpose is to
+provide the "public" with an easier way to use your solver than the command
+line method.  So at some point we want to post FcPro Version 6.5 on a
+website, yours or Mike Keller's.  I haven't yet heard from Mike as to how he
+feels about you putting it on your site, but since he hasn't objected, I'd
+assume this will not be any problem for him.  So the main question now is at
+what point you would be comfortable posting it yourself.  For my part, I'd
+have no objections to your posting Build 4 as it now exists.  So I'll leave
+that up to you.
+
+    Now then, as to the question of whether I'd recommend to Mike that he
+post version 6.5 on his website.  With reference to this question, I should
+tell you about the testing I've done over the past couple of days.  The
+result of this testing is that I just have to say that FCS, in its current
+state, does not in my opinion add much in the way of useful functionality to
+the purposes of FcPro, as I consider its needs on the basis of the users
+I've heard from.  The main reason for this is its proneness to false
+impossibles.  The main use of the solver by our users, from what I've been
+hearing, is to use the hot key F7 while playing the game to find out if an
+intermediate position which a player has reached is solvable or not.  I have
+at present a library of five positions reached in play, for which FcPro
+gives a false impossible.  We know it's false because in each of these five
+cases, there is a key move that can be made from the position, after which
+the solver will say the game is winnable.  Well, in four of our five
+examples, FCS also says impossible.  But it's even worse.  FCS also says
+it's impossible after the key move is made, to a position which the FcPro
+solver says is winnable.  So it seems, from this test, that on a net basis
+FCS is more prone to false impossibles than is FcPro.
+
+    Another phase of my testing was to do quite a bit of range solving at
+zero through four freecells.  I found no discrepancies in impossibles at
+three or four freecells, but a number at 0 to 2, and in general FCS has more
+false impossibles than did FcPro.  Although one interesting aspect to it is
+that FCS did better with 2 freecells, and FcPro better with 0 or 1.  If you
+want those results in detail, i. e., the specific game numbers of FCS's
+false impossibles, I have the records and could pass that along, and also,
+for that matter, give you a detailed report on the five intermediate
+position examples.
+
+    I should say also that Patsolve looks much better from the false
+impossible standpoint, although it does not appear as yet to be perfect.
+Patsolve, so far, can solve three of the five examples.  I'm not absolutely
+certain that the test of the other two was valid, and I'm hoping fairly soon
+to have Patsolve also incorporated into FcPro to do more testing more
+conveniently.
+
+    So, let me know what you think of all this.
+
+Best regards,  ------------------Adrian
+
+

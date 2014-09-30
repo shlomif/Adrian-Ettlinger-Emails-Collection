@@ -1,0 +1,71 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 12948 invoked from network); 2 Jan 2002 10:16:37 -0000
+Received: from mtiwmhc24.worldnet.att.net (204.127.131.49)
+  by vipe.technion.ac.il with SMTP; 2 Jan 2002 10:16:37 -0000
+Received: from computer ([12.78.221.111]) by mtiwmhc24.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020102101630.ECK13117.mtiwmhc24.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Wed, 2 Jan 2002 10:16:30 +0000
+Message-ID: <000c01c19376$5cd6f5a0$6fdd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0201020909270.10867-100000@vipe.technion.ac.il>
+Subject: FcPro, reply to your 1st two messages
+Date: Wed, 2 Jan 2002 04:57:10 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 52
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<I still don't understand why you have so many problems with tar.gz files.
+WinZip handles them very well as far
+as extracting them is concerned. But I'll send you a Zip archive of the
+source once I code the binding function.>>
+    I was just looking for the easiest way out.  See, I didn't even remember
+that WinZip was the way I did it, and I do now have WinZip installed, but
+now I'd have to relearn how it was I used it.  And figure out where I put
+WinZip, as that was the only thing I'd used it for.  In a pinch, if I have
+to, I'll do it that way.
+
+    But in the meantime I have this other mystery to work on of the
+difference between how it's behaving under W98 and XP.  Regarding that, if
+you want to check with Build 7.3 (you evidently wrote those last two
+messages after receiving 7.2 but before receiving 7.3) whether you're seeing
+what I'm seeing as under W98 or under XP, if you try hands #2 and #20, those
+both play back all the way under XP but not under W98.  BTW, of course my
+first suspicion was that I'd made a mistake and wasn't testing the same EXE,
+but the size and time-stamp match exactly.
+
+    Also, there isn't too much point in my installing 2.0.1 until I have at
+least one sample preset I can use with it, so it's probably just as well I
+wait for your next development before I move on to the next version.
+
+    The first three hands that don't play back all the way for me under XP
+are #4, #12 and #22, and I've now identified what seems to be the one place
+in each of them where I need a special function to move an arbitrary number
+of cards to an empty column, and I've doctored the solution files to use a
+function I'm going to try that will respond to an extra digit that specifies
+the number of cards to be moved.  Then I have to examine the interface
+function to see if it provides a way to extact this number automatically.
+Hopefully, if all that works, I might wind up with a solution such as you
+first proposed to make FcPro play back all solutions from FCS.  So, as you
+see, I still have enough to entertain myself with for a while before I move
+on to V2.0.1 or later.
+
+ Best regards, -------------Adrian
+
+

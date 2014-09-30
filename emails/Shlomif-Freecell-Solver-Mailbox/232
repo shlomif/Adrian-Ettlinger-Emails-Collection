@@ -1,0 +1,47 @@
+Status: R
+X-Status: N
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 18446 invoked from network); 19 Aug 2002 19:26:54 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 19 Aug 2002 19:26:54 -0000
+Received: from computer ([12.75.48.142]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020819192648.TMTK3050.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Mon, 19 Aug 2002 19:26:48 +0000
+Message-ID: <000701c247b5$cd72ca20$24304b0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0208192121140.17528-100000@vipe.technion.ac.il>
+Subject: Chop report #3
+Date: Mon, 19 Aug 2002 15:20:39 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Last two messages crossed.
+
+    Let's look at this simplistically and pragmatically.
+
+    You distribute your presets with backslashes at the end of each line.
+If one takes one of your presets as you distribute them, and uses WordPad to
+modify it, and then saves it as a text file from WordPad, whatever WordPad
+does to it makes it unusable if the file has backslashes in it.  For
+reasonable convenience in handling and exerimenting with your presets, some
+way out the problem needs to be found.
+
+Best regards, ----------------Adrian
+
+

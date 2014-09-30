@@ -1,0 +1,61 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 4667 invoked from network); 17 Jul 2002 03:02:00 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 17 Jul 2002 03:02:00 -0000
+Received: from computer ([12.78.218.89]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020717030158.UVHG15849.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Wed, 17 Jul 2002 03:01:58 +0000
+Message-ID: <002a01c22d3d$cbad9180$59da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207161452080.3016-200000@vipe.technion.ac.il>
+Subject: 2.6.0 into FcPro
+Date: Tue, 16 Jul 2002 22:57:20 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    With your help, it fell together very quickly, and I now have a compiled
+version with 2.6.0.  Have only done quick perfunctory testing, and it seems
+no worse than 2.4.3.  So far I've only used that one "best" preset you'd
+given me, and I dont' see a big speed improvement with that.  I ran the
+first 1000 M/S deals on my 2.4.3 and then on 2.6.0.  Took 39 sec. on 2.4.3
+and 32 sec. on 2. 6.0.  What does one do to get that 3X speed improvement
+you were talking about?
+
+    Question is, now that I have it, what should I do with it?  Once I test
+it further, don't see any reason not to substitute it on my website for the
+2.4.3 I have there now.
+
+    Another question is how can I test it with atomic moves.  You once sent
+me one example of an atomic move preset, but it'd take me time to find that
+E-mail.  In the meantime, do you have anything you'd recommend I try in the
+way of a preset for atomic moves?  I know you've probably not yet searched
+for a maximized one, but can you make some guesses to give me something to
+play with?
+
+    I do intend to change over to an INI file for saving presets, but I need
+to finish another project first, maybe taking 2-3 weeks.  In the meantime,
+I'd like to give a little time to more testing, either creating another
+hard-coded preset or two, or using the one-preset file storage system I now
+have.
+
+Best regards,  ---------------Adrian
+
+

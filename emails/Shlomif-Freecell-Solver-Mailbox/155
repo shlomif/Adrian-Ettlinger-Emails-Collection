@@ -1,0 +1,91 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 18138 invoked from network); 7 Jun 2002 12:44:02 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 7 Jun 2002 12:44:02 -0000
+Received: from computer ([12.75.50.34]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020607124355.ITUS13408.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Fri, 7 Jun 2002 12:43:55 +0000
+Message-ID: <000401c20e20$873a9160$22324b0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206060820340.4567-100000@vipe.technion.ac.il>
+Subject: Re: M/S Freecell fix
+Date: Fri, 7 Jun 2002 08:35:56 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 43
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I'm now in Colorado Springs and detached from active work on FcPro until
+June 13.
+
+<<Well, whatever. It's not that PySol is hard to use.>>
+    "Hard to use" depends on a few different factors.  E. g., drag and drop
+is an action which I find easy enough to do when I"m using a mouse, but in
+recent years I've been working almost exclusively with laptops that have
+touchpads, and drag and drop is much harder to control with that kind of
+pointer interface.
+
+[re #1941]  But it is considered the hardest possible deal according to
+Michael Keller's FAQ... But FCS can solve it, quite quickly.>>
+    Yes, the FcPro solver and Patsolve both solve it very quickly also.
+
+<<Do you know if it is impossible for solution with 3 freecells. FCS cannot
+solve it in that case.>>
+    I see all three solvers fairly quickly say "Impossible" at 3 freecells,
+although Patsolve reaches that verdict much faster than the others.  So you
+can be confident that you don't have a false impossible in this particular
+case.
+
+<<It could, but I'd consider it a very crude thing to do. Better take a look
+at the:
+
+ 1. (decks_num==2)
+ 2. sequences are built by suit/alternate_colours/rank
+ 3. sequence move limited/unlimited
+ 4. empty stacks filled by kings/none/all
+
+ parameters and deduce when such safe moves are acceptable. The way I see it
+#3 has no effect on it and neither does #4.>>
+    I was thinking of examining all parameters simply for the purpose of
+determining whether the game being played was Freecell, and assuming that
+the definitiion of Freecell as a game is how it is designed in M/S Freecell.
+The variations having to do with the level of sophistication of multiple
+card moves, or the automatic posting to foundation, I don't regard as
+relevant to the definition of the game per se.  And I was going to make my
+feature contingent on the game of Freecell being the one that is being
+played.
+
+<<If it's by rank, then I suppose than a safely movable card's rank always
+equals to the minimum foundation value + 1.>>
+    M/S Freecell does automatic posting for any cards eligible to go to the
+foundation provided the opposite colors on the foundation have been posted
+up to at least the value equal to the card to be posted minus 2.  Bill
+Raymond discovered that a more liberal rule would also be valid, but I'm
+sticking to the M/S standard.
+
+    When I had to cut off my work, I'd done the testing routine and had
+check_and_add_state modified to return a value indicating "NEEDS_MUSTMOVE".
+I felt a little uncertainty as to how to implement the rest of it, i. e, to
+make it reject that state and create another state without messing anything
+up.  If I pick it up again late next week, I might need a little guidance
+from you.
+
+Best regards, ---------------Adrian
+
+

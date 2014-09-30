@@ -1,0 +1,52 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 6553 invoked from network); 2 Jul 2002 03:58:23 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 2 Jul 2002 03:58:23 -0000
+Received: from computer ([12.78.220.8]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020702035810.JQWI20423.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Tue, 2 Jul 2002 03:58:10 +0000
+Message-ID: <000601c2217c$34cce620$08dc4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207010600070.13758-100000@vipe.technion.ac.il>
+Subject: Finally there
+Date: Mon, 1 Jul 2002 23:53:44 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 65
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Finally worked my way through the last deficiency I can find in
+playback.  I should do some more extensive testing, and also have some
+clean-up to do, but I now have a version I can post.
+
+    You'd said I should integrate version 2.6 when it becomes available.
+Any time estimate for that?
+
+    In reviewing what you said about atomic moves, I see that on June 11,
+you said the following:
+<<The Freecell Solver in the CVS can now optionally use atomic moves to try
+and solve boards. That should eliminate all false negatives.>>
+
+    Which version did that apply to?  Not by any chance to 2.4.2, which is
+what I now have implemented?  If not, what should I update to if I want to
+incorporate atomic moves?
+
+Best regards,  ---------------Adrian
+
+

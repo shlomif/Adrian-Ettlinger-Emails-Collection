@@ -1,0 +1,62 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 16867 invoked from network); 24 Dec 2001 07:21:07 -0000
+Received: from mtiwmhc25.worldnet.att.net (204.127.131.50)
+  by vipe.technion.ac.il with SMTP; 24 Dec 2001 07:21:07 -0000
+Received: from computer ([12.78.218.180]) by mtiwmhc25.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011224072105.SQLM15547.mtiwmhc25.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Mon, 24 Dec 2001 07:21:05 +0000
+Message-ID: <000201c18c4b$5f160900$b4da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112231451490.1893-100000@vipe.technion.ac.il>
+Subject: FCS preset system
+Date: Mon, 24 Dec 2001 02:17:52 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 29
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I get the general idea, but this amounts to a project that's likely to
+take me at least a couple of days work, and I was looking for something I
+wouldn't have to spend more than about an hour on.
+
+    Nevertheless, let's proceed to firm up the spec.  Then, at a minimum, I
+might give you some coaching on how to do it.  I see the visible part of the
+list box is names the user will assign to presets.  Where do the presets
+come from?  Do you want the user to be able to compose the content of the
+presets?  Or will you provide the data for them?  What is the format of each
+individual preset?   You had originally given a number of 64K.  What does
+this represent? The full data capacity of the entire list of presets?
+
+<<Or I will take over this maintainance...>>
+    I'd be delighted at that prospect myself.
+
+<<But let's focus on the problems at hand and this is integrating FCS and
+patsolve into FC-Pro. >>
+    I fully agree.  The previous notion is for later discussion.
+
+<<Did you already upgrade to Freecell Solver 2.0.0? It will be a necessary
+pre-requisite for the presets stuff.>>
+    No I haven't, and that much I'd like to proceed with.  To make it
+easiest for me, may I ask you to send me a zipped (NOT gzipped) file
+containing just the source modules I need for the purpose?
+
+Best regards,  ----------------Adrian
+
+

@@ -1,0 +1,76 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 7877 invoked from network); 3 Jul 2002 19:27:15 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 3 Jul 2002 19:27:15 -0000
+Received: from computer ([12.78.218.62]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020703192709.OED5870.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Wed, 3 Jul 2002 19:27:09 +0000
+Message-ID: <001e01c222c7$240d8fa0$3eda4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207031817170.4920-100000@vipe.technion.ac.il>
+Subject: Re: FcPro - FCS -- next step
+Date: Wed, 3 Jul 2002 15:05:21 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<So fcspres.txt can contain only one preset? That's not good.>>
+    I still don't really understand your definition of what the word
+"preset" refers to.  Depending, the default fcspres.txt file contains either
+one or eight presets.  No, rereading it, I guess that is only one preset on
+an extended line so as to include eight different methods.  I modified the
+chop module source so that the backslash extender characters and C/R's are
+ignored in reading the file.  The way I'm going to release FcPro for now,
+there will be a choice of either one preset, extended if desired, in the
+fcspres.txt file, or the hard-coded presets that will be in the .exe file.
+If we find we have a large enough user base of people who really want to
+compose their own sets of multiple presets to chose from, I can alway make
+it fancier at a later date.  My initial assumption is that there aren't any,
+or many, more people out there like you who want to experiment at length
+composing their own presets.  If I'm proved wrong, I'll be glad to oblige
+them.
+
+    Could we say that a preset which includes more than one method (or
+"step") might be referred to as a "multi-thread" preset?
+
+<<I suggest we keep all the presets in a file which will reside in the same
+directory as Freecell Pro.>>
+    I was thinking of doing that, but then decided it would take me much
+less time to hard-code, for the time being.  Depending upon demand, we might
+do that when I integrate 2.6.
+
+<<Again, I don't know if they will be as fast, but they should be fast
+enough, if I collect enough primitive scans.>>
+    I wouldn't mind them being considerably slower if they get around the
+problem of the occasional deal that takes forever.
+
+<<INI files are a standard way of configuring a Windows program. I believe
+you sometimes found the need to modify them, especially during the Windows
+3.11 days.>>
+    Oh, yes, I certainly did.
+
+<<The Win32 API contains some functions for managing them (refer to the
+GetPrivateProfile* functions and GetProfile* functions).>>
+    I hate to have to learn new stuff like that unless there's really a good
+reason to.  I tend to cling to my own idisosyncratic approach until I'm
+forced to change.
+
+Best regards, ----------------Adrian
+
+

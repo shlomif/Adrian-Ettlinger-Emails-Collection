@@ -1,0 +1,49 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 12098 invoked from network); 5 Jan 2002 15:28:33 -0000
+Received: from mtiwmhc26.worldnet.att.net (204.127.131.51)
+  by vipe.technion.ac.il with SMTP; 5 Jan 2002 15:28:33 -0000
+Received: from computer ([12.78.221.252]) by mtiwmhc26.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020105152821.XNOE13869.mtiwmhc26.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Sat, 5 Jan 2002 15:28:21 +0000
+Message-ID: <001101c195fd$6e6d35c0$e1dc4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0201051617540.11443-100000@vipe.technion.ac.il>
+Subject: Re: FCS solution project
+Date: Sat, 5 Jan 2002 10:25:12 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 57
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<In that case, I'll wait for build 8. I got the Zip files containing all
+the updates messed up and rather wait for an archive that contains
+everything.>>
+    If that's your preference, OK.
+
+<<OK, but I think you have it by now. All you need is the function to
+interface it with Freecell Pro.>>
+    OK, but what I have is version 2.0.0.  Don't I need 2.0.1?  Can you
+provide me with that source in a zip?  And do I assume correctly that you
+will now proceed to do a new interface file for me?  Don't forget, I also
+would like to have a small collection of presets that I can include as
+options.
+
+Best regards,  ----------------Adrian
+
+

@@ -1,0 +1,82 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 21924 invoked from network); 26 Dec 2001 11:33:16 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 26 Dec 2001 11:33:16 -0000
+Received: from computer ([12.78.221.98]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011226113303.WFHO5540.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Wed, 26 Dec 2001 11:33:03 +0000
+Message-ID: <003001c18e00$e7051a20$62dd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112251759060.7355-100000@vipe.technion.ac.il>
+Subject: Re: FCS preset system
+Date: Wed, 26 Dec 2001 05:55:10 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 42
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<I run several distinct instances of the solver each with a different
+configuration. The first one that finds a solution causes the process to
+terminate the other instances.>>
+    Oh, does this mean the various instances run concurrently?  That's
+pretty fancy.  Now I'm becoming eager to see how effective it will be.  I'd
+imagine each instance much run much slower than it would if run alone, but
+it still could be a very effective strategy to achieve the fastest possible
+verdict.  For one thing, you're probably staying within the bounds of RAM
+for each instance to a reasonable depth.
+
+<<That can be done as a temporary solution. However, there should be a list
+box or a combo-box or something like that to allow him to choose which
+preset to use.>>
+    Right, but what I was proposing does allow a choice of preset without
+the need for a list or combo box.  In a simple edit box, which we already
+have, called "Mode", the user just types in the number of the preset he/she
+wants to use.
+
+<<I think I have the latest source code. I'll write a preset-enabled dialog
+box myself and send you the updated code. Time to brush up my Windows API
+skills...>>
+    As you wish.
+
+    And now, want to ask you about something else.  I found that, with the
+interface you wrote for me, when I was expecting FCS to work with more than
+four freecells, it wouldn't do it, but values over four would default back
+to four.  Were you perhaps under the impression that FcPro did not operate
+with over four freecells?  Actually, it can go up to seven.  I haven't
+examined the code as yet to see if I can easily modify the interface to
+allow up to seven.  I"d been assuming that the basic FCS could not handle
+more than four, but I'm working with another fellow with whom I'm exploring
+the question of how many freecells are needed, at a minimum, to provide the
+capability of solving any board that anyone might compose.  For a few years
+Mike Keller and I had been assuming that seven would suffice, but someone
+came along who put effort into composing boards unsolvable with seven, and
+he's succeeded, and we have a total of five examples.  Of these, we were
+still uncertain whether they can be solved with eight freecells, and FcPro
+can't help, because it's limited to seven (working now on expanding it to
+eight, which is proving to be a can of worms because of some limitations in
+how the internal coding is designed.  Well, Patsolve can provide solutions
+to three of the five, but not the other two.  However, my friend reports
+that FCS, the command line version, can solve all five, so here's a
+situation where FCS  is exceeding the capability of Patsolve.  Thought you
+might like to know.
+
+Best regards, ----------------------Adrian
+
+

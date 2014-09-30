@@ -1,0 +1,45 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 8465 invoked from network); 30 Jul 2002 04:04:34 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 30 Jul 2002 04:04:34 -0000
+Received: from computer ([12.78.218.227]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020730040429.VNGH7441.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Tue, 30 Jul 2002 04:04:29 +0000
+Message-ID: <001301c2377d$a7f6bc40$e3da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207292139030.27763-100000@vipe.technion.ac.il>
+Subject: Re: Update
+Date: Mon, 29 Jul 2002 23:59:24 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<Do you open the file in text mode or in binary mode?>>
+    I'm not aware that Windows, and/or VC++ provides such a distinction for
+file opening.
+
+<<I suggest you use my chopper code. I can add support for ignoring CR
+characters and that should be able to solve your problem.>>
+    I don't mind switching over to that, if you want to make that change.
+I'll try it and will let you know if it works.
+
+Best regards, ----------------Adrian
+
+

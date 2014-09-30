@@ -1,0 +1,42 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 14720 invoked from network); 17 Jul 2002 10:12:38 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 17 Jul 2002 10:12:38 -0000
+Received: from computer ([12.78.249.126]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020717101233.HCFS19092.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Wed, 17 Jul 2002 10:12:33 +0000
+Message-ID: <002a01c22d79$f33625a0$7ef94e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207170802060.7637-400000@vipe.technion.ac.il>
+Subject: Re: 2.6.0 into FcPro
+Date: Wed, 17 Jul 2002 05:41:33 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Thanks very much for the presets.  If you have a library of presets
+available for various purposes which are specific to 2.6.0, yes, I'd be very
+interested in receiving them.  I know this will go against your grain, but I
+might, just temporarily until I can get to the INI file project, hard-code
+them in so they'll be available in the interim to play with.
+
+Best regards, ------------------Adrian
+
+

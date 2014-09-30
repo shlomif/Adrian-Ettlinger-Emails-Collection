@@ -1,0 +1,63 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 22762 invoked from network); 8 Jul 2002 12:31:15 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 8 Jul 2002 12:31:15 -0000
+Received: from computer ([12.78.249.80]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020708123111.XDRD20423.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Mon, 8 Jul 2002 12:31:11 +0000
+Message-ID: <005a01c22672$78729e60$5df94e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207081432370.21496-100000@vipe.technion.ac.il>
+Subject: Re: Releasing the Source Code of FC-Pro [was Re: FcPro with FCS]
+Date: Mon, 8 Jul 2002 07:26:46 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<I still don't understand why the Solver Evaluation Edition is a distinct
+development from the normal FC-Pro development chain. Why not keep them
+inside and simply further develop FC-Pro starting from them.>>
+    A couple of reasons.  One is Mike Keller.  He's been performing the role
+of dealing with the user base and fielding all the inquiries, something I'd
+like to stay away from.  I wouldn't want to do it without his concurrence,
+and he seems to be in a nonresponxive mood.  The other reason is I consider
+FCS not really ready yet to assume its proper role for FcPro purposes, i.
+e., to provide reliable verdicts without false impossibles.
+
+<<1. The auto-play plays way too fast.>>
+    That's a function of computer speed, and you must be using a very fast
+computer.  I suppose I could make it timer-dependant when running on a very
+fast machine, but that'd be a little project.
+
+<<2. During a range solving the display of the board flicker with abnormal
+animations.>>
+   Don't quite understand what effect you're seeing.  But that also might
+relate to your using a superfast computer.
+
+<< 3. There is no way to stop the range solving.>>
+    Typing the ESC key should do it.
+
+<< 4. Wishlist: Bob Gorman's Cognitive Features.>>
+    I can't get excited about that.  I think he could use his imagination
+and devise a procedure to use the "open file" feature now in FcPro to get a
+Notepad display of the solution to which notes could be added.
+
+Best regards, ------------Adrian
+
+

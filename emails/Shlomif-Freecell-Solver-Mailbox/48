@@ -1,0 +1,77 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 10561 invoked from network); 25 Nov 2001 11:54:37 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 25 Nov 2001 11:54:37 -0000
+Received: from computer ([12.78.221.170]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011125115427.OUZK5540.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 25 Nov 2001 11:54:27 +0000
+Message-ID: <001201c1759f$7d4e0700$aadd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111250648090.5061-100000@vipe.technion.ac.il>
+Subject: Replays
+Date: Sun, 25 Nov 2001 05:53:04 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 69
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<Like I said, my moves contain 4 fields: type (stack->stack, >
+fc->fc,stack->fc, fc->stack, stack->foundation,
+fc-foundation), source > index, destination index and in case of
+stack->stack number of cards.>>
+    I'm not sure you have a complete set of rules there.  For stack->stack,
+there is a difference in the number of cards that can be moved into an
+occupied stack and an empty stack.  That's where the problem was in the
+example I showed you.  You are moving only one card from a stack sequence
+into an empty stack, and two can be moved, when there is one other empty
+stack present.
+
+    I think I'll just leave this matter there for the time being.  I'm still
+working on getting my code to make proper use of all moves that require
+"supermove".  I have to get through that layer before I'll really be able to
+identify the remaining problems. There might be more besides the one example
+I gave you above.
+
+<<Perhaps you may need to re-work the FC-Pro internals for that.>>
+    It's highly unlikely I'm going to be willing to do that.  We're going to
+have to get into details as to just what moves can be made, and exchange the
+formulae we're using.  Otherwise we'll be stuck with an implementation that
+provides only "results" and no solutions.
+
+    This is going to be a generic problem in interfacing to any solver.
+That's why I'd advocate a "standard" that moves in the delivered solution
+should be conformed to those possible in M/S Freecell.  BTW, the new M/S
+Freecell in XP still seems to have the same rules.
+
+    I'll say this also.  Your solution move sequences, it seems to me, might
+not convince a skeptic that you really have found a solution.  Some of your
+moves, to reproduce them in M/S Freecell, require more than one move, and
+your Mr. Skeptic might not be smart enough to figure out how to execute
+them.  I'm not questioning whether any of your solutions are legitimate, as
+I see no evidence of that.  But I consider it important to be able to
+convince the general public.
+
+    I'm going downstairs now to get back to work, and you may not see
+another E-mail from me until tomorrow morning.  Although if I have some hot
+news I'll get in touch before then.
+
+Best regards,  -----------------Adrian
+
+

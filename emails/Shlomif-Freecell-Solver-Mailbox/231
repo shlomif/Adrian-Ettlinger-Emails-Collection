@@ -1,0 +1,71 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 18321 invoked from network); 19 Aug 2002 19:17:57 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 19 Aug 2002 19:17:57 -0000
+Received: from computer ([12.75.48.36]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020819191755.LJXU28921.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Mon, 19 Aug 2002 19:17:55 +0000
+Message-ID: <000001c247b4$8fd3c120$24304b0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0208190923190.7053-100000@vipe.technion.ac.il>
+Subject: Chop report #2
+Date: Mon, 19 Aug 2002 14:30:11 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Yes, there's something going on with respect to non-standard handling of
+line breaks.
+
+    When I take the Abra Kadabra file of yours and view it in Windows
+NotePad, I don't see any line breaks -- the text all runs together as if
+there are none.  When I view the file in Windows WordPad, it does come out
+formatted neatly so I can see all the lines properly formatted.  Hence, of
+course, it's more desirable to deal with the file using WordPad.
+
+    I need to edit the file by removing your range solve command to make it
+usable with FcPro.
+
+    Now then, this is interesting.  When I edit out that line using NotePad,
+and resave the file with just that range line removed, but all the
+backslashes still in the file, the resultant preset file works OK.
+
+    But if I use WordPad to edit out that line, and then resave it, it
+doesn't work if the backslashes are in the file.  (It does with the
+backslashes removed).  And the backslashes appear to all be at the end of
+the lines, i. e., a cursor advance on the backslash character sends the
+cursor to the next line.
+
+    It must be that WordPad is altering the line break sequence, and turning
+it into something you're not expecting.  It wasn't very convenient for me to
+get a copy of the WordPad edited file to send to you, and I'm guessing this
+might be enough for you to go on, but if you really want to diagnose it
+further, I could send you a WordPad-edited file.  Inspecting these files in
+a hex dump would no doubt tell us the story.
+
+    However, to make it really fully usable with complete flexibility, users
+ought to be able to edit any files with any reasonable editor they want to
+use, which would include WordPad.  Like I said before, is there any reason
+you can't modify it so it will reject the backslash character wherever it
+might appear in the file?
+
+Best regards,  ----------------Adrian
+
+

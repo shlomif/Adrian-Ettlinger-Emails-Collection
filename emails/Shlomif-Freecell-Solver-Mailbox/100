@@ -1,0 +1,51 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 19612 invoked from network); 20 Jan 2002 19:52:30 -0000
+Received: from mtiwmhc26.worldnet.att.net (204.127.131.51)
+  by vipe.technion.ac.il with SMTP; 20 Jan 2002 19:52:30 -0000
+Received: from computer ([12.78.221.30]) by mtiwmhc26.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020120195225.TFDU13869.mtiwmhc26.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 20 Jan 2002 19:52:25 +0000
+Message-ID: <001301c1a1eb$c689f140$38f94e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0201201957300.18449-100000@vipe.technion.ac.il>
+Subject: An impasse
+Date: Sun, 20 Jan 2002 14:49:22 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 60
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Yes, we manuevered ourselves into an accidental impasse.  You had said
+you'd wait for Build 8, but I wasn't intending to do a Build 8 until I had
+your multiple instance incorporated and also the full playback capability.
+I don't mind sending you a full set of what I now have.
+
+<<and see how those "v" things are managed.>>
+    I haven't written any code yet to actually handle the "v" code.  What I
+have works from saved files in which the card count, when there is a
+relevant one, is inserted in place of the space that usually separates the
+moves.  It will be simple enough to extend that to work from the "v" as
+well -- the hard part is done.  I really don't see why you need to see that
+to write the code for the "v" feature, but as I said, if you want to see how
+I'm handling the saved files, I could send that .
+
+Best regards,  --------------Adrian
+
+

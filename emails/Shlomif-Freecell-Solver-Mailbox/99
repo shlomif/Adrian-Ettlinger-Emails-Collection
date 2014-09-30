@@ -1,0 +1,45 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 17874 invoked from network); 20 Jan 2002 16:46:06 -0000
+Received: from mtiwmhc25.worldnet.att.net (204.127.131.50)
+  by vipe.technion.ac.il with SMTP; 20 Jan 2002 16:46:06 -0000
+Received: from computer ([12.78.219.254]) by mtiwmhc25.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020120164602.KHMX28721.mtiwmhc25.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 20 Jan 2002 16:46:02 +0000
+Message-ID: <001301c1a1d1$bb06b3e0$fedb4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0201051617540.11443-100000@vipe.technion.ac.il>
+Subject: Touching base
+Date: Sun, 20 Jan 2002 11:41:05 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 59
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Just wanted to check that we're still on the same page.  My
+understanding is that I"m waiting for you for an interface module.  I'll
+remind you that I do have pending some code which can make FCS's solutions
+play back in FcPro for all solutions, instead of 70% or 85% as it now
+stands.  We'd had in mind an interface for two new things, one to pass
+through a code and count of the number of cards moved to an empty column,
+the other an implementation of preset for the multiple instance version of
+FCS.
+
+Best regards,  ----------------Adrian
+

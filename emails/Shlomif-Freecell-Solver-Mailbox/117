@@ -1,0 +1,52 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 28748 invoked from network); 9 May 2002 14:57:54 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 9 May 2002 14:57:54 -0000
+Received: from computer ([12.78.219.121]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020509145738.ZGMR28991.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Thu, 9 May 2002 14:57:38 +0000
+Message-ID: <000a01c1f769$6b89bc20$79db4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205091509080.26609-100000@vipe.technion.ac.il>
+Subject: FC-Pro/FCS integration
+Date: Thu, 9 May 2002 10:46:07 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 78
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<Note that this behaviour cannot improve the probability of reporting a
+false negative. However, it can greatly improve
+> the speed in which a positive solution was found.>>
+    Noted.  I still consider speed a highly important attribute, so I'd call
+it worth pursuing.
+
+<<I'll probably have to add a function to the interface to retrieve the
+length of a stack.>>
+    Sounds like maybe it's a bigger deal than I'd expected.  It's not really
+a big deal for me, so I'll go ahead with what you've given me, and see what
+happens.  I'm just about now to sit down and start work on it.
+
+<<2.4.1 is equivalent to 2.4.2 AFA Win32 is concerned....>>
+    Oh, OK, maybe then I'll take another look at the Win32 binary package.
+It might save me some time, after all.
+
+Best regards,  ------------------Adrian
+
+

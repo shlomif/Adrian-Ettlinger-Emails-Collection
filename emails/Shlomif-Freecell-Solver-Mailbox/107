@@ -1,0 +1,63 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 25769 invoked from network); 9 May 2002 11:12:02 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 9 May 2002 11:12:02 -0000
+Received: from computer ([12.78.218.111]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020509111148.ZJGZ28245.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Thu, 9 May 2002 11:11:48 +0000
+Message-ID: <000d01c1f749$dedec820$6fda4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205090736390.21705-100000@vipe.technion.ac.il>
+Subject: FC-Pro/FCS integration
+Date: Thu, 9 May 2002 07:07:21 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-Mimeole: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 83
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Two subjects: the "behavior control" and the specs for the interface.
+
+    Re the "behavior control", yes, that is what I recall we discussed
+before, and you gave me some homework to do with reference to that.  There,
+I see a scenario where we could implement the use of it on a step-by-step
+basis, and I'd like to look forward to getting into that in more detail.
+But for the time being, I want to concentrate on first things first, so
+let's defer that for a while.  I'll get back to you after I've been able to
+do the homework, and we can discuss how best to implement it.
+
+    Re whether the "v-" is used for all stack->stack moves or only
+stack->empty stack, I really would prefer it to be changed to only
+stack->empty stack, if only for the benefit of efficiency.  I don't know how
+fast my progress is going to be, but if you could go ahead and make that
+change, maybe I'll have the new version from you before I actually get to
+using that feature.
+
+    Another question came up when I went to download.  I'd seen your
+announcement of win32 files being now available.  Previously I'd been able
+to compile your version 2.2.2 from the source, and was going to proceed
+along the same lines.  What I saw on your site was the alternatives of
+"2.4.2 source" vs. "2.4.1 win32 binary files".  I might have tried to use
+the binary files, but it seems they are for an earlier version, and I
+assumed I'll be able to work with the 2.4.2 source the same way I did the
+2.2.2.  So far I've only downloaded the 2.4.2 source, and haven't studied it
+as yet, so I'll reserve questions until I hit a snag, if I do.
+
+Best regards, ------------------Adrian
+
+

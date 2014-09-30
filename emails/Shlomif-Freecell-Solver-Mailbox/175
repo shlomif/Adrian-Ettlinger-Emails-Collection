@@ -1,0 +1,60 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 24085 invoked from network); 29 Jun 2002 12:07:59 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 29 Jun 2002 12:07:59 -0000
+Received: from computer ([12.78.219.24]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020629120757.QUQP5870.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sat, 29 Jun 2002 12:07:57 +0000
+Message-ID: <001401c21f65$21a64d20$b6da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206290907560.20779-100000@vipe.technion.ac.il>
+Subject: FcPro - FCS
+Date: Sat, 29 Jun 2002 08:03:42 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 61
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Just a quick answer to your questions.  I might need to send you a copy
+of my module "free2.c", which is in essence my counterpart to your
+fc_pro_iface module, where I do the interfacing on my side of the fence.
+
+<<1. How is FCS linked into FC-Pro?>>
+    As a static library (assuming that's the kind of answer you want).
+
+<<2. Where is the file containing the presets found?>>
+    It's a text file on the hard drive, called fcspres.txt.  Up to now, I've
+been shifting from one preset to another by renaming to this name one of a
+number of "standard" preset files I now have saved.  These are all single
+lines from one of the two the multiple-line presets I have from you.
+
+<<3. Are you sure the shortcut points to the same place as the debugger?>>
+    That was one of the first things I checked.  Yes, unless Windows has
+some insidious way to deceive me.  But that's really been tested
+empirically, since when I modify it, I'm obviously entering the same
+modified program from both entry methods.
+
+<<4. Is it the same Debug/Release Scheme?>>
+    Another good question.  Yes, I'm familiar with that trap, and I'm
+certainly using the Release configuration in both cases.
+
+Best regards,  ----------Adrian
+
+

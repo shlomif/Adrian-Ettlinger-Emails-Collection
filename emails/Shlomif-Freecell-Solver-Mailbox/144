@@ -1,0 +1,49 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 22023 invoked from network); 30 May 2002 03:52:17 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 30 May 2002 03:52:17 -0000
+Received: from computer ([12.78.219.52]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020530035212.VZTF19182.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Thu, 30 May 2002 03:52:12 +0000
+Message-ID: <001a01c2078c$ede7c300$34db4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205291559170.28861-100000@vipe.technion.ac.il>
+Subject: Re: OK, more or less
+Date: Wed, 29 May 2002 23:47:40 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 32
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I am in fact still in a frustrating situation with respect to how the
+code is performing, but I'm fairly sure it's all my problem  It does not
+relate, as I thought, to number of cards in sequence.  It is involved
+entirely with how I translate your moves into a form usable for FcPro for
+replay, and seems to have more to do with the treatment of what for FcPro
+are auto-posts.  Which I have to treat differently for your solver than I do
+for the others.  What makes it especially vexing is that the problem is
+showing up only on hand #16 (out of the first 100), and only on solutions
+produced by the first preset in the group you'd send me.  But I think it's
+highly unlikely you'd be able to detect anything unusual from your
+standpoint.
+
+Best regards,  --------------Adrian
+
+

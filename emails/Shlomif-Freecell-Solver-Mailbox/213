@@ -1,0 +1,106 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Date: Fri, 26 Jul 2002 17:31:04 +0300 (IDT)
+From: Shlomi Fish <shlomif@vipe.technion.ac.il>
+To: Adrian Ettlinger <aettlinger@worldnet.att.net>
+Subject: Re: A Keepalive
+In-Reply-To: <Pine.LNX.4.33L2.0207261719170.15765-100000@vipe.technion.ac.il>
+Message-ID: <Pine.LNX.4.33L2.0207261726160.15822-101000@vipe.technion.ac.il>
+MIME-Version: 1.0
+Content-Type: MULTIPART/MIXED;
+  BOUNDARY="1166343933-1365904948-1027693864=:15822"
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+--1166343933-1365904948-1027693864=:15822
+Content-Type: TEXT/PLAIN; charset=US-ASCII
+
+On Fri, 26 Jul 2002, Shlomi Fish wrote:
+
+> On Fri, 26 Jul 2002, Adrian Ettlinger wrote:
+>
+> > Hi Shlomi,
+> >
+> >     The Keepalive message was entirely appropriate.
+> >
+> >     I had intended to do a little more work on my side of the fence before I
+> > posted the new FcPro with FCS 2.6.1 installed, but then got distracted onto
+> > other things.
+> >
+> >     In our last exchange, I'd said I thought it was my fault that I had
+> > destroyed the effect of your "prelude" mode by not having the preset lines
+> > get names assigned them.  However, I've restored the naming, and I still
+> > cannot detect any speed difference between two presets with and without the
+> > prelude present.  So I'm curious as to whether you have confirmed that, in
+> > fact, the prelude mode is accomplishing what it is supposed to accomplish.
+> > I wonder if I might still be doing something wrong.
+> >
+>
+> I'll make my own checks and let you know.
+>
+
+I checked "Abra Kadabra" with and without the prelude on the first 2000
+boards. Without the prelude it finished in 144 seconds and with it in 93
+seconds. I can run it for the entire 32,000 if you want. The iterations
+count was also 1.3 million instead of 1.1 million.
+
+> > <<BTW, are you interested in receiving intermediate versions of a book I'm
+> > writing on Freecell Solver?>>
+> >     Yes, I would.
+> >
+>
+> OK, I'll add you to a mailing list of the people who receive it. I'll also
+> send you the most recent version to keep you up to date until I finish
+> writing the next chapter.
+>
+
+I added you to the mailing list and the most recent copy of the book is
+attached to this message. Enjoy!
+
+Regards,
+
+	Shlomi Fish
+
+> Regards,
+>
+> 	Shlomi Fish
+>
+> > Best regards, ------------Adrian
+> >
+> >
+>
+>
+>
+> ----------------------------------------------------------------------
+> Shlomi Fish        shlomif@vipe.technion.ac.il
+> Home Page:         http://t2.technion.ac.il/~shlomif/
+> Home E-mail:       shlomif@iglu.org.il
+>
+> He who re-invents the wheel, understands much better how a wheel works.
+>
+>
+
+
+
+----------------------------------------------------------------------
+Shlomi Fish        shlomif@vipe.technion.ac.il
+Home Page:         http://t2.technion.ac.il/~shlomif/
+Home E-mail:       shlomif@iglu.org.il
+
+He who re-invents the wheel, understands much better how a wheel works.
+
+--1166343933-1365904948-1027693864=:15822
+Content-Type: Text/Plain; charset=US-ASCII
+X-Content-Type: APPLICATION/PDF; name="fcs-book.pdf"
+X-Content-Transfer-Encoding: BASE64
+Content-ID: <Pine.LNX.4.33L2.0207261731040.15822@vipe.technion.ac.il>
+Content-Description: Deleted Attachment
+X-Content-Description: 
+X-Content-Disposition: attachment; filename="fcs-book.pdf"
+
+  [ The following attachments were DELETED when this message was saved:  ]
+  [ A Application/PDF segment of about 163,465 bytes,                    ]
+--1166343933-1365904948-1027693864=:15822--
+

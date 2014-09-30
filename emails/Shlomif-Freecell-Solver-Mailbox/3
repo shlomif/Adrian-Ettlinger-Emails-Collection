@@ -1,0 +1,4708 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 21199 invoked from network); 14 Nov 2001 11:06:08 -0000
+Received: from mtiwmhc25.worldnet.att.net (204.127.131.50)
+  by vipe.technion.ac.il with SMTP; 14 Nov 2001 11:06:08 -0000
+Received: from computer ([12.78.220.60]) by mtiwmhc25.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011114110536.INPM11294.mtiwmhc25.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Wed, 14 Nov 2001 11:05:36 +0000
+Message-ID: <000801c16cfc$3bef9540$3cdc4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111140939270.19020-100000@vipe.technion.ac.il>
+Subject: Second reply
+Date: Wed, 14 Nov 2001 06:04:59 -0500
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+  boundary="----=_NextPart_000_0005_01C16CD2.4CE9B080"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 25
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0005_01C16CD2.4CE9B080
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+
+Hi Shlomi,
+
+    I took a quick look at the sites.  First question:  I would like to join
+the mailing list, but I don't have a Yahoo ID.  What do I do?
+
+    Secondly, I'm delighted to find someone taking a very lively interest in
+this subject.  I wish I weren't so wrapped up in other stuff right now so I
+could spend some time with this.  One thing I see that's encouraging is that
+Don Woods gave you permission to distribute his code.  I was slightly
+apprehensive that if I distributed my code, Don's nose would be out of joint
+because I'd distributed the core of it, that belongs to him.  But you've
+alleviated that apprehension.  So I'm going to attach to this message the
+code for the two modules that are most involved with the solver.  Free1.c
+contains our version of Don's original code.  Fcsolve.c is more or less the
+immediate shell we put around it. (Wilson's original creation).  If you need
+more modules, let me know.  I don't mind giving you the entire code for
+FcPro.
+
+    The main thing I did to speed up Don's code had to do with the hashing
+method.  I put in what I call a "double hash".  That is, two different hash
+numbers which are computed by different arithmetic.  This greatly alleviated
+the bogging down problem, but didn't totally eliminate it for all boards.
+To what degree have you studied and do you understand Don's design?  I have
+to admit that I haven't been able to really "get my arms around it".  I can
+think up my own stuff pretty well, but don't have an easy time understanding
+other people's.  Consequently, I must say, I don't think I necessarily will
+have the time, patience, or even brain power to understand everything you've
+written.  But I hope to be able to give enough time to it so we can mutually
+figure out how to integrate your solver with ours.
+
+    Prior to my work on the solver, Wilson had done some surgery to remove
+Don's "Swap" feature.  He thought he had to do this in order to retrieve the
+move-by-move solution.  I really don't know whether he was correct in this
+judgment.  Or whether this change substantively affected the integrity of
+Don's solver.  I should say about Wilson, we can still talk to him, but he
+hasn't done any work on this in a few years,doesn't remember much about it,
+and isn't really very intensively interested.  Although he still performs
+the service for us of archiving our code.  I don't mean that as a criticism,
+and he'd probably agree with that characterization of his attitude.  He
+still has a certain amount of detached interest.  My interest is also
+somewhat detached, but less so than Wilson's.
+
+    As an example of how much I'd be willing to find time to do, I wouldn't
+mind programming the user handles to get into your code.  That's something
+that would probably cost you a lot of time to figure out, as to how we do
+that.  Then maybe we could work out some sort of interface that you could
+work with.
+
+Best regards,  -----------------Adrian
+
+
+------=_NextPart_000_0005_01C16CD2.4CE9B080
+Content-Type: application/octet-stream;
+	name="Fcsolve.c"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+	filename="Fcsolve.c"
+
+// copyright wilson callan 1997
+
+#include "main.h"
+#include "FCSolve.h"
+#include "settings.h"
+#include "freecell.h"
+#include "log.h"
+
+#define DEBUG	(0)
+
+#define PRESORT (1)
+
+PRIVATE INT  gnFCSolveIndex;=20
+int gnFCSolveIndexC ;
+//PRIVATE char FCSolveMoves[STD_MOVES_PER_LINE * STD_MAX_LINES * =
+AUTO_PER_MOVE];
+char FCSolveMoves[STD_MOVES_PER_LINE * STD_MAX_LINES * AUTO_PER_MOVE];
+BOOL gbLoadingSolver, gbSolverLoaded;
+
+PRIVATE INT ColSeq[MAXCOL - 1] ;
+char ColSeqC[MAXCOL - 1] ;
+char PresortC[5] ;
+int RotCnt ;
+
+VOID FCSolveInit (VOID)
+{
+	gnFCSolveIndex =3D 0;
+}
+
+BOOL FCSolveMove (char ch)
+{
+	if (gnFCSolveIndex > (STD_MOVES_PER_LINE * STD_MAX_LINES * =
+AUTO_PER_MOVE - 2))
+	{
+		MainMessage("Winnable, but....\nSolution is too long\nto be =
+replayed.") ;
+		return(FALSE) ;
+	}
+	FCSolveMoves[gnFCSolveIndex++] =3D ch;
+	return(TRUE) ;
+}
+
+VOID FCSolvePlay (HWND hwnd)
+{
+	INT  i;
+	// read moves out backwards starting with last which
+	// is one before current index
+
+	gnFCSolveIndex--;
+#if DEBUG
+	{
+		FILE *fpFile;
+		BYTE j ;
+
+		fpFile =3D fopen ("FCSolve.txt", "w");
+		fprintf (fpFile, "#? (FCPro - FCSolve debug)\n");
+
+		for (i =3D gnFCSolveIndex, j =3D 0; i >=3D 0; i -=3D 2)
+		{
+			fprintf (fpFile, "%c%C ",=20
+						FCSolveMoves[i], FCSolveMoves[i - 1]);
+
+			if ((++j % STD_MOVES_PER_LINE) =3D=3D 0)
+			{
+				fprintf (fpFile, "\n");
+			}
+		}
+
+		fclose (fpFile);
+	}
+#endif
+
+	// let freecell logic know what is going on
+
+	gbLoadingSolver =3D TRUE;
+
+	// send moves to fcpro
+
+	for (i =3D gnFCSolveIndex; i >=3D 0; i--)
+	{
+#ifdef PRESORT
+		if (isdigit((int)FCSolveMoves[i]) && isalpha(PresortC[0]))
+			FCSolveMoves[i] =3D strchr(ColSeqC, (int)FCSolveMoves[i]) - ColSeqC + =
+'1' ;
+#endif
+		if (FCSolveMoves[i]	!=3D 'x')
+			SendMessage (hwnd, WM_CHAR, (WORD) FCSolveMoves[i], 0);
+
+		if (!gbLoadingSolver)
+		{
+			if (FCSolveMoves[i] =3D=3D 'h')
+			{
+				// its ok, probably an autopost.
+				// note that an autopost dont result in=20
+				// an error if the autopost emptied the column.
+				// deselect the selected card.
+
+				SendMessage (hwnd, WM_CHAR, (WORD)=20
+								FCSolveMoves[i + 1], 0);
+
+				gbLoadingSolver =3D TRUE;
+			}
+			else
+			{
+				// got illegal move=20
+				Message (hwnd, MB_ICONEXCLAMATION,=20
+								"Illegal Move by Solver.");=20
+				break;
+			}
+		}
+		gnFCSolveIndexC =3D i - 2 ;
+	}
+
+	gbLoadingSolver =3D FALSE;=20
+
+	// add 'Solved' to top line of log file
+
+	gbSolverLoaded =3D TRUE;
+	UpdateLogFile (FALSE);
+}
+
+VOID FCSolveReadOriginal ()
+{
+	BYTE yCol, yPos;
+	Card cd;
+	Column *col;
+#ifdef PRESORT
+	INT ColLow[MAXCOL - 1] ;
+	INT ColLCnt[MAXCOL - 1] ;
+	INT ColLPos[MAXCOL - 1] ;
+	INT i, thru, need, temp ;
+//char szDiagTx[20] ;
+#endif
+	// clear orig
+//MainMessage (PresortC);
+
+	for (yCol =3D 0; yCol < NUM_COLS; yCol++)
+	{
+		orig.tableau[yCol].count =3D 0;
+	}
+
+	for (yPos =3D 0; yPos < NUM_FCS; yPos++)
+	{
+		orig.hold[yPos] =3D 0;
+	}
+
+	for (yPos =3D NUM_FCS; yPos < (NUM_FCS + NUM_SUITS); yPos++)
+	{
+		orig.foundations[yPos-NUM_FCS] =3D 0;
+	}
+
+	// load orig
+
+	yCol =3D 0;
+
+	for (yPos =3D 0; yPos < NUM_FCS; yPos++)
+	{
+		if (card[yCol][yPos] !=3D EMPTY)
+		{
+			cd =3D VALUE(card[yCol][yPos])+1;
+			switch (SUIT(card[yCol][yPos]))
+			{
+				case CLUB:
+					cd +=3D CLUBS;
+					break;
+				case DIAMOND:
+					cd +=3D DIAMONDS;
+					break;
+				case HEART:
+					cd +=3D HEARTS;
+					break;
+				case SPADE:
+					cd +=3D SPADES;
+					break;
+			}
+		orig.hold[yPos] =3D (Pair) cd;
+		}
+	}
+
+	for (yPos =3D NUM_FCS; yPos < (NUM_FCS + NUM_SUITS); yPos++)
+	{
+		if (card[yCol][yPos] !=3D EMPTY)
+		{
+			cd =3D VALUE(card[yCol][yPos])+1;
+			switch (SUIT(card[yCol][yPos]))
+			{
+				case CLUB:
+					orig.foundations[0] =3D (uchar) cd;
+					break;
+				case DIAMOND:
+					orig.foundations[1] =3D (uchar) cd;
+					break;
+				case SPADE:
+					orig.foundations[2] =3D (uchar) cd;
+					break;
+				case HEART:
+					orig.foundations[3] =3D (uchar) cd;
+					break;
+				default:
+					MainMessage ("Unknown suit.");
+			}
+		}
+	}
+
+//#ifndef PRESORT=09
+for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+			ColSeq[yCol] =3D yCol + 1 ;
+if (!PresortC[0])
+{
+	for (yPos =3D 0; yPos < MAXPOS; yPos++)
+	{
+		for (yCol =3D 1; yCol < MAXCOL; yCol++)
+		{
+			if (card[yCol][yPos] !=3D EMPTY)
+			{
+				cd =3D VALUE(card[yCol][yPos])+1;
+				switch (SUIT(card[yCol][yPos]))
+				{
+					case CLUB:
+						cd +=3D CLUBS;
+						break;
+					case DIAMOND:
+						cd +=3D DIAMONDS;
+						break;
+					case HEART:
+						cd +=3D HEARTS;
+						break;
+					case SPADE:
+						cd +=3D SPADES;
+						break;
+				}
+				col =3D &orig.tableau[yCol-1];
+				col->cards[col->count++] =3D (Pair) cd;
+			}
+		}
+	}
+}
+else
+{
+//#else
+	//first pass to determine sequence
+//for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+//			ColSeq[yCol] =3D yCol + 1 ;
+if (PresortC[0] =3D=3D 'C')
+  {
+	for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+	{
+		ColLow[yCol] =3D EMPTY ;
+		ColLCnt[yCol] =3D ColLPos[yCol] =3D 0 ;
+	}
+	for (yPos =3D 0; yPos < MAXPOS; yPos++)
+	{
+		for (yCol =3D 1; yCol < MAXCOL; yCol++)
+		{
+			if (card[yCol][yPos] !=3D EMPTY)
+			{
+				cd =3D VALUE(card[yCol][yPos])+1;
+				switch (SUIT(card[yCol][yPos]))
+				{
+					case CLUB:
+						cd +=3D CLUBS;
+						break;
+					case DIAMOND:
+						cd +=3D DIAMONDS;
+						break;
+					case HEART:
+						cd +=3D HEARTS;
+						break;
+					case SPADE:
+						cd +=3D SPADES;
+						break;
+				}
+				if (VALUE(cd) =3D=3D ColLow[yCol - 1])
+				{
+					ColLCnt[yCol - 1]++ ;
+					ColLPos[yCol - 1] =3D yPos ;
+				}
+				if (VALUE(cd) < ColLow[yCol - 1])
+				{
+					ColLow[yCol - 1] =3D VALUE(cd) ;
+					ColLCnt[yCol - 1] =3D 0 ;
+					ColLPos[yCol - 1] =3D yPos ;
+				}
+				col =3D &orig.tableau[yCol-1];
+				col->cards[col->count++] =3D (Pair) cd;
+			}
+		}
+	}
+	for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol ++)
+	{
+		col =3D &orig.tableau[yCol];
+		ColLPos[yCol] =3D col->count - ColLPos[yCol] ;
+	}
+	thru =3D 7 ;
+
+	while (thru > 0)=20
+	{
+		i =3D need =3D 0;
+		for (i=3D1; i<=3Dthru; i++)
+		{ =20
+			if ((ColLow[ColSeq[i]] < ColLow[ColSeq[i - 1]]) ||
+				((ColLow[ColSeq[i]] =3D=3D ColLow[ColSeq[i - 1]]) &&
+					(ColLCnt[ColSeq[i]] > ColLCnt[ColSeq[i -1]])) ||
+				((ColLow[ColSeq[i]] =3D=3D ColLow[ColSeq[i - 1]]) &&
+					(ColLCnt[ColSeq[i]] =3D=3D ColLCnt[ColSeq[i -1]]) &&
+					(ColLPos[ColSeq[i]] < ColLPos[ColSeq[i -1]])))			=09
+			{
+				temp =3D ColSeq[i];
+				ColSeq[i] =3D ColSeq[i-1];
+				ColSeq[i-1] =3D temp ;
+				need =3D i-1;
+			}
+		}
+		thru =3D need;
+	}
+  }
+else
+  {
+  if (PresortC[0] =3D=3D 'A')
+	{
+	for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+		ColSeq[yCol] =3D MAXCOL - 1 - yCol ;
+    }
+  if (PresortC[0] =3D=3D 'B')
+    {
+	  for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+	    {
+		if (yCol < 4)
+		  ColSeq[yCol] =3D yCol + 5 ;
+		else
+		  ColSeq[yCol] =3D yCol - 3 ;
+	    }
+    }
+  if (PresortC[0] =3D=3D 'D')
+	{
+	ColSeq[0] =3D 8 ;
+    ColSeq[7] =3D 1 ;
+    }
+  if (PresortC[0] =3D=3D 'E')
+	{
+	ColSeq[0] =3D 7 ;
+	ColSeq[1] =3D 8 ;
+	ColSeq[6] =3D 1 ;
+	ColSeq[7] =3D 2 ;
+    }
+  if (PresortC[0] =3D=3D 'F')
+	{
+	ColSeq[0] =3D 6 ;
+	ColSeq[1] =3D 7 ;
+	ColSeq[2] =3D 8 ;
+	ColSeq[5] =3D 1 ;
+	ColSeq[6] =3D 2 ;
+	ColSeq[7] =3D 3 ;
+    }
+  if (PresortC[0] =3D=3D 'G')
+	{
+	for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+	  {
+		ColSeq[yCol] =3D (yCol + 2)%8 ;
+		if (!ColSeq[yCol])
+			ColSeq[yCol] =3D 8 ;
+	  }
+	}
+  if (PresortC[0] =3D=3D 'H')
+	{
+ 	for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+	  {
+		ColSeq[yCol] =3D (yCol + 3)%8 ;
+		if (!ColSeq[yCol])
+			ColSeq[yCol] =3D 8 ;
+	  }
+    }
+  if (PresortC[0] =3D=3D 'I')
+	{
+	for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+	  {
+		ColSeq[yCol] =3D (yCol + 4)%8 ;
+		if (!ColSeq[yCol])
+			ColSeq[yCol] =3D 8 ;
+	  }
+	}
+  if (PresortC[0] =3D=3D 'J')
+	{
+	for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+	  {
+		ColSeq[yCol] =3D (yCol + 6)%8 ;
+		if (!ColSeq[yCol])
+			ColSeq[yCol] =3D 8 ;
+	  }
+    }
+  if (PresortC[0] =3D=3D 'K')
+	{
+	for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+	  {
+		ColSeq[yCol] =3D (yCol + 7)%8 ;
+		if (!ColSeq[yCol])
+			ColSeq[yCol] =3D 8 ;
+	  }
+    }
+  if (PresortC[0] =3D=3D 'L')
+	{
+	for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+	  {
+		ColSeq[yCol] =3D (yCol + 7)%8 ;
+		if (!ColSeq[yCol])
+			ColSeq[yCol] =3D 8 ;
+	  }
+	}
+  if (PresortC[0] =3D=3D 'M')
+	{
+	for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+	  {
+		ColSeq[yCol] =3D (9 - yCol)%8 ;
+		if (!ColSeq[yCol])
+			ColSeq[yCol] =3D 8 ;
+	  }
+	}
+  if (PresortC[0] =3D=3D 'N')
+	{
+	for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+	  {
+		ColSeq[yCol] =3D (10 - yCol)%8 ;
+		if (!ColSeq[yCol])
+			ColSeq[yCol] =3D 8 ;
+	  }
+	}
+  if (PresortC[0] =3D=3D 'O')
+	{
+	for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+	  {
+		ColSeq[yCol] =3D (11 - yCol)%8 ;
+		if (!ColSeq[yCol])
+			ColSeq[yCol] =3D 8 ;
+	  }
+	}
+  if (PresortC[0] =3D=3D 'P')
+	{
+	for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+	  {
+		ColSeq[yCol] =3D (12 - yCol)%8 ;
+		if (!ColSeq[yCol])
+			ColSeq[yCol] =3D 8 ;
+	  }
+	}
+  if (PresortC[0] =3D=3D 'Q')
+	{
+	for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+	  {
+		ColSeq[yCol] =3D (13 - yCol)%8 ;
+		if (!ColSeq[yCol])
+			ColSeq[yCol] =3D 8 ;
+	  }
+	}
+  if (PresortC[0] =3D=3D 'R')
+	{
+	for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+	  {
+		ColSeq[yCol] =3D (14 - yCol)%8 ;
+		if (!ColSeq[yCol])
+			ColSeq[yCol] =3D 8 ;
+	  }
+	}
+  if (PresortC[0] =3D=3D 'S')
+	{
+	for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+	  {
+		ColSeq[yCol] =3D (15 - yCol)%8 ;
+		if (!ColSeq[yCol])
+			ColSeq[yCol] =3D 8 ;
+	  }
+	}
+//  if ((PresortC[0] =3D=3D 'V') || (PresortC[0] =3D=3D 'U'))
+//	{
+//	if (!gnExtendTry)
+//	    {
+//		for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+//			if (yCol < (PresortC[1] - '0'))
+//			  ColSeq[yCol] =3D (PresortC[1] - '0') - yCol ;
+//			else
+//			  ColSeq[yCol] =3D yCol + 1 ;
+//		gnExtendTry =3D 1 ;
+//		}
+//	}
+  }
+// now load again in column sequence
+	for (yCol =3D 0; yCol < NUM_COLS; yCol++)
+	{
+		orig.tableau[yCol].count =3D 0;
+	}
+
+	for (yPos =3D 0; yPos < MAXPOS; yPos++)
+	{
+		for (yCol =3D 1; yCol < MAXCOL; yCol++)
+		{
+			if (card[yCol][yPos] !=3D EMPTY)
+			{
+				cd =3D VALUE(card[yCol][yPos])+1;
+				switch (SUIT(card[yCol][yPos]))
+				{
+					case CLUB:
+						cd +=3D CLUBS;
+						break;
+					case DIAMOND:
+						cd +=3D DIAMONDS;
+						break;
+					case HEART:
+						cd +=3D HEARTS;
+						break;
+					case SPADE:
+						cd +=3D SPADES;
+						break;
+				}
+				col =3D &orig.tableau[ColSeq[yCol- 1] - 1];
+				col->cards[col->count++] =3D (Pair) cd;
+			}
+		}
+	}
+//for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+//		ColSeqC[yCol] =3D (char)ColSeq[yCol] + '0' ;
+}
+for (yCol =3D 0 ; yCol < MAXCOL - 1 ; yCol++)
+		ColSeqC[yCol] =3D (char)ColSeq[yCol] + '0' ;
+//#endif
+	FCSolveInit ();
+}					 =20
+
+------=_NextPart_000_0005_01C16CD2.4CE9B080
+Content-Type: application/octet-stream;
+	name="Free1.c"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+	filename="Free1.c"
+
+// copyight 1997 wilson callan
+
+/*don
+ * Program for testing winnability of opening positions in Free Cell.
+ * Can also generate random positions, optionally filtered for =
+winnability.
+ * Does not actually support interactive playing of the game.  See below =
+for
+ * a brief explanation of the rules.
+ *
+ * (c) Copyright 1994, Donald R. Woods.  Shareware: Right is granted to
+ *	freely redistribute this source provided this notice is retained.
+ */
+=0A=
+
+/************************************************************************=
+*****
+Brief summary of the game:
+=0A=
+
+Deal four columns of six cards each, and four of seven cards each, =
+spreading
+each column so the cards are all visible.  These columns form the =
+"tableau".
+There is a "holding area" that can hold a maximum of four cards.  The =
+only
+cards that can be moved are the bottommost card in each column and the =
+cards
+in the holding area.  As Aces become available (i.e., can be moved) they =
+are
+moved to start four "foundation" piles, which are then built up in suit =
+to
+Kings.  The object is to move all the cards to the foundations.
+=0A=
+
+A move consists of moving one card.  A card can move onto a tableau =
+column
+if the card being moved is the opposite color and one rank lower than =
+the
+card it is being played onto (i.e., the tableau builds down, alternating
+color).  Any card can be moved to an empty holding area spot, or to an =
+empty
+column in the tableau.
+=0A=
+
+There is a variant using ten column of five cards each (with the other =
+two
+cards starting in the holding area), where the tableau builds down in =
+suit
+instead of alternating color, and only kings can be moved into empty =
+tableau
+columns.  This is sometimes called Seahaven Towers.  It is a somewhat =
+easier
+game to solve since more moves are "forced" (in the sense of being =
+provably
+good).
+=0A=
+
+
+General approach: Depth-first search seems to be fast enough, so we =
+won't try
+anything fancier.
+=0A=
+
+Positions are hashed and cached so the search doesn't expand them=20
+more than
+once.  A position is cached in canonical form, obtained by sorting=20
+the cards
+in the holding area and -- for the purposes of comparison of=20
+positions --
+sorting the tableau columns based on the cards at the head of each=20
+column.
+(Actually sorting the columns fails due to the need to maintain a=20
+matching
+data structure that maps each card to its position.)
+=0A=
+
+Part of the data structure representing a position gives just ranks and
+colors.  A separate part notes, for each card (rank+suit, not just =
+color),
+where the card is located, and whether it is eligible to be interchanged
+with the like-color card (because the resulting position was reached
+elsewhere in the search tree), or whether it MUST be interchanged =
+(because
+at some point the only accessible card of the pair was moved to a
+foundation pile).  A newly-reached position can be ignored if the first
+part of the data structure matches a previously-reached position and the
+second part has no cards that can be interchanged where the previous
+position didn't.
+=0A=
+
+The only "forced moves" entail moving a card to the foundation piles if
+(a) it is eligible to be moved there and (b) both of the cards that =
+could
+be played on this one (i.e., next lower rank and opposite color) are
+either already on the foundations or are eligible to be played there.
+Forced moves are made one card at a time to simplify undoing them, but =
+no
+other moves are considered if a forced move is available.
+=0A=
+
+Input format is 52 cards represented either as rank then suit or suit =
+then
+rank, where suit is one of CDHS and rank is one of A23456789TJQK.  =
+Lower-case
+is okay too.  Other characters such as spaces and line breaks are =
+ignored and
+can be used for readability.  E.g.:
+=0A=
+
+7h 9s Kc 5d 8h 3h 6d 9d
+7d As 3c Js 8c Kd 2d Ac
+2s Qc Jh 8d Th Ts 9h 5h
+Qs 6c 4s 6h Ad 8s 2h 4d
+Ah 7s 3d Jd 9c 3s Qd Kh
+7c 4c Jc Qh 2c Tc 5s 4h
+5c Td Ks 6s
+=0A=
+
+*************************************************************************=
+****/
+=0A=
+#include <string.h>
+#include <stdlib.h>
+#include <stdarg.h>
+#include "main.h"
+#include "FCSolve.h"
+#include "custom.h"
+#include "settings.h"
+#include "freecell.h"
+=0A=
+void FCSolveReadOriginal (void);
+BOOL FCSolveMove (char);
+void MainMessage (char *s);
+void StatusOut (char *str);
+void UpdateMain (void);
+//void FreeCellInit (boolean);
+//void InvalidateMain (void *);
+//void MainStartGame (boolean);
+extern BOOL gbSolver;
+extern HANDLE ghSolverThread;
+extern DWORDLONG gnGameNumber, gnFirstGame, gnLastGame  ;
+#define SWAPIT  (1)  // allow swaps
+#define SWAPITX  (1)  // allow DidSwap mode
+#define FC4		(1)	 // use 4 fcs instead of 1 big one
+#define FC5U	(1)  // allow for 5 up freecells
+#define F5DIAG (1)
+#define printf	MyPrintf
+#define DEBUG	(0)
+FILE *gfpSolFile;
+int gnSolve, SMode ;
+BOOL gbAbort, gbAbortA, gbAbortM, gbMemOver, gbStackOver ;
+int AppError ;
+DWORDLONG gnFirstGame =3D 1, gnLastGame =3D 1 ;
+int gnMaxHands =3D 0 ;
+int gnMaxTime =3D 0 ;
+int gnMaxTimeB =3D 0 ;
+int gnMaxSpace =3D 0 ;
+int SolrSel, gnPrtEnbl, gnRptEnbl ;
+char szPCOrig[3] ;
+int gnMaxTOrig, gnMaxHOrig ;
+BOOL gbDidSwap, gbDidSwapHlt ;
+void MyPrintf (char *szFormat, ...)
+{
+#if DEBUG
+    va_list marker;
+    va_start (marker, szFormat);
+	vfprintf (gfpSolFile, szFormat, marker);
+    va_end (marker);
+#endif
+}
+
+#define true  (1=3D=3D1)
+#define false (1=3D=3D0)
+
+#define Rank(card)	((card) & 0x0F)
+#define Suit(card)	((card) >> 4)
+#define Colormate(card)	((card) ^ 0x20)
+//#define Either(card)	((card) & 0x1F)
+
+#ifndef FC5U
+#define HOLDINGA		0x1C
+#define HOLDINGB		0x1D
+#define HOLDINGC		0x1E
+#define HOLDINGD		0x1F
+#define HOLDING_MASK	HOLDINGA
+#define HOLDING			HOLDINGD // used by non FC4 code only!
+#else
+#define HOLDINGA		0x18
+#define HOLDINGB		0x19
+#define HOLDINGC		0x1A
+#define HOLDINGD		0x1B
+#define HOLDINGE		0x1C
+#define HOLDINGF		0x1D	=20
+#define HOLDINGG		0x1E	=20
+#define HOLDING_MASK	HOLDINGA
+#define HOLDING			0x1F// used by non FC4 code only!
+#endif
+#define HOLDING_BASE	HOLDINGA
+
+#define FOUNDATION		0xFF
+
+#define Col(loc)	((loc) >> 5)
+#define Index(loc)	((loc) & 0x1F)
+=0A=
+#define NO_SWAP		0
+#define CAN_SWAP	1
+#define DID_SWAP	2
+=0A=
+#define SortedCol(pos, index)	&(pos)->tableau[(pos)->colSeq[index]]
+
+int cardToIndex[0x3F];		/* maps Card -> index in info[] (0-51) */
+
+static int verbosity =3D 0;	/* how much to print out while running */
+static int show =3D false;	/* whether to show solution if found */
+static int showorig =3D false;	/* whether to show original layout */
+static int maxdepth =3D 100000;	/* max search depth before giving up a =
+line */
+
+#define TRACTABLE 200000	/* max distinct positions before giving up */
+
+/* statistics gathering */
+static long generated =3D 0;	/* # times AddToTree called */
+static long distinct =3D 0;	/* # different positions reached */
+static long hashes =3D 0;		/* # hash table slots used */
+static long rejected =3D 0;	/* # rejected due to repeated column */
+static long swaps =3D 0;		/* # positions combining lines via swaps */
+static long maxout =3D 0;		/* # trees pruned for hitting max depth,
+				   or max depth reached if no limit imposed */
+static long maxfree =3D 0;	/* max of (open holds+1) * (2^spaces) */
+static long brokeSeq =3D 0;	/* # trees pruned due to breaking sequences =
+*/
+static long windepth;		/* depth of winning line */
+=0A=
+
+/* Random number package.  Roll our own since so many systems seem to =
+have
+ * pretty bad ones.  Include code for both MSDOS and UNIX time functions =
+to
+ * initialise it.
+ */
+//#ifdef __MSDOS__
+#ifdef WIN32
+#include "time.h"
+#define GET_TIME(var) {time(&var);}
+time_t	 stime, etime, oetime ;
+#else
+#include "sys/time.h"
+#define GET_TIME(var) { \
+	struct timeval now; \
+	gettimeofday(&now, 0); \
+	var =3D now.tv_sec + now.tv_usec; \
+}
+#endif
+#ifdef SWAPIT
+BOOL Swapit ;
+Card holdA[8] ;
+#endif
+int EitherM ;
+uchar Either(card)
+{
+  return card & EitherM ;
+}
+=0A=
+#if DON
+#define RAND_BUFSIZE	98
+#define RAND_HASHWORD	27
+#define RAND_BITSUSED	29
+#define RAND_MASK	((1 << RAND_BITSUSED) - 1)
+static long rand_buf[RAND_BUFSIZE], *rand_bufLoc;
+static long Rand();
+static char rand_flips[1<<6];
+static short rand_flipper;
+#endif
+
+Position orig;	/* special in that only tableau[] is set, and it
+			   stores Cards instead of Pairs */
+
+#define RAND_FLIPMASK (sizeof(rand_flips) - 1)
+#define POS_BLOCK 2000
+typedef struct pos_block {
+	Position block[POS_BLOCK];
+	struct pos_block *link;
+} Block;
+
+static int pos_avail =3D 0;
+static Block *block =3D NULL;
+
+int foobar =3D 0;
+static int depth =3D 0;
+//int dup ;
+int i, j, x, xx ;
+//int k ;
+
+Column *col;
+Position *prev;
+Column *oldcol;
+
+//int opp1, opp2 ;
+Column *coldf ;
+
+int OMode =3D 0 ;  //order of types of moves to try in DFS()
+int OMode2 =3D 0 ;  //order of types of moves to try in DFS()
+int gnExtendTry ;
+int WinCount, AboCount, ImpCount, P1ACount ;
+//#define MEMSTAT 1
+#ifdef MEMSTAT
+MEMORYSTATUS MemStat ;
+char szTempM[50] ;
+#endif
+#define DIAGD 1
+#ifdef DIAGD
+int ChainCnt, MaxChainCnt ;
+int MaxHashCnt ;
+#endif
+#define WILSON1 1
+//#define WILSON2 1
+#define WILSON3 1
+#define	WILSON4 1
+//#define WILSON6 1
+//#define WILSON7 1
+//#define SWAPREM1 1
+//#define LOCCMP 1
+#define HASH_SIZE 19001
+#define HASH_SUB 30
+static Position **tree;
+static Position **tree1[HASH_SIZE] ;
+static Position **tree2[HASH_SIZE] ;
+//static uchar treeLCnt[HASH_SIZE] ;
+//static uchar treeL2Cnt[HASH_SIZE] ;
+static INT treeLCnt[HASH_SIZE] ;
+static INT treeL2Cnt[HASH_SIZE] ;
+
+static Position *DFS(); /* forward decl */
+static void SortHoldingArea(Position *pos);
+PRIVATE VOID Free1ErrorAbort (LPSTR pszFormat, ...);
+
+void Free1Solver (HWND hwnd);
+char szTemp[100] ;
+int EnblDiag ;
+
+#if DON
+
+static void RandFlipInit(loc) int loc;
+{
+	static char f[] =3D
+	   " 11 111 1  1    11 1 111 1  11      11 11111   11 1 1 11  1 11  ";
+=0A=
+
+	rand_flipper =3D loc;
+	for (loc=3D0; loc<=3DRAND_FLIPMASK; loc++)
+		rand_flips[loc] =3D (f[loc]=3D=3D' '? 0 : -1);
+}
+=0A=
+
+static void RandInit(seed) long seed;
+{
+	int n;
+=0A=
+
+	if (seed =3D=3D 0) GET_TIME(seed);
+	memset(rand_buf, 0, sizeof(rand_buf));
+	for (n=3D0; n<RAND_BITSUSED; n++)
+	{	rand_buf[n] =3D RAND_MASK >> n;
+		rand_buf[n+RAND_BITSUSED+3] =3D 1 << n;
+	}
+	for (n=3DRAND_BITSUSED*2+3; n<RAND_BUFSIZE; n++)
+	{	rand_buf[n] =3D seed & RAND_MASK;
+		seed =3D seed * 3 + 01234567;
+	}
+	rand_bufLoc =3D rand_buf;
+	RandFlipInit(0);
+	for (n=3D(seed & 0377); n<50000; n++) Rand();
+}
+=0A=
+
+static long Rand()
+{
+	long f;
+=0A=
+
+	if (!rand_bufLoc) RandInit(0);
+	rand_bufLoc =3D (rand_bufLoc =3D=3D rand_buf ?
+		rand_bufLoc+RAND_BUFSIZE-1 : rand_bufLoc-1);
+	*rand_bufLoc ^=3D *(rand_bufLoc >=3D rand_buf+RAND_HASHWORD ?
+		rand_bufLoc-RAND_HASHWORD
+		: rand_bufLoc+(RAND_BUFSIZE-RAND_HASHWORD));
+	f =3D rand_flips[rand_flipper++ & RAND_FLIPMASK];
+	return(*rand_bufLoc ^ (f & RAND_MASK));
+}
+=0A=
+/* End of random number package
+ *******************************/
+
+/* Read original position from stdin into orig.
+ */
+static void ReadOriginal(filename) char *filename;
+{
+	int count =3D 0;
+	Card cd =3D 0;
+	FILE *f =3D stdin;
+=0A=
+
+	if (filename !=3D NULL && (f =3D fopen(filename, "r")) =3D=3D NULL) {
+		printf("free_cell: can't open %s\n", filename);
+		exit(1);
+	}
+	memset(&orig, 0, sizeof(orig));
+	while (count < 104) {
+		int c =3D getc(f);
+		if (c =3D=3D EOF) {
+			printf("Insufficient input.\n");
+			exit(1);
+		}
+		if (c >=3D '2' && c <=3D '9') cd +=3D c - '0';
+		else if ((c |=3D 0x20) =3D=3D 'a') cd +=3D 1;
+		else if (c =3D=3D 't') cd +=3D 10;
+		else if (c =3D=3D 'j') cd +=3D 11;
+		else if (c =3D=3D 'q') cd +=3D 12;
+		else if (c =3D=3D 'k') cd +=3D 13;
+		else if (c =3D=3D 'c') cd +=3D CLUBS;
+		else if (c =3D=3D 'd') cd +=3D DIAMONDS;
+		else if (c =3D=3D 'h') cd +=3D HEARTS;
+		else if (c =3D=3D 's') cd +=3D SPADES;
+		else continue;
+		if (count++ % 2 !=3D 0) {
+			Column *col =3D &orig.tableau[((count-1)>>1)%8];
+			col->cards[col->count++] =3D (Pair) cd;
+			cd =3D 0;
+		}
+	}
+	if (filename !=3D NULL) fclose(f);
+}
+
+=0A=
+/* Build original as simple sorted deck.
+ */
+static void BuildOriginal()
+{
+	int i;
+=0A=
+
+	memset(&orig, 0, sizeof(orig));
+	for (i=3D0; i<52; i++) {
+		Column *col =3D &orig.tableau[i%8];
+		Card cd =3D (i>>2)+1 + ((i&3)<<4);
+		col->cards[col->count++] =3D (Pair) cd;
+	}
+}
+
+/* Shuffle the starting positions in orig.
+ */
+static void Shuffle()
+{
+	int i =3D 52;
+=09
+	while (i > 1) {
+		int swap =3D Rand() % (i--);
+		Pair *c1 =3D &orig.tableau[i%8].cards[i/8];
+		Pair *c2 =3D &orig.tableau[swap%8].cards[swap/8];
+		Pair temp =3D *c1;
+		*c1 =3D *c2;
+		*c2 =3D temp;
+	}
+}
+#endif  // DON only
+
+/* Initialise a Position record based on orig.
+ */
+static void InitialPosition(pos) Position *pos;
+{
+	int i, x, col, index;
+	Card c;
+
+	// clear locations=0A=
+#ifndef SPEEDTRY4
+	for (i=3D0; i<52; i++)=20
+	{
+		cardToIndex[((i/13)<<4)+(i%13)+1] =3D i;
+		pos->location[i] =3D FOUNDATION;
+	}
+#endif
+	// load pos from orig
+
+//	for (index =3D 0; index <=3D 3; index++)
+	for (index =3D 0; index <=3D (NUM_FCS - 1); index++)
+	{
+		if (orig.hold[index] !=3D 0)
+		{
+			c =3D (Card) orig.hold[index];
+			x =3D cardToIndex[c];
+#ifndef SPEEDTRY4	=09
+			if (pos->location[x] !=3D 0xFF)=20
+			{
+MainMessage("FC") ;
+				Free1ErrorAbort ("Card %02x appears twice!", c);
+				return;
+			}
+#endif
+			pos->hold[index] =3D c;
+#ifndef SPEEDTRY4
+			pos->location[x] =3D HOLDING_BASE + index;
+//#ifdef F5DIAG
+//		sprintf (szTemp, "posl:%x x- %d  c- %x", pos->location[x], x, c) ;
+//		MainMessage(szTemp) ;
+//#endif
+#endif
+		}
+	}
+
+	for (index =3D 0; index <=3D 3; index++)
+//	for (index =3D 0; index <=3D (NUM_FCS - 1); index++)
+	{
+		if (orig.foundations[index] !=3D 0)
+		{
+#ifndef WILSON1
+			c =3D (Card) orig.foundations[index];
+#else
+			c =3D (Card) (index << 4) + ((orig.foundations[index]) & 0xf) ;
+#endif
+			x =3D cardToIndex[c];
+//#ifdef F5DIAG
+//		sprintf (szTemp, "FND: in-%x fnd- %x c-%x x-%d",
+//			index, orig.foundations[index], c, x) ;
+//		MainMessage(szTemp) ;
+//#endif
+#ifndef SPEEDTRY4	=09
+			if (pos->location[x] !=3D 0xFF)=20
+			{
+				Free1ErrorAbort ("Card %02x appears twice!", c) ;
+				return;
+			}
+#endif
+			pos->foundations[index] =3D c & 0xf;
+/*  Removed because it's redundant 4/1/98
+#ifndef SPEEDTRY4	=09
+			pos->location[x] =3D FOUNDATION;
+#endif
+*/
+		}
+	}
+
+	for (col =3D 0; col < 8; col++)
+	{
+		for (index =3D 0; index < 19; index++)
+		{
+			if (index >=3D orig.tableau[col].count)
+			{
+				// no more cards in this column
+				break;
+			}
+
+			c =3D (Card) orig.tableau[col].cards[index];
+			x =3D cardToIndex[c];
+#ifndef SPEEDTRY4	=09
+			if (pos->location[x] !=3D 0xFF)=20
+			{
+MainMessage("Tab") ;
+				Free1ErrorAbort ("Card %02x appears twice!", c);
+				return;
+			}
+#endif
+#ifdef SWAPIT
+if (Swapit)
+			pos->tableau[col].cards[index] =3D Either(c);
+else
+			pos->tableau[col].cards[index] =3D c;
+#else
+			pos->tableau[col].cards[index] =3D c;
+#endif
+			pos->tableau[col].count++;
+#ifndef SPEEDTRY4	=09
+			pos->location[x] =3D (col<<5) + index;
+#endif
+		}
+	}
+
+	// set to no swap
+#ifndef SPEEDTRY5
+	memset(pos->swappable, NO_SWAP, sizeof(pos->swappable));
+#endif
+	// set column sequence=20
+
+	for (i=3D0; i<8; i++)=20
+		pos->colSeq[i] =3D i;
+}
+=0A=
+/* Allocate a new Position structure.  Allocates many at a time=20
+	to reduce
+ * malloc overhead.  Saves linked list of blocks of positions to=20
+	enable
+ * freeing the storage, which can be necessary if we're examining=20
+	hundreds of positions in a single run of the program.
+ */
+static Position *NewPosition()
+{
+//	if (pos_avail-- =3D=3D 0) {
+	if (pos_avail-- < 2) {
+		Block *more =3D (Block *) calloc(1, sizeof(Block));
+#ifdef MEMSTAT
+//		MainMessage("calloc1") ;
+		GlobalMemoryStatus(&MemStat) ;
+		wsprintf(szTempM, "c1AP p-%li  a-%li", MemStat.dwAvailPhys, =
+MemStat.dwAvailVirtual);
+		MainMessage(szTempM) ;
+#endif
+		if (more =3D=3D NULL)=20
+		{
+			if ((gnSolve !=3D SOLVE_RANGE) &&	(gnSolve !=3D SOLVE_LIST))
+			{
+				Free1ErrorAbort ("Intractable.\n(Out of memory.)");
+			}
+			return 0;
+		}
+		more->link =3D block;
+		block =3D more;
+		pos_avail =3D POS_BLOCK - 1;
+	}
+	return (block->block + pos_avail);
+}
+=0A=
+/* Show a card; rank in uppercase, suit in lowercase, trailing space.
+ */
+void ShowCard(card) Card card;
+{
+	static char *rank =3D "?A23456789TJQK", *suit =3D "cdsh";
+=09
+	if (card =3D=3D 0) printf(".. ");
+	else printf("%c%c ", rank[Rank(card)], suit[Suit(card)]);
+}
+=0A=
+/* Show the topmost card on a foundation pile.
+ */
+void ShowFoundation(pos, s)=20
+Position *pos;=20
+int s;
+{
+	uchar r =3D pos->foundations[s];
+	if (r =3D=3D 0)=20
+	{
+		printf("   ");=20
+	}
+	else
+	{
+		// this shows that the foundation has to be in order
+		ShowCard((s<<4)+r);
+	}
+}
+
+/* Show a position as a rectangular layout.
+ */
+void ReadablePosition(pos) Position *pos;
+{
+	int suit, rank, h =3D 0;
+	int row=3D0, col;
+=0A=
+	// fill in tableau from location
+	for (suit=3D3; suit>=3D0; suit--)=20
+		for (rank=3D13; rank>0; rank--)=20
+	{
+		Card c =3D (suit<<4) + rank;
+		Loc where =3D pos->location[cardToIndex[c]];
+		switch (where)
+		{
+#if FC4
+if (NUM_FCS > 0)
+			case HOLDINGA: pos->hold[0] =3D c; break;
+if (NUM_FCS > 1)
+			case HOLDINGB: pos->hold[1] =3D c; break;
+if (NUM_FCS > 2)
+			case HOLDINGC: pos->hold[2] =3D c; break;
+if (NUM_FCS > 3)
+			case HOLDINGD: pos->hold[3] =3D c; break;
+#ifdef FC5U
+if (NUM_FCS > 4)
+			case HOLDINGE: pos->hold[4] =3D c; break;
+if (NUM_FCS > 5)
+			case HOLDINGF: pos->hold[5] =3D c; break;
+if (NUM_FCS > 6)
+			case HOLDINGG: pos->hold[6] =3D c; break;
+#endif
+#else
+			case HOLDING: pos->hold[h++] =3D c; break;
+#endif
+			case FOUNDATION: break;
+			default:
+			pos->tableau[Col(where)].cards[Index(where)] =3D c;
+		}
+	}
+
+	// show freecells
+//	for (col=3D0; col<4; col++) {
+	for (col=3D0; col<NUM_FCS; col++) {
+		ShowCard(pos->hold[col]);
+//		pos->hold[col] &=3D 0x1F;
+		pos->hold[col] =3D Either(pos->hold[col]);
+	}
+
+	// show homecells
+	for (col=3D0; col<4; col++) ShowFoundation(pos, col);
+
+	// show columns
+	printf("\n");
+	while (true) {
+		int none =3D true;
+		for (col=3D0; col<8; col++) {
+			int cd =3D pos->tableau[col].cards[row];
+//			pos->tableau[col].cards[row] &=3D 0x1F;
+			pos->tableau[col].cards[row] =3D Either(pos->tableau[col].cards[row]) =
+;
+			if (cd) {ShowCard(cd); none =3D false;}
+			else printf("   ");
+		}
+		printf("\n");
+		if (none) break;
+		row++;
+	}
+	fflush(stdout);
+}
+
+//
+// return 1 if holds are equal
+//
+
+static int HoldCmp (Position *probe, Position *pos)
+{
+//	memcmp((*probe)->hold, pos->hold, 4*sizeof(Card)) =3D=3D 0
+	int i, j;
+
+	if (NUM_FCS =3D=3D 0)
+		return 1 ;
+	for (i =3D 0; i <=3D (NUM_FCS - 1) ; i++)
+	{
+		if (probe->hold[i] !=3D 0)
+		{
+			// see if this card is in pos' holds
+
+			for (j =3D 0; j <=3D (NUM_FCS - 1); j++)
+			{
+				if (probe->hold[i] =3D=3D pos->hold[j])
+				{
+					break;
+				}
+			}
+
+//			if (j >=3D 4)
+			if (j >=3D NUM_FCS)
+			{
+				// card not found
+							  =20
+				return 0;
+			}
+		}
+	}
+
+	return 1;
+}
+
+//static void AddToTreeL(int hashM, Position *pos, LPSTR TLc, Position =
+**atree[])
+static void AddToTreeL(int hashM, Position *pos, LPINT TLc, Position =
+**atree[])
+{
+//	Position* TLTemp[4 * HASH_SUB] ;
+	Position* TLTemp[15 * HASH_SUB] ;
+
+//	if (TLc[hashM] > (5 * HASH_SUB - 1))
+	if (TLc[hashM] > (16 * HASH_SUB - 1))
+	{
+		Free1ErrorAbort ("Internal table overflow") ;
+		return ;
+	}
+	if (TLc[hashM] && ((TLc[hashM] % HASH_SUB) =3D=3D 0))
+	{
+		memcpy(TLTemp, atree[hashM], TLc[hashM] * sizeof(Position*)) ;
+		free(atree[hashM]) ;
+		atree[hashM] =3D calloc(TLc[hashM] + HASH_SUB, sizeof (Position*)) ;
+#ifdef MEMSTAT
+		MainMessage("calloc2") ;
+#endif
+		memcpy(atree[hashM], TLTemp, TLc[hashM] * sizeof(Position*)) ;
+	}
+	#ifdef DIAGD
+		if (TLc[hashM] > MaxHashCnt)
+			MaxHashCnt =3D TLc[hashM] ;
+	#endif
+	atree[hashM][TLc[hashM]] =3D pos ;=20
+	TLc[hashM]++ ;
+	return ;
+}
+
+/* See if this position is already in the search tree.  If so,=20
+	return false. Else add it and return true.
+ */
+static int AddToTree (Position *pos)
+{
+//#ifdef DIAGD
+//	char szTempB[50] ;
+//#endif
+	long hash =3D 0;
+	long hash2 =3D 0 ;
+	int j, hashM, hashM2 ;
+	Position temp2 ;
+	int i, AddInd ;
+	Position temp ;
+	Position **probe;
+	uchar poll, prll, polm ;
+
+//	long hashp, hash2p ;
+//	char prc0, prc1, prc2, prc3, poc0, poc1, poc2, poc3 ;
+
+if ((++generated % 1000) =3D=3D 0)
+	{
+#ifndef DIAGD
+		sprintf (szTemp, "Generated %d Hands...", generated);
+#else
+	 if (!SMode)
+		sprintf (szTemp, "Generated %d Hands...", generated);
+	 else
+		 sprintf (szTemp, "Generated %d Hands...D:%d H:%d C:%d", generated, =
+distinct,=20
+				MaxHashCnt, MaxChainCnt);
+#endif
+		StatusOut (szTemp);
+		UpdateMain ();
+	}
+
+	// get start hash value
+
+	// sort holds for index into hash
+	/*debug*/	if(temp.hold =3D=3D 0 || pos->hold =3D=3D 0 || pos =3D=3D 0)
+					return 0;
+=09
+#ifndef FC5U
+	memcpy (temp.hold, pos->hold, 4 * sizeof (Card));
+#else
+	memcpy (temp.hold, pos->hold, 7 * sizeof (Card));
+#endif
+	SortHoldingArea (&temp);
+
+	for (i =3D 0; i<=3D (NUM_FCS - 1); i++)
+	{
+	if (NUM_FCS <=3D 4)
+		hash =3D hash*3 + temp.hold[i];
+	else
+		hash =3D hash*2 + temp.hold[i];
+	}
+
+	for (i=3D0; i<8; i++)=20
+	{
+		Column *col =3D SortedCol(pos, i);
+		int ct;
+
+		/*debug*/if(col =3D=3D 0)=20
+					return 0;
+
+		ct =3D col->count;
+		hash *=3D 5;
+		if (ct)=20
+			hash +=3D col->cards[ct-1];
+	}
+	pos->hash =3D hash;
+  if (SMode)
+//#ifdef DHASH
+  {
+	  memcpy (temp2.hold, pos->foundations, 4 * sizeof (Card));
+	 for (i =3D 0; i<=3D (NUM_FCS - 1); i++)
+	{
+	if (NUM_FCS <=3D 4)
+	{
+if (!Swapit)  // in 6x  -- hold for possible use
+		hash2 =3D hash2*2 + temp.hold[i] + temp2.hold[i] ;
+else
+		{
+		hash2 =3D hash2*3 + temp.hold[NUM_FCS - 1 - i] + temp2.hold[NUM_FCS - =
+1 - i] ;
+//		MainMessage("Hash") ;
+		}
+	}
+	else
+		hash2 =3D hash2*3/2 + temp.hold[i] + temp2.hold[i] ;
+	}
+	for (i=3D0; i<8; i++)=20
+	{
+		Column *col =3D SortedCol(pos, i);
+		int ct;
+if (Swapit)
+	col =3D SortedCol(pos, 7 - i);
+		if(col =3D=3D 0)=20
+					return 0;
+		ct =3D col->count;
+if (Swapit)   // per 6x -- hold for possible use
+		hash2 *=3D 5;
+else
+		hash2 *=3D 3;
+//		if (ct > 1)=20
+//			hash2 +=3D col->cards[ct-2] ;
+
+		if (ct > 1)=20
+			hash2 +=3D (col->cards[ct-2] + col->cards[ct - 1]) ;
+		else
+		{
+			if (ct)
+				hash2 +=3D col->cards[ct-1];
+		}
+
+	}
+	pos->hash2 =3D hash2;
+  }
+//sprintf(szTempB, "%ld   %ld  %ld  ", hash, hash2, generated) ;
+//MainMessage(szTempB) ;
+//#endif
+#ifndef SPEEDTRY5
+	pos->swapvia =3D NULL;
+#endif
+//#ifndef DHASH
+//MainMessage("Point 1") ;
+if (!SMode)
+	probe =3D &tree[hash % HASH_SIZE];
+//#else
+else
+{
+    hashM =3D hash % HASH_SIZE ;
+    hashM2 =3D hash2 % HASH_SIZE ;
+	if (treeLCnt[hashM] && treeL2Cnt[hashM2])
+	{
+	for (i =3D 0 ; i < (int)treeLCnt[hashM] ; i++)
+		{
+		for (j =3D 0 ; j < (int)treeL2Cnt[hashM2] ; j++)
+			{
+			if (tree1[hashM][i] =3D=3D tree2[hashM2][j])
+				{
+				break ;
+				}=09
+			}
+		if (j !=3D treeL2Cnt[hashM2])
+			break ;
+		}
+	}
+}
+//#endif
+//#ifdef DHASH
+AddInd =3D 0 ;
+if (SMode)
+{
+	if ((treeLCnt[hashM] && treeL2Cnt[hashM2]) &&=20
+		((i !=3D (int)treeLCnt[hashM]) || (j !=3D (int)treeL2Cnt[hashM2])))
+	{
+		probe =3D &tree1[hashM][i] ;
+#ifdef DIAGD
+ChainCnt =3D 0 ;
+#endif=09
+	}
+else
+	AddInd =3D 1 ;
+}
+//#endif
+//MainMessage("Point 2") ;
+	if (AddInd || (*probe =3D=3D NULL))=20
+	{
+//MainMessage("Point 2A") ;
+		AddInd =3D 1 ;
+		hashes++;
+	}
+	else while (*probe !=3D NULL)=20
+	{
+//MainMessage("Point 2B") ;
+#ifndef WILSON4
+		if (((*probe)->hash =3D=3D hash) && HoldCmp (*probe, pos))
+#else
+/*
+hashp =3D	(*probe)->hash ;
+hash2p =3D (*probe)->hash2 ;
+prc0 =3D (*probe)->hold[0] ;
+prc1 =3D (*probe)->hold[1] ;
+prc2 =3D (*probe)->hold[2] ;
+prc3 =3D (*probe)->hold[3] ;
+poc0 =3D pos->hold[0] ;
+poc1 =3D pos->hold[1] ;
+poc2 =3D pos->hold[2] ;
+poc3 =3D pos->hold[3] ;
+*/
+		if (((*probe)->hash =3D=3D hash) && HoldCmp (*probe, pos)&& HoldCmp =
+(pos,*probe))
+#endif
+		{
+			// probe holds =3D=3D pos holds=20
+//MainMessage("Point 2C") ;
+#ifndef LOCCMP
+			for (i=3D0; i<8; i++)=20
+			{
+				Column *c1 =3D SortedCol(pos, i);
+				Column *c2 =3D SortedCol(*probe, i);
+
+				/*debug*/if(c1 =3D=3D 0 || c2 =3D=3D 0)
+							return 0;
+									 		=09
+				if (c1->count !=3D c2->count)=20
+					break;
+
+				if (c1->count =3D=3D 0)=20
+				{
+					i=3D8;=20
+					break;
+				}
+
+				/*debug*/if(c1->cards =3D=3D 0 || c2->cards =3D=3D 0)
+							return 0;
+			=09
+				if (memcmp(c1->cards, c2->cards,
+				      c1->count*sizeof(Card)) !=3D 0)=20
+					break;
+			}
+
+#ifndef SPEEDTRY5
+			if (i =3D=3D 8)=20
+				for (i=3D0; i<26; i++)=20
+				{
+					if (pos->swappable[i] > (*probe)->swappable[i])
+						break;
+				}
+=09
+			if (i =3D=3D 26)=20
+			{
+				int latest =3D cardToIndex[pos->moved],
+				    mate =3D cardToIndex[Colormate(pos->moved)],
+				    either =3D cardToIndex[Either(pos->moved)];
+				poll =3D pos->location[latest] ;
+				prll =3D (*probe)->location[latest] ;
+				polm =3D pos->location[mate] ;
+					if ((poll !=3D FOUNDATION) && ((poll & HOLDING_MASK) =3D=3D =
+HOLDING_MASK))
+						poll =3D HOLDING_BASE ;
+					if ((prll !=3D FOUNDATION) && ((prll & HOLDING_MASK) =3D=3D =
+HOLDING_MASK))
+						prll =3D HOLDING_BASE ;
+					if ((polm !=3D FOUNDATION) && ((polm & HOLDING_MASK) =3D=3D =
+HOLDING_MASK))
+					{
+						polm =3D HOLDING_BASE ;
+					  }
+		=09
+				if ((pos->swappable[either] =3D=3D NO_SWAP) &&
+//				    (pos->location[latest] !=3D
+//				            (*probe)->location[latest]) &&
+//				    (pos->location[mate] =3D=3D
+//				            (*probe)->location[latest]))=20
+					(poll !=3D prll) && (polm =3D=3D prll))
+				{
+#if SWAPIT
+//MainMessage("Can Swap") ;
+if (Swapit)
+					pos->swappable[either] =3D CAN_SWAP;	// not swapped, but ready =
+to...
+#endif
+					pos->swapvia =3D *probe;
+//#endif
+				}
+				else
+				{
+#ifdef DIAGD
+	if ((ChainCnt > MaxChainCnt) && SMode)
+		MaxChainCnt =3D ChainCnt ;
+#endif
+					return(false);
+				}
+			}
+#else
+
+			  if (i =3D=3D 8)
+				{
+					//hands are equal
+					return (false) ;
+				}
+#endif
+#else
+				if (memcmp(pos->location, (*probe)->location, 52) !=3D 0)
+			break;
+		else
+			return (false) ;
+#endif
+		}
+		probe =3D &((*probe)->chain);
+#ifdef DIAGD
+		ChainCnt++ ;
+//sprintf(szTemp, "h-%ld   ph-%ld  h2-%ld   ph2-%ld  g-%d cc-%d \n =
+pr0-%x pr1-%x pr2-%x pr3-%x  \npo0-%x po1-%x po2-%x po3-%x   ",
+//		hash, hashp, hash2, hash2p, generated, ChainCnt, prc0, prc1, prc2, =
+prc3,=20
+//		poc0, poc1, poc2, poc3) ;
+//sprintf(szTemp, "ph-%ld g-%d  ", hashp, generated) ;
+//MainMessage(szTemp) ;
+#endif
+	}
+if (!SMode || (SMode && !AddInd))
+{
+#ifndef SPEEDTRY5
+	if (pos->swapvia) swaps++;
+#endif
+	*probe =3D pos;
+}
+//#ifdef DHASH
+//}
+//else
+//{
+//#endif												i
+//MainMessage("Point 3") ;
+if (SMode && AddInd)
+{
+//#endif
+//#ifdef DHASH
+//MainMessage("Point 3A") ;
+AddToTreeL(hashM, pos, treeLCnt, tree1) ;			=20
+//MainMessage("Point 3B") ;
+AddToTreeL(hashM2, pos, treeL2Cnt, tree2) ;
+//MainMessage("Point 3C") ;
+}
+//#endif
+	pos->chain =3D NULL;
+if ((distinct++ & 0x7FFF) =3D=3D 0x7FFF && verbosity =3D=3D 1) {
+		printf("%d distinct positions...\n", distinct);
+		fflush(stdout);
+	}
+#ifdef DIAGD
+	if (ChainCnt > MaxChainCnt)
+		MaxChainCnt =3D ChainCnt ;
+#endif
+	return(true);
+}
+=0A=
+/* Return true if tableau has an empty column.
+ */
+static int HasSpace(pos) Position *pos;
+{
+	return(pos->tableau[pos->colSeq[7]].count =3D=3D 0);
+}
+=0A=
+
+/* Return card at bottom of column (resolving Pair to single Card).
+ */
+static Card Bottom(pos, i) Position *pos; int i;
+{
+	Column *col =3D &pos->tableau[i];
+	Card cd =3D col->cards[col->count - 1];
+	if (pos->location[cardToIndex[cd]] !=3D (i<<5) + col->count - 1)
+		cd ^=3D 0x20;
+	return(cd);
+}
+=0A=
+
+/* Return true if card is available to be played.
+ */
+static int Available(pos, card)=20
+Position *pos;=20
+Card card;
+{
+	Loc where;
+
+	if (card =3D=3D 0) return(false);
+
+	where =3D pos->location[cardToIndex[card]];
+	switch (where)
+	{
+#if FC4
+		case HOLDINGA: return(true);
+		case HOLDINGB: return(true);
+		case HOLDINGC: return(true);
+		case HOLDINGD: return(true);
+#ifdef FC5U
+		case HOLDINGE: return(true);
+		case HOLDINGF: return(true);
+		case HOLDINGG: return(true);
+#endif
+#else
+		case HOLDING: return(true);
+#endif
+		case FOUNDATION: return(false);
+	}
+
+	if (pos->tableau[Col(where)].count =3D=3D Index(where)+1)=20
+	{
+		return(true);
+	}
+	return(false);
+}
+
+/* Sort the holding area into descending order=20
+	(hence spaces come last).
+ * Use homogeneous sorting network. */
+static void SortHoldingArea (Position *pos)
+{
+	Card *h =3D pos->hold;
+	Card temp;
+#ifdef FC5U
+	for (i =3D NUM_FCS ; i < 8 ; i++)
+		pos->hold[i] =3D 0 ;   // clear high positions
+#endif=0A=
+#ifndef SWAPIT
+#define SWAP(i,j) if (h[i]<h[j]) {temp=3Dh[i]; h[i]=3Dh[j]; =
+h[j]=3Dtemp;}
+#else
+#define SWAP(i,j) if (h[i]<h[j]) {temp=3Dh[i]; h[i]=3Dh[j]; =
+h[j]=3Dtemp;temp =3D holdA[i]; holdA[i] =3D holdA[j]; holdA[j] =3D =
+temp;}
+#endif
+	SWAP(0,1)
+	SWAP(2,3)
+if (NUM_FCS <=3D 4)
+	{
+	SWAP(0,2)
+	SWAP(1,3)
+	SWAP(1,2)
+	}
+else
+	{
+    SWAP(4,5)
+	SWAP(0,2)
+	SWAP(3,5)
+	SWAP(1,3)
+	SWAP(2,4)
+	SWAP(0,2)
+	SWAP(3,5)
+	SWAP(0,1)
+	SWAP(1,2)
+	SWAP(3,4)
+	SWAP(4,5)
+	}
+}
+
+/* Sort the tableau columns based on the top cards of the columns.
+ * Only called when the top card of a column actually changes.  Note
+ * that the columns will be mostly sorted already.
+ */
+static void SortColumns(pos) Position *pos;
+{
+	int thru =3D 7;
+=0A=
+
+	while (thru > 0) {
+		int i, need =3D 0;
+		for (i=3D1; i<=3Dthru; i++) {
+			if (pos->tableau[pos->colSeq[i]].cards[0] >=20
+			    pos->tableau[pos->colSeq[i-1]].cards[0]) {
+				uchar temp =3D pos->colSeq[i];
+				pos->colSeq[i] =3D pos->colSeq[i-1];
+				pos->colSeq[i-1] =3D temp;
+				need =3D i-1;
+			}
+		}
+		thru =3D need;
+	}
+}
+=0A=
+
+/* Move the specified card from wherever it is to new location. =20
+	If this
+ * requires swapping a swappable pair, update struct accordingly. =20
+	Assumes destination of move is legal for card being moved.
+ */
+//static Loc MoveCard(pos, card, whither) Position *pos; Card card; Loc =
+whither;
+static char MoveCard(pos, card, whither)=20
+Position *pos;=20
+Card card;=20
+Loc whither; // to
+{
+	Loc *where =3D &pos->location[cardToIndex[card]]; // from
+	if (!Available(pos, card))=20
+	{
+#ifndef SPEEDTRY5
+//#if SWAPIT  // ??? In 6x -- SWAPITX ?? not defined anywhere
+#ifdef SWAPITX
+if (Swapit && gbDidSwap)
+{
+		Loc temp, *where2 =3D &pos->location[cardToIndex[Colormate(card)]];
+		Swap *swap =3D &pos->swappable[cardToIndex[Either(card)]];
+/*
+if (gbDidSwapHlt)
+{
+sprintf(szTemp, "DS ca-%x ge-%d", card, generated) ;
+MainMessage(szTemp) ;
+//gbDidSwapHlt =3D FALSE ;
+}
+*/
+		if (*swap !=3D CAN_SWAP || !Available(pos, Colormate(card)))=20
+		{
+			Free1ErrorAbort ("Bug! Move of unavailable card.");
+			return 0;
+		}
+
+		printf("Performing swap\n");
+//MainMessage("Did Swap") ;
+//		*swap =3D DID_SWAP;
+		temp =3D *where;
+		*where =3D *where2;
+		*where2 =3D temp;
+}
+//#else
+else
+		return 0;
+//#endif
+#else
+		return 0 ;
+#endif
+#else
+		return 0 ;
+#endif
+	}						=20
+
+	pos->mustTry =3D (-1);
+
+	switch (*where)
+	{
+#if FC4
+		case HOLDINGA:
+#ifndef SWAPREM1
+			if (pos->hold[0] =3D=3D Either(card))=20
+#else
+			if (pos->hold[0] =3D=3D card)=20
+#endif
+			{
+				pos->hold[0] =3D 0;
+				if (Swapit)
+					holdA[0] =3D 0 ;
+			}=09
+			else
+				Free1ErrorAbort ("Needed card is not in FreeCell A.");
+			break;
+
+		case HOLDINGB:
+//			if (pos->hold[1] =3D=3D Either(card))=20
+#ifndef SWAPREM1
+			if (pos->hold[1] =3D=3D Either(card))=20
+#else
+			if (pos->hold[1] =3D=3D card)=20
+#endif
+			{
+				pos->hold[1] =3D 0;
+				if (Swapit)
+					holdA[1] =3D 0 ;
+			}=09
+			else
+				Free1ErrorAbort ("Needed card is not in FreeCell B.");
+			break;
+
+		case HOLDINGC:
+//			if (pos->hold[2] =3D=3D Either(card))=20
+#ifndef SWAPREM1
+			if (pos->hold[2] =3D=3D Either(card))=20
+#else
+			if (pos->hold[2] =3D=3D card)=20
+#endif
+			{
+				pos->hold[2] =3D 0;
+				if (Swapit)
+					holdA[2] =3D 0 ;
+			}=09
+			else
+				Free1ErrorAbort ("Needed card is not in FreeCell C.");
+			break;
+
+		case HOLDINGD:
+//			if (pos->hold[3] =3D=3D Either(card))=20
+#ifndef SWAPREM1
+			if (pos->hold[3] =3D=3D Either(card))=20
+#else
+			if (pos->hold[3] =3D=3D card)=20
+#endif
+			{
+				pos->hold[3] =3D 0;
+				if (Swapit)
+					holdA[3] =3D 0 ;
+			}=09
+			else
+				Free1ErrorAbort ("Needed card is not in FreeCell D.");
+			break;
+#ifdef FC5U
+		case HOLDINGE:
+//			if (pos->hold[4] =3D=3D Either(card))=20
+#ifndef SWAPREM1
+			if (pos->hold[4] =3D=3D Either(card))=20
+#else
+			if (pos->hold[4] =3D=3D card)=20
+#endif
+			{
+				pos->hold[4] =3D 0;
+				if (Swapit)
+					holdA[4] =3D 0 ;
+			}=09
+			else
+				Free1ErrorAbort ("Needed card is not in FreeCell E.");
+			break;
+
+		case HOLDINGF:
+//			if (pos->hold[5] =3D=3D Either(card))=20
+#ifndef SWAPREM1
+			if (pos->hold[5] =3D=3D Either(card))=20
+#else
+			if (pos->hold[5] =3D=3D card)=20
+#endif
+			{
+				pos->hold[5] =3D 0;
+				if (Swapit)
+					holdA[5] =3D 0 ;
+			}=09
+			else
+				Free1ErrorAbort ("Needed card is not in FreeCell F");
+			break;
+
+		case HOLDINGG:
+//			if (pos->hold[6] =3D=3D Either(card))=20
+#ifndef SWAPREM1
+			if (pos->hold[6] =3D=3D Either(card))=20
+#else
+			if (pos->hold[6] =3D=3D card)=20
+#endif
+			{
+				pos->hold[6] =3D 0;
+				if (Swapit)
+					holdA[6] =3D 0 ;
+			}=09
+			else
+				Free1ErrorAbort ("Needed card is not in FreeCell G");
+			break;
+#endif
+#else
+		case HOLDING:
+		{
+			// move card from freecell
+			int i;
+			for (i=3D0; i<4; i++)=20
+			{
+//				if (pos->hold[i] =3D=3D Either(card))=20
+#ifndef SWAPREM1
+				if (pos->hold[i] =3D=3D Either(card))=20
+#else
+			if (pos->hold[i] =3D=3D card)=20
+#endif
+				{
+					pos->hold[i] =3D 0;
+					break;
+				}
+			}
+
+			SortHoldingArea(pos);
+		}
+		break;
+#endif
+		default:
+		{
+			Column *col =3D &pos->tableau[Col(*where)];
+			col->count--;
+			col->cards[col->count] =3D 0;
+			if (col->count =3D=3D 0) SortColumns(pos);
+			else if (whither !=3D FOUNDATION &&
+#ifndef SWAPREM1
+				col->cards[col->count-1] =3D=3D ((Either(card)+1) ^ 0x10))
+#else
+				col->cards[col->count-1] =3D=3D ((card+1) ^ 0x10))
+#endif
+				pos->mustTry =3D Col(*where);
+		}
+	}
+=0A=
+	*where =3D whither;
+	switch (whither)
+	{
+		case FOUNDATION:
+			pos->foundations[Suit(card)]++;
+			break;
+#if FC4
+		case HOLDINGA:
+#ifndef SWAPREM1
+			pos->hold[0] =3D Either(card);
+			if (Swapit)
+				holdA[0] =3D card ;
+#else
+			pos->hold[0] =3D card ;
+#endif
+			break;
+
+		case HOLDINGB:
+//			pos->hold[1] =3D Either(card);
+#ifndef SWAPREM1
+			pos->hold[1] =3D Either(card);
+			if (Swapit)
+				holdA[1] =3D card ;
+#else
+			pos->hold[1] =3D card ;
+#endif
+			break;
+
+		case HOLDINGC:
+//			pos->hold[2] =3D Either(card);
+#ifndef SWAPREM1
+			pos->hold[2] =3D Either(card);
+			if (Swapit)
+				holdA[2] =3D card ;
+#else
+			pos->hold[2] =3D card ;
+#endif
+			break;
+
+		case HOLDINGD:
+//			pos->hold[3] =3D Either(card);
+#ifndef SWAPREM1
+			pos->hold[3] =3D Either(card);
+			if (Swapit)
+				holdA[3] =3D card ;
+#else
+			pos->hold[3] =3D card ;
+#endif
+			break;
+#ifdef FC5U
+		case HOLDINGE:
+#ifndef SWAPREM1
+			pos->hold[4] =3D Either(card);
+			if (Swapit)
+				holdA[4] =3D card ;
+#else
+			pos->hold[4] =3D card ;
+#endif
+			break;
+
+		case HOLDINGF:
+#ifndef SWAPREM1
+			pos->hold[5] =3D Either(card);
+			if (Swapit)
+				holdA[5] =3D card ;
+#else
+			pos->hold[5] =3D card ;
+#endif
+			break;
+
+		case HOLDINGG:
+#ifndef SWAPREM1
+			pos->hold[6] =3D Either(card);
+			if (Swapit)
+				holdA[6] =3D card ;
+#else
+			pos->hold[6] =3D card ;
+#endif
+			break;
+#endif
+#else
+		case HOLDING:
+			// move card to freecell
+			pos->hold[3] =3D Either(card);
+			SortHoldingArea(pos);
+			break;
+#endif
+		default:
+		{
+			Column *col =3D &pos->tableau[Col(whither)];
+#ifndef SWAPREM1
+			col->cards[col->count++] =3D Either(card);
+#else
+			col->cards[col->count++] =3D card;
+#endif
+			if (col->count =3D=3D 1) SortColumns(pos);
+		=09
+			if (Index(whither) !=3D col->count-1)=20
+			{
+				Free1ErrorAbort ("Bug! Moved to wrong index %x in column.",
+								whither);
+				return 0;
+			}
+		}
+	}
+=0A=
+	pos->moved =3D card;
+
+	return 1;
+}
+
+BOOL PrintMove (Loc whither)
+{
+BOOL retc ;
+	switch (whither)
+	{
+#if FC4
+		case HOLDINGA:=20
+			printf("freecellA");=09
+			retc =3D FCSolveMove ('a') ;
+			break;
+		case HOLDINGB:=20
+			printf("freecellB");=09
+			retc =3D FCSolveMove ('b');
+			break;
+		case HOLDINGC:=20
+			printf("freecellC");=09
+			retc =3D FCSolveMove ('c');
+			break;
+		case HOLDINGD:=20
+			printf("freecellD");=09
+			retc =3D FCSolveMove ('d');
+			break;
+#ifdef FC5U
+		case HOLDINGE:=20
+			printf("freecellE");=09
+			retc =3D FCSolveMove ('e');
+			break;
+		case HOLDINGF:=20
+			printf("freecellF");=09
+			retc =3D FCSolveMove ('f');
+			break;
+		case HOLDINGG:=20
+			printf("freecellG");=09
+			retc =3D FCSolveMove ('g');
+			break;
+#endif
+#else
+		case HOLDING:=20
+			printf("freecell");=20
+			retc =3D FCSolveMove ('d');
+			break;
+#endif
+		case FOUNDATION:=20
+			printf("homecell");=20
+			retc =3D FCSolveMove ('h');
+			break;
+		default:=20
+			printf("column %d", 1+Col(whither));
+			retc =3D FCSolveMove ((char) ('1' + Col(whither)));
+	}
+return (retc) ;
+}
+=0A=
+static BOOL ShowMove(pos, tag, swap)=20
+Position *pos;=20
+char *tag;=20
+int swap;
+{
+	Card moved =3D pos->moved;
+	// we dont know the location of the card before the=20
+	// move, we have to get that from previous position
+	// we cant simply use the via pointer tho due to the
+	// swapvia situation, so its done in FollowPath
+	Loc whither =3D pos->location[cardToIndex[moved]];
+
+	printf("%4d: ", depth);
+
+	ShowCard (swap ? Colormate(moved) : moved);
+=09
+	printf("-> ");
+
+	if (!PrintMove (whither))
+		return FALSE ;
+	if (tag) printf(" (%s)", tag);
+	printf("\n");
+=09
+	if (verbosity > 2) fflush(stdout);
+	return TRUE ;
+}
+
+//
+// return pointer to via or swapvia, if it was used
+//
+static Position	*GetVia (Position *pos, Position *p)
+{
+	Position *prev_p =3D p->via;
+#ifndef SWAPREM1
+	int index =3D cardToIndex[Either(p->moved)];
+#else
+	int index =3D cardToIndex[p->moved];
+#endif
+
+#ifndef SPEEDTRY5
+if (pos->swappable[index] =3D=3D DID_SWAP)
+{
+	sprintf(szTemp, "SVds posd-%d pcs-%d", pos->swappable[index], =
+p->swappable[index]) ;
+	MainMessage(szTemp) ;
+}
+	if (pos->swappable[index] =3D=3D DID_SWAP &&
+       	  p->swappable[index] =3D=3D CAN_SWAP)=20
+	{								=09
+//MainMessage("SV") ;
+		if (p->swapvia)=20
+		{
+			prev_p =3D p->swapvia;
+		}
+	}
+#endif
+
+	return prev_p;
+}
+
+/* Show the winning path, in reverse order=20
+	(because it's convenient - for the code!).
+ */
+/*
+static int FollowPath(pos, tally) Position *pos; int tally;
+{
+	Position *p =3D pos;
+	int steps =3D 0;
+
+
+	while (p->moved) {
+		int swap =3D false, index =3D cardToIndex[Either(p->moved)];
+		if (pos->swappable[index] =3D=3D DID_SWAP &&
+		    p->swappable[index] =3D=3D CAN_SWAP) {
+			if (p->swapvia) {
+				if (!tally) {
+					printf("  Bypassing seq that swaps ");
+					ShowCard(p->moved);
+					printf(" with ");
+					ShowCard(Colormate(p->moved));
+					printf("\n");
+				}
+				p =3D p->swapvia;
+				continue;
+			}
+			else swap =3D true;
+		}
+		if (tally) steps++;
+		else {ReadablePosition(p); ShowMove(p, NULL, swap); depth--;}
+		p =3D p->via;
+	}
+	if (tally) windepth =3D steps;
+	return(steps);
+}
+*/
+static int FollowPath(pos, tally)=20
+Position *pos;  // position to start from
+int tally;
+{
+	Position *p =3D pos, *prev_p;
+	int steps =3D 0;
+//	Loc  temp;
+
+	while (p->moved)=20
+	{
+
+#ifndef SPEEDTRY5
+		int swap =3D false, index =3D cardToIndex[Either(p->moved)];
+
+if (pos->swappable[index] =3D=3D DID_SWAP)
+{
+	sprintf(szTemp, "FPds posd-%d pcs-%d", pos->swappable[index], =
+p->swappable[index]) ;
+	MainMessage(szTemp) ;
+}
+
+		if (pos->swappable[index] =3D=3D DID_SWAP &&
+       	      p->swappable[index] =3D=3D CAN_SWAP)=20
+		{								=09
+			Free1ErrorAbort ("Swap in solution.");
+			return 0;
+
+			if (p->swapvia)=20
+			{
+				if (!tally)=20
+				{
+					printf("[[[Bypassing seq that swaps ");
+					ShowCard(p->moved);
+					printf(" with ");
+					ShowCard(Colormate(p->moved));
+					printf("\n");
+
+					// we cannot bypass this for playback.
+					// try to swap them using a freecell.
+// Below section begins here
+// Below section ends here
+				}
+				p =3D p->swapvia;
+				continue;
+			}
+			else
+			{
+				swap =3D true;
+			}
+		}
+#endif
+		if (tally)=20
+		{
+			steps++;
+		}
+		else=20
+		{
+			ReadablePosition(p);=20
+			// get position we moved to
+#ifndef SPEEDTRY5
+			if (!ShowMove(p, NULL, swap))
+				return -1 ;
+#else		=09
+			if (!ShowMove(p, NULL, false))
+				return -1 ;
+#endif
+			// get the via or swapvia pointer
+			prev_p =3D GetVia (pos, p);
+
+			// get position of card we moved in last position
+			printf("From ");
+			if (!PrintMove (prev_p->location[cardToIndex[p->moved]]))
+				return -1 ;
+			printf("\n");
+			depth--;
+		}
+		p =3D p->via;
+	}
+	if (tally)=20
+	{
+		windepth =3D steps;
+	}
+
+	return(steps);
+}
+
+// begin -- moved from above
+/*					temp =3D FOUNDATION;
+					for (i =3D 0; i <=3D 3; i++)
+					{
+						if (p->hold[i] =3D=3D 0)
+						{
+							temp =3D HOLDING_BASE + i;
+							break;
+						}
+					}
+
+			  		if (temp !=3D FOUNDATION)=20
+					{
+						// we found a freecell
+						;
+					}
+					// try to swap them using columns
+					else if (HasSpace(p))
+					{
+						temp =3D p->colSeq[7] << 5;
+					}
+					// we cant swap them!
+					else
+					{
+						MainMessage ("We cannot perform needed swap!");
+						return 0;
+					}
+
+					// these have to be backwards since we are
+					// following path - it reads the same=20
+					// backwards and forwards!
+					PrintMove (p->location[cardToIndex[Colormate(p->moved)]]);
+					PrintMove (temp);
+					printf("\n");
+					PrintMove (p->location[cardToIndex[p->moved]]);
+					PrintMove (p->location[cardToIndex[Colormate(p->moved)]]);
+					printf("\n");
+					PrintMove (temp);
+					PrintMove (p->location[cardToIndex[p->moved]]);
+					printf("]]]\n");
+*/
+// end -- moved from above
+
+static BOOL ShowPath(pos)=20
+Position *pos;
+{
+	//Position *p =3D pos;
+	printf("Winning path (in reverse order):\n");
+	depth =3D FollowPath(pos, true);
+//	(void) FollowPath(pos, false);
+	if (FollowPath(pos, false) =3D=3D -1)
+		return FALSE ;
+	printf("\n");
+	return TRUE ;
+}
+
+/* Make (and if verbose, print) a move, then recursively call=20
+	DFS if the resulting position is new.
+ */
+static Position *TryMove(via, pos, card, whither, calling_code)
+Position *via, *pos; Card card; Loc whither; char calling_code;
+{
+	int dup =3D false;
+
+//	dup =3D false;
+	printf("calling_code:%d\n", calling_code);
+
+	// move card
+
+	depth++;
+=09
+	*pos =3D *via;
+	pos->via =3D via;
+if (!Swapit)
+{
+	if (MoveCard (pos, card, whither, calling_code))
+	{
+		// check if the result is a new tree
+	=09
+		// if not holding
+	//	if ((whither & 0x1F) !=3D 0x1F)=20
+		if ((whither & HOLDING_MASK) !=3D HOLDING_MASK)=20
+		{
+			/* moved to col; check for repetition */
+	=09
+//			int i =3D Col(whither);
+//			Column *col =3D &pos->tableau[i];
+//			Position *prev;
+			i =3D Col(whither);
+			col =3D &pos->tableau[i];
+		=09
+			for (prev=3Dvia; prev; prev=3Dprev->via)=20
+			{
+//				Column *oldcol =3D &prev->tableau[i];
+				oldcol =3D &prev->tableau[i];
+				if (oldcol->count !=3D 0 &&
+					oldcol->cards[0] !=3D col->cards[0]) break;
+				if (oldcol->count =3D=3D col->count &&
+					memcmp(oldcol->cards, col->cards,
+					   col->count*sizeof(Card)) =3D=3D 0) {
+//					int j;
+					for (j=3D0; j<col->count; j++) {
+//						int x =3D cardToIndex[col->cards[j]];
+//						int xx =3D x;
+						x =3D cardToIndex[col->cards[j]];
+						xx =3D x;
+						if (pos->location[x] !=3D (i<<5)+j)
+							xx +=3D 26;
+#ifndef SPEEDTRY5
+						if (prev->location[xx] !=3D pos->location[xx]
+							|| prev->swappable[x] !=3D pos->swappable[x]) break;
+#else
+						if (prev->location[xx] !=3D pos->location[xx]) break;
+#endif
+					}
+					if (j >=3D col->count) dup =3D true;
+					break;
+				}
+			}
+		}
+
+	}
+	else
+	{
+		// move required swap, which we didnt do, so this is not
+		// a new tree
+	=09
+	if ((gnSolve !=3D SOLVE_RANGE) &&	(gnSolve !=3D SOLVE_LIST))
+	{
+		Free1ErrorAbort ("Swap requested for solution (%d).",
+							calling_code);
+	}=09
+	else
+	{
+		AppError =3D 1 ;
+	}
+    dup =3D true;
+	=09
+		// will we simply keep trying this move tho?
+	}
+}
+else
+{
+	MoveCard(pos, card, whither);
+//	if ((whither & 0x1F) !=3D 0x1F) {
+		if ((whither & HOLDING_MASK) !=3D HOLDING_MASK)=20
+		{
+			/* moved to col; check for repetition */
+//			Column *col =3D &pos->tableau[i];
+//			Position *prev;
+			i =3D Col(whither);
+			col =3D &pos->tableau[i];
+		for (prev=3Dvia; prev; prev=3Dprev->via) {
+//				Column *oldcol =3D &prev->tableau[i];
+				oldcol =3D &prev->tableau[i];
+			if (oldcol->count !=3D 0 &&
+			    oldcol->cards[0] !=3D col->cards[0]) break;
+			if (oldcol->count =3D=3D col->count &&
+			    memcmp(oldcol->cards, col->cards,
+				   col->count*sizeof(Card)) =3D=3D 0) {
+//				int j;
+				for (j=3D0; j<col->count; j++) {
+					int x =3D cardToIndex[col->cards[j]];
+					int xx =3D x;
+					if (pos->location[x] !=3D (i<<5)+j)
+						xx +=3D 26;
+					if (prev->location[xx] !=3D pos->location[xx]
+					    || prev->swappable[x] !=3D pos->swappable[x]) break;
+				}
+				if (j >=3D col->count) dup =3D true;
+				break;
+			}
+		}
+	}
+}
+	if (dup)=20
+	{
+		if (verbosity >=3D 2) ShowMove(pos, "rejected", false);
+		rejected++;
+	}
+	else if (AddToTree(pos))=20
+	{
+#ifndef SPEEDTRY5
+		if (verbosity >=3D 2)
+			ShowMove(pos, (pos->swapvia ? "merged" : NULL), false);
+#endif
+		// does merged lose us hands we need?
+
+		pos =3D DFS(pos, NewPosition());
+		if (pos =3D=3D NULL) return(NULL);
+	}
+	else if (verbosity >=3D 2)=20
+	{
+		ShowMove(pos, "old", false);
+	}
+	depth--;
+	return(pos);
+}
+
+/* Depth-first search.  Generate all positions reachable from=20
+   "via".  (If
+ * there is a forced move, just do the forced move.)  Use "pos"=20
+	as the
+ * place to construct new positions; ask for a new pos struct as=20
+	needed.
+ * For positions that haven't already been reached, add them and=20
+	call DFS
+ * recursively via TryMove.  If a winning position is found,=20
+	return NULL.
+ * Else return a pointer to a not-yet-used Position struct.
+ */
+static Position *DFS(via, pos) Position *via, *pos;
+{
+//register int i, j, intab =3D 0, goodcols =3D 0; Card moved, below ; =
+Loc onto;
+register int i =3D 0, j =3D 0, intab =3D 0, goodcols =3D 0; Card moved ; =
+Loc onto;
+//register int ia, ib, ic, id, ie, ig, ih, ii, ij, ik, il, im, in, io, =
+ip, iq, ir, is, it, iu, iv ;
+//register int ja, jb, jc, jd, je, jg, jh, ji, jj, jk, jl, jm, jn, jo, =
+jp, jq, jr, js, jt, ju, jv ;
+//ia=3D ib=3D ic=3D id=3D ie=3D ig=3D ih=3D ii=3D ij=3D ik=3D il=3D =
+im=3D in=3D io=3D ip=3D iq=3D ir=3D is=3D it=3D iu=3D iv=3D 0 ;
+//ja=3D jb=3D jc=3D jd=3D je=3D jg=3D jh=3D ji=3D jj=3D jk=3D jl=3D =
+jm=3D jn=3D jo=3D jp=3D jq=3D jr=3D js=3D jt=3D ju=3D jv=3D 0 ;
+	// check for Max. Hands (V4.3)
+//Position *pos2 ;
+gbMemOver =3D gbStackOver =3D FALSE ;
+if (pos =3D=3D NULL)
+{
+	gbAbort =3D gbAbortM =3D TRUE ;
+	gbMemOver =3D TRUE ;
+	return (NULL) ;
+}=20
+if (depth > 254000) // Limit empirically determined for stack size of 32 =
+megs.
+{
+	gbAbort =3D gbAbortM =3D TRUE ;
+	gbStackOver =3D TRUE ;
+	if ((gnSolve !=3D SOLVE_RANGE) && (gnSolve !=3D SOLVE_LIST))
+		Free1ErrorAbort ("Intractable.\n(Out of stack space.)");
+	return (NULL) ;
+}=20
+  if ((!SMode) || (gnRptEnbl =3D=3D 2))
+  {
+	  if ((gnMaxHands && (generated % 100 =3D=3D 0) && (generated > =
+gnMaxHands))
+			|| gbAbort || gbAbortA)=20
+	  {
+ 	    gbAbort =3D TRUE ;
+	    return (NULL) ;
+	  }
+	if (gnMaxTime && (generated % 1000 =3D=3D 0))
+	  {
+	  time (&etime) ;
+	  if ((etime - stime) > gnMaxTime)
+	    {=20
+	    gbAbort =3D TRUE ;
+	    return (NULL) ;
+	    }
+	 }
+  }
+  else
+//	if ((generated > 1000000) || gbAbort || gbAbortA)
+	if (gbAbortA)
+	    {=20
+	    gbAbort =3D TRUE ;
+	    return (NULL) ;
+	    }
+//	if (SMode && (PresortC[0] =3D=3D 'X') && ((gnRptEnbl =3D=3D 4) || =
+(gnRptEnbl =3D=3D 1)))
+	if (SMode && (PresortC[0] =3D=3D 'X') && (gnRptEnbl =3D=3D 4))
+//  if (SMode && (PresortC[0] =3D=3D 'X'))
+//	if (SMode)
+	{
+	if	((gnMaxSpace && (generated % 100 =3D=3D 0))
+			&& (distinct > gnMaxSpace * 1000000 / (long)sizeof(Position)))
+		{
+ 			gbAbort =3D gbAbortM =3D TRUE ;
+//			if (gnRptEnbl =3D=3D 1)
+//				gnRptEnbl =3D 0 ;
+			if (PresortC[1] =3D=3D 'P')
+				PresortC[1] =3D '-' ;=20
+			else
+				PresortC[1] =3D '/' ;
+			return (NULL) ;
+		}
+	if (gnMaxTimeB && (generated % 1000 =3D=3D 0))
+	  {
+	  time (&etime) ;
+	  if ((etime - stime) > gnMaxTimeB * 60)
+	    {=20
+//sprintf(szTemp, "TO re- %d", gnRptEnbl) ;
+//MainMessage(szTemp) ;=20
+		gbAbort =3D gbAbortM =3D TRUE ;
+			if (gnRptEnbl =3D=3D 1)
+				gnRptEnbl =3D 0 ;
+//		gnRptEnbl =3D 0 ;
+		if (PresortC[1] =3D=3D 'P')
+			PresortC[1] =3D '-' ;=20
+		else
+			PresortC[1] =3D '/' ;
+//MainMessage("TimeOut 1") ;
+		return (NULL) ;
+	    }
+	  }
+	}
+  // check for user break
+	if (!gbSolver)
+	{
+		return (NULL);
+	}
+
+	/* check for victory */
+	if (via->foundations[0] =3D=3D 13 && via->foundations[1] =3D=3D 13
+		&& via->foundations[2] =3D=3D 13 && via->foundations[3] =3D=3D 13)=20
+//	if (generated > 100)	// to show intermediate state for diagnostic
+	{
+		if (show)=20
+		{
+			if (!ShowPath(via))
+			{
+				gbAbort =3D TRUE ;
+				return (NULL) ;
+			}=09
+		}
+		else if (verbosity > 0) (void) FollowPath(via, true);
+		return(NULL);
+	}
+
+	if (maxdepth > 99999)=20
+	{
+		if (depth > maxout) maxout =3D depth;
+	}
+	else if (depth >=3D maxdepth)=20
+	{
+		maxout++;
+		return(pos);
+	}
+
+//	if (distinct >=3D TRACTABLE) return(pos);	/* give up */
+
+	// depends on holding fc3
+//	for (i=3D3; i>=3D0 && via->hold[i]=3D=3D0; i--)=20
+//	{ }
+
+	// count empty holding cells
+	for (j =3D 0, i =3D 0; j <=3D (NUM_FCS - 1); j++)
+	{
+#ifndef WILSON3
+		if (via->hold[j] =3D=3D 0)=20
+#else
+		if (via->hold[j] !=3D 0)=20
+#endif
+		{
+			i++;
+		}
+	}
+
+	for (j=3D7; j>=3D0 && via->tableau[via->colSeq[j]].count=3D=3D0; j--)
+	{ }
+
+	i =3D (3 - i + 1) << (7 - j);
+
+	if (i > maxfree)=20
+	{
+		maxfree =3D i;
+		/* if (i =3D=3D 6) ReadablePosition(via); */
+	}
+
+	/* check for forced moves to foundation */
+
+	for (i=3D0; i<4; i++)=20
+	{
+		int opp1 =3D (i^1), opp2 =3D (opp1^2);	/* other color suits */
+//		opp1 =3D (i^1) ;
+//		opp2 =3D (opp1^2) ;	/* other color suits */
+		j =3D via->foundations[i]+1;	/* next rank to go here */
+
+		if (j > 13 || via->foundations[opp1]+2 < j ||
+		    via->foundations[opp2]+2 < j) continue;
+	=09
+		/* move is forced if card is available; note that if card
+	   is swappable with its colormate, then if either card is
+	   available they both are, since next lower cards of other
+	   color are by definition already moved to foundations */
+	=09
+		moved =3D (i<<4) + j;
+	=09
+		if (Available(via, moved))
+		{
+#ifndef WILSON6
+			return TryMove(via, pos, moved, (Loc) FOUNDATION, 0);
+/*
+			pos2 =3D TryMove(via, pos, moved, (Loc) FOUNDATION, 0) ;
+			if (pos2)
+				return pos2 ;
+			else
+				sprintf(szTemp, "FHR card- %x", moved) ;
+				MainMessage(szTemp) ;
+*/
+#else
+			pos =3D TryMove(via, pos, moved, (Loc) FOUNDATION, 0) ;
+			if (pos =3D=3D NULL) return (NULL) ;
+#endif
+		}
+
+		/* card not available, but note good column to dig in */
+	=09
+		goodcols |=3D (1 << Col(via->location[cardToIndex[moved]]));
+	}
+=09
+	/* if previous move broke a sequence (and didn't move to=20
+		foundation),
+	   then mustTry will be >=3D 0, saying we must move to/from=20
+	   that=20
+	   column if it is possible to do so */
+=09
+	if (via->mustTry >=3D 0)=20
+	{
+		Column *col =3D &via->tableau[via->mustTry];
+//		int tried =3D false;
+		j =3D false ;			// j substitued for tried to reduce no. of internal =
+variables
+	=09
+		moved =3D Bottom(via, via->mustTry);
+	=09
+		/* if not a King, try moving to another non-empty column */
+	=09
+		if (Rank(moved) < 13)=20
+		{
+			onto =3D (moved+1) ^ 0x10;
+
+			for (i=3D0; i<2; i++)=20
+			{
+				Loc loc =3D via->location[cardToIndex[onto]];
+
+//				if (Available(via, onto) && loc !=3D HOLDING)=20
+				// use holding mask
+				if (Available(via, onto) &&=20
+					((loc & HOLDING_MASK) !=3D HOLDING_MASK))
+				{
+					j =3D true;
+					pos =3D TryMove(via, pos, moved, loc+1, 1);
+					if (pos =3D=3D NULL) return(NULL);
+				}
+				onto =3D Colormate(onto);
+			}
+		}
+
+		/* if can't move within tableau, try moving to holding=20
+			area or, if that's full, to empty column */
+
+		onto =3D FOUNDATION;
+//		if (via->hold[3] =3D=3D 0) onto =3D HOLDING;
+//		else if (HasSpace(via)) onto =3D (via->colSeq[7]<<5) + 0;
+		// have to check all fcs, not just fc3
+//		for (i =3D 3; i >=3D 0; i--)
+		for (i =3D NUM_FCS - 1 ; i >=3D 0; i--)
+		{
+			if (via->hold[i] =3D=3D 0)
+			{
+				onto =3D HOLDING_BASE + i;
+				break;
+			}
+		}
+
+		if ((onto =3D=3D FOUNDATION) && HasSpace(via))=20
+			onto =3D (via->colSeq[7]<<5) + 0;
+
+		if (!j && onto !=3D FOUNDATION &&
+		    (col->count>1 || !HasSpace(via)))=20
+		{
+			j =3D true;
+			pos =3D TryMove(via, pos, moved, onto, 2);
+			if (pos =3D=3D NULL) return(NULL);
+		}
+
+		/* if neither of the above, try move to foundation=20
+			(if can move
+		   elsewhere, will try moving to foundation from there) */
+
+		if (!j && (via->foundations[Suit(moved)]+1 =3D=3D Rank(moved)))=20
+		{
+			j =3D true;
+			pos =3D TryMove(via, pos, moved, (Loc) FOUNDATION, 3);
+			if (pos =3D=3D NULL) return(NULL);
+		}
+	=09
+		/* move colormate of just-moved card onto revealed card */
+
+		if (Available(via, Colormate(via->moved)))=20
+		{
+			j =3D true;
+			pos =3D TryMove(via, pos, Colormate(via->moved),
+				      (via->mustTry<<5) + col->count, 4);
+			if (pos =3D=3D NULL) return(NULL);
+		}
+	=09
+		/* if this column is a singleton and the only place it=20
+			can
+		   move is into another empty column, abandon the line */
+
+		if (col->count =3D=3D 1 && via->tableau[via->colSeq[7]].count =3D=3D =
+0)
+		{
+			j =3D true;
+		}
+
+		if (j)=20
+		{
+			brokeSeq++;
+#ifndef WILSON7
+			return(pos);
+#else
+			if (pos =3D=3D NULL) return(NULL);
+#endif
+		}
+	}
+
+if (!OMode)
+{
+	/* try non-forced moves to foundation, but don't move the second
+	   of colormates up if both lower cards are still in play */
+   for (i=3D0; i<4; i++)=20
+	{
+		j =3D via->foundations[i]+1;	/* next rank to go here */
+		if (j > 13) continue;
+		if (via->foundations[i^2] >=3D j=20
+			&& via->foundations[i^1]+2 < j
+		    && via->foundations[i^3]+2 < j) continue;
+		moved =3D (i<<4) + j;
+
+		/* if card & colormate both avail, moving original=20
+			suffices;
+		   other must then be able to move to where original was=20
+		*/
+
+		if (Available(via, moved))
+		{
+			pos =3D TryMove(via, pos, moved, (Loc) FOUNDATION, 5);
+			if (pos =3D=3D NULL) return(NULL);
+		}
+
+#ifndef SPEEDTRY5
+//		else if (via->swappable[cardToIndex[Either(moved)]] &&
+		else if (Swapit && via->swappable[cardToIndex[Either(moved)]] &&
+	    		 Available(via, Colormate(moved)))=20
+		{
+			pos =3D TryMove(via, pos, moved, (Loc) FOUNDATION, 6);
+			if (pos =3D=3D NULL) return(NULL);
+		}
+#endif
+
+  }
+if ((!OMode2) || ((OMode2 =3D=3D 2) && (generated < gnMaxHands)))
+{
+	/* next preference is moves onto the bottoms of non-empty=20
+		columns;
+	   cards which can do this never need to move to empty cols=20
+	   or holding cells (though in some odd cases they may end up=20
+	   moving from the other col to a holding cell) */
+
+	for (i=3D0; i<8; i++)=20
+	{
+//		Column *col =3D &via->tableau[i];
+		coldf =3D &via->tableau[i];
+		if (coldf->count =3D=3D 0) continue;
+		/* bottom card guaranteed to be > Ace else force-move=20
+			above */
+		moved =3D (coldf->cards[coldf->count - 1] - 1) ^ 0x10;
+		onto =3D (i<<5) + coldf->count;
+		for (j=3D0; j<2; j++)=20
+		{
+			if (Available(via, moved))=20
+			{
+				Loc where;
+				pos =3D TryMove(via, pos, moved, onto, 7);
+				if (pos =3D=3D NULL) return(NULL);
+				where =3D via->location[cardToIndex[moved]];
+//				if (where !=3D HOLDING)
+				// use mask
+				if ((where & HOLDING_MASK) !=3D HOLDING_MASK)
+				{
+					intab |=3D 1 << (Col(where));
+				}
+			}
+			moved ^=3D 0x20;
+		}
+	}
+}
+	/* next try moving from columns with 2+ cards to hold; if no=20
+		hold,
+	   move to empty columns; (if both, can get to empty cols=20
+		via hold) */
+	onto =3D FOUNDATION;
+//	if (via->hold[3] =3D=3D 0) onto =3D HOLDING;
+	// can just check fc3!
+//	for (i =3D 3; i >=3D 0; i--)
+	for (i =3D NUM_FCS - 1; i >=3D 0; i--)
+	{
+		if (via->hold[i] =3D=3D 0)
+		{
+				onto =3D HOLDING_BASE + i;
+			break;
+		}
+	}
+
+	if ((onto =3D=3D FOUNDATION) &&=20
+	    (via->tableau[via->colSeq[7]].count =3D=3D 0))
+	{
+		onto =3D (via->colSeq[7]<<5) + 0;
+	}
+
+	if (onto !=3D FOUNDATION)=20
+	{
+		for (i=3D0; i<8; i++)
+		{
+			if (((goodcols & (1<<i)) !=3D 0)
+				&& ((intab & (1<<i)) =3D=3D 0))
+			{
+				if (via->tableau[i].count < 2) continue;
+				pos =3D TryMove(via, pos, Bottom(via, i), onto, 8);
+				if (pos =3D=3D NULL) return(NULL);
+			}
+		}
+	=09
+		for (i=3D0; i<8; i++)
+		{
+			if (((goodcols & (1<<i)) =3D=3D 0)=20
+				&& ((intab & (1<<i)) =3D=3D 0))
+			{
+				if (via->tableau[i].count < 2) continue;
+				pos =3D TryMove(via, pos, Bottom(via, i), onto, 9);
+				if (pos =3D=3D NULL) return(NULL);
+			}
+		}
+	}
+if (OMode2)
+{
+	/* next preference is moves onto the bottoms of non-empty=20
+		columns;
+	   cards which can do this never need to move to empty cols=20
+	   or
+	   holding cells (though in some odd cases they may end up=20
+	   moving from the other col to a holding cell) */
+
+	for (i=3D0; i<8; i++)=20
+	{
+//		Column *col =3D &via->tableau[i];
+		coldf =3D &via->tableau[i];
+		if (coldf->count =3D=3D 0) continue;
+		/* bottom card guaranteed to be > Ace else force-move=20
+			above */
+		moved =3D (coldf->cards[coldf->count - 1] - 1) ^ 0x10;
+		onto =3D (i<<5) + coldf->count;
+		for (j=3D0; j<2; j++)=20
+		{
+			if (Available(via, moved))=20
+			{
+				Loc where;
+				pos =3D TryMove(via, pos, moved, onto, 7);
+				if (pos =3D=3D NULL) return(NULL);
+				where =3D via->location[cardToIndex[moved]];
+//				if (where !=3D HOLDING)
+				// use mask
+				if ((where & HOLDING_MASK) !=3D HOLDING_MASK)
+				{
+					intab |=3D 1 << (Col(where));
+				}
+			}
+			moved ^=3D 0x20;
+		}
+	}
+}
+	/* try moving from holding area to empty column; vary which=20
+		one is
+	   tried first, in case the key move we're looking for is=20
+		hold[3] */
+	if (via->tableau[via->colSeq[7]].count =3D=3D 0)=20
+	{
+//		for (i=3D0; i<4; i++)=20
+		for (i=3D0; i<NUM_FCS; i++)=20
+		{
+//			Card below;
+/*
+			if (NUM_FCS > 1)
+			  moved =3D via->hold[((i+(depth>>2))&3)%(NUM_FCS - 1)];
+			else
+			  moved =3D via->hold[0];
+*/
+#ifndef FC5U
+			moved =3D via->hold[(i+(depth>>2))&3];
+#else
+		  if (NUM_FCS <=3D 4)
+		  {
+			  moved =3D via->hold[(i+(depth>>2))&3];
+			  if (NUM_FCS =3D=3D 3)
+				  moved =3D via->hold[(i+(depth>>2))%3];
+			  if (NUM_FCS =3D=3D 2)
+				  moved =3D via->hold[(i+(depth>>2))&1];
+			  if (NUM_FCS =3D=3D 1)
+				  moved =3D via->hold[0];
+		  }
+		  else
+		    moved =3D via->hold[((i+(depth>>2))&7)];
+#endif
+			if (moved =3D=3D 0) continue;
+//			if (via->location[cardToIndex[moved]] !=3D HOLDING)
+			// use mask
+			if (((via->location[cardToIndex[moved]] & HOLDING_MASK)=20
+				!=3D HOLDING_MASK) || (via->location[cardToIndex[moved]] =3D=3D =
+FOUNDATION))
+			{
+				moved ^=3D 0x20;
+			}
+
+			/* don't move a card down if both cards that could
+			   use it are already on foundations */
+
+#if SWAPIT
+			if ((!Swapit && (via->location[cardToIndex[(moved-1)^0x10]] !=3D =
+FOUNDATION
+			    || (via->location[cardToIndex[((moved-1)^0x10)^0x20]] !=3D =
+FOUNDATION))
+				&& (Available(pos, moved)))	||
+				(Swapit && (via->location[cardToIndex[(moved-1)^0x10]] !=3D =
+FOUNDATION
+			    || (via->location[cardToIndex[((moved-1)^0x10)^0x20]] !=3D =
+FOUNDATION))))
+#else
+			if ((via->location[cardToIndex[(moved-1)^0x10]] !=3D FOUNDATION
+			    || (via->location[cardToIndex[((moved-1)^0x10)^0x20]] !=3D =
+FOUNDATION))
+				&& Available(pos, moved))  // dont swap=20
+#endif
+			{
+				pos =3D TryMove(via, pos, moved,
+					      (Loc) ((via->colSeq[7]<<5)+0), 10);
+				if (pos =3D=3D NULL) return(NULL);
+			}
+		}
+	}
+
+	/* try moving from singleton columns to holding area, but=20
+		only if
+	   there isn't another empty column already */
+//	if (via->hold[3] =3D=3D 0 && !HasSpace(via))=20
+	// cant just check fc3
+/*
+	if (NUM_FCS &&=20
+#ifdef FC5U
+		((NUM_FCS =3D=3D 7) && (via->hold[6] =3D=3D 0 || via->hold[5] =3D=3D 0 =
+|| via->hold[4] =3D=3D 0 ||
+		via->hold[3] =3D=3D 0 || via->hold[2] =3D=3D 0 || via->hold[1] =3D=3D =
+0 ||
+		via->hold[0] =3D=3D 0)) ||=20
+		((NUM_FCS =3D=3D 6) && (via->hold[5] =3D=3D 0 || via->hold[4] =3D=3D 0 =
+|| via->hold[3] =3D=3D 0 ||
+		via->hold[2] =3D=3D 0 || via->hold[1] =3D=3D 0 || via->hold[0] =3D=3D =
+0)) ||=20
+		((NUM_FCS =3D=3D 5) && (via->hold[4] =3D=3D 0 || via->hold[3] =3D=3D 0 =
+|| via->hold[2] =3D=3D 0 ||=20
+	     via->hold[1] =3D=3D 0 || via->hold[0] =3D=3D 0)) ||=20
+#endif
+		 ((NUM_FCS =3D=3D 4) && (via->hold[3] =3D=3D 0 || via->hold[2] =3D=3D =
+0 ||=20
+	     via->hold[1] =3D=3D 0 || via->hold[0] =3D=3D 0)) ||=20
+		((NUM_FCS =3D=3D 3) && (via->hold[2] =3D=3D 0 || via->hold[1] =3D=3D 0 =
+|| via->hold[0] =3D=3D 0)) ||
+		((NUM_FCS =3D=3D 2) && (via->hold[1] =3D=3D 0 || via->hold[0] =3D=3D =
+0)) ||
+		((NUM_FCS =3D=3D 1) && (via->hold[0] =3D=3D 0))
+		&& !HasSpace(via))=20
+//	if ((via->hold[3] =3D=3D 0 || via->hold[2] =3D=3D 0 || via->hold[1] =
+=3D=3D 0 || via->hold[0] =3D=3D 0)=20
+//		&& !HasSpace(via))=20
+*/
+	for (i =3D 0 ; i < NUM_FCS ; i++)
+	{
+		if (via->hold[i] =3D=3D 0)
+			break ;
+	}
+	if (NUM_FCS && (i !=3D NUM_FCS) && !HasSpace(via))
+	{=20
+		for (i=3D0; i<8; i++)=20
+		{
+			if ((intab & (1<<i)) =3D=3D 0)=20
+			{
+				if (via->tableau[i].count !=3D 1) continue;
+
+//				pos =3D TryMove (via, pos, Bottom(via, i),=20
+//								(Loc) HOLDING);
+				// move to holding
+//				for (j =3D 3; j >=3D 0; j--)
+				for (j =3D NUM_FCS - 1; j >=3D 0; j--)
+				{
+					if (via->hold[j] =3D=3D 0)
+					{
+						pos =3D TryMove (via, pos, Bottom(via, i),=20
+							(Loc) (HOLDING_BASE + j), 11);
+						break;
+					}
+				}
+
+				if (pos =3D=3D NULL) return(NULL);
+			}
+		}
+	}
+
+  /* last, try non-forced moves to foundation, where we're=20
+		moving
+	   up the second of colormates and both lower cards are in=20
+		play */
+	for (i=3D0; i<4; i++)=20
+	{
+		j =3D via->foundations[i]+1;	/* next rank to go here */
+		if (j > 13) continue;
+		if (!(via->foundations[i^2] >=3D j=20
+			&& via->foundations[i^1]+2 < j
+		    && via->foundations[i^3]+2 < j)) continue;
+		moved =3D (i<<4) + j;
+		if (Available(via, moved))=20
+		{
+			pos =3D TryMove(via, pos, moved, (Loc) FOUNDATION, 12);
+			if (pos =3D=3D NULL) return(NULL);
+		}
+	}
+}  //!OMode
+else
+{=09
+	/* next preference is moves onto the bottoms of non-empty=20
+		columns;
+	   cards which can do this never need to move to empty cols=20
+	   or
+	   holding cells (though in some odd cases they may end up=20
+	   moving from the other col to a holding cell) */
+
+	for (i=3D0; i<8; i++)=20
+	{
+		coldf =3D &via->tableau[i];
+		if (coldf->count =3D=3D 0) continue;
+		/* bottom card guaranteed to be > Ace else force-move=20
+			above */
+		moved =3D (coldf->cards[coldf->count - 1] - 1) ^ 0x10;
+		onto =3D (i<<5) + coldf->count;
+		for (j=3D0; j<2; j++)=20
+		{
+			if (Available(via, moved))=20
+			{
+				Loc where;
+				pos =3D TryMove(via, pos, moved, onto, 7);
+				if (pos =3D=3D NULL) return(NULL);
+				where =3D via->location[cardToIndex[moved]];
+//				if (where !=3D HOLDING)
+				// use mask
+				if ((where & HOLDING_MASK) !=3D HOLDING_MASK)
+				{
+					intab |=3D 1 << (Col(where));
+				}
+			}
+			moved ^=3D 0x20;
+		}
+	}
+
+if ((NUM_FCS > 3) && (OMode =3D=3D 1))
+  {
+	/* next try moving from columns with 2+ cards to hold; if no=20
+		hold,
+	   move to empty columns; (if both, can get to empty cols=20
+		via hold) */
+	onto =3D FOUNDATION;
+//	if (via->hold[3] =3D=3D 0) onto =3D HOLDING;
+	// can just check fc3!
+//	for (i =3D 3; i >=3D 0; i--)
+	for (i =3D NUM_FCS - 1; i >=3D 0; i--)
+	{
+		if (via->hold[i] =3D=3D 0)
+		{
+			onto =3D HOLDING_BASE + i;
+			break;
+		}
+	}
+
+	if ((onto =3D=3D FOUNDATION) &&=20
+	    (via->tableau[via->colSeq[7]].count =3D=3D 0))
+	{
+		onto =3D (via->colSeq[7]<<5) + 0;
+	}
+
+	if (onto !=3D FOUNDATION)=20
+	{
+		for (i=3D0; i<8; i++)
+		{
+			if (((goodcols & (1<<i)) !=3D 0)
+				&& ((intab & (1<<i)) =3D=3D 0))
+			{
+				if (via->tableau[i].count < 2) continue;
+				pos =3D TryMove(via, pos, Bottom(via, i), onto, 8);
+				if (pos =3D=3D NULL) return(NULL);
+			}
+		}
+	=09
+		for (i=3D0; i<8; i++)
+		{
+			if (((goodcols & (1<<i)) =3D=3D 0)=20
+				&& ((intab & (1<<i)) =3D=3D 0))
+			{
+				if (via->tableau[i].count < 2) continue;
+				pos =3D TryMove(via, pos, Bottom(via, i), onto, 9);
+				if (pos =3D=3D NULL) return(NULL);
+			}
+		}
+	}
+
+	/* try moving from holding area to empty column; vary which=20
+		one is
+	   tried first, in case the key move we're looking for is=20
+		hold[3] */
+	if (via->tableau[via->colSeq[7]].count =3D=3D 0)=20
+	{
+//		for (i=3D0; i<4; i++)=20
+		for (i=3D0; i<NUM_FCS; i++)=20
+		{
+//			Card below;
+/*
+			if (NUM_FCS > 1)
+			  moved =3D via->hold[((i+(depth>>2))&3)%(NUM_FCS - 1)];
+			else
+			  moved =3D via->hold[0];
+*/
+#ifndef FC5U
+			moved =3D via->hold[(i+(depth>>2))&3];
+#else
+		  if (NUM_FCS <=3D 4)
+		  {
+			  moved =3D via->hold[(i+(depth>>2))&3];
+			  if (NUM_FCS =3D=3D 3)
+				  moved =3D via->hold[(i+(depth>>2))%3];
+			  if (NUM_FCS =3D=3D 2)
+				  moved =3D via->hold[(i+(depth>>2))&1];
+			  if (NUM_FCS =3D=3D 1)
+				  moved =3D via->hold[0];
+		  }
+		  else
+		    moved =3D via->hold[((i+(depth>>2))&7)];
+#endif
+			if (moved =3D=3D 0) continue;
+//			if (via->location[cardToIndex[moved]] !=3D HOLDING)
+			// use mask
+			if (((via->location[cardToIndex[moved]] & HOLDING_MASK)=20
+				!=3D HOLDING_MASK) || (via->location[cardToIndex[moved]] =3D=3D =
+FOUNDATION))
+			{
+				moved ^=3D 0x20;
+			}
+
+			/* don't move a card down if both cards that could
+			   use it are already on foundations */
+
+#if SWAPIT
+			if ((!Swapit && (via->location[cardToIndex[(moved-1)^0x10]] !=3D =
+FOUNDATION
+			    || (via->location[cardToIndex[((moved-1)^0x10)^0x20]] !=3D =
+FOUNDATION))
+				&& (Available(pos, moved)))	||
+				(Swapit && (via->location[cardToIndex[(moved-1)^0x10]] !=3D =
+FOUNDATION
+			    || (via->location[cardToIndex[((moved-1)^0x10)^0x20]] !=3D =
+FOUNDATION))))
+#else
+			if ((via->location[cardToIndex[(moved-1)^0x10]] !=3D FOUNDATION
+			    || (via->location[cardToIndex[((moved-1)^0x10)^0x20]] !=3D =
+FOUNDATION))
+				&& Available(pos, moved))  // dont swap=20
+#endif
+			{
+				pos =3D TryMove(via, pos, moved,
+					      (Loc) ((via->colSeq[7]<<5)+0), 10);
+				if (pos =3D=3D NULL) return(NULL);
+			}
+		}
+	}
+
+	/* try moving from singleton columns to holding area, but=20
+		only if
+	   there isn't another empty column already */
+//	if (via->hold[3] =3D=3D 0 && !HasSpace(via))=20
+	// cant just check fc3
+/*
+	if (NUM_FCS &&
+#ifdef FC5U
+		((NUM_FCS =3D=3D 7) && (via->hold[6] =3D=3D 0 || via->hold[5] =3D=3D 0 =
+|| via->hold[4] =3D=3D 0 ||
+		via->hold[3] =3D=3D 0 || via->hold[2] =3D=3D 0 || via->hold[1] =3D=3D =
+0 ||
+		via->hold[0] =3D=3D 0)) ||=20
+		((NUM_FCS =3D=3D 6) && (via->hold[5] =3D=3D 0 || via->hold[4] =3D=3D 0 =
+|| via->hold[3] =3D=3D 0 ||
+		via->hold[2] =3D=3D 0 || via->hold[1] =3D=3D 0 || via->hold[0] =3D=3D =
+0)) ||=20
+		((NUM_FCS =3D=3D 5) && (via->hold[4] =3D=3D 0 || via->hold[3] =3D=3D 0 =
+|| via->hold[2] =3D=3D 0 ||=20
+	     via->hold[1] =3D=3D 0 || via->hold[0] =3D=3D 0)) ||=20
+#endif
+		((NUM_FCS =3D=3D 4) && (via->hold[3] =3D=3D 0 || via->hold[2] =3D=3D 0 =
+||=20
+	     via->hold[1] =3D=3D 0 || via->hold[0] =3D=3D 0)) ||=20
+		((NUM_FCS =3D=3D 3) && (via->hold[2] =3D=3D 0 || via->hold[1] =3D=3D 0 =
+|| via->hold[0] =3D=3D 0)) ||
+		((NUM_FCS =3D=3D 2) && (via->hold[1] =3D=3D 0 || via->hold[0] =3D=3D =
+0)) ||
+		((NUM_FCS =3D=3D 1) && (via->hold[0] =3D=3D 0))
+		&& !HasSpace(via))=20
+//	if ((via->hold[3] =3D=3D 0 || via->hold[2] =3D=3D 0 || via->hold[1] =
+=3D=3D 0 || via->hold[0] =3D=3D 0)=20
+//		&& !HasSpace(via))=20
+*/
+	for (i =3D 0 ; i < NUM_FCS ; i++)
+	{
+		if (via->hold[i] =3D=3D 0)
+			break ;
+	}
+	if (NUM_FCS && (i !=3D NUM_FCS) && !HasSpace(via))
+	{
+		for (i=3D0; i<8; i++)=20
+		{
+			if ((intab & (1<<i)) =3D=3D 0)=20
+			{
+				if (via->tableau[i].count !=3D 1) continue;
+
+//				pos =3D TryMove (via, pos, Bottom(via, i),=20
+//								(Loc) HOLDING);
+				// move to holding
+//				for (k =3D 3; k >=3D 0; k--)
+				for (j =3D NUM_FCS - 1; j >=3D 0; j--)
+				{
+					if (via->hold[j] =3D=3D 0)
+					{
+						pos =3D TryMove (via, pos, Bottom(via, i),=20
+							(Loc) (HOLDING_BASE + j), 11);
+						break;
+					}
+				}
+
+				if (pos =3D=3D NULL) return(NULL);
+			}
+		}
+	}
+
+	/* try non-forced moves to foundation, but don't move the second
+	   of colormates up if both lower cards are still in play */
+   for (i=3D0; i<4; i++)=20
+	{
+		j =3D via->foundations[i]+1;	/* next rank to go here */
+		if (j > 13) continue;
+		if (via->foundations[i^2] >=3D j=20
+			&& via->foundations[i^1]+2 < j
+		    && via->foundations[i^3]+2 < j) continue;
+		moved =3D (i<<4) + j;
+
+		/* if card & colormate both avail, moving original=20
+			suffices;
+		   other must then be able to move to where original was=20
+		*/
+
+		if (Available(via, moved))
+		{
+			pos =3D TryMove(via, pos, moved, (Loc) FOUNDATION, 5);
+			if (pos =3D=3D NULL) return(NULL);
+		}
+
+#ifndef SPEEDTRY5
+//		else if (via->swappable[cardToIndex[Either(moved)]] &&
+		else if (Swapit && via->swappable[cardToIndex[Either(moved)]] &&
+	    		 Available(via, Colormate(moved)))=20
+		{
+			pos =3D TryMove(via, pos, moved, (Loc) FOUNDATION, 6);
+			if (pos =3D=3D NULL) return(NULL);
+		}
+#endif
+
+  }
+
+  /* last, try non-forced moves to foundation, where we're=20
+		moving
+	   up the second of colormates and both lower cards are in=20
+		play */
+	for (i=3D0; i<4; i++)=20
+	{
+		j =3D via->foundations[i]+1;	/* next rank to go here */
+		if (j > 13) continue;
+		if (!(via->foundations[i^2] >=3D j=20
+			&& via->foundations[i^1]+2 < j
+		    && via->foundations[i^3]+2 < j)) continue;
+		moved =3D (i<<4) + j;
+		if (Available(via, moved))=20
+		{
+			pos =3D TryMove(via, pos, moved, (Loc) FOUNDATION, 12);
+			if (pos =3D=3D NULL) return(NULL);
+		}
+	}
+
+   } //NUM_FCS > 3 or OMode =3D=3D 1
+else   // OMode > 1
+    {
+	/* try non-forced moves to foundation, but don't move the second
+	   of colormates up if both lower cards are still in play */
+   for (i=3D0; i<4; i++)=20
+	{
+		j =3D via->foundations[i]+1;	/* next rank to go here */
+		if (j > 13) continue;
+		if (via->foundations[i^2] >=3D j=20
+			&& via->foundations[i^1]+2 < j
+		    && via->foundations[i^3]+2 < j) continue;
+		moved =3D (i<<4) + j;
+
+		/* if card & colormate both avail, moving original=20
+			suffices;
+		   other must then be able to move to where original was=20
+		*/
+
+		if (Available(via, moved))
+		{
+			pos =3D TryMove(via, pos, moved, (Loc) FOUNDATION, 5);
+			if (pos =3D=3D NULL) return(NULL);
+		}
+
+#ifndef SPEEDTRY5
+//		else if (via->swappable[cardToIndex[Either(moved)]] &&
+		else if (Swapit && via->swappable[cardToIndex[Either(moved)]] &&
+	    		 Available(via, Colormate(moved)))=20
+		{
+			pos =3D TryMove(via, pos, moved, (Loc) FOUNDATION, 6);
+			if (pos =3D=3D NULL) return(NULL);
+		}
+#endif
+
+  }
+
+  /* last, try non-forced moves to foundation, where we're=20
+		moving
+	   up the second of colormates and both lower cards are in=20
+		play */
+	for (i=3D0; i<4; i++)=20
+	{
+		j =3D via->foundations[i]+1;	/* next rank to go here */
+		if (j > 13) continue;
+		if (!(via->foundations[i^2] >=3D j=20
+			&& via->foundations[i^1]+2 < j
+		    && via->foundations[i^3]+2 < j)) continue;
+		moved =3D (i<<4) + j;
+		if (Available(via, moved))=20
+		{
+			pos =3D TryMove(via, pos, moved, (Loc) FOUNDATION, 12);
+			if (pos =3D=3D NULL) return(NULL);
+		}
+	}
+
+	/* try moving from holding area to empty column; vary which=20
+		one is
+	   tried first, in case the key move we're looking for is=20
+		hold[3] */
+	if (via->tableau[via->colSeq[7]].count =3D=3D 0)=20
+	{
+//		for (i=3D0; i<4; i++)=20
+		for (i=3D0; i<NUM_FCS; i++)=20
+		{
+//			Card below;
+/*
+			if (NUM_FCS > 1)
+			  moved =3D via->hold[((i+(depth>>2))&3)%(NUM_FCS - 1)];
+			else
+			  moved =3D via->hold[0];
+*/
+#ifndef FC5U
+			moved =3D via->hold[(i+(depth>>2))&3];
+#else
+		  if (NUM_FCS <=3D 4)
+		  {
+			  moved =3D via->hold[(i+(depth>>2))&3];
+			  if (NUM_FCS =3D=3D 3)
+				  moved =3D via->hold[(i+(depth>>2))%3];
+			  if (NUM_FCS =3D=3D 2)
+				  moved =3D via->hold[(i+(depth>>2))&1];
+			  if (NUM_FCS =3D=3D 1)
+				  moved =3D via->hold[0];
+		  }
+		  else
+			moved =3D via->hold[((i+(depth>>2))&7)];
+#endif		=09
+			if (moved =3D=3D 0) continue;
+//			if (via->location[cardToIndex[moved]] !=3D HOLDING)
+			// use mask
+			if (((via->location[cardToIndex[moved]] & HOLDING_MASK)=20
+				!=3D HOLDING_MASK) || (via->location[cardToIndex[moved]] =3D=3D =
+FOUNDATION))
+			{
+				moved ^=3D 0x20;
+			}
+
+			/* don't move a card down if both cards that could
+			   use it are already on foundations */
+
+#if SWAPIT
+			if ((!Swapit && (via->location[cardToIndex[(moved-1)^0x10]] !=3D =
+FOUNDATION
+			    || (via->location[cardToIndex[((moved-1)^0x10)^0x20]] !=3D =
+FOUNDATION))
+				&& (Available(pos, moved)))	||
+				(Swapit && (via->location[cardToIndex[(moved-1)^0x10]] !=3D =
+FOUNDATION
+			    || (via->location[cardToIndex[((moved-1)^0x10)^0x20]] !=3D =
+FOUNDATION))))
+#else
+			if ((via->location[cardToIndex[(moved-1)^0x10]] !=3D FOUNDATION
+			    || (via->location[cardToIndex[((moved-1)^0x10)^0x20]] !=3D =
+FOUNDATION))
+				&& Available(pos, moved))  // dont swap=20
+#endif
+			{
+				pos =3D TryMove(via, pos, moved,
+					      (Loc) ((via->colSeq[7]<<5)+0), 10);
+				if (pos =3D=3D NULL) return(NULL);
+			}
+		}
+	}
+
+	/* next try moving from columns with 2+ cards to hold; if no=20
+		hold,
+	   move to empty columns; (if both, can get to empty cols=20
+		via hold) */
+	onto =3D FOUNDATION;
+//	if (via->hold[3] =3D=3D 0) onto =3D HOLDING;
+	// can just check fc3!
+//	for (i =3D 3; i >=3D 0; i--)
+	for (i =3D NUM_FCS - 1; i >=3D 0; i--)
+	{
+		if (via->hold[i] =3D=3D 0)
+		{
+			onto =3D HOLDING_BASE + i;
+			break;
+		}
+	}
+
+	if ((onto =3D=3D FOUNDATION) &&=20
+	    (via->tableau[via->colSeq[7]].count =3D=3D 0))
+	{
+		onto =3D (via->colSeq[7]<<5) + 0;
+	}
+
+	if (onto !=3D FOUNDATION)=20
+	{
+		for (i=3D0; i<8; i++)
+		{
+			if (((goodcols & (1<<i)) !=3D 0)
+				&& ((intab & (1<<i)) =3D=3D 0))
+			{
+				if (via->tableau[i].count < 2) continue;
+				pos =3D TryMove(via, pos, Bottom(via, i), onto, 8);
+				if (pos =3D=3D NULL) return(NULL);
+			}
+		}
+	=09
+		for (i=3D0; i<8; i++)
+		{
+			if (((goodcols & (1<<i)) =3D=3D 0)=20
+				&& ((intab & (1<<i)) =3D=3D 0))
+			{
+				if (via->tableau[i].count < 2) continue;
+				pos =3D TryMove(via, pos, Bottom(via, i), onto, 9);
+				if (pos =3D=3D NULL) return(NULL);
+			}
+		}
+	}
+
+	/* try moving from singleton columns to holding area, but=20
+		only if
+	   there isn't another empty column already */
+//	if (via->hold[3] =3D=3D 0 && !HasSpace(via))=20
+	// cant just check fc3
+/*
+	if (NUM_FCS &&
+#ifdef FC5U
+		((NUM_FCS =3D=3D 7) && (via->hold[6] =3D=3D 0 || via->hold[5] =3D=3D 0 =
+|| via->hold[4] =3D=3D 0 ||
+		via->hold[3] =3D=3D 0 || via->hold[2] =3D=3D 0 || via->hold[1] =3D=3D =
+0 ||
+		via->hold[0] =3D=3D 0)) ||=20
+		((NUM_FCS =3D=3D 6) && (via->hold[5] =3D=3D 0 || via->hold[4] =3D=3D 0 =
+|| via->hold[3] =3D=3D 0 ||
+		via->hold[2] =3D=3D 0 || via->hold[1] =3D=3D 0 || via->hold[0] =3D=3D =
+0)) ||=20
+		((NUM_FCS =3D=3D 5) && (via->hold[4] =3D=3D 0 || via->hold[3] =3D=3D 0 =
+|| via->hold[2] =3D=3D 0 ||=20
+	     via->hold[1] =3D=3D 0 || via->hold[0] =3D=3D 0)) ||=20
+#endif
+		((NUM_FCS =3D=3D 4) && (via->hold[3] =3D=3D 0 || via->hold[2] =3D=3D 0 =
+||=20
+	     via->hold[1] =3D=3D 0 || via->hold[0] =3D=3D 0)) ||=20
+		((NUM_FCS =3D=3D 3) && (via->hold[2] =3D=3D 0 || via->hold[1] =3D=3D 0 =
+|| via->hold[0] =3D=3D 0)) ||
+		((NUM_FCS =3D=3D 2) && (via->hold[1] =3D=3D 0 || via->hold[0] =3D=3D =
+0)) ||
+		((NUM_FCS =3D=3D 1) && (via->hold[0] =3D=3D 0))
+		&& !HasSpace(via))=20
+//	if ((via->hold[3] =3D=3D 0 || via->hold[2] =3D=3D 0 || via->hold[1] =
+=3D=3D 0 || via->hold[0] =3D=3D 0)=20
+//		&& !HasSpace(via))=20
+*/
+	for (i =3D 0 ; i < NUM_FCS ; i++)
+	{
+		if (via->hold[i] =3D=3D 0)
+			break ;
+	}
+	if (NUM_FCS && (i !=3D NUM_FCS) && !HasSpace(via))
+	{
+		for (i=3D0; i<8; i++)=20
+		{
+			if ((intab & (1<<i)) =3D=3D 0)=20
+			{
+				if (via->tableau[i].count !=3D 1) continue;
+
+//				pos =3D TryMove (via, pos, Bottom(via, i),=20
+//								(Loc) HOLDING);
+				// move to holding
+//				for (j =3D 3; j >=3D 0; j--)
+				for (j =3D NUM_FCS - 1; j >=3D 0; j--)
+				{
+					if (via->hold[j] =3D=3D 0)
+					{
+						pos =3D TryMove (via, pos, Bottom(via, i),=20
+							(Loc) (HOLDING_BASE + j), 11);
+						break;
+					}
+				}
+
+				if (pos =3D=3D NULL) return(NULL);
+			}
+		}
+	  }
+    }
+  }
+	return(pos);
+}
+
+#if DON
+void main(argc, argv) int argc; char *argv[];
+{
+	Position *pos0;
+	int i, reps =3D 1, make_random =3D false;
+	char *filename =3D NULL;
+=0A=
+	//wcal
+	printf ("\nDon Wood's Freecell Solver.\n");
+
+	if (argc =3D=3D 1)
+	{
+		printf ("\nEnter 'free1 -?' for help.\n");
+		exit (1);
+	}
+
+	for (i=3D1; i<argc; i++)=20
+	{
+		char *arg =3D argv[i];
+
+		if (*arg =3D=3D '-')=20
+		{
+			while (*++arg)=20
+			{
+				switch (*arg)=20
+				{
+					case 'i':
+						showorig =3D true;
+						break;
+					case 'm':
+						if (maxdepth > 99999) maxdepth =3D 300;
+						else maxdepth +=3D 200;
+						break;
+					case 'r':
+						make_random =3D true;
+						break;
+					case 's':
+						show =3D true;
+						break;
+					case 'v':
+						if (verbosity++ < 3) break;
+						/* FALL THROUGH */
+					default:
+						printf("\
+Usage: free1 [-imrsvv] [file]\n\n\
+-i:  show initial layout\n\
+-m:  set max search depth of 300 (+200 per extra m)\n\
+-r:  if no 'file' arg, generate random winnable position\n\
+     else convert filename to int, generate and test that many =
+positions\n\
+-s:  show solution if found (else just report whether one exists)\n\
+-v:  verbose; give some statistics when done\n\
+-vv: very verbose; dump entire search tree as it is traversed\n\
+-vvv: same as -vv but does fflush after each step\n");
+						exit(1);
+				}
+			}
+		}
+		else if (filename =3D=3D NULL)=20
+		{
+			filename =3D arg;
+		}
+	}
+
+	if (make_random) {
+		BuildOriginal();
+		if (filename !=3D NULL) reps =3D atoi(filename);
+		if (reps <=3D 0) reps =3D 1;
+	}
+	else
+		ReadOriginal(filename);
+=09
+	tree =3D (Position **) calloc(HASH_SIZE, sizeof(Position*));
+#ifdef MEMSTAT
+		MainMessage("calloc3") ;
+#endif
+	if (tree =3D=3D NULL) {
+		printf("\nERROR: Out of memory!\n");
+		exit(2);
+	}
+=0A=
+
+	for (i=3D0; i<reps; i++) {
+		if (make_random) Shuffle();
+		pos0 =3D NewPosition();
+		InitialPosition(pos0);
+		pos0->mustTry =3D (-1);
+		if (showorig) ReadablePosition(pos0);
+		SortColumns(pos0);
+
+		(void) (pos0);
+=0A=
+		if (DFS(pos0, NewPosition()) =3D=3D NULL) {
+			if (make_random && filename=3D=3DNULL && !showorig)
+				ReadablePosition(pos0);
+			  {
+//		  if ((gnMaxHands && (generated > gnMaxHands)) || gbAbort)=20
+		  if (gbAbort)=20
+		  {
+			  if (!AppError)
+				printf("Aborted.\n") ;
+			  else
+				printf("Abort/Illegal/Swap\n") ;
+		  }
+				else
+			    printf("Winnable.\n");
+			  }
+		}
+		else {
+//			printf(distinct>=3DTRACTABLE? "Intractable.\n"
+//				: "Impossible.\n");
+			printf("Impossible.\n") ;
+			if (make_random && filename=3D=3DNULL) i--;
+		}
+=0A=
+
+		if (verbosity > 0) {
+			printf("\n");
+			if (windepth)
+				printf("Winning line of %d steps.\n", windepth);
+			printf("\
+Generated %d positions (%d distinct).\n\
+Rejected %d due to repeated columns.\n\
+Pruned %d lines due to broken sequences.\n\
+Combined %d lines via pair-swapping.\n",
+			       generated, distinct, rejected, brokeSeq, swaps);
+			if (!windepth)
+				printf("Maximum freedom was %d.\n", maxfree);
+			if (maxdepth < 100000) printf("\
+Abandoned %d lines for exceeding %d moves.\n", maxout, maxdepth);
+			else printf("\
+Maximum search depth was %d.\n", maxout);
+			printf("Used %d of %d hash table slots.\n",
+			       hashes, HASH_SIZE);
+		}
+=0A=
+		if (i < reps) {
+			/* clean up to prepare for next position */
+			generated =3D distinct =3D rejected =3D swaps =3D windepth =3D
+			  maxout =3D maxfree =3D brokeSeq =3D hashes =3D depth =3D 0;
+			memset(tree, 0, HASH_SIZE * sizeof(Position*));
+			while (block->link !=3D NULL) {
+				Block *link =3D block->link;
+				free(block);
+				block =3D link;
+			}
+			pos_avail =3D POS_BLOCK;
+			memset(block, 0, sizeof(*block));
+			fflush(stdout);
+		}
+	}
+=0A=
+	exit(0);
+}
+#endif
+
+
+DWORD Free1Main (HWND hwnd)
+{
+	// set below normal priority so we can use menu
+
+	SetThreadPriority (GetCurrentThread (),=20
+						THREAD_PRIORITY_BELOW_NORMAL);
+	Free1Solver (hwnd);
+//MainMessage("F1Main exit") ;
+	ghSolverThread =3D NULL;
+
+    ExitThread (0);
+
+	return 0; // not reached
+}
+
+// this is a thread so that user can shut it down
+// using Option | Solve
+void Free1Solver (HWND hwnd)
+{
+	Position *pos0;
+//	time_t	 stime, etime;
+//	char	 szTemp[20];
+	DWORDLONG nGame;
+	INT		gnMaxTimeS, gnMaxHandsS,gnColSeq, gnMode, gnFlag ;
+	int is ;
+	char szPrSv[20] ;
+
+	gbDidSwapHlt =3D 1 ;
+=09
+	if ((gnSolve !=3D SOLVE_RANGE) &&	(gnSolve !=3D SOLVE_LIST))
+	  gfpSolFile =3D fopen ("solution.txt", "w");
+	else
+		{
+		gfpSolFile =3D fopen ("solrange.txt", "w");
+		WinCount =3D AboCount =3D ImpCount =3D P1ACount =3D 0 ;
+		time (&oetime);
+		lstrcpy(szPrSv, "-ST") ;
+		}
+#ifdef DIAGD
+ChainCnt =3D MaxChainCnt =3D MaxHashCnt =3D 0 ;
+#endif
+		// NUPDATE - need to ask user if they mind overwriting
+	// existing solution.txt.  only bother them if they are=20
+	// running on a range - only write output file if they are
+	// running on a range
+
+	// NUPDATE - could add standard solution to output file
+
+#if DEBUG
+	verbosity =3D 2;
+#endif
+	if (gnSolve =3D=3D SOLVE_SOLUTION)
+	{
+		show =3D true;  // we need this for FCSolve
+		gbHumanPlaying =3D FALSE ;  //Don't give human credit if solver does =
+it.
+	}
+	else
+	{
+//		show =3D true ;
+	show =3D false;
+	}
+	AppError =3D 0 ;
+	SMode =3D 0 ;
+	if ((PresortC[0] =3D=3D 'X') || (PresortC[0] =3D=3D 'U') || =
+(PresortC[0] =3D=3D 'T')
+				|| (PresortC[1] =3D=3D 'Q'))
+		SMode =3D 1 ;
+//#ifndef DHASH
+	if (!SMode)
+	{
+		tree =3D (Position **) calloc(HASH_SIZE, sizeof(Position*));
+//#ifdef MEMSTAT
+//		MainMessage("calloc4") ;
+//#endif
+	}
+//#else
+	if (SMode || (PresortC[0] =3D=3D 'V') || (PresortC[0] =3D=3D 'W') || =
+(PresortC[0] =3D=3D 'X')
+		|| (PresortC[1] =3D=3D 'T') || (PresortC[1] =3D=3D 'U') || =
+(PresortC[1] =3D=3D 'V')
+		|| (PresortC[1] =3D=3D 'W') || (PresortC[1] =3D=3D 'X'))
+	{
+		for (is =3D 0 ; is < HASH_SIZE ; is++)
+		{
+			tree1[is] =3D (Position**)calloc(HASH_SUB, sizeof(Position*));
+			tree2[is] =3D (Position**)calloc(HASH_SUB, sizeof(Position*));
+#ifdef MEMSTAT
+		MainMessage("calloc5") ;
+#endif
+		}
+//	memset(treeLCnt, 0, HASH_SIZE) ;=20
+//	memset(treeL2Cnt, 0, HASH_SIZE) ;=20
+	memset(treeLCnt, 0, HASH_SIZE * sizeof(INT)) ;=20
+	memset(treeL2Cnt, 0, HASH_SIZE * sizeof(INT)) ;=20
+		for (i =3D 0 ; i < HASH_SIZE ; i++)
+		{
+			memset(tree1[i], 0, HASH_SUB) ;=20
+			memset(tree2[i], 0, HASH_SUB) ;=20
+		}
+	if ((tree2 =3D=3D NULL) || (tree1 =3D=3D NULL))
+		{
+			Free1ErrorAbort ("Intractable.\n(Out of memory.)");
+			return;
+		}
+	}
+	//#endif
+//#ifndef DHASH
+	if (!SMode && (tree =3D=3D NULL))
+	{
+		Free1ErrorAbort ("Intractable.\n(Out of memory.)");
+		return;
+	}
+//#endif
+	//		MainMessage (PresortC);
+
+	gnMaxTimeS =3D gnMaxTime ;
+	gnMaxHandsS =3D gnMaxHands ;
+	gnExtendTry =3D gnRptEnbl =3D gnColSeq =3D gnMode =3D gnFlag =3D 0 ;
+=20
+	if (gnSolve =3D=3D SOLVE_LIST)
+	{
+		gnFirstGame =3D GetSolveGame(0) ;
+		if (gnFirstGame < 0)
+			return ;
+		gnLastGame =3D 0x1ffffffff ; // set to allow to run all the way
+	}
+lstrcpy(szPCOrig, PresortC) ;
+gnMaxTOrig =3D gnMaxTime ;
+gnMaxHOrig =3D gnMaxHands ;
+	//sprintf(szTemp, "FG fg- %ld ", gnFirstGame) ;
+//MainMessage(szTemp) ;=20
+  // this is the loop for a range=20
+	// (firstgame =3D lastgame =3D 1 if not a range)
+
+	for (nGame =3D gnFirstGame; nGame <=3D gnLastGame; nGame++)
+	{
+		SMode =3D OMode =3D OMode2 =3D 0 ;
+		if (PresortC[0] =3D=3D 'T')
+		{
+			PresortC[0] =3D 'X' ;
+			OMode =3D 2 ;
+		}
+		if (PresortC[0] =3D=3D 'U')
+		{
+			PresortC[0] =3D 'X' ;
+			OMode =3D 1 ;
+		}
+		if (PresortC[0] =3D=3D 'V')
+		{
+			PresortC[0] =3D 'Y' ;
+			gnMode =3D 1 ;
+		}
+		if (PresortC[0] =3D=3D 'W')
+		{
+			PresortC[0] =3D 'Z' ;
+			gnMode =3D 1 ;
+		}
+		if (PresortC[0] =3D=3D 'X')
+			{
+			SMode =3D 1 ;
+			if (gnRptEnbl < 2)
+				gnRptEnbl =3D 1 ;
+			}
+		gbDidSwap =3D FALSE ;
+		if (gnSolve =3D=3D SOLVE_RANGE)
+			gbDidSwap =3D TRUE ;
+		if (PresortC[1] =3D=3D 'O')
+			gbDidSwap =3D !gbDidSwap ;
+		Swapit =3D TRUE ; // Default mode
+		EitherM =3D 0x1f ;
+		if (PresortC[1] =3D=3D 'Q')	 // For old mode, double hash
+		{						 // for use with column permutes in first char.
+			Swapit =3D FALSE ;
+			EitherM =3D 0x3f ;
+			SMode =3D 1 ;
+		}
+		if (PresortC[1] =3D=3D 'P')	// For old mode, to combine with "X" as =
+"XP"
+		{
+			Swapit =3D FALSE ;
+			EitherM =3D 0x3f ;
+		}
+		if (PresortC[1] =3D=3D 'T')
+		{
+			OMode =3D 2 ;
+			SMode =3D 1 ;
+		}			=09
+		if (PresortC[1] =3D=3D 'U')
+		{
+			OMode =3D 1 ;
+			SMode =3D 1 ;
+		}			=09
+		if (PresortC[1] =3D=3D 'V')
+		{
+			OMode2 =3D 1 ;
+			SMode =3D 1 ;
+		}			=09
+		if (PresortC[1] =3D=3D 'S')
+			OMode2 =3D 1 ;
+		if (PresortC[1] =3D=3D 'W')
+		{
+			OMode2 =3D 2 ;
+			SMode =3D 1 ;
+		}			=09
+		if (PresortC[1] =3D=3D 'X')
+			SMode =3D 1 ;
+		if ((PresortC[0] =3D=3D 'Y') && (gnRptEnbl < 4))
+			gnRptEnbl =3D 2 ;
+		if (PresortC[0] =3D=3D 'Z')
+			gnRptEnbl =3D 3 ;
+		// if range, deal next hand=20
+		if ((gnSolve =3D=3D SOLVE_RANGE) || (gnSolve =3D=3D SOLVE_LIST))
+		{
+			gnGameNumber =3D nGame;
+			FreeCellInit (FALSE);
+		}
+
+		EnblDiag =3D 1 ;
+	=09
+		FCSolveReadOriginal ();
+		pos0 =3D NewPosition();
+		InitialPosition(pos0);
+		pos0->mustTry =3D (-1);
+	=09
+		ReadablePosition(pos0);
+		// debug start
+	//	fclose (gfpSolFile);
+	//	return;
+		// debug end - use fclose below
+
+		SortColumns(pos0);
+//MainMessage("PrATT") ;
+		(void) AddToTree(pos0);
+		// get start time for solution
+  		time (&stime);
+//MainMessage("PsATT") ;
+		if (DFS(pos0, NewPosition()) =3D=3D NULL)=20
+		{
+			if (gbSolver && !gbAbortA)
+			{
+//			if ((gnMaxHands && (generated > gnMaxHands)) || gbAbort)
+			if (gbAbort)
+			  {
+			   if (gbAbortM =3D=3D TRUE)
+			     {
+				 if (gnRptEnbl =3D=3D 1)
+				   {
+				   gnExtendTry =3D 2 ;
+				   PresortC[0] =3D 'B' ;=20
+				   }
+		 	     if ((gnRptEnbl > 1) && (gnRptEnbl < 6))
+				   {
+					PresortC[0] =3D 'S' ;
+					if (gnRptEnbl > 2)
+					   gnRptEnbl =3D 4 ;
+				   } =20
+				 if (gnRptEnbl =3D=3D 6)
+					 gnRptEnbl =3D 0 ;
+				}
+//MainMessage("Point 1") ;=09
+			gnFlag =3D gnPrtEnbl =3D 0 ;
+			if (((gnExtendTry =3D=3D 2) && (PresortC[0] =3D=3D 'B') && (gnRptEnbl =
+=3D=3D 1))
+				 || ((PresortC[0] =3D=3D 'S') && ((gnRptEnbl =3D=3D 2) || (gnRptEnbl =
+>=3D 4)))
+				 ||!gnRptEnbl)
+				{
+//MainMessage("Point 2") ;=09
+				gnFlag =3D 1 ;
+				gbAbort =3D FALSE ;
+//				if (gnRptEnbl =3D=3D 6)
+//					gnExtendTry =3D gnColSeq =3D 0 ;
+				if (gbAbortM =3D=3D FALSE)
+					{
+//MainMessage("Point 3") ;=09
+					if (!gnMode)
+						{
+						strcpy (szTemp, "Aborted");
+						gnPrtEnbl =3D 1 ;
+						AboCount++ ;
+						}
+					else
+						{
+						gnFlag =3D 0 ;
+						gnMode =3D 2 ;
+						}
+					}
+				else
+			       {
+				   gbAbortM =3D FALSE ;
+//sprintf(szTemp, "AB Sw- %d  PC- %s", Swapit, PresortC) ;
+//MainMessage(szTemp) ;=09
+//				   if ((gbMemOver =3D=3D FALSE) && (PresortC[1] !=3D '-'))
+				   if (((gbMemOver =3D=3D FALSE) && (gbStackOver =3D=3D FALSE)) &&=20
+							(PresortC[1] !=3D '-') && (PresortC[1] !=3D '/'))
+//							(PresortC[1] !=3D '-'))
+//					   && (!Swapit || (PresortC[0] !=3D 'X')))
+				   {
+//MainMessage("TimeOut 3") ;=09
+					   strcpy (szTemp, "User Interrupt");
+				   }
+					   else
+					{
+				     strcpy (szTemp, "Intractable.");
+  // 					 gbAbort =3D TRUE ;
+					 gnPrtEnbl =3D 1 ;
+					 if (PresortC[1] =3D=3D '-')
+					 {
+						strcpy (szTemp, "-X-") ;
+						AboCount-- ;
+						gnMode =3D 2 ;
+						if (SolrSel =3D=3D 1)
+							gnPrtEnbl =3D 0 ;
+						gbAbort =3D TRUE ;
+					 }
+					 if (PresortC[1] =3D=3D '/')
+						 PresortC[1] =3D ' ' ;
+//					 if (Swapit && (PresortC[0] =3D=3D 'X'))=20
+//					 {
+//						PresortC[0] =3D 'W' ;=09
+//						gnRptEnbl =3D 0 ;
+//						SMode =3D 0 ;
+//					 }
+					}
+					AboCount++ ;
+//					gnPrtEnbl =3D 1 ;
+					}
+			    }
+			 if (!gnFlag)
+			   {
+				 gbAbort =3D TRUE ;
+				if ((PresortC[0] =3D=3D 'B') && ((gnRptEnbl =3D=3D 1) || (gnRptEnbl =
+=3D=3D 3))
+					 && (gnExtendTry !=3D 2))
+				   {
+				   if ((gnSolve !=3D SOLVE_RANGE) &&	(gnSolve !=3D SOLVE_LIST))
+				     strcpy (szTemp, "Extending");
+				   else
+						{
+						strcpy (szTemp, "Ext");
+						gnPrtEnbl =3D 0 ;
+						}
+					}
+				 else
+				   {
+				    if ((gnSolve !=3D SOLVE_RANGE) &&	(gnSolve !=3D SOLVE_LIST))
+//							&& (PresortC[0] !=3D 'Y'))
+				       strcpy (szTemp, "Presort ");
+				    else
+						{
+						strcpy (szTemp, "P ");
+						szTemp[3] =3D 0 ;
+						gnPrtEnbl =3D 0 ;
+						}
+					if ((PresortC[0] !=3D 'Y') || (gnRptEnbl !=3D 5))
+					   lstrcat(szTemp, PresortC) ;
+					else		=20
+					   lstrcat(szTemp, "W") ;
+//					szTemp[3] =3D 0 ;
+				   }
+				 }
+			  }
+			else
+			  if ((gnSolve !=3D SOLVE_RANGE) &&	(gnSolve !=3D SOLVE_LIST))
+					strcpy (szTemp, "Winnable.");
+			  else
+			    {
+				strcpy (szTemp, "Win");
+				gnPrtEnbl =3D 2 ;
+				WinCount++ ;
+			    }
+			}
+			else
+			{
+				nGame =3D gnLastGame ;
+				gbAbortA =3D FALSE ;
+				strcpy (szTemp, "Solver Aborted.");
+				gnPrtEnbl =3D 1 ;
+				gnRptEnbl =3D 0 ;
+			}
+		}				=09
+		else=20
+		{
+			if ((gnSolve !=3D SOLVE_RANGE) && (gnSolve !=3D SOLVE_LIST))
+//			  strcpy (szTemp, distinct >=3D TRACTABLE ? "Intractable."
+//				: "Impossible.");
+			  strcpy (szTemp, "Impossible.");
+			else
+			{
+				if (PresortC[1] !=3D 'P')
+				{
+					strcpy(szTemp, "IMP") ;
+					gnPrtEnbl =3D 3 ;
+					ImpCount++ ;
+				}
+				else
+				{
+					strcpy(szTemp, "TIM") ;
+					gnMode =3D 2 ;
+					gbAbort =3D TRUE ;
+					PresortC[1] =3D '-' ;
+				}
+			}
+			if ((gnSolve !=3D SOLVE_RANGE) &&	(gnSolve !=3D SOLVE_LIST))
+				Free1ErrorAbort (szTemp);
+		}							=20
+		if ((gnSolve !=3D SOLVE_RANGE) &&	(gnSolve !=3D SOLVE_LIST))=20
+		  {
+		  fprintf (gfpSolFile, "Game #%s", FmtGameNo(gnGameNumber));
+		  fprintf (gfpSolFile, "  %s  Generated %8d Hands.",=20
+					szTemp, generated);
+		  }
+		else
+		  {		  =20
+		  if (PresortC[1] =3D=3D 'P')
+			  PresortC[1] =3D ' ' ;
+		  if (SolrSel =3D=3D 2)
+		  {
+			 if (((szTemp[0] !=3D 'W') && (szTemp[0] !=3D 'I') && (szTemp[0] !=3D =
+'T')
+				 && (szTemp[1] !=3D 'X')))
+			 {
+				 lstrcpy(szPrSv, szTemp) ;
+				szPrSv[3] =3D 0 ;
+				if (szPrSv[0] =3D=3D 'P')
+				{
+					 if (szPrSv[2] =3D=3D 'Z')
+						  szPrSv[2] =3D 'A' ;
+					 else
+					 {
+					 if (szPrSv[2] =3D=3D 'S')
+						  szPrSv[2] =3D 'X' ;
+					 else
+						  szPrSv[2]++ ;
+					 }
+				 }
+			    if (szPrSv[0] =3D=3D 'E')
+					lstrcpy(szPrSv, "---") ;
+			 }
+			 if ((szPrSv[2] =3D=3D 'A') || (szPrSv[2] =3D=3D 'B') || (szPrSv[2] =
+=3D=3D '-'))
+				 szPrSv[1] =3D '1' + gnExtendTry ;
+			  if ((szPrSv[0] !=3D ' ') && ((gnPrtEnbl =3D=3D 2)=20
+						&& ((NumFcs >=3D 2) && (NumFcs <=3D 4))) ||=20
+						((gnPrtEnbl =3D=3D 3) && ((NumFcs =3D=3D 0) || (NumFcs =3D=3D 1)))
+						|| (szTemp[0] =3D=3D 'T'))
+				{
+				if (!lstrcmp(szPrSv, "P1A"))
+				{
+					P1ACount++ ;
+					lstrcpy(szPrSv, "   ") ;
+				}
+				else
+				{
+				 fprintf (gfpSolFile, "%s", FmtGameNo(gnGameNumber)) ;
+				    fprintf (gfpSolFile, " %s %8d", szTemp, generated) ;
+					fprintf (gfpSolFile, "  %s", szPrSv);
+					if (szTemp[0] !=3D 'T')
+						lstrcpy(szPrSv, "     ") ;
+					gnPrtEnbl =3D 4 ;
+				}
+			  }
+		  }
+		  if (((SolrSel =3D=3D 1) || (SolrSel =3D=3D 2)) && (gnPrtEnbl !=3D 4) =
+&& (szPrSv[0] =3D=3D ' ')
+			  && (nGame =3D=3D gnLastGame))
+			  lstrcpy(szPrSv, "-EN") ;
+		  if (!SolrSel || ((gnPrtEnbl =3D=3D 1) ||
+			  (((NumFcs =3D=3D 0) || (NumFcs =3D=3D 1)) && (gnPrtEnbl =3D=3D 2)) =
+||
+			  (((NumFcs >=3D 2) && (NumFcs <=3D 7)) && (gnPrtEnbl =3D=3D 3))) ||
+			  (((SolrSel =3D=3D 1) || (SolrSel =3D=3D 2)) && (szPrSv[1] =3D=3D =
+'E')) ||
+			  ((SolrSel =3D=3D 1) && (szPrSv[1] =3D=3D 'S'))
+			  || ((SolrSel =3D=3D 2) && (Swapit && SMode && (gnPrtEnbl !=3D 4))))
+			{
+			  fprintf (gfpSolFile, "%s", FmtGameNo(gnGameNumber));
+		      fprintf (gfpSolFile, " %s %8d",=20
+					szTemp, generated);
+			  if (((SolrSel =3D=3D 1) || (SolrSel =3D=3D 2)) && (szPrSv[0] !=3D ' =
+'))
+			  {
+				  fprintf (gfpSolFile, "  %s",	szPrSv);
+			      lstrcpy(szPrSv, "     ") ;
+			  }
+			  gnPrtEnbl =3D 4 ;
+			}
+		  }
+		StatusOut (szTemp);
+		// put end time in solution output file
+		time (&etime);
+		if ((gnSolve !=3D SOLVE_RANGE) &&	(gnSolve !=3D SOLVE_LIST))
+		  fprintf (gfpSolFile, "  Elapsed Seconds: %d\n", etime - stime);
+		else
+		  {
+		  if (!SolrSel || (SolrSel && (gnPrtEnbl =3D=3D 4)))
+	  	    fprintf (gfpSolFile, " %d\n", etime - stime);
+		  }
+		  // only send solution to fcpro task if its setup to play a =
+gamenumber
+		if (((gnGameNumber < 0xf00000000)|| gbCustomGame) &&=20
+					(gnSolve =3D=3D SOLVE_SOLUTION) && !gbAbort)
+			PostMessage (hwnd, WM_USER+100, 0, 0);
+		if (gbAbort)
+			{
+			gbAbort =3D FALSE ;
+				 if (gnMode =3D=3D 2)
+					{
+					PresortC[0] =3D 'X' ;
+					if ((PresortC[1] !=3D 'P') &&	(PresortC[1] !=3D '-'))
+						PresortC[1] =3D 'P' ;
+					if (PresortC[1] =3D=3D '-')
+						PresortC[1] =3D ' ' ;
+					//	memset(treeLCnt, 0, HASH_SIZE) ;=20
+					//	memset(treeL2Cnt, 0, HASH_SIZE) ;=20
+					memset(treeLCnt, 0, HASH_SIZE * sizeof(INT)) ;=20
+					memset(treeL2Cnt, 0, HASH_SIZE * sizeof(INT)) ;=20
+#ifdef DIAGD
+ChainCnt =3D MaxChainCnt =3D MaxHashCnt =3D 0 ;
+#endif
+					nGame-- ;
+					gnMode =3D 1 ;
+					}
+			else
+			  {
+			  if (PresortC[0] && (gnRptEnbl =3D=3D 3))=20
+			   {
+			   if (PresortC[0] =3D=3D 'Z')
+			     {
+				   PresortC[0] =3D 'A' ;
+				   nGame-- ;
+			     }
+			   else
+			     {
+				 if (PresortC[0] =3D=3D 'B')
+				   {
+					PresortC[0] =3D 'Z' ;
+					if (gnExtendTry !=3D 2)
+					  {
+					  gnMaxTime =3D 2 * gnMaxTime ;
+					  gnMaxHands =3D 2 * gnMaxHands ;
+					  gnExtendTry++ ;
+					  nGame-- ;
+					  }
+					else
+					  {
+					  gnMaxTime =3D gnMaxTimeS ;
+					  gnMaxHands =3D gnMaxHandsS ;
+					  gnExtendTry =3D 0 ;
+					  if (gnRptEnbl =3D=3D 3)
+					    {
+						PresortC[0] =3D 'Y' ;
+						gnRptEnbl =3D 4 ;
+					    }
+					 }
+				   }
+				 if (PresortC[0] =3D=3D 'A')
+			       {
+				     PresortC[0] =3D 'B' ;
+				     nGame-- ;
+			       }
+			     }
+			   }
+			 if (PresortC[0] && ((gnRptEnbl =3D=3D 2) || (gnRptEnbl >=3D 4)))=20
+			   {
+			   if (PresortC[0] =3D=3D 'Y')
+			     {
+				 if (gnRptEnbl =3D=3D 4)
+				   PresortC[0] =3D 'C' ;
+				 else
+				   PresortC[0] =3D 'A' ;
+				 nGame-- ;
+			     }
+			   else
+				   {
+				   PresortC[0]++ ;
+				   nGame-- ;
+				   }
+				}
+			  }
+			}
+	   else
+		  {
+		  if ((PresortC[0] =3D=3D 'X') && (gnRptEnbl > 1))
+			  SMode =3D 0 ;
+			if (PresortC[0] && (gnRptEnbl =3D=3D 2))
+			{
+				if (!gnMode)
+					PresortC[0] =3D 'Y' ;
+				else
+					PresortC[0] =3D 'V' ;
+			}
+			if (PresortC[0] && ((gnRptEnbl =3D=3D 3) || (gnRptEnbl =3D=3D 4)))
+				{
+				if (!gnMode)
+					PresortC[0] =3D 'Z' ;
+				else
+					PresortC[0] =3D 'W' ;
+				}
+			if (gnRptEnbl < 6)
+				gnExtendTry =3D 0 ;
+			else
+				gnColSeq =3D 0 ;
+			gnMaxTime =3D gnMaxTimeS ;
+			gnMaxHands =3D gnMaxHandsS ;
+			}
+//		if (gnSolve !=3D SOLVE_RANGE)
+//		    gnRptEnbl =3D 0 ;
+
+	  /*=20
+		clean up to prepare for next position */
+		generated =3D distinct =3D rejected =3D swaps =3D windepth =3D
+		  maxout =3D maxfree =3D brokeSeq =3D hashes =3D depth =3D 0;
+//#ifdef DHASH
+	if (!SMode)
+		memset(tree, 0, HASH_SIZE * sizeof(Position*));
+	else
+	{
+		for (i =3D 0 ; i < HASH_SIZE ; i++)
+		{
+			memset(tree1[i], 0, HASH_SUB) ;=20
+			memset(tree2[i], 0, HASH_SUB) ;=20
+		}
+	}
+		//#endif
+		while (block->link !=3D NULL) {
+			Block *link =3D block->link;
+			if (block)
+			  {
+			  free(block);
+			  block =3D link;
+			  }
+//#ifdef DHASH
+	if (SMode)
+		{
+		memset(treeLCnt, 0, HASH_SIZE * sizeof(INT)) ;=20
+		memset(treeL2Cnt, 0, HASH_SIZE * sizeof(INT)) ;=20
+		}
+//#endif
+	}
+#ifdef MEMSTAT
+GlobalMemoryStatus(&MemStat) ;
+wsprintf(szTempM, "frAP p-%li v-%li", MemStat.dwAvailPhys, =
+MemStat.dwAvailVirtual);
+MainMessage(szTempM) ;
+#endif
+		pos_avail =3D POS_BLOCK;
+		memset(block, 0, sizeof(*block));
+		if ((gnSolve =3D=3D SOLVE_LIST)	&& (nGame =3D=3D gnGameNumber))
+		{
+			nGame =3D GetSolveGame(1) ;
+			if (nGame < 0)
+				nGame =3D 0x1ffffffff ; // force end
+			nGame-- ; // because loop will increment number
+		}
+  }  // end of range solve loop
+	// we are done with the solver
+//MainMessage("F1S endloop 3") ;
+if (!SMode)
+//#ifndef DHASH
+{
+	if (tree)
+	  free (tree);
+}
+//#else
+if (SMode || gnMode)
+{
+	for (is =3D 0 ; is < HASH_SIZE ; is++)
+		{
+		if (tree1[is])
+			free(tree1[is]) ;
+		if (tree2[is])
+			free(tree2[is]) ;
+		}
+}
+//MainMessage("F1S endloop 4") ;
+	//#endif
+	gbSolver =3D FALSE;
+	lstrcpy(PresortC, szPCOrig) ;
+	gnMaxTime =3D gnMaxTOrig ;
+	gnMaxHands =3D gnMaxHOrig ;
+	if ((gnSolve =3D=3D SOLVE_RANGE) ||	(gnSolve =3D=3D SOLVE_LIST))
+	{
+	fprintf (gfpSolFile, "Number of Freecells: %d   Mode: ", NUM_FCS);
+	fprintf (gfpSolFile, PresortC);
+	fprintf (gfpSolFile, "\n");
+	if (gnMaxTime)
+		fprintf (gfpSolFile, "Max A Time: %d  ", gnMaxTime) ;
+	if (gnMaxHands)
+		fprintf (gfpSolFile, "Max A Hands: %d  ", gnMaxHands) ;
+	if (gnMaxTimeB)
+		fprintf (gfpSolFile, "Max B Time: %d  ", gnMaxTimeB) ;
+	if (gnMaxSpace)
+		fprintf (gfpSolFile, "Max B Space: %d  ", gnMaxSpace) ;
+	fprintf (gfpSolFile, "\n");
+	if (SolrSel =3D=3D 2)
+		fprintf(gfpSolFile, "P1A Count: %d\n", P1ACount) ;
+	fprintf (gfpSolFile, "Winnables: %d\n", WinCount);
+	fprintf (gfpSolFile, "Impossibles: %d\n", ImpCount);
+	fprintf (gfpSolFile, "Intractables: %d\n", AboCount);
+	if ((etime - oetime) < 3600)
+      fprintf (gfpSolFile, "Total time: %d Minutes, %d Seconds\n", =
+(etime - oetime)/60,=09
+					(etime - oetime)%60) ;
+	else
+      fprintf (gfpSolFile, "Total time: %d Hours, %d Minutes, %d =
+Seconds\n",
+			(etime - oetime)/3600, ((etime - oetime)%3600) / 60,=09
+					(etime - oetime)%60) ;
+		// officially start last game
+		MainStartGame (TRUE);
+	}
+	fclose (gfpSolFile);
+#ifdef WILSON2
+	free(tree) ;
+	free(block) ;
+	pos_avail =3D 0 ;
+#endif
+}
+
+BOOL TestSolver()
+{=09
+if (!gbSolver || ((gnSolve !=3D SOLVE_RANGE) &&	(gnSolve !=3D =
+SOLVE_LIST)))
+  return FALSE ;
+else
+  {
+  gbAbort =3D gbAbortM =3D TRUE ;
+  return TRUE ;
+  }
+}
+
+BOOL TestSolverA(WORD wParam)
+{
+ if (!gbSolver || (wParam !=3D VK_ESCAPE))=20
+  return FALSE ;
+else
+  {
+  gbAbortA =3D TRUE ;
+  return TRUE ;
+  }
+}
+
+PRIVATE VOID Free1ErrorAbort (LPSTR pszFormat, ...)
+{
+    va_list marker;
+    TCHAR szT[MAXSTRING];
+
+    va_start(marker, pszFormat);
+    wvsprintf(szT, pszFormat, marker);
+    MessageBox (ghwndMainApp, szT, gszWindowName,=20
+  				MB_ICONEXCLAMATION | MB_TASKMODAL);
+    va_end(marker);
+
+	if ((gnSolve !=3D SOLVE_RANGE) &&	(gnSolve !=3D SOLVE_LIST))
+	{
+		// dont abort range
+		gbSolver =3D FALSE;
+		StatusOut ("Solver Error!  Aborting...");
+		UpdateWindow (ghwndMainApp);
+	}
+}
+
+
+------=_NextPart_000_0005_01C16CD2.4CE9B080--
+

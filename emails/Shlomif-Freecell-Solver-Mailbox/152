@@ -1,0 +1,86 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 512 invoked from network); 5 Jun 2002 03:25:48 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 5 Jun 2002 03:25:48 -0000
+Received: from computer ([12.78.249.93]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020605032544.RETY5116.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Wed, 5 Jun 2002 03:25:44 +0000
+Message-ID: <000d01c20c40$38e0ebe0$4dda4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206041628130.10828-100000@vipe.technion.ac.il>
+Subject: Re: M/S Freecell fix
+Date: Tue, 4 Jun 2002 23:21:30 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 40
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I would say if PySol does not automatically make the automatic "safe"
+moves to the foundation, then PySol is broken.  It imposes an unnecessary
+and purposeless burden on the player to require the player to make such
+moves.  Also, if PySol's interface works only by drag-and-drop, I'd call
+that bad design, the click to select technique I find much easier to use.
+
+    As far as all the other games and variations it provides, that may be a
+magnificent achievement, but it has nothing to do with Freecell.  Some but
+not all the frecell features you mention we also have in FcPro (we don't
+have bookmarks per se).
+
+<<Is downloading 3 MBs a problem for you? Do you have a plain telephone
+connection?>>
+    Right.  That's the problem.  I don't have enough needs to justify the
+expense of DSL.
+
+<<Now, while your solution would work before and after every meta-move,
+there may still be a situation where it will occur in the middle of a meta
+move.>>
+    My intuition tells me that is a logical impossibility.  The cards
+exposed in the middle of a metamove are all higher in value than the top
+card.  Those cards would not be eligible for mandatory moves to the
+foundation unless the top card was already on the foundation.  Another way
+of putting it: A lower card that is allowed to remain the top card of a
+sequence cannot possibly hide other higher cards that would be eligible for
+an automatic move to the foundation.
+
+<<1. Moving those cards to the foundations immidiately ASA they are
+revealed.>>
+    If that is done during FCS's solving, then the other steps are
+unnecessary.
+
+    Since I last heard from you, I've figured out how FCS works, and I've
+started implementing a modification.  My general approach is that I'll have
+a routine in freecell.c for testing if a state contains a "must" move to the
+foundation.  In check_and_add_state, I'll call that test, and a positive
+result will abort the add and return a new flag indicating the state is
+invalid and requires a "must move".  Then, in the three places I see where
+".....sfs_tests...." is called, if a must move is pending, I'll call a
+routine which will call the move_stack_to_founds or move_freecell_to_founds
+routines, which will be modified to move from the specific stack or freecell
+that was identified by the test routine.  Looks fairly straightforward.  So
+far I've found templates I could copy for the all the functions I need to
+perform.
+
+    I'm not sure how soon I'll be able to complete this, as I leave on a
+one-week trip on Thursday, and even more so than with the last trip, it
+won't make much sense to try to take the project with me.  And from an
+E-mail I just received, I might have a lot of my time tomorrow preempted.
+
+Best regards, ----------------Adrian
+
+

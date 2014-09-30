@@ -1,0 +1,46 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 9097 invoked from network); 24 Jun 2002 11:48:57 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 24 Jun 2002 11:48:57 -0000
+Received: from computer ([12.78.218.85]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020624114854.VAEM5870.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Mon, 24 Jun 2002 11:48:54 +0000
+Message-ID: <000401c21b74$a5a4ea40$55da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206240901080.4630-100000@vipe.technion.ac.il>
+Subject: M/S Freecell fix
+Date: Mon, 24 Jun 2002 07:44:44 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 49
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Here's some hopeful news.  I tried that new set of presets you'd sent a
+few weeks ago, and #16 and #150 played through with no problem.  Next on my
+agenda is to set up a convenient way to plow though many deals, to see if
+maybe the problem has now shifted to other deals.  Also, to see if I can
+isolate that one of the preset lines in the early set of presets was causing
+the trouble.
+
+    I'm half-suspicious now that FCS could be delivering a bad move in the
+previous situation, and maybe I've been pursuing a red herring.  Stay tuned.
+
+Best regards,  -----------------Adrian
+

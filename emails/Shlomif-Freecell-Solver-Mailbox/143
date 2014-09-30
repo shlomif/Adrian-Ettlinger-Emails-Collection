@@ -1,0 +1,45 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 19964 invoked from network); 29 May 2002 03:24:20 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 29 May 2002 03:24:20 -0000
+Received: from computer ([12.78.220.29]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020529032415.UNFV5116.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Wed, 29 May 2002 03:24:15 +0000
+Message-ID: <000401c206bf$dc0f36e0$1ddc4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205281426470.25725-100000@vipe.technion.ac.il>
+Subject: OK, more or less
+Date: Tue, 28 May 2002 23:20:19 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 31
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    It's OK now.  At least for that particular hurdle.  There are two ways
+to include a library in an application in DevStudio, and I still had the old
+one included in a way that was taking precedent over the new one.
+
+    Now I've got another strange problem related to the playback fix and the
+"number of card moved" parameter.  Still analyzing it.  This comes up only
+under a certain one of your presets, not under the default preset.
+
+Best regards,  -------------Adrian
+
+

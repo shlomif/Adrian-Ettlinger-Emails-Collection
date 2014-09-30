@@ -1,0 +1,56 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 9943 invoked from network); 22 Jun 2002 04:00:11 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 22 Jun 2002 04:00:11 -0000
+Received: from computer ([12.78.249.93]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020622035958.JMEV19902.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sat, 22 Jun 2002 03:59:58 +0000
+Message-ID: <000e01c219a0$ceee9840$5df94e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206071912001.21910-200000@vipe.technion.ac.il>
+Subject: M/S Freecell fix
+Date: Fri, 21 Jun 2002 23:52:28 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 44
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    The explanation:  Very suddenly after my return from Colorado on June
+12th, an opportunity appeared for another railroad adventure of a type which
+I've never done  before, a "cruise" on a private railroad car.  So, leaving
+on the 16th, and returning just tonight, I've been to Chicago and Toronto on
+a great trip.
+
+    Your fix for the "safe" moves was received, and I see you'd sent it on
+the 7th, just after I departed on the first trip (to Colorado).  And in the
+short period I had at home between the two trips, I'd had no chance to look
+at it.
+
+    I also see from your most recent message that you'd like to see me use
+version 2.6, which is fine with me.  I'll have to collect my thoughts as to
+whether to switch over to that first, or try out the new fix first.  I'm
+somewhat inclined to the latter, because I had to do some surgery on 2.5,
+and I'd have to collect that information before adopting 2.6.
+
+    So stay tuned, and I should have more to say in a day or two.
+
+Best regards,  --------------------Adrian
+
+

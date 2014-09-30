@@ -1,0 +1,53 @@
+Status: R
+X-Status: N
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 9018 invoked from network); 19 Jul 2002 03:58:13 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 19 Jul 2002 03:58:13 -0000
+Received: from computer ([12.78.218.182]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020719035808.FWQM15849.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Fri, 19 Jul 2002 03:58:08 +0000
+Message-ID: <003301c22ed7$f56cf4c0$efdb4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207190529040.8258-100000@vipe.technion.ac.il>
+Subject: 2.6.0 Crash problem
+Date: Thu, 18 Jul 2002 23:23:08 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<< OK, but I'm still not sure that I'm able to reproduce it (solving the
+range 10-20 with one freecell works fine here)>>
+    Remember the crash we had with 2.4.2, related to the magic number 50?
+You weren't able to reproduce that one either. But later you told me you
+found some sort of tool on a website, whose URL you gave me, that enanbled
+you to run down that bug.
+
+    Still, tomorrow I'll take a crack at compiling a Debug configuration,
+and we'll see what it tells us.  I think the evidence that it's occurring on
+a "mov" instruction and is identified as an "access violation" is enough to
+show that there's an out-of-bounds memory write happening.  It's not too
+surprising that running it under DOS (is that what you're doing), the system
+tolerates the problem and the area of memory being illegally written into
+just isn't causing any trouble.
+
+    I may not get back to you until sometime Friday evening your time.
+
+Best regards,  --------------Adrian
+
+

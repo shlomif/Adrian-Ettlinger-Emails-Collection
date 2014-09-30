@@ -1,0 +1,50 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 28466 invoked from network); 21 Dec 2001 13:01:52 -0000
+Received: from mtiwmhc26.worldnet.att.net (204.127.131.51)
+  by vipe.technion.ac.il with SMTP; 21 Dec 2001 13:01:52 -0000
+Received: from computer ([12.78.218.154]) by mtiwmhc26.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011221130141.MWUE13869.mtiwmhc26.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Fri, 21 Dec 2001 13:01:41 +0000
+Message-ID: <002501c18a1f$81f32760$9ada4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112210800340.25489-100000@vipe.technion.ac.il>
+Subject: Re: FcPro 6.5, Build 7
+Date: Fri, 21 Dec 2001 07:50:14 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 25
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    What we could do readily would be to provide a library of predetermined
+mode presets which would be called by entering a two or three-character code
+in the "Mode" field.  To provide a full text field is also, of course,
+doable, but is more work.  If we were to provide such a text field, how many
+characters should it allow for?  Now that I thnk of it, it wouldn't be a
+very big job to just increase the height of the dialog box for "Solve2" and
+add an edit box which would extend the full width of the box for a "command
+line".  Would that be enough space?
+
+    I have to start spednig some time on another project, but will probably
+return to the FcPro solver evaluation project in another couple of weeks or
+so.
+
+Best regards, ------------------Adrian
+
+

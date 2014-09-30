@@ -1,0 +1,43 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 9619 invoked from network); 2 Jul 2002 09:27:43 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 2 Jul 2002 09:27:43 -0000
+Received: from computer ([12.78.249.104]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020702092733.MPQW20423.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Tue, 2 Jul 2002 09:27:33 +0000
+Message-ID: <002401c221aa$37d29620$c2db4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207020910240.7608-100000@vipe.technion.ac.il>
+Subject: FcPro - FCS -- next step
+Date: Tue, 2 Jul 2002 05:22:50 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<It is aplied to the development version which can be found in the source
+control repository. That version also has other advantages.>>
+    Hmmm.  If it's only in what you are calling a "development version", I'm
+thinking maybe I'd just as soon wait for 2.6 before I do another FcPro
+integration.  I'm inclined, however, now to post what I have on a website
+where I can offer access, but I don't particualarly intend to publicize any
+beyond announcing it on your forum.
+
+Best regards, ------------------Adrian
+
+

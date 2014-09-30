@@ -1,0 +1,251 @@
+Status: R
+X-Status: N
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 12616 invoked from network); 5 Jul 2002 09:41:26 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 5 Jul 2002 09:41:26 -0000
+Received: from computer ([12.78.219.158]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020705094115.LYCS20423.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Fri, 5 Jul 2002 09:41:15 +0000
+Message-ID: <002001c22407$a01b2620$9edb4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207050647440.9911-100000@vipe.technion.ac.il>
+Subject: Re: FcPro - FCS -- new problem
+Date: Fri, 5 Jul 2002 05:36:55 -0400
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+  boundary="----=_NextPart_000_001D_01C223E5.F9586D00"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MIMEOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_001D_01C223E5.F9586D00
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Shlomi,
+
+    The "--" simply means blank.  The cards are represented as they =
+appear if you looked at the board.  Where you see "--" there is no card. =
+ To see the whole thing as it would appear to the eye, however, the top =
+row which you would see, of course, is the freecells and the foundation, =
+and that is shown on the bottom.  I had to use "--" for "blank" because, =
+for some reason, the code was not interpreted the spaces correctly.  I'm =
+attempting below to redraw it using a fixed font, but this might not =
+show up unless you hve the same font available. =20
+
+9H 5H 4C   3C AD 6S 3H
+---------------------------------------------------------
+KC 2D KH 7H KD 8H TH QD
+7D JH QC JS QS 8S 9C JC
+TC QH   5D JD KS 7C TD
+4H      8D TS 6D 3D 9S
+6C         9D 5C 7S  =20
+           8C 4D 6H=20
+
+    I'll also show it here in variable-pitch font.  If you can redisplay =
+this in a fixed font which you have, it will look neater.  I have a =
+hunch you will probably be seeing two copies that will look alike.
+=20
+9H 5H 4C   3C AD 6S 3H
+----------------------------------------
+KC 2D KH 7H KD 8H TH QD
+7D JH QC JS QS 8S 9C JC
+TC QH   5D JD KS 7C TD
+4H      8D TS 6D 3D 9S
+6C         9D 5C 7S  =20
+           8C 4D 6H
+
+    As I said, this has to be shown in a fixed-pitch font so the columns =
+will line up.  My copy of "Notepad" in Windows uses a fixed-pitch font =
+as the default.
+=20
+    As further explanation. "9H" means the nine of hearts,  "AD" means =
+the ace of diamonds, "KC" means the king of clubs,  "QS" means the queen =
+of spades,  "JH" means the jack of hearts, and "TD" means the ten of =
+diamonds.
+=20
+    The example I've shown here is cust3s.txt, which is the one that =
+most consistently demonstratesteh crash.  BTW, this is with using the =
+last "best" preset you supplied, the one with eight methods.  This is =
+the preset used:
+
+--method soft-dfs -to 0123456789 -step 500 -nst \
+--method soft-dfs -to 0123467 -step 500 -nst \
+--method random-dfs -seed 2 -to 0[01][23456789] -step 500 -nst \
+--method random-dfs -seed 1 -to 0[0123456789] -step 500 -nst \
+--method random-dfs -seed 3 -to 0[01][23467] -step 500 -nst \
+--method random-dfs -seed 4 -to 0[0123467] -step 500 -nst \
+--method random-dfs -to [01][23456789] -seed 8 -step 500 -nst \
+--method random-dfs -to [01][23456789] -seed 268 -step 500 \
+
+    Note, this does not include a "prelude" flag.  I had to eliminate =
+the "name" flags as 2.4.2 did not seem to recognize them.
+
+.  I think I"d better do a range solve test over more than 1000 deals, =
+so see how it bears up, with, of course, that call to the "free" routine =
+reenabled.   It has appeared as if the crash is occurring only when =
+solving a non-original position.
+
+    BTW, on the basis of a few 1000-deal runs at range-solving, you've =
+got excellent speed compared to either FcPro's solver or Patsolve.  =
+Seems to run about twice a fast, so I have to congratulate you on that.  =
+I should also make some comparisons at one and two freecells, which of =
+course is much more demanding. =20
+=20
+Best regards,  ---------------Adrian
+=20
+
+------=_NextPart_000_001D_01C223E5.F9586D00
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content=3D"text/html; charset=3Diso-8859-1" =
+http-equiv=3DContent-Type>
+<META content=3D"MSHTML 5.00.2614.3500" name=3DGENERATOR>
+<STYLE></STYLE>
+</HEAD>
+<BODY bgColor=3D#ffffff>
+<DIV><FONT face=3DArial size=3D2>Hi Shlomi,</FONT></DIV>
+<DIV>&nbsp;</DIV>
+<DIV><FONT face=3DArial size=3D2>&nbsp;&nbsp;&nbsp; The "--" simply =
+means=20
+blank.&nbsp; The cards are represented as they appear if you looked at =
+the=20
+board.&nbsp; Where you see "--" there is no card.&nbsp; To see the whole =
+thing=20
+as it would appear to the eye, however, the top row which you would see, =
+of=20
+course, is the freecells and the foundation, and that is shown on the=20
+bottom.&nbsp; I had to use "--" for "blank" because, for some reason, =
+the code=20
+was not interpreted the spaces correctly.</FONT><FONT face=3DArial =
+size=3D2>&nbsp;=20
+I'm attempting below to redraw&nbsp;it using a fixed font, but this =
+might not=20
+show up unless you hve the same font available.&nbsp; </FONT></DIV>
+<DIV>&nbsp;</DIV>
+<DIV><FONT face=3DDigitMed size=3D1>9H 5H 4C&nbsp;&nbsp; 3C AD 6S =
+3H<BR><FONT=20
+face=3DArial=20
+size=3D2>---------------------------------------------------------</FONT>=
+</FONT></DIV>
+<DIV><FONT face=3DDigitMed size=3D1>KC 2D KH 7H KD 8H TH QD<BR>7D JH QC =
+JS QS 8S 9C=20
+JC<BR>TC QH&nbsp;&nbsp; 5D JD KS 7C =
+TD<BR>4H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8D TS=20
+6D 3D 9S<BR>6C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9D 5C=20
+7S&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;=20
+8C 4D 6H <BR></FONT></DIV>
+<DIV><FONT face=3DDigitMed size=3D1><FONT face=3DArial =
+size=3D2>&nbsp;&nbsp;&nbsp; I'll=20
+also show it here in variable-pitch font.&nbsp; If you can redisplay =
+this in a=20
+fixed font which you have, it will look neater.&nbsp; I have a hunch you =
+will=20
+probably be seeing two copies that will look alike.</FONT></FONT></DIV>
+<DIV><FONT face=3DDigitMed size=3D1><FONT face=3DArial=20
+size=3D2></FONT></FONT>&nbsp;</DIV>
+<DIV><FONT face=3DDigitMed size=3D1><FONT face=3DArial size=3D2>9H 5H =
+4C&nbsp;&nbsp; 3C=20
+AD 6S 3H</FONT></FONT></DIV>
+<DIV><FONT face=3DArial=20
+size=3D2>----------------------------------------</FONT></DIV>
+<DIV><FONT face=3DDigitMed size=3D1><FONT face=3DArial size=3D2>KC 2D KH =
+7H KD 8H TH=20
+QD<BR>7D JH QC JS QS 8S 9C JC<BR>TC QH&nbsp;&nbsp; 5D JD KS 7C=20
+TD<BR>4H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8D TS 6D 3D=20
+9S<BR>6C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9D 5C=20
+7S&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;=20
+8C 4D 6H<BR></FONT></FONT></DIV>
+<DIV><FONT face=3DDigitMed size=3D1><FONT face=3DArial =
+size=3D2>&nbsp;&nbsp;&nbsp; As I=20
+said, this has to be shown in a fixed-pitch font so the columns will =
+line=20
+up.&nbsp; My copy of "Notepad" in Windows uses a fixed-pitch font as the =
+
+default.</FONT></FONT></DIV>
+<DIV><FONT face=3DDigitMed size=3D1><FONT face=3DArial=20
+size=3D2></FONT></FONT>&nbsp;</DIV>
+<DIV><FONT face=3DDigitMed size=3D1><FONT face=3DArial =
+size=3D2>&nbsp;&nbsp;&nbsp; As=20
+further explanation. "9H" means the nine of hearts,&nbsp; "AD" means the =
+ace of=20
+diamonds, "KC" means the king of clubs,&nbsp; "QS" means the queen of=20
+spades,&nbsp; "JH" means the jack of hearts, and "TD" means the ten of=20
+diamonds.</FONT></FONT></DIV>
+<DIV><FONT face=3DDigitMed size=3D1><FONT face=3DArial=20
+size=3D2></FONT></FONT>&nbsp;</DIV>
+<DIV><FONT face=3DDigitMed size=3D1><FONT face=3DArial =
+size=3D2>&nbsp;&nbsp;&nbsp; The=20
+example I've shown here is cust3s.txt, which is the one that most =
+consistently=20
+demonstratesteh crash.&nbsp; BTW, this is with using the last "best" =
+preset you=20
+supplied, the one with eight methods.&nbsp; This is the preset=20
+used:</FONT></FONT></DIV>
+<DIV>&nbsp;</DIV>
+<DIV><FONT face=3DArial size=3D2>--method soft-dfs -to 0123456789 -step =
+500 -nst=20
+\<BR>--method soft-dfs -to 0123467 -step 500 -nst \<BR>--method =
+random-dfs -seed=20
+2 -to 0[01][23456789] -step 500 -nst \<BR>--method random-dfs -seed 1 =
+-to=20
+0[0123456789] -step 500 -nst \<BR>--method random-dfs -seed 3 -to =
+0[01][23467]=20
+-step 500 -nst \<BR>--method random-dfs -seed 4 -to 0[0123467] -step 500 =
+-nst=20
+\<BR>--method random-dfs -to [01][23456789] -seed 8 -step 500 -nst =
+\<BR>--method=20
+random-dfs -to [01][23456789] -seed 268 -step 500 \<BR></FONT></DIV>
+<DIV><FONT face=3DArial size=3D2>&nbsp;&nbsp;&nbsp; Note, this does not =
+include a=20
+"prelude" flag.&nbsp; I had to eliminate the "name" flags as 2.4.2 did =
+not seem=20
+to recognize them.</FONT></DIV>
+<DIV>&nbsp;</DIV>
+<DIV><FONT face=3DDigitMed size=3D1><FONT face=3DArial size=3D2>.&nbsp; =
+I think I"d=20
+better do a range solve test over more than 1000 deals, so see how it =
+bears up,=20
+with, of course, that call to the "free" routine reenabled.&nbsp;&nbsp; =
+It has=20
+appeared as if the crash is occurring only when solving a non-original=20
+position.</FONT></FONT></DIV>
+<DIV>&nbsp;</DIV>
+<DIV><FONT face=3DArial size=3D2>&nbsp;&nbsp;&nbsp; BTW, on the basis of =
+a few=20
+1000-deal runs at range-solving, you've got excellent speed compared to =
+either=20
+FcPro's solver or Patsolve.&nbsp; Seems to run about twice a fast, so I =
+have to=20
+congratulate you on that.&nbsp; I should also make some comparisons at =
+one and=20
+two freecells, which of course is much more demanding.&nbsp; =
+</FONT></DIV>
+<DIV><FONT face=3DDigitMed size=3D1><FONT face=3DArial=20
+size=3D2></FONT></FONT>&nbsp;</DIV>
+<DIV><FONT face=3DDigitMed size=3D1><FONT face=3DArial size=3D2>Best =
+regards,&nbsp;=20
+---------------Adrian</FONT></FONT></DIV>
+<DIV><FONT face=3DDigitMed size=3D1><FONT face=3DArial=20
+size=3D2>&nbsp;</DIV></FONT></FONT></BODY></HTML>
+
+------=_NextPart_000_001D_01C223E5.F9586D00--
+

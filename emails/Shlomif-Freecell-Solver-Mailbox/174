@@ -1,0 +1,53 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 20326 invoked from network); 29 Jun 2002 04:44:53 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 29 Jun 2002 04:44:53 -0000
+Received: from computer ([12.78.218.63]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020629044447.WETK19902.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sat, 29 Jun 2002 04:44:47 +0000
+Message-ID: <000601c21f27$39a38ac0$3fda4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206281336210.1748-100000@vipe.technion.ac.il>
+Subject: FcPro - FCS -- bad news
+Date: Sat, 29 Jun 2002 00:40:28 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 60
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Sorry, it isn't really all that great.  I can't yet cite any specific
+examples for you, but it does look like we are still getting some bad moves
+out of FCS.
+
+    I spent most of the time I worked on it trying to make sense about this
+different results I'm getting dependng on how I start the program.  The same
+preset between the two different starting methods can give different
+solutions for the same deal.
+
+    One question:  Did you or did you not implement a "safe" move inhibit in
+your latest version?  I'm wondering if it was just an illusion that I
+thought you had.
+
+    I should be able to give you more of a definition of the problem
+tomorrow.
+
+Best regards,  ----------------Adrian
+
+

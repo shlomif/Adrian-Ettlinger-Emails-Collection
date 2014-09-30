@@ -1,0 +1,65 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 7360 invoked from network); 20 Nov 2001 11:21:34 -0000
+Received: from mtiwmhc24.worldnet.att.net (204.127.131.49)
+  by vipe.technion.ac.il with SMTP; 20 Nov 2001 11:21:34 -0000
+Received: from computer ([12.78.218.35]) by mtiwmhc24.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011120112125.SMGV19017.mtiwmhc24.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Tue, 20 Nov 2001 11:21:25 +0000
+Message-ID: <002001c171ad$0e257020$23da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111191631240.19728-100000@vipe.technion.ac.il>
+Subject: Bill Raymond, & FCS question
+Date: Tue, 20 Nov 2001 05:15:49 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 40
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I should say something about Bill Raymond.  You must have noticed that
+he said he didn't think A* could be used at all to solve Freecell.  Yet you
+are so using it.  Also, I'm curious if you are familiar with his terms
+"Breadth-first search" and "Best-first-search".  As he describes BFS, it
+sounds to me as if it's quite similar to A*.
+
+    Bill is the person I referred to in a previous message to you as the guy
+who a few years ago I'd corresponded with, and who had a solver that sounded
+very promising, and who became very evasive when I broached the subject of
+including it in FcPro.  Mike Keller, in fact, became very annoyed with him
+and lost patience.  I wonder if you had any previous correspondence with
+him.  I'm not sure how much time should be spent in discussions with him.
+>From past experience, it might be difficult to achieve any constructive
+results.
+
+    I decided to take a little time to looking further as to what's
+available on your website, and I downloaded the bin module file.  I noticed
+you make a reference elsewhere to "for the impatient".  Well, maybe I go to
+too far an extreme in my impatience.  I woudn't mind doing some
+experimentation with FCS, but I didn't find a Readme file to answer my key
+question.  Can you tell me, what are the minimum steps I could take to test
+a succession of standard freecell boards at various numbers of freecells?
+What I would most like to see is a test program in which I could call your
+solver as a command line, with a number in the line that the program would
+take as a M/S freecell game number, and then it would type out the soution
+on the screen.  Better yet, a command line which has two arguments, the
+first being the number of freecells.
+
+Best regards,  ---------------Adrian
+
+

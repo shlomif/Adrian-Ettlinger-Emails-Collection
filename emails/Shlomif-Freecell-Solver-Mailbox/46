@@ -1,0 +1,78 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 21582 invoked from network); 24 Nov 2001 21:37:39 -0000
+Received: from mtiwmhc25.worldnet.att.net (204.127.131.50)
+  by vipe.technion.ac.il with SMTP; 24 Nov 2001 21:37:39 -0000
+Received: from computer ([12.78.221.100]) by mtiwmhc25.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011124213724.FBDY15547.mtiwmhc25.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sat, 24 Nov 2001 21:37:24 +0000
+Message-ID: <002601c17527$c5e24800$04dd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111241631120.19515-100000@vipe.technion.ac.il>
+Subject: Reply to yours of today
+Date: Sat, 24 Nov 2001 15:35:53 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 67
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<< I play the moves on the board in order to display the solution in
+fc-solve.>>
+    That's a reply to a question I seem to have asked for a second time in
+my just-sent message.  What do you mean by "the board".  You mean with
+actual physical cards?  Or on M/S Freecell?  Whose "board"?
+
+<<FCS can solve board No. #9. Try running "make-microsoft-freecell-board 9 |
+fc-solve -to 0124567". Of course, this method uses only a subset of the
+possible multi-moves. How many iterations are required to solve it with all
+the multi-moves enabled I know.
+With "--method a-star" it solves it in 5800, and with both options the
+board is solved in 255 iterations short.>>
+    That's a bit better, but I'd still be curious as to why it behaves the
+way it does with no options selected.  "-to" is "test order", I assume.  How
+did you know to try it with that particular option?  Do you know from
+experience it can help to omit 3?  I really ought to provide a field for
+trying that feature from FcPro, which will, of course, mean adding a
+parameter to the interface function.
+
+<<It is possible some auto-moves are done by Fc-Pro but not by FCS, please
+look into it.>>
+    That's the nature of the problem.  FcPro might make an auto-move that
+would foul up the position, and a few moves afterwards an illegal move will
+show up.  That's what was happening with #114713 as reported in my other
+message.  But, on the other hand, there all also places where with FcPro's
+supermove not enabled, it won't make a move your solution expects.  So we're
+between a rock and a hard place.  I'm contemplating that, once I get the
+problem better defined, I might just drop work on replay for a while, and
+work on range solving and solving from a list, both of which will be very
+valuable to compare the two solvers.
+
+<<Board No. 597964 is suffering from the same symptom.>>
+    From my testing, it seems roughly 30% of all boards will exhibit the
+problem.
+
+<<The problems occurs only when I give the solver a large range of boards
+such as 1 to 1000 to solve.>>
+    Could be there's a real bug there.  Can you give me a specific setup
+where it occurs?  And is it repeatable?  You could try different selections
+for "Solrange.txt File Format".
+
+Best regards, -------------------Adrian
+
+

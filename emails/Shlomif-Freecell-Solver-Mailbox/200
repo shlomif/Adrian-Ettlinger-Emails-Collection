@@ -1,0 +1,43 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 14961 invoked from network); 17 Jul 2002 10:25:40 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 17 Jul 2002 10:25:40 -0000
+Received: from computer ([12.78.220.187]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020717102538.GATU6994.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Wed, 17 Jul 2002 10:25:38 +0000
+Message-ID: <000501c22d7b$c6e94980$bbdc4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207170802060.7637-400000@vipe.technion.ac.il>
+Subject: What are "prelude" 's?
+Date: Wed, 17 Jul 2002 06:21:06 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I don't know whether the answer to this question is something I could
+find by researching other material you've written, but to save me the
+searching, please tell me something about the "prelude" part of the preset.
+Is it relevant to the performance I'll see when I run 2.6.0 under FcPro?
+Must I include it, or can it be eliminated as irrelevant in my particular
+implementation?
+
+Best regards,  --------------Adrian
+
+

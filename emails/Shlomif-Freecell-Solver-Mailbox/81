@@ -1,0 +1,65 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 4341 invoked from network); 25 Dec 2001 10:34:41 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 25 Dec 2001 10:34:41 -0000
+Received: from computer ([12.78.219.192]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011225103429.SQYW941.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Tue, 25 Dec 2001 10:34:29 +0000
+Message-ID: <001201c18d2f$90034fc0$c0db4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112241134230.18130-100000@vipe.technion.ac.il>
+Subject: FCS preset system
+Date: Tue, 25 Dec 2001 05:10:14 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 40
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Writng early on this date, I'm prompted to ask this.  Something for some
+reason it's never occurred to me to be curious about.  Is December 25 in
+Israel just another regular business day?  Is one of the days of Chanukah
+substituted as a national holiday?
+
+    Looking over your list of sample presets, the longest just happens to be
+about 64 characters.  Yet you say in theory, if I understood correctly, that
+FCS could accept up to 64K in a command line.  I'd think there would be an
+absolute maximum in terms of just how many options can be expressed.  Is
+there any reason to allow more than, say, 128 for any immediately forseeable
+extension in the range of available options?
+
+    And another question.  Your proposed interface seems to require that the
+user be given the option of assigning name to each of an array of presets
+that you will supply, although presumably a user who wants to compose his
+own would have the option of doing his/her own editing or expansion of the
+file containing the presets.  What is the object of allowing
+user-identification of the presets?  As opposed to you just providing the
+designations?
+
+    I may not be able to get to integrating FCS V2.0 until later in the
+week.  Despite the secular nature of most of my extended family, we'll have
+a gathering at the house of up to eleven at a time for some of the rest of
+the week.
+
+    Assuming that this is a holiday season of some sort over there, my best
+of holiday greetings to you.
+
+Best regards, ----------Adrian
+
+

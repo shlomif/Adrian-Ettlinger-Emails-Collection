@@ -1,0 +1,51 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 314 invoked from network); 18 May 2002 01:52:01 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 18 May 2002 01:52:01 -0000
+Received: from computer ([12.75.69.153]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020518015158.ZUFO19182.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sat, 18 May 2002 01:51:58 +0000
+Message-ID: <003501c1fe0e$26553480$99454b0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205171909170.16256-200000@vipe.technion.ac.il>
+Subject: Re: Moving on to presets #3
+Date: Fri, 17 May 2002 21:46:44 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-Mimeole: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 8
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Acking your last.
+
+    Also, I spent more time looking at the code today, and am now at the
+point where I don't think I can do much until I get back home.  One thing
+I'm a bit puzzled by, however, is that I totally ignored the new parameters,
+and I still got a program that would compile, and it works.  The one thing I
+want to try to figure out is just where resides the information that causes
+a default preset to become effective.
+
+    I don't really understand this:
+<<I'll guess I'll have to delay splitting the search across several system
+threads (which actually sounds quite scarry) to later on.>>
+    Do we or do we not, on V2.4.2, have a program which uses multi=tasking
+to search for a fast rerdict.???
+
+Best regards, --------------Adrian
+

@@ -1,0 +1,47 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 20976 invoked from network); 10 Dec 2001 06:20:13 -0000
+Received: from mtiwmhc24.worldnet.att.net (204.127.131.49)
+  by vipe.technion.ac.il with SMTP; 10 Dec 2001 06:20:13 -0000
+Received: from computer ([12.78.219.142]) by mtiwmhc24.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011210062010.LSWX13117.mtiwmhc24.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Mon, 10 Dec 2001 06:20:10 +0000
+Message-ID: <000601c18142$a321a3c0$8edb4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112041743420.1638-100000@vipe.technion.ac.il>
+Subject: Build 6 delay
+Date: Mon, 10 Dec 2001 00:07:57 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 16
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I'm going to hold off on Build 6, probably for another day.  I just
+received a message from Tom Holroyd, who was out of touch for a few days,
+which tells me that I used some obselete files in putting together Patsolve,
+and while I have it basically working, it has some flaws and is less than
+optimum, so I might as well give it a little more time and bring it up to
+what it ought to be.
+
+    I plan to post a reply to Bill Raymond's message, but won't be able to
+get to it until tomorrow morning.
+
+Best regards,  -----------------Adrian
+
+

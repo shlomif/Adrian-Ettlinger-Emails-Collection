@@ -1,0 +1,306 @@
+Date: Sat, 19 Apr 2003 17:37:45 +0300 (IDT)
+From: Shlomi Fish <shlomif@vipe.technion.ac.il>
+To: Adrian Ettlinger <aettlinger@worldnet.att.net>
+Subject: Re: More chit-chat
+In-Reply-To: <001201c30665$cf3311c0$f753580c@computer>
+Message-ID: <Pine.LNX.4.33L2.0304191526010.20939-100000@vipe.technion.ac.il>
+MIME-Version: 1.0
+Content-Type: TEXT/PLAIN;
+  charset=US-ASCII
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 378
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+On Sat, 19 Apr 2003, Adrian Ettlinger wrote:
+
+> Hi Shlomi,
+>
+>     You might really be able to help me out technically.  I have a project
+> where I might have to start learing Perl.  At the moment it's on a back
+> burner, but I'll let you know if I pick it up, and might use some guidance
+> from you.  Will be especially interested in advice for beginners.
+>
+
+I will be more than glad to help you. Note that I would recommend anyone
+to learn Perl, because it's very useful in real life situation and gives
+you many important insights about programming and computers in general.
+
+You can find a good non-interactive help in mailing lists. Most local Perl
+Mongers mailing lists will be happy to help beginners. I am a member of
+the Israeli Perl Mongers mailing list and you are welcome to join there.
+If you decide to join a different community, I'll join the mailing list as
+well to help you.
+
+There's an international Perl Beginners mailing list, but it's too
+crowded (100+ messages a day). I formed my own at the site, which at the
+moment has had little messages (or subscribers). But it was formed just a
+few days ago, so I'm still happy.
+
+As for starting to learn perl, there are a few good resources online. One
+of them is Simon Cozens' book Beginning Perl:
+
+http://learn.perl.org/library/beginning_perl/
+
+Another is my own Perl for Perl Newbies series for the Haifa Linux Club:
+
+http://vipe.technion.ac.il/~shlomif/lecture/Perl/Newbies/
+
+My series assumes that you'll read the Perl internal docs later on, and is
+just a stepping stone for reading them. Simon's book is more
+comprehensive, but I did not have the time to read it.
+
+I learned Perl from the man pages, but it was still relatively hard.
+(that's part of the reason why I eventually wrote the Perl for Newbies
+series.)
+
+If you wish to read a paper book, there are also some good books which you
+can order from Amazon. Just ask people before you buy because many books
+have an awful reputation.
+
+> <<That put aside, you haven't told me yet what your children and
+> grand-children do. I'll be very interested to know that.>>
+>     If you're really interested.  My daughter lives the closest.  She's an
+> art teacher in elementary school, and she's married to a union carpenter.
+> She really married "beneath her station" intellectually.
+
+OK. Nice.
+
+> My son-in-law may
+> have a lot of native intelligence, but is extremely uneducated and not
+> interested in learning anything outside of his narrow sphere of interests.
+
+That's a shame. I'm trying to learn everything I can about computers and
+many other areas. Eventually I forget many things, but I still remember a
+lot. I remember a lot of useful things and some completely useless ones.
+(like anecdotes from many movies).
+
+I'm really glad I'm interested in Math/CS/EE, because it has a lot of
+concepts and not really a lot that needs to be memorized. I did not like
+history or literature much in high school because the material was not at
+hand during the test, so people memorized everything. I tried to remember
+the main concepts and the general wave, and wrote very laconic tests. As a
+result, my grades were usually inferior to many other people in my class.
+In EE, most of the tests are open material ones, but that's not the case
+in the Math department. (sometimes they tell you to give an entire long
+proof in a closed-material test)
+
+If I had to study medicine or something similar, you can be sure I
+wouldn't survive one semester.
+
+> They have three kids, a boy 11, and girl 9 and another boy 5.  All their
+> kids are very bright.  The 5-year old just had an IQ test and came out in
+> the140's somewhere.  (That's "genius" level).
+>
+
+Very nice. Of course, I don't know what's my IQ is and I don't really
+care. IQ rarely measures competency and there isn't a 1-to-1 correlation
+between a person's IQ and his intellectual achievements. (despite popular
+belief). I did get 766 on my S.A.T... and I did not take one of these
+courses and only studied from a course book.
+
+FYI, I heard of a study that says that gifted children (intelligence-wise)
+who receive special education usually eventually don't achieve as much as
+those who did not. Their main contribution is in inspiring, finding
+or teaching other intelligent people. I can testify from experience that
+this seems to be the case.
+
+
+>      My son obtained an engineering degree and then told me he decided he
+> wanted a law degree, so he has both.  But he hasn't followed a standard
+> lucrative career as a lawyer.  He lives in the Washington area and works for
+> a public interest organization.
+
+You mean an NPO? What does this organization do? (just out of curiousity)
+
+> I think you and he might have a lot in
+> common.  He is more interested in being a useful citizen than he is in
+> acquiring wealth.  Which I think might be a paraphrase of how you have
+> described yourself as regards your interest in open-source software.
+
+Note that I'm still interested in producing important tangible values.
+But, like I said, I don't have anything against people who don't produce
+as much, because there's nothing wrong in it. "First, do not harm".
+Anything beyond that is optional.
+
+Of course, many of the so-called "mystics" actively harm people without a
+very good cause for harming them. Enacting destructive laws, etc. They do
+it, because they brough themselves to such a state. Mysticism is an
+addiction. Normal people who are free and idealistic will not voluntarily
+harm anyone, and enjoy being good and productive. OTOH, mystics are
+miserable, fearful people who find a temporary relief (and subsequent
+worse feeling) in harming others. One can become a mystic out of being a
+value-producer, and some mystics reverted back to becoming productive
+again.
+
+Some people think that the key to our civilization's flourishing is making
+sure everybody is productive. That is not the issue. The key is making
+sure no-one will harm anybody else.
+
+> My
+> daughter-in-law is a very interesting person.  She had worked, and still
+> works occasionally, as a tour guide in Washington, and is very knowledgable
+> on area and national history.  My son definitely did not marry "beneath his
+> station" intellectually.  They're very compatible that way.
+
+OK. Sounds nice. If I'm in the D.C. area (where I have a few relatives),
+I might try to get in touch with her. (or vice versa) (or maybe you meant
+Washington State, which isn't very likely)
+
+> They have two
+> kids, a boy 11 and girl 8.  They aren't as ostensively bright as my
+> daughter's kids, but still decidedly above average, I'd say,  Their son, I
+> think, has the makings of an engineer or scientist -- he's very imaginative.
+>
+
+Good, that's good.
+
+>     Now that I've given some description of my family, I'm curious about
+> yours.  What business is your father in?  Is the family very religious?
+
+Here's a description of it:
+
+My father is the son of two Easter European parents. My grandfather on his
+side, escaped from the Nazis during WWII through half of Russia (he was
+originally from Poland), and eventually came to Israel via Teheran. He
+ended up working as a press worker in the publishing house of "Davar",
+which is owned by the national Union of Labourers. (Histadroth Ha'ovdim).
+Some of his family did survive, but we are unaware of the current
+whereabouts of most of the others and they probably died.
+
+My grandmother on my father's side's made Aliya to Israel along with most
+of her family, before Israel was formed. Her father was an author who
+wrote in Hebrew, and was quite idealistic. She met my grandfather, and
+they fell in love and married. Her father died before my father, and my
+father was named after him: Falk.[1] He was their only child.
+
+My mother came with her entire family from Iraq in the early years when
+the state of Israel was formed. She and all her siblings married
+Ashkenazis, but we live in four different parts of Israel (one at a
+Kibbutz near the Kinnereth, one at Tel Aviv, one at Holon (which is very
+near to Tel-Aviv), and the other in Be'er-Sheva). At the moment, three of
+my cousins are married, and others have a boyfriend or girlfriend. (not
+including my sisters and I).
+
+My family is very much secular. I am an atheist, and many of us are deists
+or so.
+
+My father has a Ph.D. in Immunology, and actually works in the
+Bio-Technological industry. He co-founded a successful company, (but
+constantly complains about the other workers), which was taken over by an
+American company, which he has know been working for their other
+subsdiaries. I find Bio-Technology to be interesting, but there are too
+many materials, etc. that need to be remembered. So I constantly rely on
+him for information.
+
+My mother is a Teacher in elementary school (mainly math), and now also a
+Teachers' guide, and the co-author of a successful math learning book. She
+also has tall tales (and long phone talks with her co-workers) about abuse
+from fellow workers and the current poor state of education in Israel.
+
+I, like I said am an IT worker. I worked as a programmer, QA engineer,
+etc. in several small firms before joining the Technion. (all of them
+startups and all of them still alive and kicking, which is rare). I study
+EE in the Technion, and hopefully will finish my degree soon. I'm really
+looking forward for having a degree and no longer have to study.
+
+While I studied in the Technion, I also experienced in open-source
+software, and in helping myself and others get their Linux and Windows
+jobs done. (either online or IRL). Strangely enough, I was one of the
+smartest kids in my class, and in the Technion I also don't feel inferior
+to anyone intellectually. (despite the fact that it chooses the best kids
+from all over Israel). Some of them, I felt were more or less equal to me,
+but I did not meant one which was superior.
+
+A person I really look up to now (albeit not consider my superior) is Muli
+Ben-Yehuda (http://www.mulix.org/). He is an expert hacker, knows English
+well, is constantly learning new things, and is a great guy. What
+distinguishes him from me is his wonderful person-to-person skills. He
+gives very good lecture and everyone seems to like him. My relationship
+with the fellow community is a bit edgy, because I sometimes do not phrase
+myself well. I am a bit jealous of him, but naturally do my best to
+improve my own person-to-person skills.
+
+My middle sister studied in the same high school I did, served in the IDF
+as an officer, and now studies Bio-Medical Eng. in Tel Aviv University.
+She is quite intelligent, but does not have the mathematical sense that I
+have, and so has to work quite hard, and constantly bugs me with
+questions. She is very sociable, and has many friends and makes more very
+easily.
+
+My youngest sister studied in the same high school, and served in the Army
+as an executive clerk in the Jehuda and Samaria. Back then, she knew the
+entire geography of the occupied territories by heart. Now she spends her
+time resting, doing very little activity, and hanging around the Lifehouse
+online forum. ;-) She is about to start studying in the Technion next
+year, in the CS faculty. I told her that it might be a good idea to study
+EE or Computer Engineering (a joint CS/EE path), because I feel some
+CS graduates have too much theory injected in them, and too little
+practical knowledge and understanding of how a computer works. This, in
+turn, can make them better programmers.
+
+Many optimizations don't reduce the overall complexity of the program, but
+still make programs much faster. Of course, I've seen many people in EE
+who wrote very sloppy or unmodular code, but I know for certain this
+problem is not limited to EE. It's a matter of attitude and curiosity
+above all. Many people will become better programmers after one year, than
+many after ten.
+
+> I
+> was going to comment about the one Seder I went to, that the family was a
+> very observant orthodox one, and I recall the Seder as accompanied with a
+> lot of what I was going to call "religious" "liturgy".  But thinking about
+> it further, it might not be accurate to say it was "religious".  It was
+> perhaps more in the nature of "historical remembrance" of the background of
+> Jewish history.  So tell me, in your family Seders, do you follow any sort
+> of prescribed pattern of ceremony, or is it just an informal family
+> gathering?
+>
+
+We read the Hagada and everything, but skip a lot of parts because we want
+to get to the food and to the mingling afterwards. Lately, Seders have
+become shorter and shorter in the net time dedicated to reading them,
+perhaps because more and more people attend them. But they are very fun.
+
+Orthodox (=Haredi) Jews sometimes hold mass-Seders, in which the entire
+community gathers around in one hall, and even outsiders are invited or
+welcome. I think religious or secular Jews prefer more intimate family or
+extended family gatherings. In Erev Pesach you can be sure the main roads
+will be loaded, and there won't be any parking available anywhere.
+
+Note that technically, I am an Orthodox Jew. And I dislike the easy route
+to Judaism that the reformists have enacted. I have an essay in mind
+titled "The Secular Judaism Manifesto", which I'd like to write based on a
+previous section in an essay I wrote sometimes ago about my ideology.
+(which I did not finish yet and would like to revamp). In it I claim that
+Judaism is much more than a religion and that being Secular is not only a
+good thing, but also a very desirable one. I intend to bring there some
+modifications to mainstream Judaism including a secular conversion to
+Judaism, which will be as hard as the Orthodox one only with meaningful
+implications.
+
+Regards,
+
+	Shlomi Fish
+
+> Best regards, ---------------Adrian
+>
+>
+
+[1] - Falk is an unusual name, especially for a Jew and in Hebrew. It is
+keep being misspelled in various occassions. "Fish Feller", "Fash Filk",
+"Fish Felez", "Flak Fish" - you name it.
+
+----------------------------------------------------------------------
+Shlomi Fish        shlomif@vipe.technion.ac.il
+Home Page:         http://t2.technion.ac.il/~shlomif/
+
+An apple a day will keep a doctor away. Two apples a day will keep two
+doctors away.
+
+	Falk Fish
+
+

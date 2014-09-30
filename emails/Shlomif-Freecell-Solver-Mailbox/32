@@ -1,0 +1,55 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 5294 invoked from network); 23 Nov 2001 16:03:56 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 23 Nov 2001 16:03:56 -0000
+Received: from computer ([12.78.218.25]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011123160342.NYJL5540.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Fri, 23 Nov 2001 16:03:42 +0000
+Message-ID: <000e01c1742f$fbb347c0$19da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111231518440.4010-100000@vipe.technion.ac.il>
+Subject: Pointers
+Date: Fri, 23 Nov 2001 10:02:24 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 54
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Thanks for a timely reply.  I haven't reached my moment of truth as yet,
+having gotten off to a slow start this morning.
+
+<<You should declare it as "char * FcSolveMove;" and then pass
+"&FcSolveMoves" to the function.>>
+    I just tried that, and it gave me a "warning" as follows:
+'char *' differs in levels of indirection from 'char (*)[]'
+
+    I could ignore the warning and see what happens.  Seems like the worse
+that could happen is it will crash.
+
+    Or, something else I'm thinking about.  I see you are accumulating the
+moves in moves_string[].  Could I put in an external reference to
+moves_string and then use lstrcpy(FCSolveMoves, moves_string)  ?  I might
+then also put in a test to make sure we don't overflow my limited size
+string.
+
+Best regards, -----------Adrian
+
+
+

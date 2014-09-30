@@ -1,0 +1,50 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 25333 invoked from network); 26 May 2002 12:58:51 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 26 May 2002 12:58:51 -0000
+Received: from computer ([12.78.219.54]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020526125848.KECN13408.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 26 May 2002 12:58:48 +0000
+Message-ID: <001101c204b4$a1827120$35da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205261545160.23898-100000@vipe.technion.ac.il>
+Subject: Implementing presets
+Date: Sun, 26 May 2002 08:54:43 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 23
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    You seem to be online right now, so we are in effect instant messaging.
+I'm not directly on line, but can check in every five minutes.
+
+    The first hurdle we need to get over is how I get the command string
+into local memory so your code can work on it.  I'll check now to see if
+you've answered my question about the INI file idea, hoping we're over that
+hurdle.
+
+    I think we should be able to get through this quickly without the need
+for you to do a big project.  I only need the format for a few instructions,
+I think.
+
+Best regards,  -------------Adrian
+
+
+

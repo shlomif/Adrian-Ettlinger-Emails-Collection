@@ -1,0 +1,61 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 18462 invoked from network); 24 Nov 2001 11:43:11 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 24 Nov 2001 11:43:11 -0000
+Received: from computer ([12.78.218.126]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011124114303.ZUCT941.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sat, 24 Nov 2001 11:43:03 +0000
+Message-ID: <008b01c174d4$bae149e0$1fda4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111240750450.17208-100000@vipe.technion.ac.il>
+Subject: Illegal moves
+Date: Sat, 24 Nov 2001 05:41:47 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-Mimeole: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 62
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+   I'm now running version 6.5 in the W98 laptop.
+
+    I haven't examined in detail all of the examples, but in the first one,
+144713, where you pointed out the move that is being attempted, that one is
+definitely a situation where the move could not be made in standard M/S
+Freecell, but it can in FcPro with Supermove enable.  A four-card column to
+column move cannot be made in standard freecell with two vacant columns
+present (and no vacant freecell), but only if there is a vacant column plus
+a vacant freecell -- or two vacant freecells.  I think it's probably safe to
+assume that all of the other examples are similar.
+
+    I'll look into, as a temporary expedient, enabling Supermove when
+playing back your solutions in your solver, but I'm not so sure I'd want
+that to remain the permanent solution.
+
+    I might explain that I usually keep the W98 laptop upstairs in the
+bedroom, where I have easy access to a telephone line, and this is the one I
+use for E-mail.  The other, new (a couple of weeks) XP machine is
+downstairs, and I haven't gone downstairs as yet.  So up to now I've been
+limited to the experimentation I can do on this W98 laptop.  I just happened
+to have a copy of version 6.5 here because I brought up a copy to E-mail to
+you.  We ought to have at least a temporary solution to the illegal move
+problem before we think of making 6.5 available to others for beta-testing.
+
+Best regards,  --------------Adrian
+
+

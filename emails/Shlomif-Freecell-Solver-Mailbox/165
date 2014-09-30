@@ -1,0 +1,50 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 11605 invoked from network); 25 Jun 2002 16:28:06 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 25 Jun 2002 16:28:06 -0000
+Received: from computer ([12.78.219.244]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020625162800.IJLV5870.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Tue, 25 Jun 2002 16:28:00 +0000
+Message-ID: <000501c21c64$cd65bfa0$f4db4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206250829200.31128-100000@vipe.technion.ac.il>
+Subject: Report number one
+Date: Tue, 25 Jun 2002 12:20:56 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 53
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    OK, I now have a separate project established to work with you starting
+from the beginning with 2.4.2, and I'm back where I started.  Bug number
+one:
+
+    I have a trap in my code where I first see the move string that I
+receive from the interface.  The last eight characters, from left to right,
+read "5d5c5b5a", whereas they should be "d5c5b5a5", since the
+source-destination sequence as well as the move order should be reversed.
+
+    There is another problem, which I recall I also had to work on, related
+to the length of the string, and what I'm getting is truncated in length
+compared to what it should be.  But let's work on one thing at a time.
+
+Best regards, -----------Adrian
+
+

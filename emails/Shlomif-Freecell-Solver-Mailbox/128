@@ -1,0 +1,139 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 16865 invoked from network); 26 May 2002 02:41:30 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 26 May 2002 02:41:30 -0000
+Received: from computer ([12.78.220.5]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020526024126.EUHM13408.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 26 May 2002 02:41:26 +0000
+Message-ID: <000801c2045e$62401900$05dc4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0205191356130.6823-100000@vipe.technion.ac.il>
+Subject: Implementing chopper and presets
+Date: Sat, 25 May 2002 22:37:21 -0400
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+  boundary="----=_NextPart_000_0005_01C2043C.BC03A6E0"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 15
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0005_01C2043C.BC03A6E0
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+
+Hi Shlomi,
+
+    I'm back home now.  Didn't have as much leisure time combined with
+energy while in California to dig further into the code.  Partly because I
+caught a cold while out there.
+
+    Sorry, but I have to ask you to lead me by the hand into this.  Your
+level of code-writing uses some syntax with which is not familiar to my
+limited skill level.  I think it's likely you could easily give me the code
+I'll need to use to apply the chopper and pass the arguments properly to
+Free2Solver().
+
+    As I described previously, I want for this first implementation to read
+a preset from a text file.  The file name will be fcspres.txt.  I've coded
+and checked out the reading of the file and storage in memory as a string,
+whose label is (LPSTR)FCSPresBuf.  (I think the definition LPSTR in
+DevStudio is the equivalent of *char).  I'm attaching a file free2ex.txt,
+which shows the relevant code.  I'd appreciate it if you could fill in the
+necessary usage of the chopper and the new call to Free2Solver().
+
+    I'm enclosing also the fcspres.txt file I'll use for testing, which is
+from the sample you'd provided previously.  I'm a bit unclear as to exactly
+what chopper will do with this.  It looks to me as the number of strings in
+the array is going to be on the order of 50 or so, rather than one per line
+of text, as I'd originally thought.  Is that correct?
+
+    BTW, the signal_step feature had already been implemented, so I asked
+about that only because I'd forgotten about it.  Further, it is working
+properly as it now stands.
+
+    Oh, yes, re the "social" part of our last exchange, my choice of words
+in saying this crowd of people I'd been meeting with would be company you'd
+"enjoy" wasn't really as intended.  I too can enjoy the company of people
+whose religious orientation differs from mine.  Maybe instead I should have
+said people who you'd find "philosophically congenial".
+
+    Hey, it's now dawning on me why I have problems understanding your code.
+It's because I essentially started out using DevStudio, and never really
+learned what is behind it in terms of ANSI C, which you are writing in.  It
+was like a light bulb lighting up when it struck me that LPSTR and *char are
+the same thing (at least I hope they are).  Maybe if I bear things like that
+in mind I'll be able to do better in the future.
+
+Best regards,  --------------Adrian
+
+
+------=_NextPart_000_0005_01C2043C.BC03A6E0
+Content-Type: text/plain;
+	name="Fcspres.txt"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="Fcspres.txt"
+
+    --method random-dfs -seed 1 -to 0[0123456789] -step 500 -nst \
+    --method random-dfs -seed 2 -to 0[01][23456789] -step 500 -nst \
+    --method random-dfs -seed 3 -to 0[01][23467] -step 500 -nst \
+    --method a-star -step 500 -nst \
+    --method a-star -to 0123467 -step 500 -nst \
+    --method random-dfs -seed 4 -to 0[0123467] -step 500 -nst \
+    --method soft-dfs -step 500
+
+
+------=_NextPart_000_0005_01C2043C.BC03A6E0
+Content-Type: text/plain;
+	name="Free2ex.txt"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment;
+	filename="Free2ex.txt"
+
+char szFCSPFname[] =3D "fcspres.txt" ;
+HFILE hpfile ;
+LPSTR FCSPresBuf ;
+int pflen ;
+=20
+...........................
+
+NEW CODE FOR PRESET SYSTEM 5/25/02
+hpfile =3D _lopen(szFCSPFname, OF_READ) ;
+if (hpfile !=3D -1)
+	{
+	pflen =3D _llseek(hpfile, 0L, 2) ;=09
+	_llseek(hpfile, 0L, 0) ;
+	FCSPresBuf =3D malloc(pflen) ;=09
+	_lread(hpfile, (LPSTR)FCSPresBuf, pflen) ;
+	_lclose(hpfile) ;
+	}
+else
+	FCSPresBuf =3D 0 ;
+//MessageBox(GetFocus(), FCSPresBuf, "FC", MB_OK) ;
+
+..................................
+//Below is present call to Free2Solver();  "FCSmode, 0, " is to be =
+replaced with new arguments.
+
+[presume call to the chopper will be inserted here]
+
+result =3D Free2Solver (&orig, NUM_FCS, FCSlimit, FCSmode, 0, =
+&signal_step);
+
+------=_NextPart_000_0005_01C2043C.BC03A6E0--
+

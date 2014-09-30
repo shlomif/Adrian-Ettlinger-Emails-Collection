@@ -1,0 +1,68 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 15530 invoked from network); 25 Nov 2001 19:33:15 -0000
+Received: from mailgw2.technion.ac.il (132.68.238.35)
+  by vipe.technion.ac.il with SMTP; 25 Nov 2001 19:33:15 -0000
+Received: from mtiwmhc24.worldnet.att.net (mtiwmhc24.worldnet.att.net [204.127.131.49])
+	by mailgw2.technion.ac.il (Postfix) with ESMTP id E821036D1A
+	for <shlomif@vipe.technion.ac.il>; Sun, 25 Nov 2001 20:06:47 +0200 (IST)
+Received: from computer ([12.78.221.45]) by mtiwmhc24.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011125180603.STIV13117.mtiwmhc24.worldnet.att.net@computer>;
+          Sun, 25 Nov 2001 18:06:03 +0000
+Message-ID: <000801c175d3$67e08080$2ddd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: <fomalhaut@earthlink.net>
+Cc: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <3BFCE676.4359.B33E1@localhost>
+Subject: Build 62 -- Important!.
+Date: Sun, 25 Nov 2001 12:04:50 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 72
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Michael,
+
+    Shlomi Fish has been doing some experimenting with Range Solve in Build
+61.  We're hoping soon to also have Range Solve with his solver so we can
+start cross-checking for false impossibles.
+
+    Shlomi reported to me that Build 61 was crashing on Range Solve, and
+when I checked it out, by golly, he was right.  It turned out that Build 60
+was OK.  The only difference between the two builds is that I changed the
+Build number to 61 because I'd made a mistake and had duplicated the use of
+the number 60 in a previous build.  Which at first seemed like a deep
+mystery, but it isnt.  I'd built Build 61 in a different, newer laptop, and
+under Windows 98, not 95.  Here's hoping that it's not a 98/95 problem, but
+a difference between the way I have the compiler set up.  The same thing
+must be happening in yet a still newer laptop in which I'm doing the work to
+integrate Shlomi's solver, because the program built there has the same
+problem.  Another clue is that the newer program is 142K in size, whereas
+the older compilation, that works, is 169K.
+
+    Anyway, I did another compilation, calling this one Build 62, in the
+older laptop, and it's working OK.  Be a good idea to replace the Build 61
+you have on your site with this one immediately, as Build 61 is really bad
+news.
+
+    I'm copying Shlomi on this so he will get a copy of Build 62
+immediately.
+
+    Now I have to try to figure out what's different in the newer laptop to
+see if I can get an equivalent compilation there.
+
+Best regards,  ---------------Adrian
+
+

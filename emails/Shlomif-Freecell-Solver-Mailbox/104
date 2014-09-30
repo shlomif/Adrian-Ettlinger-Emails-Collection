@@ -1,0 +1,54 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 30968 invoked from network); 4 Mar 2002 08:02:14 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 4 Mar 2002 08:02:14 -0000
+Received: from computer ([12.78.219.42]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020304080155.KGZJ28073.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Mon, 4 Mar 2002 08:01:55 +0000
+Message-ID: <001101c1c352$8b054ec0$2adb4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0202271531510.23683-100000@vipe.technion.ac.il>
+Subject: Progress report with 2.2.2
+Date: Mon, 4 Mar 2002 02:55:30 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 74
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I now have FcPro running with the 2.2.2 version I'd previously
+downloaded.  So I'm more or less ready to do a real integration of 2.4.0
+(was that the number?) with a new interface module, when the time comes.
+
+    I had to do a bit of groping around.  This time I decided to do it as a
+static library, which was your first recommendation way back.  I think I
+succeeded, but I'm not sure.  It took a while to realize that I had to
+include lib.c for that purpose.  Can you tell me just which source files I
+should be using for compilihg it as a static library?  Whatever, I do have
+it working, albeit perhps with a less efficient compilation scheme than
+should be necessary..
+
+    I don't have the previous one (1.7) to compare to, but from my memory,
+2.2.2 already looks better.  Seems on the average to be running faster, and
+also I think I'm getting a lower percentage of FcPro-unplayable solutions.
+I don't intend to do much experimentation with it, since I'm awaiting your
+"real" version 2.4.
+
+Best regards,  --------------Adrian
+
+

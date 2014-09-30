@@ -1,0 +1,77 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 27038 invoked from network); 29 Jul 2002 17:29:41 -0000
+Received: from mtiwmhc24.worldnet.att.net (HELO mtiwmhc21.worldnet.att.net) (204.127.131.49)
+  by vipe.technion.ac.il with SMTP; 29 Jul 2002 17:29:41 -0000
+Received: from computer ([12.78.218.134]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020729172939.CZIZ8052.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Mon, 29 Jul 2002 17:29:39 +0000
+Message-ID: <001e01c23724$fa301280$86da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207290828280.17468-100000@vipe.technion.ac.il>
+Subject: Update
+Date: Mon, 29 Jul 2002 13:24:48 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    <<Quotation marks handling start at line 124.>>
+
+    I see it.  I'd thought it would suffice just to change these
+definitions, as I changed them to:
+-------------
+#define skip_ws() { while(((*s <= ' ') && (*s != '\0')) || (*s == '\t') ||
+(*s == '\\')) { s++; } }
+#define skip_non_ws() { while(((*s > ' ') || (*s == '\0')) && (*s != '\t')
+&& (*s != '\\') && (*s)) { s++; }}
+-------------
+    Then wouldn't the quotes be handled by changing it to:
+-------------------
+#define skip_ws() { while(((*s <= ' ') && (*s != '\0')) || (*s == '\t') ||
+(*s == '\\') || (*s == '\"') { s++; } }
+#define skip_non_ws() { while(((*s > ' ') || (*s == '\0')) && (*s != '\t')
+&& (*s != '\\') && (*s != '\"') && (*s)) { s++; }}
+ -------------------
+
+<<Why is that so important? Most such characters are illegal in text
+files.>>
+    When you have the preset in a text file, such as I now do, it appears
+that the line breaks in the text file must be using both C/R and L/F,
+although perhaps this depends on which primitive text editor one is using
+(like NotePad vs. WordPad).  But, in any case, your version of the chopper
+doesn't work with my text file, but mine does.  You see in my mod to the
+chopper, I skip on all control characters.
+
+    I realize that this problem disappears once I get to using an .ini file,
+and parsing all the presets from there, but in my interim state, I need the
+chopper to be the way I have it.  I don't really have any need for the quote
+processing, as I've changed the presets to eliminate them.   I don't know
+how much importance we need attach to my using exactly the same file you
+are, but I suppose it's a
+neater thing to do.  I probably won't get to the .ini file project for a
+while yet.
+
+    I believe I now have the FcPro with 2.6.1 .exe file ready for posting,
+and just have to work on the accompaying explanatory text before I actually
+post it.
+
+Best regards, ---------------Adrian
+
+
+

@@ -1,0 +1,62 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 15937 invoked from network); 5 Jul 2002 14:11:38 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 5 Jul 2002 14:11:38 -0000
+Received: from computer ([12.78.218.101]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020705141136.SHUF19902.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Fri, 5 Jul 2002 14:11:36 +0000
+Message-ID: <000401c2242d$647f7c80$65da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207051445270.13209-100000@vipe.technion.ac.il>
+Subject: FcPro - FCS -- free crash problem
+Date: Fri, 5 Jul 2002 10:07:15 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Under W98, it crashes even worse.  A couple of times it brought the
+whole computer to its knees, and I had to reboot it.
+
+    This is the solution to game #3 that it is very sensitive to.  After the
+"4c" move, the first on the next-to-line, the number of iterations for the
+solution is 51, and that works OK.  But after the next move, the iterations
+are 50, and it crashes.  It also crashes on the position after each of the
+following moves, when the number of iterations is less than 50.
+
+#3 P. Fedrick Towers :1 =4
+28 5a 5b 56 27 72 b7 37 38 5b
+65 35 35 35 15 3c 83 8h 3h 7h
+bh 3b 83 c3 8c 84 c8 28 18 46
+4c 4h ch 2c 23 74 67 62 c2 1c
+13 48 42
+
+    Another clue: After one of the crashes in W98, I got a blue screen
+message, saying a "page fault" had occurred.
+
+    The worst situation we might have is that something about the way
+DevStudio is compiling the source is making it act peculiarly.  I'll take a
+crack at compiling in Debug mode to see if that gives us any more clues.
+
+    I haven't looked at the code for that free routine.  Is there anything
+about it that operates in batches of 50, such that the 50 iterations would
+become a magic number?
+
+Best regards, -----------------Adrian
+
+

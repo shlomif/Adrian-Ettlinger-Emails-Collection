@@ -1,0 +1,112 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 12736 invoked from network); 27 Nov 2001 05:03:15 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 27 Nov 2001 05:03:15 -0000
+Received: from computer ([12.78.218.49]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011127050301.CTIC28078.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Tue, 27 Nov 2001 05:03:01 +0000
+Message-ID: <009701c176f8$57947a80$7bdb4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111262307430.1533-100000@vipe.technion.ac.il>
+Subject: Re: Replays
+Date: Mon, 26 Nov 2001 21:51:00 -0500
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+  boundary="----=_NextPart_000_008A_01C176C4.6FD54540"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 1
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_008A_01C176C4.6FD54540
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+
+Hi Shlomi,
+
+    Yes, if you do actually want to do a compilation, you should have those
+two files.  Attached.
+
+    There is at least one more thing you need to know to compile.  You need
+to add to "Preprocessor definition", ",FCPRO2,NTMAKE".  And set the stack to
+0x2000000 (32 megs.)
+
+    Re patsolve, I'd like to really be able to evaluate it, and it's
+beginning to look to me as if I will just about have to integrate it into
+FcPro to do so.  I'd like to be able to run it over a long range of M/S
+Freecell hands, and there doesn't really seem to be any way to do that
+except virtually by building it into FcPro.  So I might just go ahead and
+add a "Solve3" very soon.  Tom is corresponding with me very actively right
+now.
+
+    So I'm somewhat torn right now as to where to put my time.  Certainly,
+there is more that should be done with the integration of FCS.  I'll sit
+back and take a look at it tomorrow.
+
+    Which version of DevStudio are you using?  I know I'm behind the times,
+having just moved from 4.0 to 5.0.
+
+Best regards,  -------------Adrian
+
+
+------=_NextPart_000_008A_01C176C4.6FD54540
+Content-Type: image/bmp;
+	name="bitmap2.bmp"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+	filename="bitmap2.bmp"
+
+Qk32BAAAAAAAAHYAAAAoAAAAMAAAADAAAAABAAQAAAAAAIAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAgAAAAICAAIAAAACAAIAAgIAAAMDAwACAgIAAAAD/AAD/AAAA//8A/wAAAP8A/wD//wAA
+////AP//////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+/////////////////////w==
+
+------=_NextPart_000_008A_01C176C4.6FD54540
+Content-Type: application/octet-stream;
+	name="Cursor1.cur"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+	filename="Cursor1.cur"
+
+AAACAAEAICAAAAAAAAAwAQAAFgAAACgAAAAgAAAAQAAAAAEAAQAAAAAAgAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////8=
+
+------=_NextPart_000_008A_01C176C4.6FD54540--
+

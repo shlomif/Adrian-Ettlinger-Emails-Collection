@@ -1,0 +1,138 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 14015 invoked from network); 22 Nov 2001 12:18:43 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 22 Nov 2001 12:18:43 -0000
+Received: from computer ([12.78.221.32]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011122121827.NEZ5540.mtiwmhc21.worldnet.att.net@computer>;
+          Thu, 22 Nov 2001 12:18:27 +0000
+Message-ID: <002501c17347$592edc00$20dd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+Cc: <fomalhaut@earthlink.net>
+References: <Pine.LNX.4.33L2.0111211727240.28696-100000@vipe.technion.ac.il>
+Subject: Catching up
+Date: Thu, 22 Nov 2001 06:17:04 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 49
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Re the Technion site, I can now access it again this morning.  But all
+day yesterday, into late at night, it appeared to be down.  No doubt a
+problem somewhere else in the Internet system.  I don't know that much about
+how Internet is structured, but it must be that the Technion site, to be
+accessed from my part of the US (or maybe from North America?) requires some
+other server to be up and running, and that other server was down.  Or part
+of a telephone system somewhere on the route being down.  Although I would
+have thought that any point-to-point route in Internet would have many
+alternate paths it could use.  Do you know anything about this?
+
+    Anyway, now that you've sent me the source (and it will be more
+convenient having it in a file that includes only what I will really need),
+I'll get to work on it right away.
+
+    Working my way through your messages:
+
+<<10350 - it is solveable with three freecells, but after 1,208,363
+iterations. Are you sure it is the correct number?>>
+    Yes, that's the right number.  And this does mean that, in the computer
+I was using, it fits the definition of "Intractable".  Because that
+particular computer, with "only" 270MB of available hard drive space, cannot
+run long enough to achieve a result, at least using your normal DFS mode.
+The definition of Intractable depends upon the memory available in the given
+computer, or upon an arbitrary "impatience" setting.  I. e., if we want to
+do a run, for the purpose of testing a solver, over a range of boards, we
+want to cover as many boards as we can in a reasonable period of time, so we
+might not want to solver to continue working on a board that might tie it up
+for a long period on time (10 minutes?  4 hours?).  So we'd run the range
+with a limitation either of time, or iterations.  I did very extensive
+testing of the FcPro solver in that way.  It would  produce a results file
+that would identify the Intractables (usually my settings were such that
+there were very few). Then I would go back to those Intractables and look
+for a way to solve them by using some other mode in the solver.
+
+    BTW, I was not using my most powerful laptop for this test.  This one is
+400 mHz, 160 MB RAM, with, as I said, only about 270 MB of hard drive space
+available.  I could also run it in my new 850 mHz, 256 MB RAM, 8 GB
+available hard drive space machine.  I'm going to do that, because I'm
+curious to see how long it takes.
+
+    Thanks for the info about the alternate site ("berlioz") from where the
+source could have been downloaded.  Yesterday, in my desperation, I did a
+Google search on your name, and on Freecell, and found many, many hits, but
+didn't systematically explore them all.  If I had, I probably would have
+found that site.  I also did a search on Technion, and dispelled some of my
+ignorance about the institution.  I see you are in Haifa.  And that you are
+also a Linux "expert", among other things.  And a movie reviewer. :-)  What
+is your position at the university?  You're involved in so much, I somehow
+doubt that you are a student.   I also researched time zones and found out
+that you are only two hours east of London, so I figured out the 7 hour
+difference.  Question:  Could Technion be described as the "MIT of Israel."?
+
+    From your later message, I see that your "iterations" count is a sort of
+"macro-hands", in relation to our terminology in the FcPro solver.  I.e. one
+of your iterations could be several of our "hands" counts.  With regard to
+depth, as a recursion count, it's possible that this would have the same
+significance as the "depth" count in FcPro.  It might take some
+experimentation to determine this, but the question would be whether, if you
+run it in a memory-starved environment, and you want to avoid the
+possibility that a board requring a very long run will cause the computer to
+stop because the hard drive is full, would it be possible to set a limit on
+depth so that the solver would stop before it hit that limit?  Actually, in
+FcPro, we carry that a step further and test for available hard drive space,
+and set that limit automatically.  This grew out of extensive testing and
+wanting to have a "product" that would not annoy users who were running it
+in small lightweight computer environments.  But this is a level of
+sophistication in the design that we can defer to be tackled later on.
+
+    Thanks for the tutoring on pointers.
+
+<<C++ is mostly a superset of C.>>
+    That's what I've always assumed.  You sent me a second copy of the
+interface code, with the file extension of  ".c", but you didn't say whether
+this was the same file, renamed.  Whatever, I'll use the second one you
+sent.
+
+<<Do you mean BFS as in "Best-First Search" or "Breadth-First Search"?
+Unless I completely misinterpreted Justin Heyes-Jones A* tutorial, my A*
+implementation is indeed A*.>>
+    I did mean Best First, using Bill Raymond's nomenclature.  Raymond's
+behavior at times seems so eccentric that I don't necessarily take his
+comments all that seriously.  I might or might not continue that dialogue
+with him.  My inclination is to trust you more than I do him.
+
+    As you put it to Mike Keller:
+<<I meant that it is possible that some states that can be solved, will be
+reported as unsolveable by it. So, there will be some false negatives.>>
+    If that means what it seems to mean, I'm somewhat diappointed.  Does
+that mean you do not intend to achieve a solver that will be "perfect" in
+terms of providing a solution for every board for which a solution is
+possible?  That's what I've been hoping will be developed some day, the pot
+at the end of the rainbow.  But even an "imperfect" Freecell Solver might
+still be "better" than what we now have in FcPro, because we are hardly
+"perfect" either.
+
+    My working time today is going to be restricted, so don't know how far
+I'll get.  This is the Thanksgiving holiday here (as maybe you were aware)
+and we're meeting with my daughter's family, including three grandkids, this
+afternoon for the traditional Turkey dinner, at a resturant across the
+river.
+
+Best regards, --------------------Adrian
+
+

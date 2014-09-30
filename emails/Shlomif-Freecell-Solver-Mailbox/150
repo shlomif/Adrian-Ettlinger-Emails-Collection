@@ -1,0 +1,53 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 15459 invoked from network); 3 Jun 2002 16:26:36 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 3 Jun 2002 16:26:36 -0000
+Received: from computer ([12.78.220.91]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020603162634.LFWO5116.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Mon, 3 Jun 2002 16:26:34 +0000
+Message-ID: <000401c20b1a$f9005900$5bdc4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206031637150.11519-100000@vipe.technion.ac.il>
+Subject: Code question #2
+Date: Mon, 3 Jun 2002 12:22:27 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 38
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I got my MM solution to compile as far as the reference to "move" is
+concerned, but now I'm having a problem expressing the state parameter.  I'm
+now trying the following, but it seems user->running_state is not a correct
+way to express the state parameter for the fcs_stack_card_num() and
+fcs_stack_len() functions.
+===============================
+moveA = *move ;
+if ((ret == 0) &&
+     ((fcs_move_get_type(moveA) !=
+        FCS_MOVE_TYPE_STACK_TO_STACK) ||
+     (fcs_stack_card_num(user->running_state,
+             fcs_move_get_src_stack(moveA),
+         fcs_stack_len(user->running_state,
+            fcs_move_get_src_stack(moveA))-1) > 1)))
+===============================
+    Can you clue me in?
+
+Best regards,  ------------------Adrian
+
+

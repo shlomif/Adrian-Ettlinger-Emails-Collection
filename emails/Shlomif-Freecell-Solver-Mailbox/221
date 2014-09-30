@@ -1,0 +1,102 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 31682 invoked from network); 28 Jul 2002 09:53:07 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 28 Jul 2002 09:53:07 -0000
+Received: from computer ([12.78.219.37]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020728095301.KKIJ5835.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Sun, 28 Jul 2002 09:53:01 +0000
+Message-ID: <001901c2361c$05c9f160$25db4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207271958120.4659-100000@vipe.technion.ac.il>
+Subject: Update
+Date: Sun, 28 Jul 2002 05:13:53 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    I like Indian food myself also.  In fact, most "ethnic" cuisines.  It's
+interesting how Mexican food finds its way around the world.  I have a
+friend who lived in Bahrain for quite a while, and he explained the presence
+of Mexican restaurants there by the fact that there is a big US naval base
+there.  The explanation for Israel might be that so many Americans have
+moved or visited there.  Hmmm.  Wonder if there are any, or many, Mexican
+restaurants in France.  Probably are in Italy and Germany because of the US
+military bases there.
+
+    I should bring you up to date on where I stand. with FcPro and FCS
+2.6.1.  My objective has been to decide and implement how I want it to work
+when the hot key is used to invoke FCS by a player checking out an
+intermediate position.  The question is what strategy to employ to minimize,
+on the average, the wait time for a reliable verdict.  We need to find a
+protocol which will be a compromise between highest speed and reliability,
+with the requirement that this mode will never (so far as we know) deliver a
+false impossible verdict.  And it has to meet that objective not only when
+playing with four freecells, but also with fewer down to zero.  To that end,
+I did some extensive testing over the past few days at four down to zero
+freecells.  I had to repeat some of the testing because of the realization
+that my first round was done without the prelude mode functioning.  I want
+to report to you my findings, because I think they might contribute to your
+direction of further development once you return to working on FCS (I note
+your comment that you will be suspending further work on FCS for a while).
+
+    I do find that FCS is much, much slower under an atomic move preset.  In
+fact, competitively with Patsolve, it is on the whole considerably slower.
+But at the same time, it is faster at finding a solution under a non-atomic
+preset for the great majority of positions for which it can find a solution
+quickly.  But this advantage declines as one reduces the number of
+freecells.  In fact, at zero freecells, the best atomic move preset is, on
+the average, faster than the best non-atomic-move preset.  At one freecell,
+non-atomic is definitely faster, but atomic is often very, very slow.  At
+zero freecells,  there seems to be a greater tendency for false impossibles
+with a non-atomic preset.  Here are some examples you might want to look at
+later:
+
+    With one freecell, deal #90, which is impossible.  With atomic preset,
+FCS takes 234 seconds to reach the impossible verdict, Patsolve takes only
+19 seconds.
+
+    With zero freecells, two deals which show "Impossible" with a non-atomic
+preset, but are winnable with atomic, are #3178 and #7167,  With #7167, FCS
+is much slower, with atomic, in finding the solution than is Patsolve.  FCS
+takes several seconds, Patsolve appears almost instantaneous.
+
+    My one remaining project before I post 2.6.1 on my website is to install
+a protocol for the FCS hot key operation.  I'm going to make is so, if in
+the zero freecell game, it will use the best atomic move preset.  For one
+freecell and above, it will use first the non-atomic move preset, and stay
+in that mode for as long as the FcPro-set limitation either as to time or
+iterations allows, and if a win if found, will then exit.  But if
+intractable or impossible under the non-atomic move preset, it will then
+spend an equal amount of time working under an atomic move preset.
+
+    There's a suggestion here for your next development of the preset
+system.  I'd suggest you have an optional mode under which, for a
+multiple-line preset, it does not deliver any impossible verdicts if the
+line is a non-atomic move one, and accepts an impossible verdict only from
+an atomic move line.
+
+    I hope to complete my work in the next day or two, maybe if I'm lucky
+even yet this morning (we have some family visiting going on and I'm up
+early to get some work done before the activity starts, which will eat up
+the rest of the day).
+
+Best regards,  -------------Adrian
+
+

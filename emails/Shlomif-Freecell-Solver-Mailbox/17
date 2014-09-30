@@ -1,0 +1,77 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 5273 invoked from network); 20 Nov 2001 08:17:44 -0000
+Received: from mtiwmhc26.worldnet.att.net (204.127.131.51)
+  by vipe.technion.ac.il with SMTP; 20 Nov 2001 08:17:44 -0000
+Received: from computer ([12.78.249.81]) by mtiwmhc26.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011120025646.UZFZ4964.mtiwmhc26.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Tue, 20 Nov 2001 02:56:46 +0000
+Message-ID: <000301c17166$8ea70d40$51f94e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111191631240.19728-100000@vipe.technion.ac.il>
+Subject: Re: A*, solver routine
+Date: Mon, 19 Nov 2001 16:19:25 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 39
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<You instructed me to create a text file with the moves. I can do that, but
+I can also store them directly in memory, which will make it safer and
+faster.>>
+    Everything is negotiable.  Storing directly in memory will, on second
+thought, be preferable.  We store the moves in FcPro in a string variable,
+as ASCII characters, and the maximum length of the string is 5000 (2500
+moves). Because we read out the path of the solution from end to start, the
+sequence in the string is in reverse order of how the moves are made to
+execute the solution.  But if you would deliver the moves in any other sort
+of array, numeric integers or whatever, I don't mind doing the translating
+job if you will give me the spec of the format.
+
+<<Do you want to somehow just ask the solver if it solved the boards and how
+many iterations it performed?>>
+    Well, I would prefer also to get the solution if you have it available.
+I've been trying to avoid spending the time to study what you have made
+available on your website (being lazy).  Are you delivering the move-by-move
+solution in any form as things stand now?  If you are not, let's not hold
+things up for that.  I know in our solver, it was a challenging problem to
+extract from what's left over after a solution is found just what were the
+moves that constituted the solution, and if perhaps you have not addressed
+that problem as yet, let's bypass it for the time being.
+
+    Re the info as to whether a solution was found, and how many interations
+were used, did you understand my spec for that?  I. e., the return integer
+if 0 means hit the iteration limit.  If a negative integer means it was
+impossible, and the integer is the number of iterations negated.  If a
+positive integer, that's means solution found and the integer is the number
+of iterations used.
+
+<<I beg your pardon? The "pure" C code I provide can run on DOS, Windows,
+UNIX or whatever else contains the standard ANSI C library. True, the
+Windows executable I provide is a command-line application but it's still a
+100% Win32 executable. I referred to you because I was looking for
+implementing a Win32 GUI for it.>>
+    OK, I misinterpreted something Mike had said.  Was equating "Windows"
+with "Windows GUI".  So I gather that when executing it as a command line,
+one sees the output as text only?  FcPro should make a very nice GUI
+presentation of the results.
+
+Best regards,  ------------------Adrian
+
+

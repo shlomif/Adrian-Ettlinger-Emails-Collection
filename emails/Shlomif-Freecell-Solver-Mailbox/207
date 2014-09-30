@@ -1,0 +1,130 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 19875 invoked from network); 19 Jul 2002 17:22:51 -0000
+Received: from mtiwmhc23.worldnet.att.net (204.127.131.48)
+  by vipe.technion.ac.il with SMTP; 19 Jul 2002 17:22:51 -0000
+Received: from computer ([12.78.218.26]) by mtiwmhc23.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020719172248.WVLO6994.mtiwmhc23.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Fri, 19 Jul 2002 17:22:48 +0000
+Message-ID: <000601c22f48$5fba7080$1ada4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207191142240.11690-100000@vipe.technion.ac.il>
+Subject: Crash problem - tough!
+Date: Fri, 19 Jul 2002 13:14:00 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    You acquainted with the Heisenberg Uncertainty Principle?  If so, are
+you acquainted with the Heisenberg Uncertainty Principle as Applied to
+Software Debugging?  Well, here we have a classic example.  The program
+compiled in Debug mode does not crash.  I'll return to that below.
+
+    But in the meantime, I ran -- and it's still running -- the full FIMP
+test with the Debug configuration program.  I'd hoped I could report that
+2.6.0 is immune from the problem without atomic moves, and it got throug
+about 75% of my examples without a false impossible.  But then three of them
+showed up, all close together -- in deals 19633 and 19861 (two in the
+latter).  Hmmm, it's just finishing now, and it reached 32,000 without
+another one.  I'll have to try those three examples with atomic moves next.
+
+    Back to the crash problem, about the only way I can see I might help
+further would be to give you a copy of the disassembly we get when the
+Release configuration crashes, and/or try to match up the disassembly with
+the source code, or somehow otherwise isolate the location.
+
+    The tool you'd told me about before, which you used on the previous
+crash problem was called apparently "valgrind". Here's what you wrote.
+=============================
+It took me a bit of time to discover what the problem was but I was
+finally able to using valgrind:
+
+http://developer.kde.org/~sewardj/
+=============================
+    Could you apply this once again in search of this new problem?
+
+Best regards,  ------------------Adrian
+
+
+
+----- Original Message -----
+From: Shlomi Fish <shlomif@vipe.technion.ac.il>
+To: Adrian Ettlinger <aettlinger@worldnet.att.net>
+Sent: Friday, July 19, 2002 4:47 AM
+Subject: Re: 2.4.3 false impossibles
+
+
+> On Thu, 18 Jul 2002, Adrian Ettlinger wrote:
+>
+> > Hi Shlomi,
+> >
+> >     I just confirmed that 2.4.3 does indeed call all six of those
+positions
+> > impossible.
+> >
+> >     The position as you stated it cannot exist in M/S Freecell, or in
+FcPro
+> > exactly as you stated it, because the Ace of Clubs would have been
+> > automatically posted to the foundation.  You might try it that way.
+> >
+>
+> You are right - it does generate a false impossible. Maybe I fixed a bug
+> between 2.4.3 and 2.6.0. Oh well. It does work with a plain, single-scan
+> preset, though.
+>
+> Regards,
+>
+> Shlomi Fish
+>
+> >     The preset that was being used was:
+> >
+> > --method soft-dfs -to 0123467 -step 500 -nst
+> > --method random-dfs -seed 2 -to 0[01][23456789] -step 500 -nst
+> > --method random-dfs -seed 1 -to 0[0123456789] -step 500 -nst,
+> > --method random-dfs -seed 3 -to 0[01][23467] -step 500 -nst
+> > --method random-dfs -seed 4 -to 0[0123467] -step 500 -nst
+> > --method random-dfs -to [01][23456789] -seed 8 -step 500 -nst,
+> > --method random-dfs -to [01][23456789] -seed 268 -step 500
+> > --method random-dfs -seed 1 -to 0[0123456789] -step 500 -nst
+> >
+> >     Same thing with this preset:
+> >
+> > --method random-dfs -seed 1 -to 0[0123456789] -step 500 -nst
+> > --method random-dfs -seed 2 -to 0[01][23456789] -step 500 -nst
+> > --method random-dfs -seed 3 -to 0[01][23467] -step 500 -nst
+> > --method a-star -step 500 -nst
+> > --method a-star -to 0123467 -step 500 -nst
+> > --method random-dfs -seed 4 -to 0[0123467] -step 500 -nst
+> > --method soft-dfs -step 500
+> >
+> > Best regards,  --------------Adrian
+> >
+> >
+>
+>
+>
+> ----------------------------------------------------------------------
+> Shlomi Fish        shlomif@vipe.technion.ac.il
+> Home Page:         http://t2.technion.ac.il/~shlomif/
+> Home E-mail:       shlomif@iglu.org.il
+>
+> He who re-invents the wheel, understands much better how a wheel works.
+>
+>
+

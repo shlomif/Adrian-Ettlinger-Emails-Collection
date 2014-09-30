@@ -1,0 +1,49 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 18727 invoked from network); 5 Jul 2002 17:40:17 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 5 Jul 2002 17:40:17 -0000
+Received: from computer ([12.78.221.90]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020705174011.XAEW19902.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Fri, 5 Jul 2002 17:40:11 +0000
+Message-ID: <000601c2244a$87864a20$5add4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207052019220.18391-100000@vipe.technion.ac.il>
+Subject: Re: FcPro - FCS -- free crash problem -- isolated!
+Date: Fri, 5 Jul 2002 13:35:50 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Aha!
+<<NUM_TIMES_STEP is defined to be 50 at intrface.c>>
+    That, I'd guess matches very well with what I've discovered.  Instead of
+using debug mode, which I didn't think likely to tell us anything useful, I
+dug into the code.  I found, as you know, that there are many, many places
+where the free() function is called.  I just started commenting out groups
+of them to isolate which particular free() call was causing the problem.  It
+zeroed in on the clean_soft_dfs() function call in that same module,
+intrface.c.  Commenting out the call to that routine lets it run good, and
+as far as I've tested, indefinitely.  I suppose that routine is doing some
+cleanup that ought to be done, but most likely it's only a very, very slow
+memory leak when we don't let it happen.  Now maybe you can figure out why
+it is when you don't reach 51 iterations, that routine does something nasty.
+
+Best regards,  ------------------Adrian
+
+

@@ -1,0 +1,71 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 7264 invoked from network); 25 Dec 2001 15:45:59 -0000
+Received: from mtiwmhc24.worldnet.att.net (204.127.131.49)
+  by vipe.technion.ac.il with SMTP; 25 Dec 2001 15:45:59 -0000
+Received: from computer ([12.78.218.182]) by mtiwmhc24.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011225154551.HUBS13117.mtiwmhc24.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Tue, 25 Dec 2001 15:45:51 +0000
+Message-ID: <000401c18d5b$0d474740$b6da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0112251410330.5312-100000@vipe.technion.ac.il>
+Subject: Re: FCS preset system
+Date: Tue, 25 Dec 2001 10:43:18 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 41
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Re Christmas, there's at least one place in the world where Christmas is
+a civil holiday -- Japan.  I was surprised to find, visiting there once in
+December, that the Ginza shopping area was as highly decorated with
+Christmas decoration as Fifth Avenue in New York.   But, come to think of
+it, I didn't determine whether that meant that Dec. 25 was a work holiday.
+
+<<students' Hanukah vacation>>
+    Is there normally a vacation for the entire eight days of Chanukh?  As I
+recall in the US, observant Jews generally only take the first day off from
+work.  How much of it is treated as a national holiday for work purposes?
+
+<<Which takes out about 413 characters.>>
+    Oh, then so that entire thing is one preset, then  I was thinking each
+line was a preset in itself.  What does it mean that "method" keeps getting
+repeated, which on the surface seems like it's contridicting itself. Is it
+that the various methods are tried consecutively?
+
+<<A user may freely edit his or her presets.>>
+    But did I understand correctly that the user would do this by editing a
+preset file which is on the hard drive?
+
+    There would be a way to accomplish the same function, albeit perhaps in
+a less user-friendly fashion, if the presets were just arbitrarily numbered,
+and then a number typed into the present "Mode" box would designate which
+numbered preset to use.  What would you think of that for at least a stopgap
+method?  If you agreed to that, I think I could probably take care of
+programming it to pick up the preset from the file and buffer it for use by
+FCS.   Of course, I'd need to know the format of the file.
+
+    Re the symmetrical year, right, but it is axiomaitic that there can be
+only one symmetrical year per century.  And, come to think of it, over the
+turn of a millenium, you get two symmetrcal years eleven years apart.  Did
+you notice 1991?
+
+Best regards,  --------------------Adrian
+
+

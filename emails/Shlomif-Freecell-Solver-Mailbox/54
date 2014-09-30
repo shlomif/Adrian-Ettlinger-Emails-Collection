@@ -1,0 +1,56 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 24849 invoked from network); 26 Nov 2001 04:05:52 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 26 Nov 2001 04:05:52 -0000
+Received: from computer ([12.78.220.57]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011126040540.DLYY941.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Mon, 26 Nov 2001 04:05:40 +0000
+Message-ID: <002701c17627$2bf408e0$39dc4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0111251743580.13461-100000@vipe.technion.ac.il>
+Subject: Replays
+Date: Sun, 25 Nov 2001 22:04:12 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 74
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<If you find out that the move is a stack to stack one, you can find out
+how many cards are moved by finding what is the top card of the destination
+stack, and then figuring where the sequence start in the source stack.
+    Yes, there's no problem in a move into an occupied stack. FcPro also
+figures out how many cards to move in that situation.
+
+<<There can be a problem when moving something to an empty stack, though.>>
+    Right.
+
+<<That way, you can play all the moves that I input you in a consistent
+manner.>>
+    I don't understand that statement.  You just said there's a problem when
+moving into an empty stack.
+
+    Let me ask you this.  Do you always make a choice between (1) moving a
+single card and (2) moving the maximum number of cards that can be moved?
+
+Best regards,  -----------------Adrian
+
+
+
+

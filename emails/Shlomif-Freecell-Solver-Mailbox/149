@@ -1,0 +1,66 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 13164 invoked from network); 3 Jun 2002 14:36:05 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 3 Jun 2002 14:36:05 -0000
+Received: from computer ([12.78.219.66]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020603143602.VGPW13408.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Mon, 3 Jun 2002 14:36:02 +0000
+Message-ID: <000401c20b0b$87bdbda0$42db4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206031637150.11519-100000@vipe.technion.ac.il>
+Subject: Code questions
+Date: Mon, 3 Jun 2002 10:31:48 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 37
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<You are passing it a pointer to a move instead of a move.>>
+    I suspected it was something like that.  But when I substitute "*move"
+for "move" as the argument, it still doesn't work.  Let's see, if I were to
+put in moveA = *move, then use "moveA" for the argument, shouldn't that
+work?  Isn't that how pointers work?  I. e., when I say "moveA = *move",
+doesn't that create moveA as a direct reference to the move structure?
+
+<<I'd rather not put it right there.>>
+    I can see that this would be a Mickey Mouse solution, but it should work
+as an expedient.
+
+<<What I can do, is replay the moves again and this time optimize them by
+making safe moves to foundations according to the standard logic.>>
+    You'd also suggested doing it in "check_and_add_state".  I took a look
+at that, and I see to do it there would require a bit of work, as what ought
+to be done is to transform any state containing forced foundation moves into
+the state the results after the forced moves are made.  But the truly
+correct way to do it would be in the move sequence, i. e., the first step in
+trying moves for any new state should be to make any mandatory foundation
+moves that are inherent to the state.
+
+    I think I should put the case for this change more strongly.  You aren't
+just accommodating FcPro, you are correcting an inherent flaw in the design
+of FCS.  FCS is flawed because it cannot provide valid solutions for M/S
+Freecell.  This does not inhibit its capability for delivering a proper
+verdict, but it prevents it from delivering a valid solution, because its
+solutions contain moves that create illegal positions under M/S Freecell.
+Under M/S Freecell, any position containing a forced foundation move is
+illegal, because it can never appear to a user while playing the game.
+
+Best regards, ----------------Adrian
+
+

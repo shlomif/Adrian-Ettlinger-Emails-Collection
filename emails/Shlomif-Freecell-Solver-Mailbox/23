@@ -1,0 +1,64 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 23674 invoked from network); 21 Nov 2001 05:10:13 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 21 Nov 2001 05:10:13 -0000
+Received: from computer ([12.78.221.218]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20011121051006.JVV29594.mtiwmhc21.worldnet.att.net@computer>;
+          Wed, 21 Nov 2001 05:10:06 +0000
+Message-ID: <008e01c17242$58e20520$dadd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+Cc: <fomalhaut@earthlink.net>
+References: <Pine.LNX.4.33L2.0111202153070.13279-200000@vipe.technion.ac.il>
+Subject: Re: Complete FCS FC-Pro Interface.
+Date: Tue, 20 Nov 2001 23:02:42 -0500
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 44
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Thanks for the interface.  I picked it up very late in the day, and will
+plunge into integrating it into FcPro tomorrow.
+
+    I gather I also need to include some source modules which I should
+download from your website.  I should be able to figure out just which
+modules I'll need.
+
+    One question, again revealing my lack of education.  Just what is a
+".cpp" file?  I know I see that as one type of file that is accepted by VC++
+4.0, but I've never used one before.  I wouldn't expect it to be a problem
+to be inserted into the project.
+Just wonder why it's a .cpp instead of just a .c.
+
+    Hopefully in another 24 hours I'll be able to tell you either it works
+or it doesn't work.
+
+    Re Bill Raymond, he wrote to me asking me to reply to you.  As I'd said
+to you before, he's a strange duck.  Not sure how to interpret it, but it
+seems he's very ego-driven, and wants to make sure he gets full credit for
+proving himself to be the champion freecell-solving programmer of all time.
+You and I are built different.  But I'm fairly sure his program does exist,
+and he did provide some solutions to some 0-freecell games I'd missed.  On
+the other hand, one thing he doesn't mention, we found a 4-freecell game
+that FcPro solved that his solver thought was Impossible.  But we'll just
+have to go along assuming he's got nothing until, if it ever happens, he
+decided he can open up.
+
+Best regards, ---------------Adrian
+
+

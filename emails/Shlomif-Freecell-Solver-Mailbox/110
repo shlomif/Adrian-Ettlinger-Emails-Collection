@@ -1,0 +1,102 @@
+Date: Mon, 13 May 2002 14:27:13 +0300 (IDT)
+From: Shlomi Fish <shlomif@vipe.technion.ac.il>
+To: Adrian Ettlinger <aettlinger@worldnet.att.net>
+Subject: Re: FC-Pro/FCS integration
+In-Reply-To: <002601c1fa57$4d9391a0$1cda4e0c@computer>
+Message-ID: <Pine.LNX.4.33L2.0205131358490.17417-100000@vipe.technion.ac.il>
+MIME-Version: 1.0
+Content-Type: TEXT/PLAIN;
+  charset=US-ASCII
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 85
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+On Mon, 13 May 2002, Adrian Ettlinger wrote:
+
+> Hi Shlomi,
+>
+> <<Thanks, I might test it out. Does it include the source or just the
+> binaries?>>
+>     What I'd sent you is just the executable.
+>
+
+OK.
+
+> <<How did you implement it, can you send me the modified module?>>
+>     I wound up using what you did just as a guideline, and implementing it
+> "my way".  I thought that would be more expeditious.  I'd encountered a
+> series of problems in running it as you had written it.  The first one was
+> that you had lost the patch I'd inserted which reversed the
+> source-destination sequence in rendering each move.  Your approach of
+> sprintf-ing four bytes to make the "v" sequence would have complicated my
+> previous method of swapping, so I tried swapping the sequence in each
+> branch, but after I did that, there remained another problem in that the
+> move string wound up being severely truncated.  I think there was yet
+> another problem, the details of which I can't recall.  Anyway, it finally
+> seemed to make most sense just to restart almost from scratch.  Once I got
+> the move string where I wanted it, I then had a series of problems on my
+> side of the fence as well, but finally got it all working.
+>
+
+Actually, what I did was render the screen in its proper order, and then
+(separately) reverse it. It should work, I believe.
+
+> <<Sure thing. Is it a business trip or a vacation? Anyways, have fun!>>
+>     I don't really like to describe this kind of travel as a "business
+> trip", although the rationale is semi-business related.  It has to do with
+> supporting some software which is a sort of commercial product, marketed to
+> a narrow customer base, but which I regard as as much of a hobby as it is a
+> business.  I'll be going to a genealogy "show" in Milwaukee, then on to
+> California, where my "pseudo-business partner" is located.  Obviously, it's
+> not something I'd do if it wasn't fun.
+>
+
+So it's a geneology program?
+
+> <<OK. Would you be able to run fc-solve during the trip?>>
+>     I would, but I'm not particuarly eager to.  I'd rather bypass that and
+> move directly to compiling and running it under FcPro.  Unless you want to
+> give me some very explicit directions as to what constructive experiments I
+> could do with fc-solve.
+>
+
+With fc-solve itself not much. But with the range solver that ships inside
+the distro - quite a lot, as it can solve several games one by one. (sort
+of like Freecell Pro without any GUI). I've posted a sample command line
+of it to fc-solve-discuss and can send you more or an explanation of it.
+(freecell-solver-range-parallel-solve [start board] [end board] [modulo of
+boards to print the current position] [? optional
+--toatl-iterations-limit [limit] ] [< ... Normal fc-solve arguments >] -
+in a nutshell).
+
+By experimenting with it you can create various searching themes, some of
+which would be more efficient than others in solving the range.
+
+>     I haven't yet started my homework studying, and don't think I'll have
+> time to before I leave, which isn't until tomorrow (Tuesday).  I don't know
+> as I'll have a whole lot of leisure time while I'm in Milwaukee, which is
+> until Sunday, but while I'm in California I most likely will be able to put
+> in at least a few hours if need be.  Then I return home on Thursday May 23.
+> I'll probably have some questions for you once I start to try to absorb your
+> write-up.
+>
+
+Ack.
+
+> <<Sure thing. The code is under the PD, and I'm happy seeing it integrated
+> into third-party's Freecell implementations.>>
+>     OK, fine.  What I've decided to do is to put it on a web page, and then
+> post a message to your forum giving the address, but not necessarily to
+> publicize it any more widely than that.  But since I'm including Patsolve, I
+> need to show it as being distributed under GPL, so as of now I've just
+> pointed Tom Holroyd to the web page to ask him if, as far as he's concerned,
+> I'm meeting the requirements of GPL.  If you'd like to take a look at the
+> web page, it's:
+>
+> http://www.rrhistorical.com/rrdata/Fcpro65
+>
+

@@ -1,0 +1,40 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 16398 invoked from network); 17 Oct 2002 11:47:32 -0000
+Received: from mtiwmhc12.worldnet.att.net (204.127.131.116)
+  by vipe.technion.ac.il with SMTP; 17 Oct 2002 11:47:32 -0000
+Received: from computer ([12.78.218.59]) by mtiwmhc12.worldnet.att.net
+          (InterMail vM.5.01.05.12 201-253-122-126-112-20020820) with SMTP
+          id <20021017114657.GJZP6348.mtiwmhc12.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Thu, 17 Oct 2002 11:46:57 +0000
+Message-ID: <002a01c275d2$4c94d740$3ada4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0210170941400.12234-100000@vipe.technion.ac.il>
+Subject: Re: Please send me the latest source code of the GPLed FC-Pro
+Date: Thu, 17 Oct 2002 07:41:05 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 333
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    OK, I'll have to reassemble the source after my last round of changes.
+I'll send it to you in the next day or two.
+
+Best regards, ----------------Adrian
+
+

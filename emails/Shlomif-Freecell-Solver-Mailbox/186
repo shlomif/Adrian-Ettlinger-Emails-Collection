@@ -1,0 +1,60 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 13909 invoked from network); 5 Jul 2002 11:33:39 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 5 Jul 2002 11:33:39 -0000
+Received: from computer ([12.78.218.88]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020705113333.QCNC19902.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Fri, 5 Jul 2002 11:33:33 +0000
+Message-ID: <000401c22417$504a75a0$58da4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207050647440.9911-100000@vipe.technion.ac.il>
+Subject: FcPro - FCS -- new problem -- a hot clue
+Date: Fri, 5 Jul 2002 07:29:19 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+    Here is what should be a very useful clue to the free function crashing
+problem.
+
+    I'd found seven examples.  In five of these, the solution takes 50
+iterations, and in the other two, 49.
+
+    I did a range-solve run of 20,000 deals, with no mishaps.  In this run,
+the lowest number of iterations for any solution was 58.
+
+    To investigate further, I'm thinking I might put in a trap for any
+solution under 51 iterations, to see if it's consistent that either
+low-iteration-count or specific 49 or 50 iterations is causing the problem.
+
+    Interesting, this explains another general feature of the problem which
+had puzzled me.  No test of every position in a solution would play all the
+way through without failing, and on my seven examples, all were failing
+within 10-20 moves of the last move in the solution.  That I now see stands
+to reason, since only after it gets close to the end will it be solving in a
+low number of iterations.  In one case, this does not occur until the next
+to the last move.
+
+    It now certainly appears definite that there is a problem in the "free"
+routine which manifests itself when there has been a solution with small
+number (below 51) of iterations.
+
+Best regards,  ---------------Adrian
+
+

@@ -1,0 +1,173 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 26660 invoked from network); 5 Sep 2003 20:49:12 -0000
+Received: from mtiwmhc12.worldnet.att.net (204.127.131.116)
+  by vipe.stud.technion.ac.il with SMTP; 5 Sep 2003 20:49:12 -0000
+Received: from computername (151.white-plains-02rh15rt.ny.dial-access.att.net[12.88.82.151])
+          by mtiwmhc12.worldnet.att.net (mtiwmhc12) with SMTP
+          id <2003090520490911200616c1e>; Fri, 5 Sep 2003 20:49:09 +0000
+Message-ID: <000801c373ef$284cddd0$9865fea9@computername>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+Subject: Fw: [2nd message from Wiison]
+Date: Fri, 5 Sep 2003 16:36:20 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 6.00.2800.1158
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2800.1165
+X-Spam-Status: No, hits=-0.5 required=2.6
+	tests=QUOTED_EMAIL_TEXT
+	version=2.55
+X-Spam-Level: 
+X-Spam-Checker-Version: SpamAssassin 2.55 (1.174.2.19-2003-05-19-exp)
+Status: RO
+X-Status: A
+X-Keywords: 
+X-UID: 408
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Shlomi, here's the second, (and so far last) message I received from Wilson.
+Note that he's into Linux.  You might want to have some dialogue with him.
+-----------------------Adrian
+
+----- Original Message ----- 
+From: "Wilson & Cassie" <griscruf@comcast.net>
+To: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+Sent: Sunday, August 31, 2003 12:27 AM
+Subject: Re: Hello back
+
+
+>
+> >     I spent a lot of time figuring out my E-mail problem.  It had to do
+with
+> >the fact that I finally "got religion" and decided I'd better install
+Norton
+> >Anti-Virus in this machine.  From some exploration, I finally found out
+that
+> >there's an incompatibility between NAV and OE when you have NAV scanning
+> >outgoing mail for viruses.  The only solution is to disable that kind of
+> >scanning.
+> anti-virus software is another form of a virus.  mine recently took out my
+> TCP/IP stack.  currently, i dont have SoBig, but it has me.  it spoofs
+> "from" addresses and somebody's PC has decided to be me.  it's sad these
+> hackers can use their talent to create a more secure internet, but I can
+> see why they wouldnt want to work for MS-Monopoly.
+>
+>
+> >     Oh, so that was how you happened to take over the Dave Ring site.
+I've
+> >asked Mike the same question, but I'm not sure I remember what the Dave
+Ring
+> >site was.  Was Dave the guy who had recruited all the volunteers to work
+> >through all 32,000 hands to find if any were unsolvable?
+> yes that sounds right.  and he just had a page of solutions.  i guess he
+> invented the notation we use to record moves.
+>
+>
+> >     I'm not sure what it was prompted me to contact you originally,
+except
+> >that I was very interested in Freecell and was eager to talk about it to
+> >anyone who'd been into it.
+> that sounds right.
+>
+>
+>
+> >     The fellow who interviewed me is an Israeli by the name of Shlomi
+Fish.
+> and where will this interview be "published"?
+>
+>
+> >want to touch it again.  I might as well give you a copy of the interview
+as
+> >it now stands.  It needs to be edited now that memories have been
+refreshed
+> >on some things.  If Shlomi wants to ask you some questions, can I put him
+> >into contact with you?
+> sure
+>
+>
+> >     Not sure when I'll be getting back up your way, but it could happen
+> >sometime.  We found a nice house to rent for a week on the bay side in
+> >Eastham.
+> sounds nice, and expensive.
+>
+>
+> >     Where is it you live, again?  Do I remember Sandwich, or around
+there?
+> yup, Marstons Mills right now, exit 5.  but we are building in sandwich...
+>
+>
+> >     I'll append the interview below.  You might find it boring, it's
+rather
+> >long.  Any corrections or suggestions would be appreciated.
+> thanks for sharing it.
+>
+> i hope things work out for Mike.
+>
+> >So between Wilson and I, we started working on a scheme to monitor M/S
+> >Freecell to record moves. That was a nut we just couldn't crack. I
+decided
+> >the best way to be able to record moves would be just to write a program
+> >that one could use to play Freecell. That was the beginning of FC-Pro.
+> ah, so you did remember the 1st attempt ;-)
+>
+>
+> >Initially, I made the display just alphanumeric. Didn't feel like
+figuring
+> >out how to display cards. That was more up Wilson's ally, and he figure
+out
+> >how to do that part, so he and I worked in collaboration.
+> it was fun to learn how to use a DLL
+>
+>
+> >A.E.: Good question as to when. I might have to dig into some real old
+> >laptop (I never throw away a laptop or its hard drive contents) It was
+> >certainly before Window 95 came out. I believe I was using Windows 3.1
+when
+> >I started on FC-Pro.
+> really? that surprises me because i wouldnt think it would have been too
+> easy for us to share programs and stuff.  i was using NT.  you know, i
+have
+> email from you dating back to 8/5/99!
+>
+> Date: Thu, 5 Aug 1999 14:58:24 -0400
+> From: Adrian Ettlinger <76477.1327@compuserve.com>
+> Subject: Source for still another build
+> Sender: Adrian Ettlinger <76477.1327@compuserve.com>
+> To: Wilson <lemonjello@mediaone.net>
+> Hi Wilson,
+> It turned out I still didn't have the enhance supermove working
+> right -- or this time the problem was really with the original supermove,
+> which wasn't working right in certain special circumstances. Each time I
+> send you new source I'm sure I've just found "the last bug", so here goes
+> again. Hope you don't run out of CD blanks.
+> Best regards, ---------------Adrian
+>
+>
+>
+> >Then somewhere we heard about the Don Woods solver. His was the first
+> >general-purpose solver. Written in C to run under DOS.
+> i'm pretty sure Mike got us the Woods solver...
+>
+>
+> >S.F.: OK. Why have you chosen the GNU General Public License (GPL) for
+it?
+> wow, i didnt know (or remember) that FCPRO was GNU now. cool.
+>
+>
+> >S.F.: Whatever happened to Wilson Callan? Did you keep in touch with him?
+> Lucent bought the little company i was at and proceeded to kill it.  I
+quit
+> and am at another start up.  Still in telecom, still embedded software, C
+> code.  but now we use Linux instead of pSOS.
+>
+>
+>
+>
+

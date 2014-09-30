@@ -1,0 +1,67 @@
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 5847 invoked from network); 25 Jun 2002 11:14:33 -0000
+Received: from mtiwmhc22.worldnet.att.net (204.127.131.47)
+  by vipe.technion.ac.il with SMTP; 25 Jun 2002 11:14:33 -0000
+Received: from computer ([12.78.219.199]) by mtiwmhc22.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020625111427.CAPV19902.mtiwmhc22.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>;
+          Tue, 25 Jun 2002 11:14:27 +0000
+Message-ID: <000a01c21c38$ffb20bc0$c7db4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0206250829200.31128-100000@vipe.technion.ac.il>
+Subject: Status MSF adaptation
+Date: Tue, 25 Jun 2002 06:58:47 -0400
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Status: R
+X-Status: N
+X-Keywords: 
+X-UID: 51
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Shlomi,
+
+<<Interesting. Can you spot what the problem is?>>
+    This particular problem seemed to be that a "v2" was inserted for a move
+to an empty stack in a position where only one card was available to be
+moved.  But..
+
+<<If you can rollback to the fc_pro_iface.c I gave you and to FCS 2.4.2 and
+then work from there it would be ideal.>>
+    In that particular case, it could also be "my fault" from the changes I
+made, so it's probably best for you to work on your original code.  That's
+another project for me, to reconstruct the original, and then report the
+problems one at a time.  I'll create a project to do that.
+
+<<I can mean-while work on appending the "v" only if there is a move to an
+empty stack.>>
+    It will be a slower process (maybe) for me to work with you, and let you
+provide all the code, but in the long run it might get us there sooner.
+
+<<[atomic moves] No, it won't. It is possible I'll make atomic moves that do
+not respect moving safe cards to the foundations. Can't guarantee that.>>
+    I realize that.  But it does so happen that the way my code is designed,
+it seems to protect itself from being fooled by single-card moves which
+leave safe moves unmade, but not multilple-card movs.  One thing that seems
+to confuse it, for example, is that if a deuce-ace string is moved from
+stack-to-stack.  If the ace alone were moved, it would be able to handle it
+OK.
+
+    I think I'll make the next thing on my agenda to reconstruct the
+original 2.4.2 as supplied by you, and then give you a report of what seems
+to be bug number one.
+
+Best regards, -------------------Adrian
+
+

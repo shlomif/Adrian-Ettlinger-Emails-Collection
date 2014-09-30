@@ -1,0 +1,127 @@
+Status: RO
+X-Status: A
+X-Keywords: 
+Return-Path: <aettlinger@worldnet.att.net>
+Delivered-To: shlomif@vipe.technion.ac.il
+Received: (qmail 9695 invoked from network); 5 Jul 2002 03:11:21 -0000
+Received: from mtiwmhc21.worldnet.att.net (204.127.131.46)
+  by vipe.technion.ac.il with SMTP; 5 Jul 2002 03:11:21 -0000
+Received: from computer ([12.78.221.217]) by mtiwmhc21.worldnet.att.net
+          (InterMail vM.4.01.03.27 201-229-121-127-20010626) with SMTP
+          id <20020705031117.JOFG20423.mtiwmhc21.worldnet.att.net@computer>
+          for <shlomif@vipe.technion.ac.il>; Fri, 5 Jul 2002 03:11:17 +0000
+Message-ID: <000001c223d1$266845a0$d9dd4e0c@computer>
+From: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+To: "Shlomi Fish" <shlomif@vipe.technion.ac.il>
+References: <Pine.LNX.4.33L2.0207041244001.22667-100000@vipe.technion.ac.il>
+Subject: FcPro - FCS -- new problem
+Date: Thu, 4 Jul 2002 21:46:41 -0400
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+  boundary="----=_NextPart_000_0004_01C223A4.4826B460"
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0004_01C223A4.4826B460
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+
+Hi Shlomi,
+
+    I fixed up that last stuff I'd mentioned and was ready to announce the
+release, but I thought I'd pursue something I'd dipped into yesterday,
+running across what at first seemed a deep mystery -- but I finally wound up
+isolating what looks to me like a definite flaw in FCS.  Here's the story:
+
+    If you noticed what I mentioned in a forum note to Bill Raymond, I have
+a system for looking for false impossibles in which I can make it plow
+through a file containing human-generated solutions to a large number of
+games, and try out the solver on each successive intermediate position.  The
+solution file is taken from Mike Keller's website.
+
+    When I started to run it the other day, I found that it wouldn't get
+through any one game without crashing.  My first suspicion was that it was a
+problem of my own, but it was ambiguous.  The crash would alway occur on the
+same position in each hand.  At first the only way I could set up the
+positions was by having FcPro set up the initial position, and then play
+through to the intermediate position.  So I thought it possible that
+something in FcPro's play-through process was causing, or contributing, to
+the problem.  So I went to the trouble of expanding the capability of
+FcPro's "Custom Game" feature to allow it to set up an intermediate
+position.  I then found that FCS was crashing consistently on certain
+specific positions.  The crash would occur only after a few repeated tries
+of the solver on the position.  But I have one position where it crashes
+consistently on the second use of the solver on that position.
+
+    I went to work trying to isolate in fc_pro_iface on just what part of
+the code it is crashing.  It turned out that the crash is occurring in the
+freecell_solver_user_free(instance) call at the exit from the solve routine.
+I tried commenting out that call, and sure enough, it will then run for a
+long time, through many hands in the test file, although after using the
+solver somewhat over 1200 times, it will run out of virtual memory.  But I
+was able to break up the test file into sections, and I do have notes now on
+a large number of false impossibles that I can use for testing once we get
+to trying out atomic moves.
+
+    I'm attaching two files which show two of the positions on which it
+crashes.   The file cust3s.txt is the most definitive -- it consistently
+crashed on the second try of the solver on this position.  The file
+cust1s.txt also will crash, but only after several repeated tries of the
+solver.  To interpret these positions, this is the new format I've devised
+to save intermediate positions.   The top part is just a picture of the
+board, and when there is a "++" at the end of a line, the bottom line
+represents the freecells and foundation positions.
+
+    My thinking now is that, if you can fix this, I'd rather wait until we
+get that taken care of before I do the announcement of the release.  This
+probably explains a few sporadic crashes I saw in some of my earlier
+testing.
+
+Best regards, -----------------Adrian
+
+
+------=_NextPart_000_0004_01C223A4.4826B460
+Content-Type: text/plain;
+	name="Cust3s.txt"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="Cust3s.txt"
+
+Solv2  3 Test
+KC 2D KH 7H KD 8H TH QD
+7D JH QC JS QS 8S 9C JC
+TC QH -- 5D JD KS 7C TD
+4H -- -- 8D TS 6D 3D 9S
+6C -- -- -- 9D 5C 7S --
+-- -- -- -- 8C 4D 6H++
+9H 5H 4C -- 3C AD 6S 3H
+
+------=_NextPart_000_0004_01C223A4.4826B460
+Content-Type: text/plain;
+	name="Cust1s.txt"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="Cust1s.txt"
+
+Solv2  1 Test
+JD 2D QS JC JS 4H KH TC
+KD KC JH 5S TD -- QC 9H
+2S KS TS QD 9C -- -- 8S
+4C 5C 9D QH 8D -- -- 7D
+3S -- 8C TH 7S -- -- 6C
+6D -- 7H 9S -- -- -- 5H
+6S -- -- 8H -- -- -- 4S
+5D -- -- 7C -- -- -- 3D
+-- -- -- 6H++
+4D -- -- -- 3C AD AS 3H
+
+------=_NextPart_000_0004_01C223A4.4826B460--
+
