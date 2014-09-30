@@ -1,0 +1,78 @@
+From: Shlomi Fish <shlomif@iglu.org.il>
+To: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+Subject: Re: Read this first!
+Date: Tue, 27 Sep 2005 10:59:48 +0300
+User-Agent: KMail/1.8.2
+References: <002301c59316$78421f10$3da64b0c@PC248541693324> <200509220412.23368.shlomif@iglu.org.il> <004301c5bfb2$f2de8380$8a264c0c@PC248541693324>
+In-Reply-To: <004301c5bfb2$f2de8380$8a264c0c@PC248541693324>
+X-KMail-Link-Message: 192094
+X-KMail-Link-Type: reply
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Message-Id: <200509271059.48950.shlomif@iglu.org.il>
+Status: RO
+X-Status: RSC
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Adrian!
+
+Listen - it would be very hard for me to fix what I have now based on the 
+deltas you sent me. What I suggest you to do is:
+
+1. Prepare a new zip file of FC-Pro.
+
+2. Download it to a different directory on your development machine and see 
+that you can build it there.
+
+3. Put it online somewhere or send it to me. (preferablly the former) You can 
+also send it to my gmail account (shlomif@gmail.com) but note that you should 
+notify me on it by emailing here.
+
+This way its integrity can be ensured.
+
+I should also note that I've tried running the FC-Pro binary under WINE, which 
+is a virtualization layer for running Windows apps on top of Linux. It ran 
+fine from what I could tell. I didn't try to build Freecell Pro using libwine 
+yet, but I might try it soon.
+
+Regards,
+
+	Shlomi Fish
+
+On Thursday 22 September 2005 23:16, Adrian Ettlinger wrote:
+> Hi Shlomi,
+>
+>     I reviewed what had happened.  This grew out of my discussion with Kai
+> Henschel, who was trying to compile from the source set we had posted on
+> your website.  There actually were three problems.  I'd omitted two
+> libraries, and also had an obselete copy of one file.  It does not appear
+> that I ever followed through and assembled a complete set of files.  The
+> quickest expedient would be if I leaned on you to do that.  So I'm
+> forwarding to you copies of the three messages I'd sent to Kai with the
+> three attachments of the two missing and one updated file.  Let me know if
+> this is OK with you.
+>
+>     There is an interesting epilogue to the story.  I asked Kai about his
+> background.  It turns out he is a young German now living in the US.  I
+> starting to engage him in conversation about Germany, and about some of my
+> travels there.  I mentioned to him that my first exposure to Germany was a
+> visit to Dusseldorf in 1956, at which time the downtown area was still
+> largely unrepaired from the bomb damage of the war, with most of the
+> buildings bombed out hulks.  I'm wondering if this somehow offended or
+> upset him, because I never heard from him again.
+>
+> Best regards, ------------------Adrian
+
+-- 
+
+---------------------------------------------------------------------
+Shlomi Fish      shlomif@iglu.org.il
+Homepage:        http://www.shlomifish.org/
+
+95% of the programmers consider 95% of the code they did not write, in the
+bottom 5%.

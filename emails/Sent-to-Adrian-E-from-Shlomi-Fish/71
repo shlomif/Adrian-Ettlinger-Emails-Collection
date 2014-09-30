@@ -1,0 +1,139 @@
+From: Shlomi Fish <shlomif@iglu.org.il>
+To: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+Subject: Re: Spider
+Date: Wed, 17 Dec 2008 11:16:34 +0200
+User-Agent: KMail/1.9.10
+References: <005301c95fb2$dd202aa0$6401a8c0@PC248541693324> <200812162324.37279.shlomif@iglu.org.il> <006b01c95fda$892e1e20$6401a8c0@PC248541693324>
+In-Reply-To: <006b01c95fda$892e1e20$6401a8c0@PC248541693324>
+X-KMail-Link-Message: 1740149
+X-KMail-Link-Type: reply
+X-KMail-Transport: Eonspace
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="windows-1252"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Message-Id: <200812171116.34508.shlomif@iglu.org.il>
+Status: RO
+X-Status: RSC
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+On Wednesday 17 December 2008, Adrian Ettlinger wrote:
+> Hi Shlomi,
+>
+>     Thanks for the quick reply.
+>
+>     I'm astonished at what this tells me.  Here I'd been playing with two
+> suits, and this says that 99.41% of games are winnable with four suits.  I
+> had played four suits a few times and found that I could win occasionally
+> but not very often.  And I'd long considered 2 suits a difficult challenge.
+> In fact, I still do and sometimes winning is a struggle.  I guess if it
+> starts to be too easy I might shift to playing four suits.
+>
+>     I might like to contact the author of this to ask him if he's tested it
+> with two suits   On a quick look I didn't see an E-mail address for him. 
+> Do you have it?
+
+Yes, I do:
+
+{{{
+Alex Robinson <alex@tranzoa.com>
+}}}
+
+Regards,
+
+	Shlomi Fish
+
+>
+> Best regards, ---------------Adrian
+>
+> ----- Original Message -----
+> From: "Shlomi Fish" <shlomif@iglu.org.il>
+> To: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+> Sent: Tuesday, December 16, 2008 4:24 PM
+> Subject: Re: Question for you
+>
+> > Hi Adrian!
+> >
+> > It's good to hear from you.
+> >
+> > On Tuesday 16 December 2008, Adrian Ettlinger wrote:
+> >> Hi Shlomi,
+> >>
+> >>     We haven't talked directly in quite a while.  I see your messages
+> >> now and then, and glad to see you're still working on the FC solver.
+> >>
+> >>     Here's a question.  I may have mentioned quite a while to you that
+> >> my solitaire playing had moved to Spider.
+> >
+> > Maybe, I don't recall.
+> >
+> >> That is the ten-column spider
+> >> supplied with Windows.  I've been playing it with two colors.  Over a
+> >> few years of playing, I had developed an opinion that only maybe 50-75%
+> >> of games were winnable.  But gradually over that past several weeks,
+> >> I've become more and more persistent at tackling games that seemed on
+> >> first or second try to be unwinnable, and now it's beginning to look to
+> >> me like virtually all two-color games are winnable.  At least, I would
+> >> say that I've been able to win the past thirty or forty deals that I've
+> >> played. Some have been difficult, taking several starts, but haven't
+> >> found one that
+> >> stumped me over that span.
+> >>
+> >>     My question is: Do you know of any solver that's been written for
+> >> this
+> >> game?  If I find a deal that I cannot solve, I'd like to have a way to
+> >> test
+> >> it.
+> >
+> > See:
+> >
+> > http://www.tranzoa.net/~alex/plspider.htm
+> >
+> > He contacted me about it back at 2005 . He also sent me the source, but
+> > it has
+> > some dependencies on his own private libraries, and is also
+> > multi-threaded (due to a bad reason of bad design).
+> >
+> >>     And I see it's about time for me to wish you a Happy Chanukah.
+> >
+> > Happy Hanukkah to you as well!
+> >
+> >>     This
+> >> year for the first time in quite a while, I think I'll burn candles.
+> >
+> > Nice.
+> >
+> > BTW, recently I've been playing mostly Nurikabe ( on
+> > http://www.logicgamesonline.com/nurikabe/archive.php ) as well as the
+> > daily
+> > games on http://www.brainbashers.com/games.asp ). I've started writing
+> > solvers for Kakuro and for Nurikabe, but they're still in early stages of
+> > development and are not really usable.
+> >
+> > Regards,
+> >
+> > Shlomi Fish
+> >
+> >> Best regards, ------------------Adrian
+> >
+> > --
+> > -----------------------------------------------------------------
+> > Shlomi Fish       http://www.shlomifish.org/
+> > Best Introductory Programming Language - http://xrl.us/bjn84
+> >
+> > Shlomi, so what are you working on? Working on a new wiki about unit
+> > testing
+> > fortunes in freecell? -- Ran Eilam
+
+
+
+-- 
+-----------------------------------------------------------------
+Shlomi Fish       http://www.shlomifish.org/
+"Star Trek: We, the Living Dead" - http://xrl.us/omqz4
+
+Shlomi, so what are you working on? Working on a new wiki about unit testing 
+fortunes in freecell? -- Ran Eilam

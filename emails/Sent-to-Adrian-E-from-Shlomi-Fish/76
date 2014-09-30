@@ -1,0 +1,192 @@
+From: Shlomi Fish <shlomif@iglu.org.il>
+To: Adrian Ettlinger <aettlinger@worldnet.att.net>
+Subject: Unemployed again [ Fwd: I Resign from PTI ]
+Date: Sat, 19 Nov 2005 14:05:53 +0200
+User-Agent: KMail/1.8.2
+MIME-Version: 1.0
+X-KMail-Link-Message: 240734
+X-KMail-Link-Type: forward
+Content-Type: Multipart/Mixed;
+  boundary="Boundary-00=_iUxfDtgvpYmJ8Gu"
+Message-Id: <200511191405.54069.shlomif@iglu.org.il>
+Status: RO
+X-Status: RST
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+--Boundary-00=_iUxfDtgvpYmJ8Gu
+Content-Type: text/plain;
+  charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+Hi Adrian!
+
+What's up? You haven't responded to my last E-mail. I also requested that you 
+pack the complete Freecell Pro and also test it on your computer to see that 
+it compils.
+
+Please read the enlosed message for a letter I sent to my former boss about 
+why I quitted. So now I'm unemployed again, but I have a few job leads and 
+also have some stuff to keep me occupied.
+
+Regards,
+
+	Shlomi Fish
+
+---------------------------------------------------------------------
+Shlomi Fish      shlomif@iglu.org.il
+Homepage:        http://www.shlomifish.org/
+
+95% of the programmers consider 95% of the code they did not write, in the
+bottom 5%.
+
+--Boundary-00=_iUxfDtgvpYmJ8Gu
+Content-Type: message/rfc822;
+  name="forwarded message"
+Content-Transfer-Encoding: 7bit
+Content-Description: Shlomi Fish <shlomif@iglu.org.il>: I Resign from PTI
+Content-Disposition: inline
+
+From: Shlomi Fish <shlomif@iglu.org.il>
+To: Gabor Szabo <gabor@perl.org.il>
+Subject: I Resign from PTI
+Date: Wed, 16 Nov 2005 17:47:53 +0200
+User-Agent: KMail/1.8.2
+MIME-Version: 1.0
+Content-Disposition: inline
+Content-Type: text/plain;
+  charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+Message-Id: <200511161747.54659.shlomif@iglu.org.il>
+
+Hi Gabor!
+
+I hereby announce my resignation from PTI, and no longer wish to work as its 
+employee. Note that in accordance with my contract, I agree to continue to 
+work up to one month from this announcement, and afterwards will also answer 
+any questions that you have about the code. (free of charge). I believe my 
+code is of good quality, with meaningful identifiers. While it does not have 
+a lot of comments or POD, it should be easy for you or any other clueful 
+developer to get the hang of. If not, I am willing to explain what's going on 
+there, with no additional price.
+
+The rest of the message will describe the reasons that I decided to resign, so 
+hopefully you can understand why I quit and think about it.
+
+First of all let me note that I have a great respect for you as a honest and 
+friendly person who has been doing a lot of good things for himself and other 
+people. I also have a high respect you as an engineer, and expert in Perl and 
+other technologies. (Despite the fact that I many times found the solutions 
+or strategies you choose for various problems heavily sub-optimal.)
+
+Now for the reasons:
+
+1. What I did was not Exciting or Challenging Enough
+----------------------------------------------------
+
+The stuff I did for Gisha was interesting and I learned many new technologies. 
+But I didn't find it particularly challenging or exciting. Doing Perl/Web/SQL 
+work is something I did in the past and that I cannot get myself to become 
+excited about. E-commerce is also not particularly exciting most of the time. 
+It was not particularly challenging either.
+
+Things I'd like to do are:
+
+1. Something hardware-related like VHDL/Verilog, Embedded Software, writing 
+Device Drivers or otherwise software that interacts with hardware, or Signal 
+Processing.
+
+2. Systems Programming - working on serious large-scale systems with many 
+interesting algorithms. Usually (but not always) these things are not written 
+in Perl, but increasingly they are. Since I know C and C++ and to some extent 
+Java, I can also work on such stuff. While I find such languages more tedious 
+to work with than Perl, I still find working on such code more exciting.
+
+The Shear Networks project (which you introduced me to) seemed like good 
+systems programming, but unfortunately they got bogged down in politics.
+
+As a consultant, it seems you're not doing too much of this, and I'd also 
+prefer a more permanent job with an office on a long-term project.
+
+2. The Pay was Bad
+------------------
+
+I am a Technion Graduate in EE, with a lot of knowledge and experience, and 
+with good throughput and quality of code. Many workplaces will offer a 
+candidate such as I a flat salary of 14,000 NIS per Month (or at least 10,000 
+NIS), with a nice office, where I have less distractions, and with co-workers 
+I can consult or brain-storm with. They also won't monitor the net time that 
+I actually spend working, and be perfectly happy with my large throughput 
+despite the fact that the Net amount I spend on working is usually a small 
+percent. For more of this, see Joel Spolsky's "Fire and Motion":
+
+http://www.joelonsoftware.com/articles/fog0000000339.html
+
+When I asked you for a flat pay (even 10,000 NIS) you said I should be much 
+more productive. But most people who work for 10,000 NIS or even 14,000 NIS 
+don't spend so large a percentage of their time actually writing code. (as 
+Joel notes). Plus, this time is also spent thinking, planning, and designing 
+the code, that is also important besides raw coding.
+
+3. I felt Guilty for not Working
+--------------------------------
+
+I actually felt guilty for not working instead of doing much more enjoyable 
+things like working on FOSS, tending to my homepage, writing essays and 
+articles, writing E-mails, and doing other productive, but things that bring 
+less positive cash flow. If the work was enjoyable, I wouldn't have felt very 
+guilty.
+
+Neo-Tech has a lot to say about guilt, and how a person can become guiltless. 
+"Feeling Good" also dedicates an entire chapter to overcoming feelings of 
+guilt. I don't recall feeling very guilty at other works I did.
+
+--------------------------------------------------------------------------
+
+Sorry, but I don't think that PTI is big enough for me. What I plan to do 
+instead is:
+
+1. I'd like to get an Independent Status from the Government, and be able to 
+use it to work as a consultant, contractor, private tutor, etc. It's high 
+time I did.
+
+2. I'm going to publicise the fact that I'm looking for a job in a prominent 
+place on my homesite. I'm also going to publicise the various ways in which I 
+can get hired (consultant, contractor, private tutor, etc.). I'm also going 
+to proactively look for a job.
+
+3. I'm going to make some money writing articles for O'ReillyNet and possibly 
+other online publications. I'm also going to publish a lot of stuff on my 
+home site, where I can make some money off Google Ads and PayPal Donations.
+
+4. I'm going to work on open source software, which will add to my experience, 
+and which will bring me more publicity.
+
+5. I'm going to tend to the presentation and content aspects of my home site 
+and my other sites, to make them better and more accessible.
+
+6. Hopefully I can also get my winapt project to take off. I'll probably need 
+to finance a VMWare licence, but that would be doable in time.
+
+---------------------------------------
+
+Note that this is not a rash decision. I consulted Ori Idan and Sagiv Barhoom 
+about it on the phone, and also thought about it a lot. This is what I want 
+to do, and I'm sorry that you hiring me did not live to my standards. There 
+were other aspects of the job that I did like, but it's still not good enough 
+for me.
+
+Sincerely Yours,
+
+	Shlomi Fish
+
+---------------------------------------------------------------------
+Shlomi Fish      shlomif@iglu.org.il
+Homepage:        http://www.shlomifish.org/
+
+95% of the programmers consider 95% of the code they did not write, in the
+bottom 5%.
+
+--Boundary-00=_iUxfDtgvpYmJ8Gu--

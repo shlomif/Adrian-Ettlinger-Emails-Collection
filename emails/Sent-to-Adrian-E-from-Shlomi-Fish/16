@@ -1,0 +1,245 @@
+From: Shlomi Fish <shlomif@iglu.org.il>
+To: "Adrian Ettlinger" <aettlinger@att.net>
+Subject: Re: Updates
+Date: Tue, 2 Aug 2005 14:36:24 +0300
+User-Agent: KMail/1.7.2
+References: <002301c59316$78421f10$3da64b0c@PC248541693324> <200508011324.27444.shlomif@iglu.org.il> <000501c59701$d1971c70$0c664a0c@PC248541693324>
+In-Reply-To: <000501c59701$d1971c70$0c664a0c@PC248541693324>
+X-KMail-Link-Message: 177490
+X-KMail-Link-Type: reply
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-8-i"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Message-Id: <200508021436.24366.shlomif@iglu.org.il>
+Status: RO
+X-Status: RSC
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Adrian!
+
+On Monday 01 August 2005 23:50, Adrian Ettlinger wrote:
+> Hi Shlomi,
+>
+> <<But I really would like a steady job with a nice payroll, instead of the
+> relatively unpredictable flow of income from articles and gigs.>>
+>     Very understandable.  That's what I had for the first 25 years of my
+> working career, and then I left it for what might have been an uncertain
+> situation, relying on a succession of "gigs", but a couple of these gigs
+> were fairly long-standing associations, and then I was lucky enough that
+> the jobs came along at a good enough pace to keep my continuously occupied.
+
+OK. Well, I'm not sure I have enough connections in the industry and enough 
+prestige to confidently become a consultant/contractor like that at this 
+point.
+
+>
+>     But a difference between "then and now" is that I was working in a time
+> when software skills were not very widespread, so a couple of my
+> associations were  companies too small to have anyone on staff who knew
+> anything about software, had no idea what I was doing, and had to rely on
+> me to provide the sofware element for a product.  Meaning that my style of
+> working could be entirely my own, and consequently, having no formal
+> sofware training, I was naturally (for me) very sloppy or negligent when it
+> came to documentation, and I could get away with it, although on occassion
+> I regretted it when I tried to understand my code a few years after I'd
+> last looked at it (like very recently for FcPro).
+>
+
+I see.
+
+Well, there's a software design methodology called Extreme Programming (or XP 
+for short) ( http://www.extremeprogramming.org/ ) which is very hyped 
+recently. One of the guidelines they are saying is that it is better to make 
+sure the code itself is structured and refactored enough for easy 
+understanding, than to have an obscured code that is adequately documented.
+
+I'll give you an example. Suppose I have this code, in more or less 
+pseudocode:
+
+<<<
+Process-Path(MyPath)
+{
+// Remove empty trailing elements
+while (MyPath[length(MyPath)-1] == "")
+{
+MyPath.Pop()
+}
+// Do the actual processing.
+.
+.
+.
+}
+>>>
+
+We could do better than that, by extracting a function that will remove the 
+empty trailing elements, and call it this way:
+
+<<<
+Process-Path(MyPath)
+{
+// Remove empty trailing elements
+Remove-Empty-Trailing-Elements(MyPath)
+// Do the actual processing.
+.
+.
+.
+}
+
+Remove-Empty-Trailing-Elements(MyPath)
+{
+while (MyPath[length(MyPath)-1] == "")
+{
+MyPath.Pop()
+}
+}
+>>>
+
+And now we no longer need the "// Remove empty trailing elements" comment.
+
+This is naturally a very simple example, but I hope you get my intention. 
+
+Generally comments, much less external documentation, are not as optimal as 
+having code that is easy to understand because they are usually not as 
+consistently maintained as the code is, and because one cannot be sure that 
+they are very easy to understand. Plus, people would rather read easy to 
+understand code than code plus more documentation.
+
+> <<Probably some companies would like people who are independent, think
+> outside the box, and are not very small-minded.>>
+>     Oh, certainly, but they are probably very scarce, so your problem is
+> finding where they are "hiding".
+
+Heh. Of course, it's hard for me to tell why I was rejected from all the 
+places that rejected me. I usually receive the usual generic answer.
+
+One possible drawback to my C.V. is that I tend to work on many different 
+open-source-related things, that each amount to relatively very little. Thus, 
+not all of the hours I have of experience can be reflected in my resume. 
+Usually I mention it in my cover letter to some extent, though.
+
+>
+> <<Are you buying your books from Amazon.com? They have wishlist and other
+> mechanisms for that.>>
+>     Yes, I usually do.  Also, there's an organization here I belong to
+> called the "History Book Club", from which I get monthly notices (that I
+> have to return to avoid having books sent to me automatically), and they
+> provide good bargains.  But you have a point, I should look into what
+> features Amazon has to make notes for future purposes.
+>
+
+OK.
+
+> <<("a company that was briefly very successful built around a product I had
+> developed").
+> Was that related to your Z-80 project? Or was it beforehand, with the Intel
+> 4004?>>
+>     Funny how one's memory can draw a blank.  I had to think about it, but
+> yes, we did use a Z-80 system for that project.  Lemme see, I don't think
+> I'd actually ever used the Intel 4004, but the 8008, and even the 8008 was
+> not an original project, but some modification work I did on a
+> previously-designed system for a TV broadcast system application.
+>
+
+I see. In your interview:
+
+http://www.shlomifish.org/open-source/interviews/adrian-ettlinger.html
+
+You said that for PBS you did some programming for the Intel 4004.
+
+>     Re the origins of religion:  I'm not so sure to what extent I would
+> subscribe to the analysis you relate (I'm not sure, either, whether you are
+> saying you agree with this or are simply describing Jayne's ideas).  
+
+Well, I was giving a lot of Jaynes' theory and summarized some of the evidence 
+he cited (as I remembered it). From my impression, he makes an excellent case 
+for supporting his theory, but naturally, one cannot know with absolute 
+certainty, whether it is correct or not. 
+
+
+> I 
+> would say there were more than one streams of development which led to the
+> patterns of early religion.  I'm not so sure I'd agree that "hearing
+> voices" was even a major factor.  I would identify the major impetus as
+> related more to the "understanding" or "explanation" of natural phenomenon.
+>  I. e., as consciousness developed, people began to "wonder" about "causes"
+> for natural phenomenon.  And it was only natural to assume supernatural
+> explanations.  I would consider this effect as a precursor to the "hearing
+> of voices".  As the forces behind natural phenomenon came to be more and
+> more personalized, it became common to imagine that those persons were
+> speaking.   
+
+Well, according to Jaynes, the belief in gods preceded consciousness. And in 
+fact, consciousness was a way to avoid the non-scalability of having to 
+non-consciously be controlled by voices emanating from several parts of the 
+right hemisphere, (and by the directions of the leaders).
+
+After people became conscious, the belief in gods continued from the time they 
+were bicameral. However, now they stopped hallucinating the voices of the 
+gods (except in exceptional cases, like prophets or oracles, or 
+schizophernics, or people who are possessed.) and the whole religious rituals 
+were fully conscious. 
+
+Now for what you're saying that people became conscious and then started 
+believing in gods to explain natural phenomena which they did not have an 
+explanation for. Well, it is certain that most mythologies tried to explain 
+various natural phenomena by making use of gods. This was because at that 
+time science was not sophisticated enough to give explanations for these 
+things. However, according to Jaynes, bicameral people hallucinated the 
+voices of gods for guidance, a long time before they developed consciousness. 
+Thus, when they acquired consciousness, they had no choice, but to already 
+believe in gods. The explanations for natural phenomena either preceded 
+consciousness or followed it, but they were not the primary reason theism has 
+evolved.
+
+And, BTW, in the last chapter, Jaynes claims that increasingly, science is 
+used as a source of external authorities, instead of religion.
+
+> As various systems of religion then evolved, it was only to be 
+> expected that religion would become intertwined with "politics", or
+> patterns of secular personal power, with each on occasion trying to make a
+> "tool" of the other.
+
+Right. 
+
+>
+>     The more I think about Jaynes and his division between the "conscious"
+> and the "unconscious", I'm thinking that he's designed an analytical tool
+> that maybe could contribute to some degree to understanding, but doesn't
+> necessarily have much basis in reality.  I. e., I wouldn't necessarily
+> agree that there is as sharp a dividing line between the "conscious" and
+> the "unconscious" as Jaynes appears to claim.
+
+What do you mean? Do you mean that consciousness is integral to the rest of 
+the brain's functions, or cannot be separated from it? (I'm waiting for your 
+answer so I can better reply).
+
+
+>
+>     With regard to sleeping patterns, when you get to be my age, things
+> change quite a bit.  I seem to more and more be getting into a pattern
+> where I just have a shorter sleeping cycle.  I. e., my overnight continuous
+> sleep will rarely be more than four hours.  Sometimes maybe six or seven
+> hours, but broken into two stretches with an hour of reading in between. 
+> But then I usually wind up taking a couple of naps during the day of about
+> a half-hour each.  Although if I happen to be contnually occupied during
+> the day, I don't necessarily miss the naps.
+>
+
+I see. Yes, I heard about that, and my father and mother (who are in their 
+50's) seem to go through a similar phase.
+
+Regards,
+
+	Shlomi Fish
+
+---------------------------------------------------------------------
+Shlomi Fish      shlomif@iglu.org.il
+Homepage:        http://www.shlomifish.org/
+
+Tcl is LISP on drugs. Using strings instead of S-expressions for closures
+is Evil with one of those gigantic E's you can find at the beginning of 
+paragraphs.

@@ -1,0 +1,99 @@
+From: Shlomi Fish <shlomif@iglu.org.il>
+Organization: The Technion
+To: Adrian Ettlinger <aettlinger@worldnet.att.net>
+Subject: Yet Another Keepalive + Some News
+Date: Sat, 14 Feb 2004 19:44:21 +0200
+User-Agent: KMail/1.5.3
+MIME-Version: 1.0
+Content-Disposition: inline
+Status: RO
+X-Status: RS
+Content-Type: text/plain;
+  charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+Message-Id: <200402141944.21597.shlomif@iglu.org.il>
+X-KMail-EncryptionState: N
+X-KMail-SignatureState: N
+X-Spam-Checker-Version: SpamAssassin 3.0.0-pre4 (2004-08-04) on 
+	localhost.localdomain
+X-Spam-Level: 
+X-Spam-Status: No, score=-3.4 required=5.0 tests=ALL_TRUSTED,AWL,BAYES_00 
+	autolearn=ham version=3.0.0-pre4
+X-UID: 
+X-KMail-MDN-Sent: 
+
+Hi Adrian!
+
+I'm sending this message from my home address where I have a better mailer and 
+is in general more convenient for me. Please at least acknowledge that you 
+have received this message, because I had problems with my ISP's E-mail 
+server being on anti-spam black-lists.
+
+Well, since the last keepalive (about the etymology of the word Freedom) a lot 
+has been progressing. If you haven't been following my weblog, I can say that 
+the following has happened:
+
+1. I finished the studies for this semester and now have a tests period. I 
+could not study for the tests too hard because I am in an euphoric state (a 
+variation of anxiety) and so don't have the mind for studies.
+
+2. Instead, I'm spending my time riding the bicycle, hacking various things on 
+the computer, corresponding with people, chatting (IRC, IM, etc).
+
+3. In regards to our meta-political discussion, I revamped my "Solving" 
+initiative to make it much better:
+
+http://vipe.technion.ac.il/~shlomif/philosophy/solving/
+
+What I now propose is for self-appointed leaderships will compete for leading 
+the country along with the "official" elected leadership. So instead of 
+having a dictatorship of an elected leadership, we will have a competition of 
+several leaders.
+
+Some people whom I told them that, thought it was akin to Feudalism or to 
+Anarchy, so read the material there, if this sounds fantastic to you.
+
+4. I also made a huge revamp for the Perl Beginners' Site:
+
+http://perl-begin.berlios.de/
+
+It's much, much better now in many respects. 
+
+I talked with a few of the admins of the perl.org domains about having better 
+resources for beginners there. At first it escalated into a flame-war, but 
+then someone told us that the perl.org servers suffered a hardware failure 
+and so we needed to have some patience in getting things done.
+
+So, I was re-directed to instructions on how to contribute and wrote a nice
+page (which mostly re-directed people to the appropriate pages at perl-begin).
+I sent it as a diff.
+
+Meantime, one of the admins who reviewed perl-begin.berlios.de claimed it was 
+"recycled horse manure" and that even the design of learn.perl.org was much 
+better. I and other people think he's very wrong on this. But who is John 
+Galt?
+
+5. I also did a lot of work on the Better-SCM site:
+
+http://better-scm.berlios.de/
+
+This is a site for advocacy of various version control systems. I know you're 
+using a poor-man's version control system of keeping several zip files of 
+various dates around, but you may like Subversion much better if you give 
+yourself some time to learn it. (you can toy with it a bit, before you start
+working on real projects with it).
+
+There's an entire book on Subversion here:
+
+http://svnbook.red-bean.com/
+
+Regards,
+
+	Shlomi Fish
+
+---------------------------------------------------------------------
+Shlomi Fish      shlomif@iglu.org.il
+Homepage:        http://t2.technion.ac.il/~shlomif/
+
+I don't believe in fairies. Oops! A fairy died.
+I don't believe in fairies. Oops! Another fairy died.

@@ -1,0 +1,273 @@
+From: Shlomi Fish <shlomif@iglu.org.il>
+To: "Adrian Ettlinger" <aettlinger@att.net>
+Subject: Re: Updates
+Date: Sat, 30 Jul 2005 16:14:31 +0300
+User-Agent: KMail/1.7.2
+References: <002301c59316$78421f10$3da64b0c@PC248541693324> <000701c593da$d82cdea0$d72f4c0c@PC248541693324> <200507290753.40242.shlomif@iglu.org.il>
+In-Reply-To: <200507290753.40242.shlomif@iglu.org.il>
+X-KMail-Link-Message: 176366
+X-KMail-Link-Type: reply
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-8-i"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Message-Id: <200507301614.31789.shlomif@iglu.org.il>
+Status: RO
+X-Status: RSC
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Adrian!
+
+I did not mean to send this letter as it is, but instead put it in my drafts 
+folder for later composition. However, it was sent and now I can't really 
+remember what I wanted to add.
+
+In any case, I had a relatively hectic couple of days. On Thursday, I woke up 
+prematurely at 3:30 AM and decided that it was one of these days that I did 
+not want to go back to bed. I stayed awake until I went to sleep at around 
+23:00. At first I started working on making sure a Perl module has 100% test 
+coverage as part of the Phalanx project:
+
+http://www.perl.com/pub/a/2005/01/13/phalanx.html
+
+However, some things in the module were relatively anachronistic and quite 
+annoyed me so I delayed continuing working on it. So instead I went to 
+continue working on preparing a vector graphics sketch of the left pane in 
+this panel strip:
+
+http://www.ozyandmillie.org/2005/om20050208.html
+
+I made a lot of progress. What I have now seems to resemble the lower part of 
+the original, but the curves are still quite non-identical. Nevertheless I 
+want to complete everything and then to fine-tune everything at the end. (I 
+can send you what I have so far).
+
+Working on such an image is relatively tedious, so I alternated between doing 
+it and doing something else. Throughout the day I found myself to be pretty 
+bored, so I decided to try doing something productive and hope that the 
+appetite will follow the food.
+
+So I set out to work on a project which I started and then abandoned to write 
+the SVN::Pusher module and the svn-pusher command line client. I wrote a 
+basic version of this utility called "svn-push" in C which is working but is 
+very limited, and I wanted to write it in Perl so it will be more flexible. 
+Someone wrote a module called SVN::Push and placed it on CPAN which contained 
+a similar functionality, and I decided to base on it. However, after 
+converting the code to do what I want, I encountered some problems, and thus 
+abandoned it for a while.
+
+So on Thursday, I went back to it again, was able to find a workaround for the 
+bug that troubled but encountered other bugs. I resolved them as well, and 
+when I finished late at night (22:00 or so) I had a working version. I still 
+have some work to do, but I'm glad that I was successful. Most of my problems 
+were caused by the fact that what I wanted to do was quite different than the 
+original's code, but at least the API was bug-free.
+
+I conversed on the IRC almost the entire time, in hope that people can help 
+me. I think I found out the problems on my own eventually, but it was still a 
+fun conversation.
+
+Then when I checked E-mail I found out that some folders had 30 or 20 
+messages. Apparently the flame-war that was started here:
+
+http://gadot.fdns.net/lurker/mindex/hamakor-disc%4020050722.134115.90d49004.en.html
+
+Really heated up. It all occured because someone who is a member of the 
+Israeli local Free and Open Source Sotware (FOSS) Community is quite tactless 
+and tends to troll and insult people a lot. As a result this discussion 
+heated up and people tried to reply against the accusations. When this member 
+was decided to be moderated, people tried to say it was a wrong decision to 
+moderate him, and as a result a lot of further accusations were thrown.
+
+This has caused several subscribers to leave the mailing list, some people to 
+request to revoke their membership from the Israeli FOSS NPO, and one member 
+of the board to resign. (claiming that the board should have the approval of 
+the assembly) Now it seems like it has hopefully cooled down a bit.
+
+In any case, I did not have a time to catch up with it too closely at that 
+point, because I had to go to sleep. I was waked up at 6:30 AM by my Sleep 
+Alarm, because I was picked up at 8:00 by Lior Kaplan in order to upgrade the 
+server iglu.org.il (known as eskimo to the adminstration group), from Debian 
+GNU/Linux 3.0 ("Woody") to Debian 3.1 ("Sarge"). Despite the fact Sarge is 
+a .1 release, it was about 3 years since the previous release, so it's the 
+most fundamental upgrade to Debian so far. We also wanted to install a new 
+320 GB hard disk there.
+
+The upgrade took some time, but went quite well. Lior was a big help. One 
+problem we encountered was with setting up the RAID array. It seems that the 
+previous tool chain for managing them was no longer available, and the 
+replacement required some tweaking to be compatible with it. I won't bore you 
+with the technical detail, but eventually we had to do a relatively ugly 
+kludge to get it to work. Luckily there was pretty good documentation 
+available on the disk.
+
+After we installed the hard-disk, we had to format it, which took a long time. 
+This gave us the opportunity to eat, so we went outside, and bought Shawarma 
+( http://www.gomideast.com/articles/shw1.htm ), and went back. The formatting 
+was finished and we decided that everything was in order and we could 
+continue doing the rest from remote.
+
+I should note that the place has left quite an impression on me. The Eskimo 
+server is hosted in the server farm of an Israeli ISP called Actcom, which is 
+very friendly to Israeli Open Source Activities. It occupies most of the 
+second floor of a building called "The Tower of Haifa" which is relatively 
+old. The rooms and corridors looked relatively dirty and neglected. The 
+server room was heavily crowded with servers one next to the other. I was 
+told it "looks like shit" on one occassion but I was actually relieved when I 
+saw how it really looked like. We spotted other servers we were familiar with 
+there.
+
+We had to work in the room of the Technical support people. (Four supporters 
+crowded in one room with microphones, computers, etc.). So we listened to 
+their conversation and had to be quiet. We worked on the remote computer 
+through a mechanism that allowed seeing the screen output of the computer on 
+our local screen. The local computer which we sat next too has ran Windows 98 
+and we had a graphical browser, an SSH client, etc. available there.
+
+After we were finished, Lior drove me to the Train and Bus station. The last 
+train to Tel Aviv was leaving, so I decided to take the bus instead. Then my 
+father drove me from where the bus stopped. I arrived at the house at around 
+16:00, washed my face and ate, and then went to the computer to catch up with 
+the E-mails.
+
+Someone actually told me that he'd like to hear my opinion on that. I answered 
+him that I was busy working on SVN::Pusher and upgrading Eskimo, and so could 
+not engage in something less productive like a grand-scale flame-war. 
+(Someone has to do that...)
+
+In any case, I cought up with the rest of the correspondence, and wrote some 
+E-mails summarizing my opinion.
+
+Meanwhile it seems that a server on the Technion (vipe.technion.ac.il) which I 
+have an account on, to read E-mails and host some web stuff, has become 
+disconnected yet again. I feel like I'm missing a bone or something. I went 
+to sleep at around 22:00, but fell asleep only at around 00:30.
+
+I had a good night sleep, and woke up today at 11:30 AM. I feel refreshed from 
+the sleep, which I did not get enough of for two consecutive days. Today I'd 
+like to ride my bike, so I'll get some sporting activity.
+
+------------------------------
+
+I hope I did not bore you telling you all that. This will probably go in my 
+weblog, but I wrote it to you first. I hope you'll have (or are having or 
+had) a good family vacation at the beach.
+
+Regards,
+
+	Shlomi Fish
+
+On Friday 29 July 2005 07:53, Shlomi Fish wrote:
+> On Friday 29 July 2005 04:10, you wrote:
+> > Hi Shlomi,
+> >
+> > <<But please at least keep me updated on your news.....>>
+> >     Well, let's see.  I'm still kicking.  Last two trips were in May to
+> > Indianapolis for a railroad history meeting, and then in June to
+> > Nashville for a genealogy meeting.  Leaving tomorrow for our annual beach
+> > vacation with the extended family (son and daughter with spouse-in-laws
+> > and five grandkids), which this year we're making for two weeks.  My wife
+> > and I like to go down to southern New Jersey the night before because
+> > traffic from New York to the Jersey beaches is always horrific on
+> > Saturdays.  We're doing what we did last year, and instead of staying
+> > near the shore (like around Atlantic City) where hotel rates are
+> > annoyingly high, we're going to stay in Vineland, NJ, which is in the
+> > interior of the state, and is in an agricultural area that "no one ever
+> > travels through".  It's interesting because it's a genuine working
+> > community, and not under any influence from the tourist industry.  Not
+> > very prosperous, but not destitute either.
+>
+> Sounds good.
+>
+> > <<....and possibly comment on mine.....>>
+> >     Sorry I hadn't done that, but my recollection is that your news was
+> > tentative, and more news might follow.  Anything going on on the job
+> > front since your last report?
+>
+> Well, I had a few job interviews but nothing final yet. I was rejected from
+> the positions at IBM Haifa R&D Lab. I was also rejected from another
+> position at a relatively small company called Jungo, after an interesting
+> interview, that from my impression went relatively well. There was this one
+> company that I decided to avoid being hired to, after they made a bad
+> impression on me. Then I heard that they were even worse, after someone I
+> know told me that his friend who worked there, and quit and told him some
+> awful things about them. (so I was right in my gut-feeling.)
+>
+> A few of my articles were published since, for which I earned some money.
+> But not too much - there's a limit to how many I can write and get
+> published.
+>
+> Other than that, I'm helping in organizing community events. I started
+> organizing Israeli Python meetings, where Python is a computer language
+> which is similar in its capabilities to Perl (and compete for much the same
+> uses) but with a radically different way of doing things. We had two
+> meetings in a shopping mall, but now we found a place where we can hold
+> presentations.
+>
+> > <<Well, as I recall some compilers prepend an underscore.....>>
+> >     Hey, that's a new word for my vocabulary .... prepend ....
+>
+> Hmmm... usually you are saying words I have to look up, but now I've
+> surprised you... As you may have guessed "prepend" is like "append" only
+> involves insertion at the beginning. It's less commonly used than append,
+> because adding to the end is naturally much more common. Still, I heard it
+> being used occassionally.
+>
+> >     You hit
+> > the nail on the head.  That was my problem.  I identified the problem and
+> > it was that I had an obselete version of that fc_pro_iface.c (right
+> > name?) in the file set.
+>
+> OK.
+>
+> >     Even though very few people have asked about the software, and this
+> > was the first person to try to compile it, I would like to upgrade what
+> > we have posted so that it "works".   If I prepare another copy of the
+> > source, can you take care of replacing the defective ones (or one) that
+> > is now posted on the web?
+>
+> Yes. Just send it to me and I'll re-post it.
+>
+> >     I'm glad to see that there is some hope now that your part of the
+> > world might be becoming more peaceful.
+>
+> The keyword here is "more". I think that the unilateral withdraw from the
+> Gaza strip is a step in the right direction. Those settlers cost a lot of
+> resources (even lives!) to maintain there, and just make everybody -
+> Israelis and Palestinians - angry. We would be in a much better position to
+> protect against potential threats from the Gaza strip once there won't be
+> any Jews there.
+>
+> The Ironic thing is that the Gaza strip is not considered part of the
+> Israeli Fatherland according to religious Jewish tradition. It is
+> considered part of the Land of the Philistines, and the Laws of the Land of
+> Israel are not relevant there. Some of the settlers make their living by
+> growing crops there with permission during the Sabattical Year where
+> according to the Bible, one should not grow crops in Israel.[1]
+>
+> This reminds me that the Philistines in the Bible, actually called
+> themselves Palestinians (after the Greek god "Pales"), and were called so
+> by the Greek. The Greek initially tended to think of what the Jews called
+> "Eretz Yisra'el" (or "The Land of Israel") as "Palestine", as they did not
+> distiniguish between Jews and other kinds of Semite people, and were
+> familiar with the Philistines who shared a language and an origin with
+> them. Later the name "Palestine" was re-adopted by the Romans after the
+> destruction of the Second Temple.
+>
+> [1] - This law is relatively anachronstic nowadays, as there is the
+>
+> > Best regards, ---------------------------Adrian
+> > \
+
+-- 
+
+---------------------------------------------------------------------
+Shlomi Fish      shlomif@iglu.org.il
+Homepage:        http://www.shlomifish.org/
+
+Tcl is LISP on drugs. Using strings instead of S-expressions for closures
+is Evil with one of those gigantic E's you can find at the beginning of 
+paragraphs.

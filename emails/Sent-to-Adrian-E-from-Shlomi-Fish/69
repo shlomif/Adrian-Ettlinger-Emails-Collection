@@ -1,0 +1,41 @@
+From: Shlomi Fish <shlomif@iglu.org.il>
+To: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+Subject: Broken Link in http://www.rrhistorical.com/rrdata/Fcpro65/ + The Working Source Distribution
+Date: Fri, 1 Aug 2008 19:44:56 +0300
+User-Agent: KMail/1.9.9
+X-KMail-Transport: Eonspace
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Message-Id: <200808011944.56692.shlomif@iglu.org.il>
+Status: RO
+X-Status: RSC
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+Hi Adrian!
+
+There's a link from http://www.rrhistorical.com/rrdata/Fcpro65/ to:
+
+* http://vipe.technion.ac.il/~shlomif/freecell-solver/
+
+However, the correct link is http://fc-solve.berlios.de/ . Please correct it.
+
+Moreover, I told you that you should send me an up-to-date version of the 
+Freecell Pro sources that will be self-contained and made sure to compile 
+cleanly on Windows. So please do so.
+
+I'm still awaiting your response.
+
+Regards,
+
+	Shlomi Fish
+
+-----------------------------------------------------------------
+Shlomi Fish       http://www.shlomifish.org/
+My Aphorisms - http://www.shlomifish.org/humour.html
+
+I met a guy in the bar, talked to her and she gave me her phone number.

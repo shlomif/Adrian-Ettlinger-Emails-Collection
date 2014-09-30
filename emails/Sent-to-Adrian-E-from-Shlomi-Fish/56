@@ -1,0 +1,179 @@
+From: Shlomi Fish <shlomif@iglu.org.il>
+To: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+Subject: Shanah Tovah!
+Date: Tue, 4 Oct 2005 10:16:43 +0200
+User-Agent: KMail/1.8.2
+MIME-Version: 1.0
+Content-Type: Multipart/Mixed;
+  boundary="Boundary-00=_rpjQDt1U/3trHRc"
+Message-Id: <200510041016.43779.shlomif@iglu.org.il>
+Status: RO
+X-Status: RST
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+--Boundary-00=_rpjQDt1U/3trHRc
+Content-Type: text/plain;
+  charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+Hi Adrian!
+
+Happy New Jewish Year! And "Gmar Hatimah Tovah". Also see:
+
+http://www.livejournal.com/users/shlomif/4881.html?mode=reply
+
+(feel free to comment)
+
+I should note that now I got a really good idea for a commercial (but open 
+source) startup project. I talked about it to my friend Ori over lunch, he 
+liked it a lot, and he gave me a lot of advice about what to do next. I 
+already wrote an executive summary for the first part of it (which is 
+profitable, but just a means to an end) and sent it to a few good friends and 
+received some extra commentary. I'm attaching the executive summary in HTML 
+format to this message for reference.
+
+I should note that I asked you to prepare a zip file with the entire contents 
+of FC-Pro, and to check it, and then to put it somewhere online. That put 
+aside, it was reported that an Israeli couple solved board #11982. I talked 
+with them and with the reporter who reported it on the phone, and it turns 
+out they expect to meet Jim Horne, which isn't going to happen. (in fact, 
+they solved the entire 32,000 games and now continue on to the next 1M).
+
+Regards,
+
+	Shlomi Fish
+
+---------------------------------------------------------------------
+Shlomi Fish      shlomif@iglu.org.il
+Homepage:        http://www.shlomifish.org/
+
+95% of the programmers consider 95% of the code they did not write, in the
+bottom 5%.
+
+--Boundary-00=_rpjQDt1U/3trHRc
+Content-Type: text/html;
+  charset="us-ascii";
+  name="Icehamster-Executive-Summary.html"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="Icehamster-Executive-Summary.html"
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE
+    html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US">
+    <head>
+        <title>"Icehamster" - an Executive Summary</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Shlomi Fish" />
+        <meta name="description" content="Executive summary for Icehamster" />
+        <meta name="keywords" content="Shlomi Fish, Icehamster, Apt, Windows, Microsoft, Win32, urpmi, rpm, dpkg, Linux, packages" />
+    </head>
+    <body>
+        <h1>"Icehamster" - an Executive Summary</h1>
+        
+        <h2>Introduction</h2>
+        <p>
+        The Microsoft Windows line of operating systems suffers from inadequate
+        package management. Generally, programs are downloaded as 
+        self-contained executables, installed using a manual process, and often
+        break other applications or the entire system. Compare this to the
+        state of the art in most modern Linux distributions (such as 
+        <a href="http://www.debian.org/">Debian GNU/Linux</a>, 
+        <a href="http://www.mandriva.com/">Mandriva Linux</a> and 
+        <a href="http://www.redhat.com/">Fedora Linux/Red Hat Enterprise Linux</a>
+        , where one can install packages in an automated processes, and each
+        package encompass functionality that can be used by many other 
+        dependant packages. 
+        </p>
+        <p>
+        The aim of the "Icehamster" (temporary name) project is to provide the 
+        same functionality for Microsoft Windows, in an open-source 
+        (BSD-licensed), flexible, and reliable way.
+        </p>
+
+        <h2>What Icehamster will do?</h2>
+
+        <p>
+        Icehamster will provide:
+        </p>
+        <ol>
+            <li>
+            A way for developers to package their software (and similar 
+            content) in packages. As opposed to traditional 
+            "Next &rarr; Next &rarr; Install" Win32 packages, each of these
+            would contain a self-contained and possibly dependant 
+            functionality that can later be re-used by other packages.
+            </li>
+            <li>
+            Allow developers to publish their packages online, or in re-usable
+            media such as CD-ROMs.
+            </li>
+            <li>
+            Allow users to install an Icehamster client which will allow them
+            to retrieve Icehamster packages from remote sources or from media.
+            </li>
+            <li>
+            All of this will be fully automatable, open source, and flexible.
+            </li>
+        </ol>
+        
+        <h2>Source of Revenue</h2>
+
+        <p>
+        The Icehamster software being open-source will not generate a profit
+        stream by itself. The Icehamster developers will instead offer
+        the software free of charge for people to download and install on their
+        computers. Furthermore, developers will be able to prepare their own
+        Icehamster packages for easy installation and maintenance of their 
+        software. So what will we profit from? 
+        </p>
+        <p>
+        Simple. We will provide a hosting service for Icehamster packages. 
+        Instead of configuring and maintaining their own source of packages,
+        the interested developers would be able to set up an account on our
+        server, and upload new versions of their packages whenever they are
+        ready. We will charge them for the hosting, and for any extra bandwidth
+        used.
+        </p>
+        <p>
+        It is possible similar providers of services will spring up. That's
+        perfectly acceptable, as we will still have a large percentage of the
+        total market, assuming we stay competitive enough.
+        </p>
+
+        <h2>Technology</h2>
+
+        <p>
+        We plan to use <a href="http://www.perl.org/">Perl</a>, a powerful
+        , popular and cross-platform dynamic language for writing most of
+        Icehamster. While being very high-level and allowing a programmer
+        to construct a lot of working code very quickly, it also supports
+        many low-level primitives, and platform-specific APIs.
+        </p>
+        
+        <p>
+        We plan to use PAR - the Perl Archiver, as a way to package Icehamster
+        in self-contained executables that contain the Perl Virtual Machine
+        and all the third-party APIs. This is done in order to facilitate the 
+        installation by the user.
+        </p>
+
+        <p>
+        We will make use of many of the 
+        <a href="http://www.cpan.org/">Comprehensive Perl Archive Network</a>
+        (or CPAN) modules that we find appropriate. CPAN provides a lot of
+        ready made and fully usable functionality, that can make a dramatic
+        improvement in development time and cost. We may also make use of 
+        external tools written in other languages (especially C and C++)
+        if they also prove useful.
+        </p>
+    </body>
+</html>
+
+
+--Boundary-00=_rpjQDt1U/3trHRc--

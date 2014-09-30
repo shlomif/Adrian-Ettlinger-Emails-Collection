@@ -1,0 +1,133 @@
+From: Shlomi Fish <shlomif@iglu.org.il>
+To: "Adrian Ettlinger" <aettlinger@att.net>
+Subject: Re: Updates
+Date: Fri, 29 Jul 2005 07:53:40 +0300
+User-Agent: KMail/1.7.2
+References: <002301c59316$78421f10$3da64b0c@PC248541693324> <200507280523.41104.shlomif@iglu.org.il> <000701c593da$d82cdea0$d72f4c0c@PC248541693324>
+In-Reply-To: <000701c593da$d82cdea0$d72f4c0c@PC248541693324>
+X-KMail-Link-Message: 176252
+X-KMail-Link-Type: reply
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-8-i"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Message-Id: <200507290753.40242.shlomif@iglu.org.il>
+Status: RO
+X-Status: RSC
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+On Friday 29 July 2005 04:10, you wrote:
+> Hi Shlomi,
+>
+> <<But please at least keep me updated on your news.....>>
+>     Well, let's see.  I'm still kicking.  Last two trips were in May to
+> Indianapolis for a railroad history meeting, and then in June to Nashville
+> for a genealogy meeting.  Leaving tomorrow for our annual beach vacation
+> with the extended family (son and daughter with spouse-in-laws and five
+> grandkids), which this year we're making for two weeks.  My wife and I like
+> to go down to southern New Jersey the night before because traffic from New
+> York to the Jersey beaches is always horrific on Saturdays.  We're doing
+> what we did last year, and instead of staying near the shore (like around
+> Atlantic City) where hotel rates are annoyingly high, we're going to stay
+> in Vineland, NJ, which is in the interior of the state, and is in an
+> agricultural area that "no one ever travels through".  It's interesting
+> because it's a genuine working community, and not under any influence from
+> the tourist industry.  Not very prosperous, but not destitute either.
+
+Sounds good. 
+
+>
+> <<....and possibly comment on mine.....>>
+>     Sorry I hadn't done that, but my recollection is that your news was
+> tentative, and more news might follow.  Anything going on on the job front
+> since your last report?
+
+Well, I had a few job interviews but nothing final yet. I was rejected from 
+the positions at IBM Haifa R&D Lab. I was also rejected from another position 
+at a relatively small company called Jungo, after an interesting interview, 
+that from my impression went relatively well. There was this one company that 
+I decided to avoid being hired to, after they made a bad impression on me. 
+Then I heard that they were even worse, after someone I know told me that his 
+friend who worked there, and quit and told him some awful things about them. 
+(so I was right in my gut-feeling.)
+
+A few of my articles were published since, for which I earned some money. But 
+not too much - there's a limit to how many I can write and get published.
+
+Other than that, I'm helping in organizing community events. I started 
+organizing Israeli Python meetings, where Python is a computer language which 
+is similar in its capabilities to Perl (and compete for much the same uses) 
+but with a radically different way of doing things. We had two meetings in a 
+shopping mall, but now we found a place where we can hold presentations.
+
+>
+> <<Well, as I recall some compilers prepend an underscore.....>>
+>     Hey, that's a new word for my vocabulary .... prepend ....   
+
+Hmmm... usually you are saying words I have to look up, but now I've surprised 
+you... As you may have guessed "prepend" is like "append" only involves 
+insertion at the beginning. It's less commonly used than append, because 
+adding to the end is naturally much more common. Still, I heard it being used 
+occassionally.
+
+>     You hit 
+> the nail on the head.  That was my problem.  I identified the problem and
+> it was that I had an obselete version of that fc_pro_iface.c (right name?)
+> in the file set.
+
+OK.
+
+>
+>     Even though very few people have asked about the software, and this was
+> the first person to try to compile it, I would like to upgrade what we have
+> posted so that it "works".   If I prepare another copy of the source, can
+> you take care of replacing the defective ones (or one) that is now posted
+> on the web?
+>
+
+Yes. Just send it to me and I'll re-post it.
+
+>     I'm glad to see that there is some hope now that your part of the world
+> might be becoming more peaceful.
+>
+
+The keyword here is "more". I think that the unilateral withdraw from the Gaza 
+strip is a step in the right direction. Those settlers cost a lot of 
+resources (even lives!) to maintain there, and just make everybody - Israelis 
+and Palestinians - angry. We would be in a much better position to protect 
+against potential threats from the Gaza strip once there won't be any Jews 
+there.
+
+The Ironic thing is that the Gaza strip is not considered part of the Israeli 
+Fatherland according to religious Jewish tradition. It is considered part of 
+the Land of the Philistines, and the Laws of the Land of Israel are not 
+relevant there. Some of the settlers make their living by growing crops there 
+with permission during the Sabattical Year where according to the Bible, one 
+should not grow crops in Israel.[1]
+
+This reminds me that the Philistines in the Bible, actually called themselves 
+Palestinians (after the Greek god "Pales"), and were called so by the Greek. 
+The Greek initially tended to think of what the Jews called "Eretz 
+Yisra'el" (or "The Land of Israel") as "Palestine", as they did not 
+distiniguish between Jews and other kinds of Semite people, and were familiar 
+with the Philistines who shared a language and an origin with them. Later the 
+name "Palestine" was re-adopted by the Romans after the destruction of the 
+Second Temple. 
+
+[1] - This law is relatively anachronstic nowadays, as there is the 
+
+> Best regards, ---------------------------Adrian
+> \
+
+-- 
+
+---------------------------------------------------------------------
+Shlomi Fish      shlomif@iglu.org.il
+Homepage:        http://www.shlomifish.org/
+
+Tcl is LISP on drugs. Using strings instead of S-expressions for closures
+is Evil with one of those gigantic E's you can find at the beginning of 
+paragraphs.

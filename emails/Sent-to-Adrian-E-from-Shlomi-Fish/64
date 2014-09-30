@@ -1,0 +1,370 @@
+From: Shlomi Fish <shlomif@iglu.org.il>
+To: "Adrian Ettlinger" <aettlinger@worldnet.att.net>
+Subject: Re: Thailand looks correct
+Date: Thu, 3 Jul 2008 21:31:05 +0300
+User-Agent: KMail/1.9.9
+References: <200712041916.18512.shlomif@iglu.org.il> <200806291616.56740.shlomif@iglu.org.il> <00b201c8d9f8$5adbcc10$6401a8c0@PC248541693324>
+In-Reply-To: <00b201c8d9f8$5adbcc10$6401a8c0@PC248541693324>
+X-KMail-Link-Message: 1366009
+X-KMail-Link-Type: reply
+MIME-Version: 1.0
+Content-Type: Multipart/Mixed;
+  boundary="Boundary-00=_prRbIVYSJ495gLB"
+Message-Id: <200807032131.05584.shlomif@iglu.org.il>
+Status: RO
+X-Status: RST
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+--Boundary-00=_prRbIVYSJ495gLB
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+On Sunday 29 June 2008, Adrian Ettlinger wrote:
+> Hi Shlomi,
+>
+>     Do yoy mean to tell me the last time we talked I hadn't yet reached 80?
+
+Yes, I recall you telling me you were 76 at a time. Then a few years passed 
+and we were still talking. Maybe your 80th Birthday passed without you 
+telling me about it.
+
+> I'm now 83.  
+
+I see. That's nice. What is your birthday? Mine is 5-May.
+
+> Actually, my 80th birthday had a very nice surprise.  My son 
+> and family came up from the Washington area to surprise me at the birthday
+> party at a restaurant.  Then they did the same thing when my wife and I had
+> our 50th wedding anniversary.
+
+Ah, nice.
+
+>
+>     I would like to hear about "what's become of you".
+
+Sure, see below.
+
+>
+>     On the family front, my youngest grandson here (around 10) is into the
+> sports/exercise routine called Tai Kwan Do, which is Korean in origin.  It
+> seems the Korean nation has an annual "festival" for this, and they invite
+> people from all over the world.  A large group from my grandson's school
+> are going, and my daughter and granddaughter are going too, so they'll be
+> in Korea for ten days.
+
+Ah nice. South Korea, right? I think Tai Kwan Do is a kind of martial arts. I 
+studied Judo when I was in the first or 2nd grade and quit, and then studied 
+Contact Fight in the 8th grade as part of school, and then stopped too. 
+Several serious Martial Artists told me you need to study several different 
+martial arts systems to be really good at mixed fighting.
+
+BTW, last you told me that you moved to a different house after living in the 
+same house for many years, and found the experience disorienting. Did you 
+adjust to the new house yet?
+
+Now regarding me.
+
+Sports-wise, I have neglected biking for a long time (partly due to the 
+weather which was not-cold-enough and not-hot-enough-way, and partly due to 
+my last job, from which I was fired), but lately returned to it. I also got a 
+10-times-pass to the local country club (a short walk away from my home) and 
+went to the gym once and to the swimming pool twice. But I'm still biking a 
+lot.
+
+I've been blogging and chatting on the IRC a lot lately. I reached the 
+conclusion that I became too obsessed with the computer and should dedicate 
+some time to reading books, watching television, etc. I also considered 
+downloading some videos (movies, T.V. shows, etc.) from P2P networks and 
+watching them.
+
+I've still been contributing to open-source projects, and still maintained the 
+tradition that every Yom Kippur I go over my blog posts since the previous 
+one and summarise the year in retrospect - see what I did right, what I did 
+wrong, and what I can learn from it. 
+
+Recently, I've re-commenced going to a therapist I know for 
+http://en.wikipedia.org/wiki/Cognitive_behavioral_therapy . Lately, he's been 
+giving me a few pieces of good long-term advice in each session, which I 
+guess is worth the 400 ILS (about 170 USD) payment. Not to mention that there 
+is no price for mental health. I self-diagnosed myself with 
+http://en.wikipedia.org/wiki/Bipolar_disorder , due to the fact I had 
+a "great mania" during my first semester of break from the Technion, and 
+several other minor manias. It's been a while since I had a mania, but I 
+still have hypomanias.
+
+I've been writing several stories and screenplays:
+
+* http://www.shlomifish.org/humour/human-hacking/ - a "cute", "feel good", 
+story about teenagers in present-day Los Angeles who happen to be 
+software-enthusiasts. I received mostly good-to-very-good reviews of this 
+story, and two teenageres even asked me if it was real. (It's not).
+
+It's the closest thing I've ever written to Romantic Realism, but still 
+happens to be funny in parts. (Although purposely less so than some of my 
+other stories).
+
+* http://www.shlomifish.org/humour/Star-Trek/We-the-Living-Dead/ - this is 
+a "Star Trek - Deep Space Nine" fan-art screenplay that's work-in-progress. 
+It's my most integrated story ever comprising of inspirations from 
+Hackerdom/Computer-Science, Judaism/Israel/etc., history of the Old World 
+(including what Jaynes said), Star Trek (naturally), Buffy the Vampire 
+Slayer, the Illuminati and other conspiracy theories, Neo-Tech and 
+Objectivism, Internet life and Popular Culture.
+
+It is heavily based on many delusions I had during my great mania, which I 
+found too silly and not-Star-Trek-enough to be written down as is, but lately 
+figured out a way to be able to write it the right way, and started working 
+on it.
+
+My problem with "We, the Living Dead" is that I have ideas for most of the 
+scenes, but cannot concentrate on writing them in one big swoop. 
+
+* I've also converted my fortune collection to XML:
+
+http://www.shlomifish.org/humour/fortunes/
+
+I wrote a lot of code in Perl and XSLT to convert them to (X)HTML and 
+plaintext, and now want to create a web feed for them, which will involve 
+some extra logic (and I also needed to use the Priority Queue concept I've 
+learned about from my CS studies).
+
+-----
+
+I've been working a lot on my homesite. It's still mostly static HTML, but the 
+logic to convert it from the templates to the HTML has become more and more 
+complicated. As it turns out my version control system, svk, has been 
+betraying me behind my back, and neglected to propagate the changes I made to 
+the local repository, into the remote repository. I'm trying to look into how 
+to do that exactly, or at least provide a snapshot of the repository.
+
+I also concluded that my homesite needs better Search Engine Optimisation 
+(SEO), because I'm still relatively obscure. I've had some luck publicising 
+various features in such news sites as OSNews.com, which often caused them to 
+hit the rest of the blogosphere. But I guess I'm looking for recognition 
+rather than 5 minutes of fame.
+
+I also feel that I've matured as a blogger, and only been writing on stuff 
+that I believe other people will find interesting. I hate most random 
+personal blogs, which are good for family or close friends, but are otherwise 
+useless. Even my non-technical blog now contains mostly philosophical 
+thoughts about philosophy, language, popular art, etc.
+
+I'm attaching here an email I'd like to send to the Perl Foundation regarding 
+a huge problem one of its admins has inflicted on me by completely banning my 
+email addresses from all @perl.org domains, and a few days ago by deciding to 
+ban me from irc.perl.org. irc.perl.org is a very sick network full of Ego, 
+and where abuse is not only common but also tolerated. More details about it 
+in the email.
+
+So I've been OK. Still working on changing the world and world-domination, and 
+still struggling with "mediocre minds" (to quote Albert Einstein) who stand 
+against me. While I'm losing some battles, I'm still mostly making a lot of 
+progress.
+
+Finally, there's a startup I'm playing with the idea of starting:
+
+http://www.shlomifish.org/random-tweakers/
+
+I'm not looking for a job at the moment - need some time to relax, but maybe 
+I'll be able to realise the perfect workplace (see  
+http://www.shlomifish.org/philosophy/computers/software-management/perfect-workplace/ ), 
+by myself.
+
+Regards,
+
+	Shlomi Fish
+
+----------------------------------------------------------------
+Shlomi Fish       http://www.shlomifish.org/
+Original Riddles - http://www.shlomifish.org/puzzles/
+
+The bad thing about hardware is that it sometimes works and sometimes doesn't.
+The good thing about software is that it's consistent: it always does not
+work, and it always does not work in exactly the same way.
+
+--Boundary-00=_prRbIVYSJ495gLB
+Content-Type: application/x-zip;
+  charset="utf-8";
+  name="email-to-TPF-1.txt.zip"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+	filename="email-to-TPF-1.txt.zip"
+
+UEsDBBQAAAAIABeq4zjyfYDctCUAALVaAAASAAAAZW1haWwtdG8tVFBGLTEudHh0xXzbkhvHle2z
+6ivScHjYbQPoG0mRPR5RvEpti7Qs0tboOBwnElUJoNhVlVBdGoRmxt913s+PnbX2zqwqoJuUPHEi
+hg/sbqAqLzv3Ze1bvnC2Nm/zupkmybt13hhX2rww+CWvWldlLjNLX5t27cymzm9s60zt0nyTu6pt
+jK+K3dz84DtT2h0f3No6M3mbtN7Yate/kldZfpNnnS2mZtG1psmrFJ+28lrqq9bmlcnc0pa2zX01
+NZvC2cYlma/u8aFreXjTLYo8nSfJ1b3M2M2GC+HonKl2zcZXjTPL2pfGFoXZ2LrNXYPHny485ix3
+jSuWl8m/jf8lyeudqWzpuOO368KXuXmVN+spBs3MlbHlZZKczc3TyrgPG1dj2ylIsqn9qrZl6Wps
+zXzr6kKeL7kSD1rVprDVqrMr15gj7LXosrxaJc+n5vnvfjc1b9O1Kx3+8GXpK/NN3mym5pnltF/b
+5toVOty3u3btq+M51rG2N84snKtM13Ckfsq/vLn6d9O6dF35wq+w30Dbs8ePH+om5K24YLzbP/Do
+c9DmXPZm0zbHBDyJOscB8cS9ef7t0zfmyKzbdnN5ctKAU9L1PN3Yau7r1ck/GiHX8sTMjL/Blu+f
+miTLl0tXgzdMljc6Fs6zmZrGg8Z+abbrPF2bLZ4xNvOb1mVYZYMPuOcGzLHCUW583TYJF7+xLWjV
+cDVK171hj6f8QngT9HgwSz2GPcp82pVYgrCSScIQeNQ1rUnBVs10PM/UuDadHwut+mmEviDae5eC
+zfFV0v/Rrm1rLCbCy2u/8lXP1G1OtnNgu4oUwGAcJukpuN1u54FoYDEhot+4atb4rk7diTnGeVzg
+PDqMW5NYwk8LnKvZ+EZW2jR2J+sx5O60AGmscHfPEPJnkvpyAxrhtMGfK1e52hY4p48vZLPOC9/4
+zXp3YubmNabjAkCLMhl4b1NYcn8HtQAOzxccdQqJc25G1uGmIaAUEYqdqBNlfp4gTqnxsxSiiSEm
+sl5qFvnljdsuwLsT01DEGk4N6W7iITYQwo8vvcCxdLU74UgnYaSTJLkPSlIt5BnXtXYFTkYoNOZy
+MMgrLL/yGbh/bavKFWOJNb8mYx1PEzw3OqpZ7QooHgp8XvCxAlypx8IHhYOwt67EkW3XHtLbKAET
+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
+
+--Boundary-00=_prRbIVYSJ495gLB--

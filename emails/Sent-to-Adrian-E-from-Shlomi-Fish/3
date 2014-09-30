@@ -1,0 +1,213 @@
+AF:
+NF:0
+PS:10
+SRH:1
+SFN:
+DSR:
+MID:<20121130213022.126db69b@lap.shlomifish.org>
+CFG:
+PT:0
+S:shlomif@shlomifish.org
+RQ:
+SSV:localhost
+NSV:
+SSH:
+R:<aettlinger@comcast.net>
+MAID:1
+X-Claws-Privacy-System:
+X-Claws-Sign:0
+SCF:#mh/Mailbox/sent
+RMID:#mh/Mailbox/sent	2392	20120923101448.6b537c65@lap.shlomifish.org
+X-Claws-Auto-Wrapping:1
+X-Claws-Auto-Indent:0
+X-Claws-End-Special-Headers: 1
+Date: Fri, 30 Nov 2012 21:30:38 +0200
+From: Shlomi Fish <shlomif@shlomifish.org>
+To: "Adrian E." <aettlinger@comcast.net>
+Subject: Re: What's New? + Facebook
+Message-ID: <20121130213038.7f7786d2@lap.shlomifish.org>
+In-Reply-To: <20120923101448.6b537c65@lap.shlomifish.org>
+References: <20120921220833.5ea11b08@lap.shlomifish.org>
+	<51CCBE0393CA400F8B15B96E97CBDD0C@AdrianPC>
+	<20120922035911.3274ca4e@lap.shlomifish.org>
+	<C8E45CBE541B46C6B3510309A6EAC421@AdrianPC>
+	<20120923101448.6b537c65@lap.shlomifish.org>
+X-Mailer: Claws Mail 3.9.0 (GTK+ 2.24.13; x86_64-mageia-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+
+Hi Adrian,
+
+hope you had a Happy Thanksgiving. Hanukkah is upcoming as well, and somewhat
+later Christmas (which we in Israel do not commemorate).
+
+In any case, I hope everything is OK. Why have you not replied to my
+earlier message (quoted below). It's possible that you did and it was
+considered spam by my spam filter (though it seems unlikely). I'll
+check.
+
+Regards,
+
+	Shlomi Fish
+
+On Sun, 23 Sep 2012 10:14:48 +0200
+Shlomi Fish <shlomif@shlomifish.org> wrote:
+
+> Hi Adrian,
+> 
+> On Sat, 22 Sep 2012 16:23:55 -0400
+> "Adrian E." <aettlinger@comcast.net> wrote:
+> 
+> > Hi Shlomi,
+> > 
+> > <<Ah. You said something about moving to Carmel or something like
+> > that. That was some time after you turned 80 if I remember
+> > correctly.>> 
+> > Oh, didn't realize we last had contact that recently.
+> > That's right, it would have been a bit after I turned 80.
+> 
+> I see.
+> 
+> > 
+> > <<What does he study?>>
+> >     The one at Hofstra.  I call him, only half jokingly, "The black
+> > sheep of the family".  He's gravitated toward an interest in
+> > finance.  Wants to become a millionaire as quickly as possible.  I'm
+> > inclined to agree with that minority of analysts who say that most of
+> > what is done in Wall Street is not socially useful.  The trouble is,
+> > I think he just might have the right mixture of intelligence and
+> > social skills to realize his ambitions.
+> 
+> I see. Well, I'm not interested too much in finances.
+> 
+> > 
+> > > And what does he study?
+> > 
+> >     The one at U. of Rhode Island.  He's less settled in his
+> > ambition. Might be leaning toward computer programming.  At one time
+> > he aspired to film production, as he had developed some skill at
+> > amateur film making.  But I know from my exposure to Hollywood that
+> > that's a very difficult area to break into, and generally  requires a
+> > long, patience apprenticeship in the theater world.  So I'm glad he
+> > now is looking away from that.
+> 
+> OK, that's good.
+> 
+> > 
+> > <<Ah, my older sister (who is still younger than me) has been
+> > studying Medicine
+> > as well (in the Technion in Haifa) and I think she is now in what we
+> > call the
+> > "staj" ("stage"?) where you are supposed to get some on-site
+> > experience. >>
+> > 
+> > That's an interesting coincidence.  My granddaughter
+> > has gotten some exposure to real medicine.  She did a summer program
+> > at our local hospital (where we are well-acquainted).  She found it
+> > very interesting.  It so happens that her boyfriend's mother is head
+> > nurse in the cardiac ward at the hospital.  That was very useful for
+> > me on a couple of occasions when I was a short-duration patient there
+> > (the first time was for recovery after having a pacemaker installed).
+> 
+> I see.
+> 
+> > 
+> >     Oh, so you're still working on Freecell-solving.  I always
+> > thought that was what could become someone's lifetime project.  It
+> > certainly appeared to me that there exist a small percentage of hands
+> > that would be virtually "intractable" for just about any solver.  
+> 
+> Well, if you look at:
+> 
+> http://fc-solve.blogspot.co.il/2012/09/two-freecell-solvability-report-for.html
+> 
+> you'll see a report for the solvability of the initial MS Freecell/FC-Pro
+> 2-freecell deals. I documented the rough method with which I determined
+> whether or not they were solvable here:
+> 
+> http://tech.groups.yahoo.com/group/fc-solve-discuss/message/1161
+> 
+> The first deal that gave me a lot of problems was deal No. 982, which ran out
+> of memory on a 128 GB machine. Since then I reduced the RAM consumption
+> considerably and also got access to some machines with 512 GB of RAM, so I
+> was able to prove it unsolvable.
+> 
+> One deal remains unsolvable in the first 400,000 deals which is 384,243 and
+> part of the problem is the lack of reliability of the 512 GB machines which I
+> have access to (but that's not the only problem).
+> 
+> A point is that given enough memory, all intractable deals can be solved or
+> shown to be impossible. With some help from Michiel de Bondt (see: 
+> http://tech.groups.yahoo.com/group/fc-solve-discuss/message/1115 ) I was able
+> to encode Freecell states within one initial board using less than 124 bits
+> (for any number of Freecells), which means that there are less than 2 ** 124
+> possible states derived from an initial board, but this number can still get
+> very large. 
+> 
+> > I
+> > totally turned my back on that game some time ago.  I still have a
+> > daily ritual I go through of solving one software jigsaw puzzle,
+> > playing one game of Hearts, and then solving one game of spider
+> > solitaire at the two-suit level.  I've come to realize that there are
+> > only a relatively small finite number of deals one gets with the
+> > standard Microsoft edition of the game, and all of them are solvable,
+> > although some require deviating from what would be the most
+> > intuitively effective moves.
+> 
+> I see.
+> 
+> > 
+> > <<Are you still reading a lot of books?>>
+> >     Oh, yes, I continue to read a steady stream of books on various 
+> > subjects.  Right now I don't have any consistent theme.  For some
+> > time I got interested in the writings of Winston Churchill and read
+> > through most of his better-known works.  Found him a most congenial
+> > and interesting writer.   I still mainly concentrate on history.  I
+> > read a number of books on German history, starting with having an
+> > interest in a biography of Bismarck.  My son accuses me of always
+> > hero-worshipping anyone of whom I read a biography, but it was not
+> > the case with Bismarck.  In fact, I think the world would have been
+> > better off if he had never been born.  But this led me to read a
+> > number of other books about Germany.  One most interesting one was
+> > entitled "German Genius", a quite objective treatment of how the
+> > German mentality led to so much accomplishment in science,
+> > accompanied of course by the negative effects of the German
+> > character.  It's interesting that this author reached an ultimate
+> > conclusion that the Germans have by now finally outgrown their
+> > negative tendencies and become as a society more like the rest of the
+> > world with an appreciation for democracy.  I myself have found it
+> > interesting that the Germans, if you look at the movies they have
+> > been making, have finally only the past few years become willing to
+> > face the worst of what happened in WWII, such as to portray with
+> > realism what the concentration camps were like.
+> 
+> Interesting.
+> 
+> >     One thing I wanted to ask you about.  I noticed on Facebook that
+> > one of your friends seemed be a young Islamic woman who lives in
+> > Malaysia.  I assume she's Islamic from the head scarf.  How did that
+> > come about?  What might you be able to tell me about her?
+> 
+> I think she is just someone who offered me a Facebook friendship request
+> and I have accepted. I don't know a lot about her. I have another Facebook
+> friend who is a Muslim girl who lives in Pakistan, and which I met on
+> the Freenode IRC network, as she is studying Computer Science in
+> university at the moment. I know a little more about her if you're interested
+> to know.
+> 
+> Regards,
+> 
+> 	Shlomi Fish
+> 
+
+
+
+-- 
+-----------------------------------------------------------------
+Shlomi Fish       http://www.shlomifish.org/
+List of Text Editors and IDEs - http://shlom.in/IDEs
+
+<rindolf> I am not solvable. I am Turing hard.
+
+Please reply to list if it's a mailing list post - http://shlom.in/reply .

@@ -1,0 +1,53 @@
+From: Shlomi Fish <shlomif@iglu.org.il>
+To: "Adrian Ettlinger" <aettlinger@att.net>
+Subject: Freecell Pro Source Code [was Re: Updates]
+Date: Thu, 22 Sep 2005 04:12:21 +0300
+User-Agent: KMail/1.8.2
+References: <002301c59316$78421f10$3da64b0c@PC248541693324> <200507280523.41104.shlomif@iglu.org.il> <000701c593da$d82cdea0$d72f4c0c@PC248541693324>
+In-Reply-To: <000701c593da$d82cdea0$d72f4c0c@PC248541693324>
+X-KMail-Link-Message: 176252
+X-KMail-Link-Type: reply
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Message-Id: <200509220412.23368.shlomif@iglu.org.il>
+Status: RO
+X-Status: RSC
+X-KMail-EncryptionState: 
+X-KMail-SignatureState: 
+X-KMail-MDN-Sent: 
+
+On Friday 29 July 2005 04:10, Adrian Ettlinger wrote:
+
+> <<Well, as I recall some compilers prepend an underscore.....>>
+>     Hey, that's a new word for my vocabulary .... prepend ....   You hit
+> the nail on the head.  That was my problem.  I identified the problem and
+> it was that I had an obselete version of that fc_pro_iface.c (right name?)
+> in the file set.
+>
+>     Even though very few people have asked about the software, and this was
+> the first person to try to compile it, I would like to upgrade what we have
+> posted so that it "works".   If I prepare another copy of the source, can
+> you take care of replacing the defective ones (or one) that is now posted
+> on the web?
+>
+
+Hi Adrian!
+
+You did not reply to my last message, but I guess that's OK. In any case, I'd 
+like to put the new version of the Freecell Pro source code instead of the 
+one which I placed there originally. So I would be grateful if you can please 
+send it to me.
+
+Regards,
+
+	Shlomi Fish
+
+---------------------------------------------------------------------
+Shlomi Fish      shlomif@iglu.org.il
+Homepage:        http://www.shlomifish.org/
+
+95% of the programmers consider 95% of the code they did not write, in the
+bottom 5%.
