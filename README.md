@@ -3,4 +3,4 @@ late Adrian Ettlinger:
 
 - http://en.wikipedia.org/wiki/Adrian_Ettlinger
 
-It is provided here as a king of memory for him.
+It is provided here as a kind of memory of him.
